@@ -4,13 +4,15 @@
 
 A1 is a digital agency website for businesses that need measurable growth from advertising, SEO, websites, analytics, SMM, and mobile products.
 
-The visual direction is **premium-tech, clean, business-focused, and confident**. The site should look like a team that can handle money, leads, analytics, and product work with discipline. It should not look like a template agency with loud gradients and vague motivational copy.
+The visual direction is **premium-tech with a point of view**. The site should look like a team that can handle money, leads, analytics, and product work with discipline, but it should also have a memorable visual idea. It may be calm, bold, playful, cinematic, or experimental. The only real failure mode is looking like a default AI-generated agency landing page.
 
 Reference file:
 
 - `references/references.webp`
 
 The screenshot is creative source material. Prototypes may borrow its composition closely while exploring typography, proportions, spacing rhythm, and interaction details.
+
+This rulebook is a taste compass, not a cage. Rules describe the default direction; a stronger prototype may override them if it looks intentional, memorable, and clearly not generic.
 
 Reference mood:
 
@@ -22,6 +24,12 @@ Reference mood:
 - one large visual proof area;
 - separate result chart;
 - restrained social proof row.
+
+Creative standard:
+
+- Every prototype needs one memorable decision: an unusual hero composition, a striking data widget, a custom visual metaphor, kinetic typography, an interactive chart, a strong illustration system, or a distinctive rhythm.
+- Avoid the default ChatGPT layout: centered H1, vague subtitle, two buttons, three equal cards, soft purple gradient blobs, stock icons, and interchangeable SaaS copy.
+- Do not make "clean" mean empty. Premium can be quiet, but it still needs tension, hierarchy, and a recognizable idea.
 
 ## 2. Core Promise
 
@@ -62,7 +70,7 @@ They should understand the first screen in 5-8 seconds:
 
 ### Palette
 
-Use a mostly neutral light system with one calm cool accent.
+Start from the reference palette: a white main canvas, soft cool background, black CTA, and lavender/blue proof widgets. This is the base, not a prison.
 
 Core tokens:
 
@@ -77,18 +85,18 @@ Core tokens:
 Rules:
 
 - Lavender is allowed because it comes from the reference, but keep it soft and controlled.
-- No neon purple/blue glow.
-- No heavy gradient text.
-- No one-note purple interface. Neutral white, black, gray, and content must dominate.
-- Use color for structure and proof, not decoration alone.
+- Stronger accents, gradients, glow, texture, and contrast are allowed in prototypes when they create a deliberate art direction.
+- Avoid the stock AI look: generic purple-blue blobs, default neon glow, random glass cards, and color used only to fill space.
+- If the design becomes one-note lavender, add tension with black, white, gray, photography, charts, typography, or a second controlled accent.
+- Use color to create hierarchy, proof, atmosphere, or interaction, not just decoration.
 
 ### Typography
 
 Preferred tone: modern, geometric, readable, premium.
 
-Primary font:
+Default font:
 
-- Use `Poppins` across headings, navigation, body text, buttons, chips, numbers, and widgets.
+- Use `Poppins` across headings, navigation, body text, buttons, chips, numbers, and widgets unless a prototype deliberately explores a stronger type direction.
 - Load weights `300`, `400`, `500`, `600`, and `700`.
 - Fallback: `system-ui`, `-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, sans-serif.
 
@@ -113,6 +121,7 @@ Rules:
 - Headline can be large, but must wrap cleanly on mobile.
 - Keep letter spacing natural; do not use negative tracking as a default styling trick.
 - Keep line length readable: about 60-75 characters on desktop.
+- If a different font creates a much stronger concept, try it in a prototype and judge it visually against the reference.
 
 ### Spacing And Shape
 
@@ -124,9 +133,8 @@ Rules:
 - Main card/panel radius: 20-24px.
 - Small chips/buttons: pill radius is allowed.
 - Repeated content cards should use 8-16px radius depending on hierarchy.
-- Avoid nesting cards inside cards unless the inner element is a real widget.
-- Use CSS Grid for major layouts.
-- Avoid complex flex width math.
+- Avoid "card soup": too many equally weighted boxes with no hierarchy.
+- Use whichever layout method gives the cleanest result, but keep spacing intentional and mobile collapse under control.
 
 ## 5. First Screen Rules
 
@@ -148,10 +156,10 @@ Hero layout:
 
 - Desktop: asymmetric composition is preferred.
 - Mobile: strict single-column layout.
-- The main visual proof block must be larger than secondary widgets.
+- The main visual proof block should usually dominate secondary widgets, unless a stronger composition proves otherwise.
 - The chart should support the business story, not become random decoration.
 
-Do not:
+Avoid default patterns unless you are intentionally subverting them:
 
 - create a centered hero with generic text only;
 - split the first screen into many equal cards;
@@ -174,14 +182,12 @@ Every service block should answer:
 - why it matters for business;
 - what the client gets next.
 
-Avoid:
+Avoid boring production copy:
 
 - filler phrases;
 - overloaded SEO jargon;
 - fake urgency;
-- unsupported promises;
-- "гарантируем топ-1";
-- "увеличим продажи в 10 раз";
+- generic promises with no visual or narrative role;
 - generic AI phrases.
 
 ## 7. Service Structure
@@ -266,24 +272,31 @@ Rules:
 
 ## 10. Motion
 
-Motion should make the site feel alive, not theatrical.
+Motion can be part of the brand. It should make the site feel designed, responsive, and a little alive. Do not reduce it to safe fades if the concept calls for something stronger.
 
-Allowed:
+Good directions:
 
 - subtle page-load reveal;
 - hover lift for important widgets;
 - chart bar reveal;
 - gentle CTA feedback;
 - small staggered entrances.
+- SVG line drawing;
+- masked text/image reveals;
+- animated charts and counters;
+- kinetic service tags;
+- scroll-driven case transitions;
+- shader/canvas/WebGL hero details;
+- controlled glow, blur, grain, or refraction effects;
+- playful cursor-adjacent effects if they do not hurt usability.
 
 Rules:
 
-- Respect `prefers-reduced-motion`.
-- Animate `transform` and `opacity`.
-- Avoid animating `top`, `left`, `width`, `height`.
-- No endless motion that distracts from the offer.
-- No custom cursor.
-- No heavy parallax unless deliberately implemented and tested.
+- Use `transform` and `opacity` as the default for basic UI states.
+- For expressive hero work, charts, SVG, masks, filters, canvas, WebGL, and brand moments, other techniques are allowed.
+- Respect `prefers-reduced-motion` with a calmer fallback.
+- Watch for visible jank, layout jumps, text overlap, and mobile battery drain.
+- Motion should serve hierarchy, story, or delight. Random movement is not design.
 
 ## 11. Accessibility And Responsive QA
 
@@ -314,8 +327,8 @@ Preferred production stack once approved:
 - Next.js or Vite + React;
 - TypeScript;
 - CSS variables or Tailwind tokens;
-- Lucide / Phosphor / Radix icons, one family only;
-- Framer Motion only if animation needs justify the dependency.
+- a clear icon/symbol language, from a library or custom-made;
+- Framer Motion, GSAP, canvas, SVG, CSS, or another motion approach when it fits the concept and stack.
 
 Until the stack is chosen:
 
@@ -341,9 +354,8 @@ Before building any page:
 Before delivery:
 
 - Page works on mobile and desktop.
-- No emojis as UI icons.
-- No generic three-card service row as the main structure.
-- No neon purple/blue glow.
+- No default ChatGPT look: centered vague hero, three equal cards, stock blobs, and interchangeable copy.
+- Any icons, emojis, symbols, glows, gradients, or decorative effects feel intentional and specific to A1.
 - First screen has clear offer, services, proof, and CTA.
 - Main CTA is visible without scrolling.
 - All important charts/widgets have labels or explanations.
