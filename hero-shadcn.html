@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Третий вариант hero-секции A1 digital по структуре shadcn/21st.dev компонента: badge, заголовок, CTA, mockup и glow.">
+  <title>A1 digital - shadcn hero вариант</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="hero-shadcn.css?v=20260501-3">
+</head>
+<body>
+  <header class="shell-nav" aria-label="Навигация третьего варианта">
+    <a class="brand" href="index.html" aria-label="A1 digital">
+      <span class="brand-mark" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span>A1 digital</span>
+    </a>
+
+    <nav class="variant-links" aria-label="Варианты первого экрана">
+      <a href="index.html">Вариант 1</a>
+      <a href="hero-21st.html">Вариант 2</a>
+      <a class="is-active" href="hero-shadcn.html">Вариант 3</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="shadcn-hero" aria-labelledby="hero-title">
+      <div class="surface-grid" aria-hidden="true"></div>
+      <div class="surface-sweep" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <a class="badge" href="#preview">
+            <span>Новая связка услуг</span>
+            <strong>
+              посмотреть систему
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M5.2 3.4h7.4v7.4M12.3 3.7 3.4 12.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </strong>
+          </a>
+
+          <h1 id="hero-title">
+            <span>Строим систему</span>
+            <span class="title-middle"><span>привлечения</span> <span>заявок</span></span>
+            <span>для бизнеса</span>
+          </h1>
+
+          <p>
+            Запускаем трафик, дорабатываем сайт, усиливаем SEO и собираем аналитику
+            так, чтобы команда видела, где заявки появляются и что масштабировать дальше.
+          </p>
+
+          <div class="hero-actions" aria-label="Действия">
+            <a class="button button-primary" href="index.html#contacts">
+              Обсудить проект
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M5.2 3.4h7.4v7.4M12.3 3.7 3.4 12.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a class="button button-glow" href="#preview">
+              GitHub-ready preview
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M12 2.2a10 10 0 0 0-3.16 19.5c.5.09.68-.21.68-.48v-1.7c-2.78.6-3.37-1.18-3.37-1.18-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.52 1.03 1.52 1.03.89 1.51 2.33 1.07 2.9.82.09-.64.35-1.07.63-1.32-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.5 9.5 0 0 1 12 7.22c.85 0 1.7.11 2.5.33 1.9-1.3 2.74-1.03 2.74-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.57c0 .27.18.58.69.48A10 10 0 0 0 12 2.2Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="mockup-wrap" id="preview">
+          <div class="glow glow-top" aria-hidden="true"></div>
+
+          <div class="mockup-frame">
+            <div class="mockup">
+              <div class="dashboard-top">
+                <div>
+                  <span>A1 acquisition system</span>
+                  <h2>Карта заявок</h2>
+                </div>
+                <strong>+41%</strong>
+              </div>
+
+              <div class="dashboard-layout">
+                <article class="panel panel-wide">
+                  <div class="panel-head">
+                    <span>каналы</span>
+                    <strong>план / факт</strong>
+                  </div>
+                  <div class="chart-lines" aria-hidden="true">
+                    <svg viewBox="0 0 600 230" preserveAspectRatio="none">
+                      <path class="line line-muted" d="M0 165 C80 132 128 166 196 118 C265 70 332 96 407 66 C483 35 532 54 600 24"/>
+                      <path class="line line-main" d="M0 184 C86 168 128 139 196 132 C272 125 316 80 386 86 C471 92 518 42 600 48"/>
+                    </svg>
+                    <div class="chart-points">
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="panel stat-card">
+                  <span>CPL</span>
+                  <strong>до запуска</strong>
+                  <em>считаем экономику</em>
+                </article>
+
+                <article class="panel stat-card accent">
+                  <span>ROMI</span>
+                  <strong>по факту</strong>
+                  <em>видно в CRM</em>
+                </article>
+
+                <article class="panel funnel-card">
+                  <span>воронка</span>
+                  <div aria-hidden="true">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                  <strong>клик → заявка → сделка</strong>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
