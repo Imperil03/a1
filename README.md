@@ -8,7 +8,6 @@
 
 - `references/references.webp` - исходный визуальный референс.
 - `references/reference-brief.md` - что берем из присланного скрина и как адаптируем под агентство.
-- `references/agency-hero-reference.html` - standalone HTML-референс первого экрана.
 
 ## Правила проекта
 

@@ -10,6 +10,8 @@ Reference file:
 
 - `references/references.webp`
 
+Generated HTML imitations are not source-of-truth. If a prototype does not match the screenshot's typography, proportions, spacing rhythm, and composition quality, remove or rewrite it instead of treating it as a reference.
+
 Reference mood:
 
 - large white canvas on a soft cool background;
@@ -305,7 +307,8 @@ Preferred production stack once approved:
 Until the stack is chosen:
 
 - standalone HTML prototypes are acceptable;
-- keep prototype files in `references/` or `prototypes/`;
+- keep prototype files in `prototypes/`;
+- keep `references/` for source materials and written analysis only;
 - do not let prototypes become final production without cleanup.
 
 ## 13. Pre-Build Checklist
@@ -334,4 +337,3 @@ Before delivery:
 - All important charts/widgets have labels or explanations.
 - Forms have labels, errors, loading, and success state.
 - `git status` is clean after commit.
-

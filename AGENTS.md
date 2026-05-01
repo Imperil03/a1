@@ -16,6 +16,8 @@ Before creating or changing pages, open:
 
 The visual reference is a direction, not a pixel-perfect template. Preserve its clean premium-tech mood, spacious hero, soft light background, compact pill navigation, service tags, strong CTA, large visual proof area, and separate result chart.
 
+Do not use generated HTML imitations as visual source-of-truth. The screenshot in `references/references.webp` is the source; prototypes must be judged against it.
+
 ## Design Rules
 
 - Write visible site copy in Russian unless explicitly asked otherwise.
@@ -34,8 +36,7 @@ The visual reference is a direction, not a pixel-perfect template. Preserve its 
 ## Build Rules
 
 - Check `package.json` before importing any third-party package.
-- Use existing project stack once selected. Until then, standalone HTML prototypes are acceptable in `references/` or `prototypes/`.
+- Use existing project stack once selected. Until then, standalone HTML prototypes are acceptable in `prototypes/`, but not as visual references.
 - Use semantic HTML: one `h1`, clear sections, real buttons/links, useful alt text.
 - Test at desktop and mobile widths before delivery.
 - Keep commits small and meaningful.
-
