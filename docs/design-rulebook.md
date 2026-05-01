@@ -86,18 +86,32 @@ Rules:
 
 Preferred tone: modern, geometric, readable, premium.
 
-Recommended fonts:
+Primary font:
 
-- Headings: `Manrope`, `Satoshi`, `Geist`, `Outfit`, or `Cabinet Grotesk`.
-- Body: `Manrope`, `Geist`, `Satoshi`, or system sans fallback.
-- Numbers: use tabular numerals where available.
+- Use `Poppins` across headings, navigation, body text, buttons, chips, numbers, and widgets.
+- Load weights `300`, `400`, `500`, `600`, and `700`.
+- Fallback: `system-ui`, `-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, sans-serif.
+
+Why:
+
+- The reference has a rounded geometric sans feel; `Poppins` is the closest practical match.
+- One font family keeps the first screen clean and close to the screenshot.
+- The large hero headline works best with a light/regular geometric weight, not a heavy bold display face.
+
+Usage:
+
+- Hero H1: `Poppins` 400, large, airy, with natural letter spacing.
+- Navigation and chips: `Poppins` 400-500.
+- CTA buttons: `Poppins` 600.
+- Big metrics: `Poppins` 400-500 with tabular numerals where possible.
+- Body text: `Poppins` 400.
 
 Rules:
 
 - Body text starts at 16px on mobile.
 - No tiny low-contrast gray paragraphs.
 - Headline can be large, but must wrap cleanly on mobile.
-- Do not use negative letter spacing in body text.
+- Keep letter spacing natural; do not use negative tracking as a default styling trick.
 - Keep line length readable: about 60-75 characters on desktop.
 
 ### Spacing And Shape

@@ -27,6 +27,7 @@ Do not use generated HTML imitations as visual source-of-truth. The screenshot i
 - Avoid emojis in UI, markup, alt text, and documentation examples for the site.
 - Do not use generic AI landing patterns: huge purple gradients, centered hero with vague slogans, three identical service cards, fake startup names, fake testimonials.
 - Keep the reference's soft lavender allowed as a supporting tint, but avoid neon purple/blue glows.
+- Use `Poppins` as the primary font across the site; it is the closest practical match to the reference.
 - Use one main accent color plus neutral surfaces.
 - Prefer asymmetric, editorial composition on desktop; collapse to clean single-column mobile layouts.
 - Maintain touch targets of at least 44px.
