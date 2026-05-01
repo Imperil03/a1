@@ -14,7 +14,7 @@ Before creating or changing pages, open:
 - `references/reference-brief.md`
 - `references/references.webp`
 
-The visual reference is a direction, not a pixel-perfect template. Preserve its clean premium-tech mood, spacious hero, soft light background, compact pill navigation, service tags, strong CTA, large visual proof area, and separate result chart.
+The visual reference is creative source material. Preserve its clean premium-tech mood, spacious hero, soft light background, compact pill navigation, service tags, strong CTA, large visual proof area, and separate result chart. Prototypes may borrow composition closely while exploring the look.
 
 Do not use generated HTML imitations as visual source-of-truth. The screenshot in `references/references.webp` is the source; prototypes must be judged against it.
 
@@ -22,8 +22,8 @@ Do not use generated HTML imitations as visual source-of-truth. The screenshot i
 
 - Write visible site copy in Russian unless explicitly asked otherwise.
 - Use real business meaning: заявки, трафик, CPL, ROMI, SEO-рост, конверсии, скорость запуска.
-- Do not invent client logos, case numbers, certificates, revenue, or performance claims.
-- If proof is missing, use neutral placeholders like "сертификаты и технологии" rather than fake clients.
+- During prototyping, invented logos, numbers, cases, charts, and proof widgets are allowed as visual scaffolding.
+- Treat factual cleanup as a separate pre-publication pass, not as a blocker for creative exploration.
 - Avoid emojis in UI, markup, alt text, and documentation examples for the site.
 - Do not use generic AI landing patterns: huge purple gradients, centered hero with vague slogans, three identical service cards, fake startup names, fake testimonials.
 - Keep the reference's soft lavender allowed as a supporting tint, but avoid neon purple/blue glows.

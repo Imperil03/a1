@@ -10,7 +10,7 @@ Reference file:
 
 - `references/references.webp`
 
-Generated HTML imitations are not source-of-truth. If a prototype does not match the screenshot's typography, proportions, spacing rhythm, and composition quality, remove or rewrite it instead of treating it as a reference.
+The screenshot is creative source material. Prototypes may borrow its composition closely while exploring typography, proportions, spacing rhythm, and interaction details.
 
 Reference mood:
 
@@ -128,7 +128,7 @@ Required elements:
 - service chips;
 - one large visual/proof block;
 - one separate result chart or analytics widget;
-- trust row with real clients, certificates, platforms, or technologies.
+- trust row with clients, certificates, platforms, technologies, or provisional logo marks.
 
 Hero layout:
 
@@ -141,8 +141,6 @@ Do not:
 
 - create a centered hero with generic text only;
 - split the first screen into many equal cards;
-- use fake client logos;
-- use stock metrics as final proof;
 - let the hero occupy the whole viewport without hinting that more content exists below.
 
 ## 6. Content Rules
@@ -203,12 +201,13 @@ Service cards should not all be identical. Use varied layouts:
 
 ## 8. Proof And Data
 
-Use proof only when it is real or clearly marked as a placeholder during prototyping.
+During creative prototyping, proof blocks can be invented freely to search for the strongest visual story.
 
-Allowed proof:
+Useful proof types:
 
-- real cases;
-- real client logos with permission;
+- client logos or provisional logo marks;
+- case numbers and growth metrics;
+- dashboards and charts;
 - screenshots of dashboards with anonymized data;
 - certificates;
 - platforms and technologies;
@@ -216,9 +215,9 @@ Allowed proof:
 
 Rules:
 
-- Do not invent clients.
-- Do not invent revenue, leads, percentages, or conversion growth.
-- Placeholder numbers may be used only in prototypes and must be replaced before production.
+- In prototypes, invented numbers and logos are allowed.
+- If a design moves toward publication, run a separate factual cleanup pass.
+- Keep visual scaffolding believable enough to test composition and hierarchy.
 - Charts need labels, readable contrast, and a written takeaway.
 
 ## 9. Components
@@ -328,7 +327,6 @@ Before building any page:
 Before delivery:
 
 - Page works on mobile and desktop.
-- No fake clients or fake case data.
 - No emojis as UI icons.
 - No generic three-card service row as the main structure.
 - No neon purple/blue glow.
