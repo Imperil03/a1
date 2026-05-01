@@ -245,18 +245,15 @@ h1 {
   isolation: isolate;
 }
 
-.proof-card::before {
-  content: "";
+.proof-shape {
   position: absolute;
   inset: 0;
-  z-index: -2;
-  border-radius: 0 36px 36px 36px;
-  background:
-    radial-gradient(circle at 63% 16%, rgba(255, 255, 255, 0.82) 0 7rem, transparent 18rem),
-    radial-gradient(circle at 22% 78%, rgba(151, 221, 255, 0.34), transparent 21rem),
-    linear-gradient(126deg, #e1e5ff 0%, #cfd8ff 44%, #bdc9ff 100%);
-  clip-path: polygon(34% 0, 100% 0, 100% 100%, 0 100%, 0 58%, 21% 58%, 28% 36%, 42% 36%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  user-select: none;
 }
 
 .proof-card::after {
@@ -266,7 +263,7 @@ h1 {
   top: 28%;
   width: 44%;
   height: 46%;
-  z-index: -1;
+  z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.48);
   border-radius: 50%;
   transform: rotate(-10deg);
@@ -758,10 +755,9 @@ h1 {
     padding: 22px;
   }
 
-  .proof-card::before {
-    inset: 110px 0 0;
-    border-radius: 0 28px 28px 28px;
-    clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%, 0 20%, 16% 20%);
+  .proof-shape {
+    top: 110px;
+    height: calc(100% - 110px);
   }
 
   .proof-card::after {
