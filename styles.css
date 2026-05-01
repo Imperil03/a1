@@ -11,6 +11,7 @@
   --blue-shape: #cbd5ff;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --site-edge: max(72px, calc((100vw - 1540px) / 2));
+  --panel-height: 390px;
 }
 
 * {
@@ -236,8 +237,8 @@ h1 {
 
 .proof-card {
   grid-column: 1 / 9;
-  min-height: 390px;
-  height: 390px;
+  min-height: var(--panel-height);
+  height: var(--panel-height);
   position: relative;
   overflow: hidden;
   padding: 34px 38px;
@@ -247,14 +248,14 @@ h1 {
 .proof-card::before {
   content: "";
   position: absolute;
-  inset: 54px 0 0 0;
+  inset: 0;
   z-index: -2;
   border-radius: 0 36px 36px 36px;
   background:
-    radial-gradient(circle at 64% 22%, rgba(255, 255, 255, 0.78) 0 8rem, transparent 17rem),
-    radial-gradient(circle at 24% 74%, rgba(152, 230, 255, 0.34), transparent 20rem),
-    linear-gradient(126deg, #dfe4ff 0%, #cdd5ff 44%, #bcc8ff 100%);
-  clip-path: polygon(31% 0, 100% 0, 100% 100%, 0 100%, 0 50%, 21% 50%, 27% 31%, 40% 31%);
+    radial-gradient(circle at 63% 16%, rgba(255, 255, 255, 0.82) 0 7rem, transparent 18rem),
+    radial-gradient(circle at 22% 78%, rgba(151, 221, 255, 0.34), transparent 21rem),
+    linear-gradient(126deg, #e1e5ff 0%, #cfd8ff 44%, #bdc9ff 100%);
+  clip-path: polygon(34% 0, 100% 0, 100% 100%, 0 100%, 0 58%, 21% 58%, 28% 36%, 42% 36%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
 }
 
@@ -465,14 +466,14 @@ h1 {
 
 .chart-card {
   grid-column: 9 / 13;
-  min-height: 390px;
-  height: 390px;
-  border-radius: 24px;
+  min-height: var(--panel-height);
+  height: var(--panel-height);
+  border-radius: 22px;
   background:
-    radial-gradient(circle at 30% 12%, rgba(255, 255, 255, 0.24), transparent 11rem),
-    linear-gradient(180deg, #5860df 0%, #424bd1 100%);
+    radial-gradient(circle at 29% 8%, rgba(255, 255, 255, 0.28), transparent 11rem),
+    linear-gradient(180deg, #5961df 0%, #4f58db 42%, #4149cc 100%);
   color: #fff;
-  padding: 30px 32px;
+  padding: 28px 30px;
   display: grid;
   grid-template-rows: auto 1fr;
   position: relative;
@@ -500,7 +501,7 @@ h1 {
 
 .chart-head h2 {
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0;
   font-weight: 600;
@@ -517,8 +518,8 @@ h1 {
 .chart-scale {
   position: absolute;
   left: 30px;
-  top: 86px;
-  bottom: 64px;
+  top: 94px;
+  bottom: 70px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -529,12 +530,12 @@ h1 {
 
 .bar-chart {
   align-self: end;
-  height: 232px;
+  height: 248px;
   display: grid;
   grid-template-columns: repeat(6, minmax(24px, 1fr));
   align-items: end;
   gap: 18px;
-  padding: 38px 2px 0 34px;
+  padding: 48px 2px 0 34px;
   position: relative;
   z-index: 1;
 }
