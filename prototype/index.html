@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A1 Reklama — статичный прототип главной</title>
+    <meta
+      name="description"
+      content="Статичный HTML-прототип главной страницы A1 Reklama: сайт, реклама, SEO, CRM и аналитика в одной системе заявок."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo-link" href="#top" aria-label="A1 Reklama">
+          <img src="assets/logo.png" width="64" height="64" alt="A1 Reklama" />
+        </a>
+
+        <nav class="desktop-nav" aria-label="Основная навигация">
+          <a href="#about">О нас</a>
+          <a href="#services">Услуги</a>
+          <a href="#cases">Кейсы</a>
+          <a href="#prices">Цены</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+
+        <a class="header-cta" href="#contacts">Обсудить проект</a>
+
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Открыть меню</span>
+        </button>
+      </div>
+
+      <nav id="mobile-menu" class="mobile-menu" aria-label="Мобильная навигация" hidden>
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#prices">Цены</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-white">
+        <div class="container hero-inner">
+          <div class="eyebrow">
+            <span></span>
+            Агентство интернет-маркетинга
+          </div>
+
+          <h1>
+            Помогаем бизнесу понять,
+            <span>почему не хватает заявок</span>,
+            и выстроить продвижение в интернете
+          </h1>
+
+          <p class="hero-lead">
+            Анализируем сайт, рекламу, SEO и путь пользователя до заявки. Находим слабые места,
+            расставляем приоритеты и показываем, куда вкладывать бюджет в первую очередь.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contacts">Обсудить проект</a>
+            <a class="button button-secondary" href="#cases">Смотреть кейсы</a>
+          </div>
+
+          <dl class="hero-stats" aria-label="Ключевые показатели">
+            <div>
+              <dt>15 лет</dt>
+              <dd>на digital-рынке</dd>
+            </div>
+            <div>
+              <dt>200+</dt>
+              <dd>проектов</dd>
+            </div>
+            <div>
+              <dt>100+</dt>
+              <dd>клиентов</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="about">
+        <div class="container">
+          <div class="section-head">
+            <h2>Заявки появляются, когда трафик, сайт и аналитика работают вместе</h2>
+            <p>
+              Человек видит вас в поиске или рекламе, переходит на сайт, сравнивает предложение
+              с конкурентами и только потом оставляет заявку. Мы анализируем всю цепочку целиком:
+              источник трафика, качество сайта, предложения конкурентов, ваше позиционирование,
+              настроенную аналитику.
+            </p>
+          </div>
+
+          <div class="chain-grid" aria-label="Цепочка роста заявок">
+            <article class="chain-card">
+              <span>01</span>
+              <h3>Трафик</h3>
+              <p>Проверяем рекламу, позиции сайта, запросы и аудиторию: приходят ли на сайт люди, которым действительно нужна ваша услуга.</p>
+            </article>
+            <div class="operator">+</div>
+            <article class="chain-card">
+              <span>02</span>
+              <h3>Сайт</h3>
+              <p>Смотрим, помогает ли сайт принять решение о заказе: понятная ли структура, сильное ли предложение, наличие УТП, качество контента.</p>
+            </article>
+            <div class="operator">+</div>
+            <article class="chain-card">
+              <span>03</span>
+              <h3>Предложение и конкуренты</h3>
+              <p>Сравниваем ваше предложение с конкурентами: где вы сильнее, где уступаете и что нужно усилить.</p>
+            </article>
+            <article class="chain-card">
+              <span>04</span>
+              <h3>Позиционирование</h3>
+              <p>Формулируем, почему клиенту стоит обратиться именно к вам: какие смыслы и доказательства должны быть на сайте и в рекламе.</p>
+            </article>
+            <div class="operator">+</div>
+            <article class="chain-card">
+              <span>05</span>
+              <h3>Аналитика</h3>
+              <p>Показываем, какие каналы дают заявки, сколько они стоят и где реклама не окупается. Решения принимаем на основании цифр и фактов.</p>
+            </article>
+            <div class="operator">=</div>
+            <article class="chain-card chain-result">
+              <span>Вывод</span>
+              <h3>Стабильные заявки</h3>
+              <p>После разбора видно, какой этап проседает и что нужно улучшать. В итоге растет количество заявок, а бюджет расходуется точнее.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-white" id="services">
+        <div class="container">
+          <div class="section-head">
+            <h2>Что делаем, чтобы эта цепочка работала</h2>
+            <p>
+              Погружаемся в ваш бизнес и собираем продвижение в одну систему: проектируем и
+              разрабатываем сайт, запускаем SEO и рекламу, настраиваем CRM, аналитику и воронки
+              продаж. Так становится видно, где цепочка теряет заявки, какие работы дадут эффект
+              первыми и куда вкладывать бюджет без лишних экспериментов.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <a class="service-card service-featured" href="#contacts">
+              <small>Комплекс</small>
+              <h3>Комплексный интернет-маркетинг</h3>
+              <p>Собираем сайт, рекламу, SEO, CRM и аналитику в одну систему: что приводит заявки, где теряется бюджет и что улучшать дальше.</p>
+              <ul>
+                <li>план</li>
+                <li>SEO</li>
+                <li>реклама</li>
+                <li>аналитика</li>
+              </ul>
+              <strong>от 90 000 ₽/мес</strong>
+            </a>
+
+            <a class="service-card" href="#contacts">
+              <small>Быстрый спрос</small>
+              <h3>Контекстная реклама</h3>
+              <p>Настраиваем и ведем рекламу в Яндекс Директе: запросы, объявления и посадочные страницы связываем с заявками.</p>
+              <strong>от 35 000 ₽/мес</strong>
+            </a>
+            <a class="service-card" href="#contacts">
+              <small>Поиск</small>
+              <h3>SEO-продвижение</h3>
+              <p>Собираем спрос, усиливаем структуру, тексты и техническую базу, чтобы заявки приходили не только из рекламы.</p>
+              <strong>от 45 000 ₽/мес</strong>
+            </a>
+            <a class="service-card" href="#contacts">
+              <small>Локальный спрос</small>
+              <h3>Карты и локальное продвижение</h3>
+              <p>Приводим в порядок карточки в Яндекс Картах, 2ГИС и других сервисах, чтобы вас было проще найти рядом.</p>
+              <strong>от 25 000 ₽/мес</strong>
+            </a>
+            <a class="service-card" href="#contacts">
+              <small>Конверсия</small>
+              <h3>Разработка сайтов</h3>
+              <p>Проектируем и разрабатываем сайты, которые объясняют предложение, вызывают доверие и подводят к заявке.</p>
+              <strong>от 150 000 ₽</strong>
+            </a>
+            <a class="service-card" href="#contacts">
+              <small>Данные</small>
+              <h3>Аналитика и заявки</h3>
+              <p>Настраиваем формы, цели, телефонию, CRM и отчеты, чтобы было видно, откуда пришла заявка и сколько она стоит.</p>
+              <strong>от 30 000 ₽</strong>
+            </a>
+            <a class="service-card" href="#contacts">
+              <small>Развитие</small>
+              <h3>Техническая поддержка</h3>
+              <p>Дорабатываем сайт после запуска: обновляем контент, исправляем ошибки и адаптируем страницы под новые задачи.</p>
+              <strong>от 25 000 ₽/мес</strong>
+            </a>
+            <a class="service-card" href="#contacts">
+              <small>Продукт</small>
+              <h3>Мобильные приложения</h3>
+              <p>Проектируем приложения, личные кабинеты и сервисы, когда задачу уже неудобно решать только сайтом или CRM.</p>
+              <strong>от 250 000 ₽</strong>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="prices">
+        <div class="container">
+          <div class="section-head">
+            <h2>Почему услуга с одним названием может стоить по-разному</h2>
+            <p>
+              У услуги с одним названием может быть разный состав работ. В рекламе можно просто
+              запустить кампанию, а можно разобрать спрос, доработать посадочную страницу на сайте,
+              проанализировать поведение пользователей. Поэтому цена зависит от объема погружения,
+              состава команды, качества реализации и контроля после запуска.
+            </p>
+          </div>
+
+          <div class="price-table" role="table" aria-label="Факторы стоимости">
+            <div class="price-row price-head" role="row">
+              <div role="columnheader">От чего зависит цена</div>
+              <div role="columnheader">Что часто урезают</div>
+              <div role="columnheader">Что закладываем мы</div>
+              <div role="columnheader">Как это влияет на заявки и бюджет</div>
+            </div>
+            <div class="price-row" role="row">
+              <div role="cell"><b>Погружение в задачу</b></div>
+              <div role="cell">Берут задачу без предварительного анализа и выполняют ее по шаблону.</div>
+              <div role="cell">Разбираем продукт, спрос, конкурентов, текущие заявки и путь клиента.</div>
+              <div role="cell">Ошибки, которые не нашли на этапе анализа, потом оплачиваются слабой рекламой, сайтом и переделками.</div>
+            </div>
+            <div class="price-row" role="row">
+              <div role="cell"><b>Состав команды</b></div>
+              <div role="cell">Проект ведет один исполнитель и редко видит всю цепочку продаж.</div>
+              <div role="cell">Подключаем разработчиков, маркетологов, SEO-специалистов и дизайнеров.</div>
+              <div role="cell">Меньше ошибок на стыках: реклама ведет на подходящую страницу, заявка не теряется, источник виден в отчете.</div>
+            </div>
+            <div class="price-row" role="row">
+              <div role="cell"><b>Качество реализации</b></div>
+              <div role="cell">Сайт вроде открывается, реклама показывается, а тестирование и оптимизация не проводятся.</div>
+              <div role="cell">Тестируем страницы, формы, скорость, события и заявки.</div>
+              <div role="cell">После запуска меньше срочных доработок, а страницы и реклама уже подготовлены к заявкам.</div>
+            </div>
+            <div class="price-row" role="row">
+              <div role="cell"><b>Контроль после запуска</b></div>
+              <div role="cell">Смотрят клики, показы или позиции сайта отдельно от заявок и продаж.</div>
+              <div role="cell">Смотрим заявки, цену обращения, конверсию страниц, качество трафика и обработку лидов.</div>
+              <div role="cell">Видно, какие расходы усилить, какие остановить и куда перераспределить бюджет.</div>
+            </div>
+            <div class="price-row" role="row">
+              <div role="cell"><b>Прозрачность сметы</b></div>
+              <div role="cell">В смете пишут «под ключ», но тексты, аналитика, интеграции и тесты всплывают позже.</div>
+              <div role="cell">Раскладываем работы по этапам: что входит сейчас, что можно добавить позже.</div>
+              <div role="cell">Проще сравнить предложения и заранее увидеть, за что вы платите.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-white why-section">
+        <div class="container">
+          <div class="section-head compact">
+            <h2>Почему выбирают нас</h2>
+          </div>
+
+          <div class="why-grid">
+            <article class="why-principle">
+              <small>Принцип работы</small>
+              <h3>Смотрим на заявки, а не на красивые отчеты</h3>
+              <p>
+                Нам важно связать сайт, рекламу, поиск, CRM и аналитику с заявками. Показываем,
+                где обращения появляются, где теряются и какие шаги влияют на результат.
+              </p>
+              <ul>
+                <li>Объясняем без маркетингового шума</li>
+                <li>Показываем связь с заявками</li>
+                <li>Держим фокус на цели</li>
+              </ul>
+            </article>
+
+            <div class="why-cards">
+              <article><h3>Команда под задачу</h3><p>Подключаем разработчика, маркетолога, SEO-специалиста, дизайнера и аналитика там, где они действительно нужны.</p></article>
+              <article><h3>Считаем заявки</h3><p>Смотрим не только показы, клики и позиции, а обращения, их стоимость, качество и обработку.</p></article>
+              <article><h3>Сопровождаем после запуска</h3><p>Дорабатываем страницы, исправляем ошибки, обновляем контент и смотрим, что мешает заявкам.</p></article>
+              <article><h3>15 лет практики</h3><p>Видели разные ниши и ситуации: слабый сайт, дорогой лид, потерянные заявки, реклама без окупаемости.</p></article>
+              <article><h3>Работаем прозрачно</h3><p>Показываем, что сделали, зачем это нужно и как проверяем результат дальше.</p></article>
+            </div>
+          </div>
+
+          <dl class="metrics">
+            <div><dt>200+</dt><dd>проектов запущено</dd></div>
+            <div><dt>100+</dt><dd>клиентов работают с нами</dd></div>
+            <div><dt>10+</dt><dd>отраслей в работе</dd></div>
+            <div><dt>3 года</dt><dd>среднее сотрудничество</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section section-muted founder">
+        <div class="container founder-card">
+          <p>
+            «Мы не начинаем с выбора инструмента. Сначала смотрим, где бизнес теряет заявки:
+            в трафике, на странице, в форме, в CRM или в обработке обращения. После этого понятно,
+            какая работа нужна первой».
+          </p>
+          <div>
+            <strong>Руководитель A1 Reklama</strong>
+            <span>Интернет-маркетинг, сайты, SEO и аналитика</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-white credentials">
+        <div class="container">
+          <div class="section-head">
+            <h2>Сертификаты и клиенты</h2>
+            <p>Регалии и опыт нужны не для витрины, а чтобы быстрее понимать, где искать проблему в продвижении.</p>
+          </div>
+          <ul class="credential-list">
+            <li>Золотой партнер 1С-Битрикс</li>
+            <li>Партнер Битрикс24</li>
+            <li>Сертифицированное агентство Яндекса</li>
+            <li>Опыт с локальными и федеральными проектами</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="cases">
+        <div class="container">
+          <div class="section-head">
+            <h2>Избранные кейсы</h2>
+            <p>Для прототипа оставляем короткие карточки. Реальные цифры и подробные разборы будут на внутренних страницах.</p>
+          </div>
+
+          <div class="case-grid">
+            <article><small>SEO + сайт</small><h3>Медицинская клиника</h3><p>Разобрали спрос, структуру услуг и путь записи. Усилили страницы, заявки стали понятнее в аналитике.</p></article>
+            <article><small>Реклама</small><h3>Локальная услуга</h3><p>Разделили кампании по запросам и посадочным, убрали расход без обращений, подключили контроль заявок.</p></article>
+            <article><small>CRM + аналитика</small><h3>Сервисная компания</h3><p>Настроили формы, телефонию и отчетность, чтобы видеть источник обращения и стоимость лида.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-white reviews">
+        <div class="container">
+          <div class="section-head compact">
+            <h2>Что говорят клиенты</h2>
+          </div>
+          <div class="review-grid">
+            <blockquote>«Стало понятно, куда уходит бюджет и почему сайт не доводит людей до заявки».</blockquote>
+            <blockquote>«Понравилось, что нам объясняли решения простым языком и показывали связь с обращениями».</blockquote>
+            <blockquote>«После настройки аналитики наконец увидели, какие каналы дают реальные заявки».</blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-muted start-section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Как начать работу</h2>
+            <p>
+              На первом разговоре достаточно рассказать, чем занимаетесь, откуда сейчас приходят
+              заявки и что не устраивает. Мы смотрим сайт, рекламу, поиск, формы, CRM и аналитику,
+              затем показываем, где цепочка теряет обращения и какой шаг даст эффект первым.
+            </p>
+          </div>
+
+          <ol class="steps">
+            <li><span>01</span><h3>Разбираемся в задаче</h3><p>Фиксируем услугу, регион, средний чек, текущие каналы и что считать заявкой.</p></li>
+            <li><span>02</span><h3>Проверяем путь до заявки</h3><p>Смотрим рекламу, поиск, карты, посадочные страницы, формы, телефонию, CRM и отчеты.</p></li>
+            <li><span>03</span><h3>Собираем план первого этапа</h3><p>Показываем, что исправить сейчас, что можно отложить, какой бюджет нужен и как оценивать результат.</p></li>
+            <li><span>04</span><h3>Запускаем работы</h3><p>Подключаем специалистов под задачу, согласуем сроки, ответственность и контрольные точки.</p></li>
+            <li><span>05</span><h3>Проверяем результат</h3><p>Смотрим заявки, стоимость обращения, конверсию страниц, качество трафика и обработку лидов.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section-white faq">
+        <div class="container faq-layout">
+          <div class="section-head compact">
+            <h2>Частые вопросы</h2>
+            <p>Ответы на вопросы, которые нам задают чаще всего.</p>
+          </div>
+
+          <div class="faq-list">
+            <details>
+              <summary>Нужно ли готовить ТЗ перед обращением?</summary>
+              <p>Нет. Для первого разговора достаточно коротко описать бизнес, город, услугу и текущую проблему. Если нужно ТЗ, мы поможем собрать его после первичного разбора.</p>
+            </details>
+            <details>
+              <summary>Сколько стоят ваши услуги?</summary>
+              <p>В карточках указаны стартовые цены. Точную смету считаем после разбора задачи, потому что состав работ может сильно отличаться.</p>
+            </details>
+            <details>
+              <summary>Можно начать с одной услуги?</summary>
+              <p>Да. Если достаточно одной услуги, не собираем лишний комплекс. Главное — понимать, как эта работа повлияет на заявки.</p>
+            </details>
+            <details>
+              <summary>Как быстро будет результат?</summary>
+              <p>Зависит от канала и состояния сайта. Реклама может дать данные быстрее, SEO и разработка требуют больше времени на подготовку и проверку.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta-section" id="contacts">
+        <div class="container cta-card">
+          <div>
+            <h2>Обсудим ваш проект?</h2>
+            <p>Расскажите, что сейчас не устраивает: мало заявок, дорогие обращения, слабый сайт или непонятная реклама. Посмотрим цепочку и предложим первый шаг.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button button-light" href="tel:+73462550000">Позвонить</a>
+            <a class="button button-outline-light" href="mailto:hello@a1-reklama.ru">Написать</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>A1 Reklama</span>
+        <span>Статичный HTML-прототип</span>
+      </div>
+    </footer>
+
+    <div class="sticky-mobile-cta" aria-label="Быстрые действия">
+      <a href="tel:+73462550000" aria-label="Позвонить">☎</a>
+      <a href="#contacts">Обсудить проект</a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
