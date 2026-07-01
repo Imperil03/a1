@@ -357,17 +357,13 @@
     }
 
     .planning-head {
-      display: grid;
-      grid-template-columns: minmax(0, .92fr) minmax(360px, .72fr);
-      gap: clamp(32px, 6vw, 96px);
-      align-items: start;
       margin-bottom: clamp(42px, 5vw, 72px);
     }
 
     .planning-head h2 {
       margin: 0;
       font-family: var(--font-display);
-      font-size: clamp(34px, 4.5vw, 58px);
+      font-size: clamp(34px, 3vw, 44px);
       line-height: 1.16;
       letter-spacing: 0;
       font-weight: 700;
@@ -375,7 +371,8 @@
     }
 
     .planning-head p {
-      margin: 8px 0 0;
+      max-width: 780px;
+      margin: 22px 0 0;
       color: var(--ink-soft);
       font-size: clamp(17px, 1.35vw, 20px);
       line-height: 1.6;
@@ -482,10 +479,6 @@
         font-size: clamp(44px, 7vw, 72px);
       }
 
-      .planning-head {
-        grid-template-columns: 1fr;
-      }
-
       .planning-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -552,8 +545,6 @@
       }
 
       .planning-head {
-        grid-template-columns: 1fr;
-        gap: 22px;
         margin-bottom: 34px;
       }
 

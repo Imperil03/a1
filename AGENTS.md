@@ -28,6 +28,7 @@ Internal pages must look like a continuation of the approved homepage: white bac
 - Use the approved homepage typography: `Unbounded` for large display headings and `Manrope` for body, navigation, buttons, labels, and supporting text.
 - Start from the approved homepage palette: white page, warm ink text, dark CTA, muted borders, and restrained blue accent for key meaning.
 - Prefer large editorial typography and clean business rhythm over decorative cards, fake screenshots, old reference layouts, gradients, and stock-like visual blocks.
+- Do not split section intros into a two-column layout with the heading on the left and description on the right. It reads poorly here. Put the section heading first, full-width and left-aligned, then place the supporting text below it with a comfortable readable line length.
 - Collapse to clean single-column mobile layouts.
 - Maintain touch targets of at least 44px.
 - Respect `prefers-reduced-motion`.
