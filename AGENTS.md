@@ -36,6 +36,30 @@ Treat project rules as creative defaults, not hard bans. If a bold prototype is 
 - Respect `prefers-reduced-motion`.
 - For simple UI states, prefer cheap motion such as `transform` and `opacity`; for hero work, charts, SVG, masks, filters, canvas, WebGL, and brand moments, use whatever technique creates the strongest result and still runs smoothly.
 
+## Skill Workflow
+
+- For new pages and substantial UI changes, use the local Codex skills `frontend-design`, `design-taste-frontend`, and `ui-ux-pro-max` as design guardrails.
+- For SEO structure, metadata, internal linking, schema, and page briefs, use the relevant local SEO skills: `seo`, `seo-page`, `seo-technical`, `seo-schema`, `seo-sitemap`, `keyword-research`, `content-gap-analysis`, and `seo-geo` when AI citation/GEO structure matters.
+- For client-facing Russian copy, use `humanize-russian` and `infostyle` before treating text as publish-ready.
+- For non-trivial build requests with unclear scope, use `spec-pilot`: clarify the task, write a short spec, get explicit approval, then implement.
+
+## Client Work Report
+
+Keep a client-facing work log in `reports/client-work-log.md`.
+
+Update it after meaningful work that a client should understand: new pages, SEO structure, content architecture, UX improvements, performance/accessibility work, important bug fixes, integrations, analytics, or grouped small improvements.
+
+Do not log every tiny internal correction. If several small fixes support one visible outcome, group them into one clear entry.
+
+Write report entries in Russian, plainly and with care for a non-technical client. Explain necessary terms in parentheses on first use. Focus each entry on:
+
+- what changed;
+- why it was needed;
+- how it helps the site, SEO, conversion, trust, or future maintenance;
+- what is still placeholder or needs factual confirmation.
+
+Use the report-writer role before finishing a significant task: review the actual diff, decide whether it belongs in the client report, and add or update the entry in a calm client-facing style.
+
 ## Build Rules
 
 - Check `package.json` before importing any third-party package.
