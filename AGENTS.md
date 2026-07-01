@@ -8,17 +8,14 @@ The site should feel like a premium digital/product studio with a point of view.
 
 ## Required Reading Before UI Work
 
-Before creating or changing pages, open:
+Before creating or changing pages, open and visually compare against:
 
-- `docs/design-rulebook.md`
-- `references/reference-brief.md`
-- `references/references.webp`
+- `prototype/index.html`
+- published approved homepage: `https://imperil03.github.io/a1/prototype/`
 
-The visual reference is creative source material. Preserve its clean premium-tech mood, spacious hero, soft light background, compact pill navigation, service tags, strong CTA, large visual proof area, and separate result chart. Prototypes may borrow composition closely while exploring the look.
+The approved homepage is the single visual source of truth. Do not use old root prototypes, old reference screenshots, or deleted docs as style guidance.
 
-Do not use generated HTML imitations as visual source-of-truth. The screenshot in `references/references.webp` is the source; prototypes must be judged against it.
-
-Treat project rules as creative defaults, not hard bans. If a bold prototype is stronger than the written rule, explore it and judge it visually.
+Internal pages must look like a continuation of the approved homepage: white background, compact header, A1 logo treatment, Unbounded display headings, Manrope body text, dark rounded CTA, restrained blue accent, generous spacing, business-focused copy, and minimal decorative noise.
 
 ## Design Rules
 
@@ -28,10 +25,10 @@ Treat project rules as creative defaults, not hard bans. If a bold prototype is 
 - Treat factual cleanup as a separate pre-publication pass, not as a blocker for creative exploration.
 - Use icons, symbols, emojis, custom marks, or playful glyphs only when they are part of a deliberate visual language, never as lazy default decoration.
 - Avoid generic AI landing patterns: centered hero with vague slogans, two predictable CTA buttons, three identical cards, purple gradient blobs, interchangeable icons, and fake-polished SaaS copy.
-- Keep the reference's soft lavender as the base mood, but allow stronger colors, glows, masks, texture, and unusual art direction when the concept earns it.
-- Use `Poppins` as the primary font across the site; it is the closest practical match to the reference.
-- Start from neutral surfaces plus the reference accent, but expand the palette when it makes the design more memorable and coherent.
-- Prefer asymmetric, editorial composition on desktop; collapse to clean single-column mobile layouts.
+- Use the approved homepage typography: `Unbounded` for large display headings and `Manrope` for body, navigation, buttons, labels, and supporting text.
+- Start from the approved homepage palette: white page, warm ink text, dark CTA, muted borders, and restrained blue accent for key meaning.
+- Prefer large editorial typography and clean business rhythm over decorative cards, fake screenshots, old reference layouts, gradients, and stock-like visual blocks.
+- Collapse to clean single-column mobile layouts.
 - Maintain touch targets of at least 44px.
 - Respect `prefers-reduced-motion`.
 - For simple UI states, prefer cheap motion such as `transform` and `opacity`; for hero work, charts, SVG, masks, filters, canvas, WebGL, and brand moments, use whatever technique creates the strongest result and still runs smoothly.
@@ -63,7 +60,7 @@ Use the report-writer role before finishing a significant task: review the actua
 ## Build Rules
 
 - Check `package.json` before importing any third-party package.
-- Use existing project stack once selected. Until then, standalone HTML prototypes are acceptable in `prototypes/`, but not as visual references.
+- The current prototype is a static export under `prototype/`. Until a source app is restored or selected, add internal prototype pages as static HTML under their final `prototype/.../index.html` path and reuse the approved homepage assets/styles.
 - Use semantic HTML: one `h1`, clear sections, real buttons/links, useful alt text.
 - Test at desktop and mobile widths before delivery.
 - Keep commits small and meaningful.
