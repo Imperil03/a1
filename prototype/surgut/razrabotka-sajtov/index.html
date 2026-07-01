@@ -228,20 +228,6 @@
       transform: translateY(1px);
     }
 
-    .button-secondary {
-      background: #ffffff;
-      color: #000000;
-      border-color: var(--line-strong);
-      box-shadow: none;
-    }
-
-    .button-secondary:hover,
-    .button-secondary:focus-visible {
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
     .header-button {
       min-height: 44px;
       padding: 0 20px;
@@ -289,31 +275,6 @@
       color: var(--line-strong);
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 38px;
-      margin: 0 0 46px;
-      border: 1px solid var(--line-strong);
-      border-radius: 999px;
-      background: #f3f3ef;
-      padding: 0 18px;
-      color: #000000;
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #8a8980;
-    }
-
     h1 {
       max-width: 1160px;
       margin: 0;
@@ -348,8 +309,8 @@
     .service-proof {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: clamp(36px, 7vw, 96px);
-      max-width: 880px;
+      gap: clamp(36px, 5vw, 72px);
+      max-width: 1060px;
       margin: clamp(56px, 7vw, 78px) 0 0;
       padding: 0;
       list-style: none;
@@ -373,7 +334,7 @@
     .proof-title {
       display: block;
       font-family: var(--font-display);
-      font-size: clamp(34px, 3.4vw, 46px);
+      font-size: clamp(34px, 3.2vw, 44px);
       font-weight: 700;
       line-height: 1.05;
       color: #000000;
@@ -389,99 +350,29 @@
       text-transform: uppercase;
     }
 
-    .launch-map {
-      border-top: 1px solid var(--line);
-      background: #f8f8f5;
-      padding: clamp(32px, 4.5vw, 56px) 0;
-    }
-
-    .launch-map-inner {
-      display: grid;
-      grid-template-columns: minmax(260px, .72fr) minmax(0, 1fr);
-      gap: clamp(28px, 5vw, 72px);
-      align-items: start;
-    }
-
-    .launch-map h2 {
-      margin: 0;
-      font-family: var(--font-display);
-      font-size: clamp(26px, 3vw, 42px);
-      line-height: 1.18;
-      letter-spacing: 0;
-      font-weight: 700;
-    }
-
-    .launch-map p {
-      max-width: 520px;
-      margin: 18px 0 0;
-      color: var(--ink-soft);
-      font-size: 17px;
-      line-height: 1.55;
-    }
-
-    .map-list {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 1px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      border: 1px solid var(--line);
-      background: var(--line);
-    }
-
-    .map-list li {
-      min-height: 160px;
-      background: #ffffff;
-      padding: 22px 18px;
-    }
-
-    .map-list strong {
-      display: block;
-      font-size: 17px;
-      line-height: 1.2;
-      font-weight: 800;
-      color: #000000;
-    }
-
-    .map-list span {
-      display: block;
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
-      font-weight: 600;
-    }
-
     @media (prefers-reduced-motion: no-preference) {
       .breadcrumbs,
-      .eyebrow,
       h1,
       .hero-text,
       .hero-actions,
-      .service-proof,
-      .launch-map {
+      .service-proof {
         animation: rise-in 620ms cubic-bezier(.16, 1, .3, 1) both;
       }
 
-      .eyebrow {
-        animation-delay: 60ms;
-      }
-
       h1 {
-        animation-delay: 120ms;
+        animation-delay: 80ms;
       }
 
       .hero-text {
-        animation-delay: 180ms;
+        animation-delay: 140ms;
       }
 
       .hero-actions {
-        animation-delay: 240ms;
+        animation-delay: 200ms;
       }
 
       .service-proof {
-        animation-delay: 300ms;
+        animation-delay: 260ms;
       }
     }
 
@@ -509,9 +400,6 @@
         font-size: clamp(44px, 7vw, 72px);
       }
 
-      .map-list {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
     }
 
     @media (max-width: 860px) {
@@ -543,10 +431,6 @@
         font-size: 13px;
       }
 
-      .eyebrow {
-        margin-bottom: 28px;
-      }
-
       h1 {
         font-size: clamp(38px, 11vw, 58px);
         line-height: 1.14;
@@ -572,18 +456,6 @@
         grid-template-columns: 1fr;
         gap: 28px;
         margin-top: 46px;
-      }
-
-      .launch-map-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .map-list {
-        grid-template-columns: 1fr;
-      }
-
-      .map-list li {
-        min-height: auto;
       }
     }
 
@@ -705,7 +577,6 @@
           <span>Разработка сайтов</span>
         </nav>
 
-        <p class="eyebrow">Разработка сайтов</p>
         <h1 id="service-title">Разработка сайтов для бизнеса под <span>заявки, SEO и рекламу</span></h1>
         <p class="hero-text">Делаем лендинги, корпоративные сайты, интернет-магазины и страницы услуг для малого и среднего бизнеса. Сразу продумываем структуру, посадочные страницы, аналитику, скорость и мобильную версию, чтобы сайт не пришлось переделывать перед запуском рекламы или SEO-продвижения.</p>
 
@@ -713,52 +584,20 @@
           <a class="button" href="/a1/prototype/surgut/kontakty/">Обсудить проект
             <span aria-hidden="true">→</span>
           </a>
-          <a class="button button-secondary" href="#launch-map">Что входит в запуск</a>
         </div>
 
-        <ul class="service-proof" aria-label="Главные опоры разработки сайта">
+        <ul class="service-proof" aria-label="Опыт и гарантии разработки сайтов">
           <li>
-            <span class="proof-title">SEO</span>
-            <span class="proof-copy">структура и семантика до дизайна</span>
+            <span class="proof-title">15 лет</span>
+            <span class="proof-copy">в разработке сайтов</span>
           </li>
           <li>
-            <span class="proof-title">Реклама</span>
-            <span class="proof-copy">посадочные страницы под рекламу</span>
+            <span class="proof-title">200+</span>
+            <span class="proof-copy">запущенных digital-проектов</span>
           </li>
           <li>
-            <span class="proof-title">Аналитика</span>
-            <span class="proof-copy">цели, формы и события в аналитике</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="launch-map" id="launch-map" aria-labelledby="launch-map-title">
-      <div class="container launch-map-inner">
-        <div>
-          <h2 id="launch-map-title">Сайт готовим как основу продвижения</h2>
-          <p>На старте связываем структуру, контент, техническую базу и аналитику. Так страницу можно сразу подключать к рекламе и развивать в SEO.</p>
-        </div>
-        <ul class="map-list" aria-label="Что закладываем в сайт перед запуском">
-          <li>
-            <strong>Структура</strong>
-            <span>Разделы, услуги, посадочные страницы и логика навигации.</span>
-          </li>
-          <li>
-            <strong>Контент</strong>
-            <span>Оффер, преимущества, вопросы клиента и сценарий заявки.</span>
-          </li>
-          <li>
-            <strong>Скорость</strong>
-            <span>Легкая верстка, адаптивность и аккуратная загрузка ассетов.</span>
-          </li>
-          <li>
-            <strong>Аналитика</strong>
-            <span>Цели, формы, клики, заявки и подготовка к отчетности.</span>
-          </li>
-          <li>
-            <strong>Запуск</strong>
-            <span>Проверка страниц, мобильной версии и готовности к трафику.</span>
+            <span class="proof-title">3 месяца</span>
+            <span class="proof-copy">гарантии после запуска</span>
           </li>
         </ul>
       </div>
