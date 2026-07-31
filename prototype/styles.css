@@ -124,6 +124,11 @@ a {
   text-decoration: none;
 }
 
+/* Общее состояние всех подчёркнутых ссылок проекта. */
+a:hover {
+  text-decoration-line: none !important;
+}
+
 img,
 svg {
   display: block;

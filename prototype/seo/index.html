@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <title>SEO-продвижение сайта с фокусом на заявки | A1 Reklama</title>
+    <meta
+      name="description"
+      content="Развиваем структуру и содержание сайта, устраняем технические проблемы и оцениваем SEO по позициям, целевому трафику и обращениям."
+    >
+    <base href="../">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="service.css">
+    <link rel="stylesheet" href="seo.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="service-page seo-page">
+    <!-- Общий компонент шапки страницы услуги. -->
+    <header class="site-header" data-header>
+      <div class="container header-grid">
+        <a class="brand" href="./" aria-label="A1 Reklama, на главную">
+          <img src="logo.png" width="55" height="70" alt="">
+        </a>
+
+        <button
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Открыть меню"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          data-mobile-menu-toggle
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <nav class="desktop-nav" aria-label="Основная навигация">
+          <a href="company/about/">О нас</a>
+          <div class="services-trigger-wrap" data-services-shell>
+            <button
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="services-menu"
+              data-popover-toggle="services-menu"
+            >
+              Услуги
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+          </div>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="surgut/kontakty/">Контакты</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="location-select">
+            <button
+              class="location-select__toggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="city-menu"
+              data-popover-toggle="city-menu"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Выбрать город</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="city-menu" id="city-menu" hidden data-popover>
+              <a href="surgut/">Сургут</a>
+              <a href="tyumen/">Тюмень</a>
+            </div>
+          </div>
+
+          <a class="header-phone" href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+7 (3462) 00-00-00</span>
+          </a>
+
+          <a class="button button--header" href="surgut/kontakty/">
+            Обсудить проект
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m-6-6 6 6-6 6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="mega-menu" id="services-menu" hidden data-popover data-services-menu>
+        <div class="mega-menu__grid">
+          <div class="mega-menu__directions">
+            <div class="mega-menu__label">Направления</div>
+            <ul>
+              <li><a href="razrabotka-sajtov/" data-service-tab="web-development"><span>01</span>Разработка сайтов</a></li>
+              <li><a class="is-active" href="seo/" aria-current="page" data-service-tab="seo"><span>02</span>SEO-продвижение</a></li>
+              <li><a href="reklama/" data-service-tab="ads"><span>03</span>Реклама</a></li>
+              <li><a href="vnedrenie-crm/" data-service-tab="crm"><span>04</span>Внедрение CRM</a></li>
+              <li><a href="mobilnye-prilozheniya/" data-service-tab="mobile"><span>05</span>Мобильные приложения</a></li>
+              <li><a href="veb-dizajn/" data-service-tab="design"><span>06</span>Веб-дизайн</a></li>
+              <li><a href="otraslevaya-ekspertiza/" data-service-tab="industries"><span>07</span>Отраслевая экспертиза</a></li>
+              <li><a href="tekhpodderzhka/" data-service-tab="support"><span>08</span>Техподдержка сайтов</a></li>
+              <li><a href="geomarketing/" data-service-tab="geomarketing"><span>09</span>Геомаркетинг</a></li>
+            </ul>
+          </div>
+
+          <div class="mega-menu__content">
+            <div class="mega-panel" data-service-panel="web-development" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Разработка сайтов</strong>
+                  <p>Разрабатываем корпоративные сайты, интернет-магазины, лендинги и личные кабинеты под задачи бизнеса: от структуры и прототипа до запуска, интеграций и дальнейшей поддержки. Работаем на 1С-Битрикс, WordPress, Tilda и Laravel.</p>
+                </div>
+                <a href="razrabotka-sajtov/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                <li><a href="razrabotka-sajtov/laravel/">Разработка на Laravel</a></li>
+                <li><a href="razrabotka-sajtov/joomla/">Сайты на Joomla</a></li>
+                <li><a href="razrabotka-sajtov/modx/">Сайты на MODX</a></li>
+                <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                <li><a href="razrabotka-sajtov/sajty-pod-seo/">Сайты под SEO</a></li>
+                <li><a href="razrabotka-sajtov/sajty-vizitki/">Сайты-визитки</a></li>
+                <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                <li><a href="razrabotka-sajtov/lichnye-kabinety/">Личные кабинеты</a></li>
+                <li><a href="razrabotka-sajtov/integratsiya-s-1c/">Интеграция с 1С</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="seo">
+              <div class="mega-panel__header">
+                <div>
+                  <strong>SEO-продвижение</strong>
+                  <p>Комплексно продвигаем сайты в Яндексе и Google: собираем семантику, усиливаем техническую оптимизацию, контент, перелинковку и аналитику, чтобы сайт рос не только по позициям, но и по заявкам.</p>
+                </div>
+                <a href="seo/" aria-current="page">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                <li><a href="seo/audit/">SEO-аудит</a></li>
+                <li><a href="seo/tekhnicheskij-audit/">Технический аудит</a></li>
+                <li><a href="seo/1c-bitrix/">SEO для 1С-Битрикс</a></li>
+                <li><a href="seo/tilda/">SEO для Tilda</a></li>
+                <li><a href="seo/wordpress/">SEO для WordPress</a></li>
+                <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                <li><a href="seo/google/">Продвижение в Google</a></li>
+                <li><a href="seo/prodvizhenie-novyh-sajtov/">Продвижение новых сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="ads" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Реклама</strong>
+                  <p>Настраиваем и ведём контекстную и таргетированную рекламу в Яндекс Директе, ВКонтакте и Telegram Ads: от запуска и тестов до ретаргетинга, оптимизации и сквозной аналитики. Работаем на заявки, продажи и понятную стоимость лида.</p>
+                </div>
+                <a href="reklama/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="reklama/kontekstnaya/">Контекстная реклама</a></li>
+                <li><a href="reklama/targetirovannaya/">Таргетированная реклама</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="crm" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Внедрение CRM</strong>
+                  <p>Внедряем amoCRM и Битрикс24: настраиваем воронки, автоматизации и интеграции с сайтом, телефонией и мессенджерами, обучаем команду — чтобы заявки не терялись, а работа отдела продаж была прозрачной и управляемой.</p>
+                </div>
+                <a href="vnedrenie-crm/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="mobile" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Мобильные приложения</strong>
+                  <p>Разрабатываем мобильные приложения для iOS и Android: от проектирования и дизайна до разработки, тестирования и публикации. Делаем нативные и кроссплатформенные решения под задачи бизнеса.</p>
+                </div>
+                <a href="mobilnye-prilozheniya/">Все услуги →</a>
+              </div>
+            </div>
+
+            <div class="mega-panel" data-service-panel="design" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Веб-дизайн</strong>
+                  <p>Проектируем интерфейсы для сайтов, лендингов, личных кабинетов и приложений: продумываем структуру, сценарии, прототипы и дизайн, чтобы пользователю было удобно, понятно и легко совершить целевое действие.</p>
+                </div>
+                <a href="veb-dizajn/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                <li><a href="veb-dizajn/proektirovanie/">UX-проектирование</a></li>
+                <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                <li><a href="veb-dizajn/mobilnyh-prilozhenij/">Дизайн мобильных приложений</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="industries" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Отраслевая экспертиза</strong>
+                  <p>Маркетинг и разработка для конкретных ниш: стоматологии, автосалоны, медицинские и косметологические клиники, онлайн-курсы, новые ЖК.</p>
+                </div>
+                <a href="otraslevaya-ekspertiza/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/">Для медицинских клиник</a></li>
+                <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                <li><a href="otraslevaya-ekspertiza/onlajn-kursy/">Для онлайн-курсов</a></li>
+                <li><a href="otraslevaya-ekspertiza/novye-zhk/">Для новых ЖК</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="support" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Техподдержка сайтов</strong>
+                  <p>Берём сайты на сопровождение: дорабатываем функционал, обновляем CMS и контент, следим за стабильностью, безопасностью и резервным копированием, чтобы проект работал без сбоев и не терял заявки.</p>
+                </div>
+                <a href="tekhpodderzhka/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="tekhpodderzhka/s-seo/">Поддержка с SEO</a></li>
+                <li><a href="tekhpodderzhka/internet-magazinov/">Поддержка интернет-магазинов</a></li>
+                <li><a href="tekhpodderzhka/kompleksnoe-soprovozhdenie/">Комплексное сопровождение</a></li>
+                <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                <li><a href="tekhpodderzhka/dostavka-i-oplata/">Доставка и оплата</a></li>
+                <li><a href="tekhpodderzhka/obnovlenie-cms/">Обновление CMS</a></li>
+                <li><a href="tekhpodderzhka/testirovanie/">Тестирование сайта</a></li>
+                <li><a href="tekhpodderzhka/perenos-na-bitrix/">Перенос на Битрикс</a></li>
+                <li><a href="tekhpodderzhka/licenziya-bitrix/">Лицензия Битрикс</a></li>
+                <li><a href="tekhpodderzhka/lechenie-ot-virusov/">Лечение от вирусов</a></li>
+                <li><a href="tekhpodderzhka/napolnenie-sajtov/">Наполнение сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="geomarketing" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Геомаркетинг</strong>
+                  <p>Усиливаем локальную видимость бизнеса в Яндекс Картах, 2ГИС и Google: оформляем и развиваем карточки, подключаем георекламу и следим за актуальностью информации.</p>
+                </div>
+                <a href="geomarketing/">Все услуги →</a>
+              </div>
+            </div>
+
+            <div class="mega-menu__consultation">
+              <div>
+                <strong>Не знаете, с чего начать?</strong>
+                <p>Бесплатная консультация — подберём подходящие услуги под вашу задачу.</p>
+              </div>
+              <a class="button button--primary" href="surgut/kontakty/">
+                Получить консультацию
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu-overlay" hidden data-mobile-menu-overlay></div>
+    <aside class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Главное меню" hidden data-mobile-menu>
+      <div class="mobile-menu__header">
+        <div class="mobile-menu__title">Меню</div>
+        <button type="button" aria-label="Закрыть меню" data-mobile-menu-close>
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"></path></svg>
+        </button>
+      </div>
+      <div class="mobile-menu__body">
+        <nav aria-label="Услуги">
+          <ul class="mobile-services">
+            <li>
+              <details>
+                <summary>Разработка сайтов</summary>
+                <ul>
+                  <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                  <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                  <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                  <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                  <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                  <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details open>
+                <summary>SEO-продвижение</summary>
+                <ul>
+                  <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                  <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                  <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                  <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                  <li><a href="seo/audit/">SEO-аудит</a></li>
+                  <li><a href="seo/tekhnicheskij-audit/">Технический аудит</a></li>
+                  <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                  <li><a href="seo/google/">Продвижение в Google</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Реклама</summary>
+                <ul>
+                  <li><a href="reklama/kontekstnaya/">Контекстная реклама</a></li>
+                  <li><a href="reklama/targetirovannaya/">Таргетированная реклама</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Внедрение CRM</summary>
+                <ul>
+                  <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                  <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                  <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="mobilnye-prilozheniya/">Мобильные приложения</a></li>
+            <li>
+              <details>
+                <summary>Веб-дизайн</summary>
+                <ul>
+                  <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                  <li><a href="veb-dizajn/proektirovanie/">UX-проектирование</a></li>
+                  <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Отраслевая экспертиза</summary>
+                <ul>
+                  <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                  <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                  <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/">Для медицинских клиник</a></li>
+                  <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Техподдержка сайтов</summary>
+                <ul>
+                  <li><a href="tekhpodderzhka/s-seo/">Поддержка с SEO</a></li>
+                  <li><a href="tekhpodderzhka/internet-magazinov/">Поддержка интернет-магазинов</a></li>
+                  <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                  <li><a href="tekhpodderzhka/testirovanie/">Тестирование сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="geomarketing/">Геомаркетинг</a></li>
+          </ul>
+        </nav>
+
+        <nav class="mobile-menu__secondary" aria-label="Разделы сайта">
+          <a href="company/about/">О нас</a>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="akcii/">Акции</a>
+          <a href="surgut/kontakty/">Контакты</a>
+        </nav>
+
+        <div class="mobile-menu__contacts">
+          <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
+          <a class="button button--primary" href="surgut/kontakty/">Обсудить проект</a>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main-content" tabindex="-1">
+      <!-- Источник видимого текста: DOCX «SEO-продвижение сайта», 31.07.2026. -->
+      <section class="service-hero" aria-labelledby="seo-hero-title">
+        <div class="container service-hero__inner">
+          <div class="service-hero__copy">
+            <h1 id="seo-hero-title">
+              <span class="seo-hero-title__line"><span class="service-hero__accent">SEO-продвижение</span></span>
+              <span class="seo-hero-title__line"><span class="service-hero__accent">сайта</span> с фокусом</span>
+              <span class="seo-hero-title__line">на заявки</span>
+            </h1>
+            <p>Изучаем, как потенциальные клиенты ищут ваши услуги, развиваем структуру и содержание сайта, устраняем технические проблемы и помогаем поисковым системам правильно понимать страницы.</p>
+            <p>Оцениваем не только позиции, но и то, какие запросы приводят звонки и заявки.</p>
+            <a class="button button--primary button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">
+              Обсудить продвижение
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+            </a>
+          </div>
+
+          <dl class="service-hero__facts">
+            <div><dt>15 лет</dt><dd>развиваем и продвигаем сайты</dd></div>
+            <div><dt>1 команда</dt><dd>сами внедряем необходимые изменения</dd></div>
+            <div><dt>Прозрачность</dt><dd>показываем позиции, трафик, выполненные работы</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section section--cream seo-growth" aria-labelledby="seo-growth-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="seo-growth-title">SEO для роста вашего бизнеса</h2>
+            <p class="service-section-lead">Продвигаем сайт так, чтобы он приводил клиентов из поиска, а не просто рос в позициях</p>
+            <p>Потенциальные клиенты могут искать одну услугу десятками разных способов. Одни уже готовы заказать, другие сравнивают варианты, изучают цены или пытаются разобраться в своей проблеме.</p>
+            <p>Мы помогаем определить, какие запросы приводят ваших клиентов, и настраиваем сайт так, чтобы он точно отвечал на их потребности.</p>
+          </div>
+
+          <div class="service-approach-v2 seo-growth__flow">
+            <div class="service-approach-v2__method seo-growth__principle">
+              <p class="seo-growth__thesis">Позиции остаются важным показателем, но сами по себе не являются конечным результатом.</p>
+              <p>Сайт может находиться высоко по малоценным запросам и не получать обращений.</p>
+              <p>Поэтому мы смотрим на всю цепочку: запрос, переход, поведение посетителя и заявку.</p>
+            </div>
+
+            <div class="service-approach-v2__connector" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M5 12h14m-6-6 6 6-6 6"></path>
+              </svg>
+            </div>
+
+            <div class="service-approach-v2__results">
+              <p class="service-list-intro">Для этого мы:</p>
+              <ul>
+                <li>собираем и группируем поисковые запросы;</li>
+                <li>создаём отдельные страницы под ключевые услуги и направления;</li>
+                <li>улучшаем содержание существующих страниц;</li>
+                <li>устраняем технические проблемы;</li>
+                <li>прорабатываем навигацию и внутренние ссылки;</li>
+                <li>добавляем доказательства и полезную информацию;</li>
+                <li>совершенствуем формы и способы обращения;</li>
+                <li>отслеживаем трафик и заявки из поиска.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section service-types-section seo-formats" aria-labelledby="seo-formats-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="seo-formats-title">Форматы SEO-продвижения</h2>
+            <p class="service-section-lead">Подбираем модель работы под задачи вашего бизнеса</p>
+            <p>Одним компаниям важно улучшить позиции по конкретным услугам, другим — расширить охват поискового спроса или увеличить количество обращений с сайта.</p>
+            <p>Перед началом работы мы оцениваем спрос, состояние сайта, конкуренцию и настроенную аналитику. После этого предлагаем формат продвижения и показатели, которые действительно имеют значение для вашего бизнеса.</p>
+          </div>
+
+          <div class="site-types-list">
+            <article class="site-type-row">
+              <div class="site-type-row__identity">
+                <h3>Комплексное SEO-продвижение</h3>
+                <dl class="site-type-row__meta">
+                  <div><dt>Стоимость:</dt><dd>от 90 000 ₽/мес</dd></div>
+                  <div><dt>Срок:</dt><dd>от 3 месяцев</dd></div>
+                </dl>
+              </div>
+              <div class="site-type-row__copy">
+                <p>Подходит большинству компаний, которым важно системно развивать сайт и получать больше обращений из поиска.</p>
+                <p>Мы одновременно работаем с позициями, целевым трафиком, структурой сайта, содержанием страниц и их конверсией. Это позволяет оценивать результат комплексно и не улучшать один показатель в ущерб остальным.</p>
+              </div>
+            </article>
+
+            <article class="site-type-row">
+              <div class="site-type-row__identity">
+                <h3><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></h3>
+                <dl class="site-type-row__meta">
+                  <div><dt>Стоимость:</dt><dd>от 70 000 ₽/мес</dd></div>
+                  <div><dt>Срок:</dt><dd>от 3 месяцев</dd></div>
+                </dl>
+              </div>
+              <div class="site-type-row__copy">
+                <p>Подходит компаниям, для которых важна видимость сайта по определённому перечню коммерческих запросов.</p>
+                <p>Мы согласовываем приоритетные запросы и отслеживаем, как меняются позиции сайта в Яндексе и Google. При этом не ограничиваем оценку только местом в выдаче: дополнительно смотрим, приводят ли эти запросы посетителей и обращения.</p>
+              </div>
+            </article>
+
+            <article class="site-type-row">
+              <div class="site-type-row__identity">
+                <h3><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></h3>
+                <dl class="site-type-row__meta">
+                  <div><dt>Стоимость:</dt><dd>от 90 000 ₽/мес</dd></div>
+                  <div><dt>Срок:</dt><dd>от 3 месяцев</dd></div>
+                </dl>
+              </div>
+              <div class="site-type-row__copy">
+                <p>Подходит сайтам с большим количеством товаров, услуг, категорий или информационных запросов.</p>
+                <p>Основная задача — расширить охват поискового спроса и увеличить количество целевых переходов из Яндекса и Google.</p>
+              </div>
+            </article>
+
+            <article class="site-type-row">
+              <div class="site-type-row__identity">
+                <h3><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></h3>
+                <dl class="site-type-row__meta">
+                  <div><dt>Стоимость:</dt><dd>от 110 000 ₽/мес</dd></div>
+                  <div><dt>Срок:</dt><dd>от 3 месяцев</dd></div>
+                </dl>
+              </div>
+              <div class="site-type-row__copy">
+                <p>Подходит компаниям, у которых настроена аналитика и можно достоверно определить источник звонка, формы, сообщения или заказа.</p>
+                <p>Главным показателем становится не только поисковый трафик, но и количество обращений, которые сайт получает из органического поиска.</p>
+              </div>
+            </article>
+
+            <article class="site-type-row">
+              <div class="site-type-row__identity">
+                <h3><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></h3>
+                <dl class="site-type-row__meta">
+                  <div><dt>Стоимость:</dt><dd>от 80 000 ₽/мес</dd></div>
+                  <div><dt>Срок:</dt><dd>от 3 месяцев</dd></div>
+                </dl>
+              </div>
+              <div class="site-type-row__copy">
+                <p>Подходит компаниям, которым важно, чтобы бренд, экспертные материалы и сайт могли использоваться как источники в ответах нейросетей и поисковых систем с генеративными функциями.</p>
+                <p>Мы делаем информацию о вашей компании более понятной, достоверной и доступной для поисковых и нейросетевых систем, чтобы повысить вероятность её использования в ответах, при этом не даём гарантий появления в каждом конкретном случае.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--cream seo-assessment" aria-labelledby="seo-assessment-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="seo-assessment-title">Оценка перспектив</h2>
+            <p class="service-section-lead">Сначала определяем, подходит ли SEO вашему проекту</p>
+            <p>SEO продвижение сайта — это долгосрочный инструмент привлечения клиентов, который требует постоянного развития сайта. Поэтому перед стартом работ важно понять, есть ли в поиске достаточный спрос и сможет ли этот канал реально приводить клиентов и решать задачи вашего бизнеса.</p>
+          </div>
+
+          <div class="seo-assessment__panel">
+            <div class="seo-assessment__criteria">
+              <p class="service-list-intro">Мы оцениваем:</p>
+              <ul>
+                <li>как часто ищут ваши товары или услуги;</li>
+                <li>насколько высокая конкуренция в выдаче;</li>
+                <li>по каким запросам сайт уже показывается;</li>
+                <li>какие страницы и материалы потребуется создать;</li>
+                <li>есть ли технические ограничения;</li>
+                <li>какие регионы и направления нужно продвигать;</li>
+                <li>как поисковый трафик может превращаться в обращения;</li>
+                <li>какой объём работ потребуется на первом этапе.</li>
+              </ul>
+            </div>
+            <div class="seo-assessment__judgement">
+              <p>Если потенциал SEO ограничен или компании нужны обращения в ближайшее время, мы скажем об этом. Возможно, разумнее сначала запустить Яндекс Директ, доработать сайт или сосредоточиться на другом рекламном канале.</p>
+              <p>Наша задача — не навязать SEO любой ценой, а помочь вам выбрать действительно подходящий и эффективный план действий для развития вашего бизнеса.</p>
+            </div>
+            <div class="seo-assessment__result">
+              <p class="service-list-intro">Результат предварительного анализа:</p>
+              <ul>
+                <li>оценка текущего состояния сайта;</li>
+                <li>основные точки роста;</li>
+                <li>приоритетные направления;</li>
+                <li>состав первого этапа;</li>
+                <li>предварительная стоимость работ.</li>
+              </ul>
+              <div class="seo-assessment__action">
+                <a class="button button--primary button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">Оценить потенциал продвижения <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section seo-scenarios" aria-labelledby="seo-scenarios-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="seo-scenarios-title">С какими задачами к нам обращаются</h2>
+            <p class="service-section-lead">Подбираем стратегию под состояние сайта и задачи бизнеса</p>
+          </div>
+
+          <div class="seo-scenarios__grid">
+            <article>
+              <h3>Нужно начать продвижение с нуля</h3>
+              <p>Сайт ещё не продвигался или был запущен недавно.</p>
+              <p>Проверяем техническую основу, собираем поисковый спрос, формируем структуру и определяем, какие страницы необходимо создать в первую очередь.</p>
+            </article>
+            <article>
+              <h3>Позиции и трафик перестали расти</h3>
+              <p>Сайт давно развивается, но результаты остановились или начали снижаться.</p>
+              <p>Анализируем изменения в структуре, техническое состояние, содержание страниц, конкурентов и поисковую видимость. Определяем, какие ограничения мешают дальнейшему росту.</p>
+            </article>
+            <article>
+              <h3>Посетители есть, но обращений мало</h3>
+              <p>Сайт получает поисковый трафик, но он плохо превращается в звонки и заявки.</p>
+              <p>Проверяем, по каким запросам приходят пользователи, соответствуют ли страницы их ожиданиям, достаточно ли информации для принятия решения и удобно ли обратиться в компанию.</p>
+            </article>
+            <article>
+              <h3>Нужно расширить направления или географию</h3>
+              <p>Компания запускает новые услуги, продукты, филиалы или выходит в другие регионы.</p>
+              <p>Изучаем дополнительный спрос и проектируем новые разделы, посадочные страницы и внутреннюю навигацию.</p>
+            </article>
+            <article>
+              <h3>Планируется новый сайт или редизайн</h3>
+              <p>Помогаем сохранить ценные страницы, позиции и поисковый трафик при изменении структуры, дизайна, системы управления или домена.</p>
+              <p>SEO-специалист участвует в проекте до начала разработки, чтобы новая версия сайта сразу учитывала требования дальнейшего продвижения.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Рабочие кейсы прямо разрешены служебной пометкой DOCX. -->
+      <section class="section section--cream cases-section service-cases" id="cases" aria-labelledby="seo-cases-title">
+        <div class="container">
+          <div class="section-heading service-cases__heading"><h2 id="seo-cases-title">Кейсы</h2></div>
+          <div class="cases-grid">
+            <a class="case-card case-card--feature" href="cases/">
+              <div class="case-card__tags"><span>SEO</span><span>Медицина</span></div>
+              <div class="case-card__content"><h3>Увеличили количество обращений из поиска для сети медицинских клиник</h3><div class="case-card__result"><strong>+74%</strong><span>обращений из поиска</span></div></div>
+            </a>
+            <a class="case-card case-card--small case-card--cream" href="cases/">
+              <div class="case-card__tags"><span>SEO</span><span>Интернет-магазин</span></div>
+              <div class="case-card__content"><h3>Расширили поисковый трафик интернет-магазина за счёт структуры каталога</h3><div class="case-card__result"><strong>×2,1</strong><span>целевой трафик</span></div></div>
+            </a>
+            <a class="case-card case-card--small" href="cases/">
+              <div class="case-card__tags"><span>SEO</span><span>Техническая оптимизация</span></div>
+              <div class="case-card__content"><h3>Вернули рост сайту услуг после технических ошибок</h3><div class="case-card__result"><strong>+63%</strong><span>поисковая видимость</span></div></div>
+            </a>
+            <a class="case-card case-card--small case-card--blue" href="cases/">
+              <div class="case-card__tags"><span>SEO</span><span>Новое направление</span></div>
+              <div class="case-card__content"><h3>Вывели новое направление в поиск с нуля</h3><div class="case-card__result"><strong>4 месяца</strong><span>до первых обращений</span></div></div>
+            </a>
+            <a class="case-card case-card--wide" href="cases/">
+              <div class="case-card__tags"><span>SEO</span><span>Производство</span></div>
+              <div class="case-card__content"><h3>Увеличили долю небрендового трафика производственной компании</h3><div class="case-card__result"><strong>+89%</strong><span>небрендовый трафик</span></div></div>
+            </a>
+            <a class="case-card case-card--small case-card--cream" href="cases/">
+              <div class="case-card__tags"><span>SEO</span><span>Редизайн</span></div>
+              <div class="case-card__content"><h3>Подготовили редизайн без потери поискового трафика</h3><div class="case-card__result"><strong>0%</strong><span>потерь трафика</span></div></div>
+            </a>
+          </div>
+          <a class="section-link" href="cases/">Смотреть все кейсы <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+        </div>
+      </section>
+
+      <section class="section service-process" aria-labelledby="seo-scope-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="seo-scope-title">Состав работ</h2>
+            <p class="service-section-lead">Что входит в SEO-продвижение сайта</p>
+            <p>Состав и приоритеты работ зависят от состояния вашего сайта. Если проект новый — сначала важно заложить прочную основу, чтобы он корректно индексировался и был готов к росту. Если сайт уже работает и получает трафик — мы фокусируемся на увеличении заявок, поиске новых точек роста и улучшении страниц, которые уже приносят результат.</p>
+            <p>В любом случае SEO-продвижение включает несколько направлений.</p>
+          </div>
+
+          <ol class="service-process__list">
+            <li>
+              <details open>
+                <summary><span aria-hidden="true">1.</span><strong>Анализ бизнеса и целей</strong></summary>
+                <div class="service-process__body">
+                  <p class="service-list-intro">Перед началом работ разбираемся:</p>
+                  <ul>
+                    <li>какие товары или услуги наиболее важны;</li><li>какие направления нужно продвигать в первую очередь;</li><li>кто является целевой аудиторией;</li><li>из каких регионов нужны обращения;</li><li>какие действия считать результатом;</li><li>какие каналы уже приводят клиентов.</li>
+                  </ul>
+                  <p>Это помогает не тратить время на запросы и страницы, которые не имеют ценности для бизнеса.</p>
+                </div>
+              </details>
+              <p class="service-process__result"><strong>Результат:</strong> приоритеты продвижения и показатели, по которым будем оценивать работу.</p>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">2.</span><strong>Анализ поискового спроса</strong></summary>
+                <div class="service-process__body">
+                  <p>Собираем запросы, по которым пользователи ищут ваши товары, услуги и связанную с ними информацию.</p>
+                  <p>Группируем их по смыслу, намерению и этапу принятия решения. Отделяем коммерческий спрос от информационного и определяем, какие запросы должна закрывать каждая страница.</p>
+                </div>
+              </details>
+              <p class="service-process__result"><strong>Результат:</strong> семантическое ядро и карта поискового спроса.</p>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">3.</span><strong>Развитие структуры сайта</strong></summary>
+                <div class="service-process__body">
+                  <p>Сравниваем поисковый спрос с текущей структурой.</p>
+                  <p class="service-list-intro">Если важных страниц не хватает, проектируем новые:</p>
+                  <ul><li>услуги;</li><li>категории;</li><li>товары;</li><li>направления;</li><li>отраслевые решения;</li><li>регионы;</li><li>вопросы и ответы;</li><li>полезные материалы.</li></ul>
+                  <p>Каждый раздел должен быть полезен посетителю и соответствовать реальному предложению компании.</p>
+                </div>
+              </details>
+              <p class="service-process__result"><strong>Результат:</strong> план создания и развития посадочных страниц.</p>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">4.</span><strong>Техническая оптимизация</strong></summary>
+                <div class="service-process__body">
+                  <p>Проверяем, может ли поисковый робот корректно находить, открывать и индексировать страницы.</p>
+                  <p class="service-list-intro">Работаем с:</p>
+                  <ul><li>ошибками индексации;</li><li>дублирующимися страницами;</li><li>перенаправлениями;</li><li>адресами страниц;</li><li>файлами robots.txt и sitemap.xml;</li><li>метатегами;</li><li>заголовками;</li><li>каноническими адресами;</li><li>скоростью загрузки;</li><li>мобильной версией;</li><li>микроразметкой;</li><li>внутренними техническими ошибками.</li></ul>
+                  <p>Приоритет отдаём проблемам, которые действительно мешают продвижению, а не формальному увеличению количества задач в отчёте.</p>
+                </div>
+              </details>
+              <p class="service-process__result"><strong>Результат:</strong> технически исправная и доступная для поисковых систем основа сайта.</p>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">5.</span><strong>Работа со страницами и содержанием</strong></summary>
+                <div class="service-process__body">
+                  <p>Анализируем, насколько полно страница отвечает на запрос посетителя и помогает ему принять решение.</p>
+                  <p class="service-list-intro">Дорабатываем:</p>
+                  <ul><li>заголовки и структуру текста;</li><li>описание товаров и услуг;</li><li>цены и условия;</li><li>преимущества;</li><li>примеры работ;</li><li>фотографии;</li><li>характеристики;</li><li>информацию о компании;</li><li>специалистов;</li><li>документы и сертификаты;</li><li>ответы на частые вопросы;</li><li>формы и способы обращения.</li></ul>
+                  <p>Контент должен быть полезен не только поисковой системе, но прежде всего человеку, который выбирает исполнителя или товар.</p>
+                </div>
+              </details>
+              <p class="service-process__result"><strong>Результат:</strong> страницы, которые точнее соответствуют спросу и лучше раскрывают предложение компании.</p>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">6.</span><strong>Навигация и внутренняя перелинковка</strong></summary>
+                <div class="service-process__body">
+                  <p>Связываем страницы так, чтобы посетителю было проще переходить между услугами, категориями, статьями и дополнительной информацией.</p>
+                  <p>Одновременно помогаем поисковым системам понимать структуру сайта и взаимосвязь разделов.</p>
+                </div>
+              </details>
+              <p class="service-process__result"><strong>Результат:</strong> понятная навигация и логичное распределение внутренних ссылок.</p>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">7.</span><strong>Удобство и конверсия</strong></summary>
+                <div class="service-process__body">
+                  <p>SEO приводит посетителей на сайт, но не гарантирует, что они станут вашими клиентами.</p>
+                  <p class="service-list-intro">Проверяем:</p>
+                  <ul><li>понятен ли первый экран сайта;</li><li>соответствует ли страница поисковому запросу;</li><li>легко ли найти цены и условия;</li><li>достаточно ли примеров, отзывов и других доказательств;;</li><li>удобно ли пользоваться сайтом со смартфона;</li><li>сразу ли видны контакты и способы связи;</li><li>корректно ли работают формы обратной связи;</li><li>нет ли лишних шагов перед тем, как оставить заявку или связаться с компанией.</li></ul>
+                  <p>При необходимости подключаем дизайнера, редактора и разработчика.</p>
+                </div>
+              </details>
+              <p class="service-process__result"><strong>Результат:</strong> сайт не только привлекает трафик, но и помогает превращать его в обращения.</p>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">8.</span><strong>Внешнее продвижение</strong></summary>
+                <div class="service-process__body">
+                  <p class="service-list-intro">При необходимости работаем с внешними факторами:</p>
+                  <ul><li>улучшаем и развиваем карточки компании на картах и отраслевых площадках;</li><li>работаем с упоминаниями бренда в интернете;</li><li>размещаем публикации в профильных медиа;</li><li>подключаем партнёрские материалы;</li><li>наращиваем качественные внешние ссылки;</li><li>формируем и поддерживаем положительную репутацию компании в сети.</li></ul>
+                  <p>Формат зависит от отрасли, региона и текущего состояния сайта.</p>
+                </div>
+              </details>
+              <p class="service-process__result"><strong>Результат:</strong> дополнительные сигналы доверия и присутствие компании за пределами собственного сайта.</p>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">9.</span><strong>Аналитика и контроль результатов</strong></summary>
+                <div class="service-process__body">
+                  <p class="service-list-intro">Настраиваем или проверяем:</p>
+                  <ul><li>Яндекс Метрику;</li><li>Google Search Console;</li><li>Яндекс Вебмастер;</li><li>цели и события;</li><li>формы;</li><li>звонки;</li><li>переходы в мессенджеры;</li><li>CRM и передачу источников заявок.</li></ul>
+                  <p>Это позволяет оценивать не только посещаемость, но и качество трафика.</p>
+                </div>
+              </details>
+              <p class="service-process__result"><strong>Результат:</strong> данные, на основании которых можно принимать решения о дальнейшем развитии сайта.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section--cream seo-delivery" aria-labelledby="seo-delivery-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="seo-delivery-title">Внедрение изменений</h2>
+            <p class="service-section-lead">Рекомендации не остаются в отчётах</p>
+            <p>SEO продвижение часто требует изменений в структуре, дизайне, текстах и программной части сайта. Если для каждой задачи приходится искать отдельного подрядчика, работы затягиваются, а ответственность размывается.</p>
+            <p>В A1-Интернет Эксперт SEO-специалисты работают вместе с командой разработки.</p>
+          </div>
+          <div class="seo-delivery__panel">
+            <div class="seo-delivery__outcome">
+              <p>Вы получаете не только список рекомендаций, но и их фактическое внедрение.</p>
+              <p>Если сайт находится на стороне другого разработчика, согласуем формат работы и подготовим понятные технические задания.</p>
+            </div>
+            <div class="seo-delivery__works">
+              <p class="service-list-intro">Мы можем самостоятельно:</p>
+              <ul><li>исправлять технические ошибки;</li><li>создавать новые разделы и страницы;</li><li>дорабатывать шаблоны;</li><li>менять навигацию;</li><li>улучшать мобильную версию;</li><li>готовить и размещать тексты;</li><li>настраивать формы и аналитику;</li><li>подключать необходимые интеграции.</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process-section seo-process" aria-labelledby="seo-process-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="seo-process-title">Как проходит продвижение</h2>
+            <p class="service-section-lead">Развиваем сайт последовательно, начиная с самых важных задач</p>
+            <p>Мы не выполняем один и тот же набор работ каждый месяц — фокусируемся на том, что сейчас даст рост трафика и заявок. Приоритеты меняются по мере развития сайта и полученных результатов.</p>
+          </div>
+          <ol class="process-grid">
+            <li><article><h3><span>01.</span> Знакомство и доступы</h3><p>Обсуждаем задачи бизнеса, приоритетные направления, регионы и текущие каналы привлечения клиентов.</p><p>Получаем необходимые доступы к сайту и аналитическим системам.</p></article></li>
+            <li><article><h3><span>02.</span> Анализ и стратегия</h3><p>Изучаем техническое состояние, поисковый спрос, структуру, текущие позиции, трафик и конкурентов.</p><p>Формируем план продвижения и определяем задачи первого этапа.</p></article></li>
+            <li><article><h3><span>03.</span> Создание основы</h3><p>Устраняем критические технические ошибки, настраиваем аналитику, прорабатываем структуру и начинаем улучшать приоритетные страницы.</p></article></li>
+            <li><article><h3><span>04.</span> Расширение охвата</h3><p>Создаём новые посадочные страницы, развиваем каталог, услуги и контент, улучшаем внутренние связи между разделами.</p></article></li>
+            <li><article><h3><span>05.</span> Улучшение результата</h3><p>Анализируем, какие страницы растут, какие запросы приводят трафик и как посетители взаимодействуют с сайтом.</p><p>Корректируем приоритеты, содержание и пользовательские сценарии.</p></article></li>
+            <li><article><h3><span>06.</span> Дальнейшее развитие</h3><p>Расширяем охват по новым товарам, услугам, регионам и информационному спросу. Тестируем дополнительные точки роста и связываем SEO с другими каналами продвижения.</p></article></li>
+          </ol>
+          <p class="seo-process__conclusion">На каждом этапе вы знаете, какие работы выполняются сейчас, зачем они нужны и что планируется дальше.</p>
+        </div>
+      </section>
+
+      <section class="section section--cream seo-reporting" aria-labelledby="seo-reporting-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="seo-reporting-title">Оценка результатов</h2>
+            <p class="service-section-lead">Показываем не только выполненные задачи, но и изменения в показателях</p>
+          </div>
+          <div class="seo-reporting__panel">
+            <div class="seo-reporting__metrics">
+              <p class="service-list-intro">В отчёте отражаем:</p>
+              <ul><li>динамику видимости сайта;</li><li>позиции по приоритетным запросам;</li><li>поисковый трафик;</li><li>долю небрендовых переходов;</li><li>страницы, которые получают посещения;</li><li>звонки, формы и сообщения из поиска;</li><li>конверсию страниц;</li><li>выполненные работы;</li><li>план следующего этапа.</li></ul>
+            </div>
+            <div class="seo-reporting__note">
+              <p>Если настроена CRM и передача источников обращений, дополнительно можно оценивать качество заявок и их дальнейшую обработку.</p>
+              <p>Не перегружаем отчёт профессиональными терминами без объяснения. Показываем, что изменилось, почему это произошло и какие действия планируются дальше.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section service-pricing" aria-labelledby="seo-pricing-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="seo-pricing-title">Сколько стоит продвижение сайта</h2>
+            <p class="service-section-lead">Стоимость зависит от масштаба сайта и объёма необходимых работ</p>
+            <p>Продвижение небольшого сайта услуг и крупного интернет-магазина требует разного состава команды, количества страниц, контента и технических доработок.</p>
+            <p>После предварительного анализа мы предлагаем подходящий формат.</p>
+          </div>
+          <ul class="service-price-list">
+            <li><h3>Комплексное SEO-продвижение</h3><strong>от 90 000 ₽/мес</strong></li>
+            <li><h3>Продвижение по позициям</h3><strong>от 70 000 ₽/мес</strong></li>
+            <li><h3>Продвижение по трафику</h3><strong>от 90 000 ₽/мес</strong></li>
+            <li><h3>Продвижение по лидам</h3><strong>от 110 000 ₽/мес</strong></li>
+            <li><h3>Продвижение в нейропоиске и ИИ-ответах — GEO</h3><strong>от 80 000 ₽/мес</strong></li>
+          </ul>
+          <details class="service-cost-factors">
+            <summary><h3>Что влияет на стоимость</h3></summary>
+            <ul><li>количество страниц;</li><li>размер каталога;</li><li>количество услуг и направлений;</li><li>регионы продвижения;</li><li>уровень конкуренции;</li><li>текущее состояние сайта;</li><li>необходимый объём контента;</li><li>сложность технических изменений;</li><li>скорость внедрения;</li><li>необходимость участия разработчика и дизайнера.</li></ul>
+          </details>
+          <p class="service-bridge">Заранее объясняем, какие работы входят в стоимость и какие дополнительные расходы могут потребоваться.</p>
+        </div>
+      </section>
+
+      <section class="section section--cream service-project-team" aria-labelledby="seo-team-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="seo-team-title">Команда проекта</h2>
+            <p class="service-section-lead">Над продвижением работают специалисты разных направлений</p>
+            <p>Состав команды зависит от задач проекта.</p>
+          </div>
+          <div class="service-project-team__grid">
+            <article><h3>Руководитель проекта</h3><p>Организует работу, контролирует сроки и отвечает за коммуникацию.</p></article>
+            <article><h3>SEO-специалист</h3><p>Анализирует спрос, структуру, позиции и определяет приоритеты продвижения.</p></article>
+            <article><h3>Аналитик</h3><p>Настраивает измерение результатов и помогает связывать трафик с обращениями.</p></article>
+            <article><h3>Редактор</h3><p>Готовит и улучшает содержание страниц.</p></article>
+            <article><h3>Разработчик</h3><p>Внедряет технические изменения и создаёт необходимую функциональность.</p></article>
+            <article><h3>Дизайнер</h3><p>Улучшает страницы, формы, навигацию и мобильную версию.</p></article>
+          </div>
+          <p class="service-project-team__conclusion">Состав команды не раздувается искусственно. Для каждого проекта подключаем только тех специалистов, чьё участие необходимо.</p>
+
+          <div class="team-slider service-project-team__slider" data-team-slider>
+            <div class="team-slider__controls" aria-label="Навигация по команде">
+              <button class="team-slider__button" type="button" aria-label="Предыдущие сотрудники" aria-controls="seo-team-list" data-team-prev disabled><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+              <button class="team-slider__button" type="button" aria-label="Следующие сотрудники" aria-controls="seo-team-list" data-team-next><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
+            </div>
+            <ul class="team-members" id="seo-team-list" aria-label="Команда A1" tabindex="0" data-team-track>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Аналитика</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Проектирование</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Дизайн</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Разработка</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>SEO</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Реклама</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Маркетинг</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Техническая поддержка</figcaption></figure></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section service-reasons" aria-labelledby="seo-reasons-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="seo-reasons-title">Почему A1-Интернет Эксперт</h2>
+            <p class="service-section-lead">SEO, сайт и бизнес-цели — в одной системе</p>
+          </div>
+          <div class="service-reasons__grid">
+            <article><h3>SEO и разработка одной командой</h3><p>Можем не только найти проблему, но и исправить её.</p></article>
+            <article><h3>Работаем с реальным спросом</h3><p>Создаём страницы под товары, услуги и направления, которые действительно необходимы, и закроют поисковый спрос.</p></article>
+            <article><h3>Смотрим дальше позиций</h3><p>Оцениваем трафик, поведение пользователей и обращения из поиска.</p></article>
+            <article><h3>Объясняем приоритеты</h3><p>Показываем, какие задачи важны сейчас, что можно сделать позже и почему выбран именно такой порядок.</p></article>
+            <article><h3>Не обещаем гарантированный ТОП</h3><p>Позиции в поиске зависят от алгоритмов поисковых систем, а мы берём на себя всё, что на них влияет: анализ, улучшения на сайте, внедрение изменений и понятный контроль результата.</p></article>
+            <article><h3>Можем развивать сайт после запуска</h3><p>Подключаем разработку, рекламу, аналитику и CRM без передачи проекта между разными подрядчиками.</p></article>
+          </div>
+          <figure class="director-quote service-reasons__director">
+            <div class="director-quote__photo"><img src="team/founder-avatar.jpg" alt="Эдуард Буторин, Директор агентства A1 Reklama" loading="lazy"></div>
+            <div class="director-quote__content">
+              <p class="director-quote__label">Позиция директора</p>
+              <blockquote><p>За 15 лет работы я убедился: клиенту не нужен маркетинг ради маркетинга.</p><p><strong>Нужны заявки и продажи.</strong> Поэтому сначала разбираемся, что реально работает в вашем бизнесе, — и только потом предлагаем решение.</p></blockquote>
+              <figcaption><strong>Эдуард Буторин</strong><span>Директор агентства A1 Reklama</span></figcaption>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section reviews-section service-reviews" aria-labelledby="reviews-title">
+        <div class="container reviews-heading">
+          <h2 id="reviews-title">Отзывы</h2>
+          <div class="reviews-heading__meta">
+            <div class="rating-summary" aria-label="5,0 по 47 отзывам на Яндекс Картах и 2ГИС"><strong>5,0</strong><span aria-hidden="true">★★★★★</span><small>по 47 отзывам на Яндекс Картах и 2ГИС</small></div>
+            <div class="reviews-slider__controls" aria-label="Навигация по отзывам">
+              <button class="reviews-slider__button" type="button" aria-label="Предыдущий отзыв" aria-controls="seo-reviews-list" data-reviews-prev disabled><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+              <button class="reviews-slider__button" type="button" aria-label="Следующий отзыв" aria-controls="seo-reviews-list" data-reviews-next><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="container reviews-slider" data-reviews-slider>
+          <ul class="reviews-list" id="seo-reviews-list" aria-label="Отзывы клиентов" tabindex="0" data-reviews-track>
+            <li><article class="review-card"><div class="review-card__source"><span aria-label="5 из 5">★★★★★</span><strong>Яндекс Карты</strong></div><blockquote>«Заказывали SEO-продвижение и контекстную рекламу. За 4 месяца поток пациентов вырос в 2 раза. Команда всегда на связи, отчёты понятные, без воды.»</blockquote><footer><span>АП</span><div><strong>Алексей Петров</strong><small>Директор · Стоматология «Улыбка»</small></div></footer></article></li>
+            <li><article class="review-card"><div class="review-card__source"><span aria-label="5 из 5">★★★★★</span><strong>2ГИС</strong></div><blockquote>«Ребята сделали нам сайт и настроили CRM. Наконец-то видим, откуда приходят заявки и сколько стоит каждый лид. Рекомендуем.»</blockquote><footer><span>МК</span><div><strong>Марина Козлова</strong><small>Маркетолог · Автосалон «Север-Моторс»</small></div></footer></article></li>
+            <li><article class="review-card"><div class="review-card__source"><span aria-label="5 из 5">★★★★★</span><strong>Яндекс Карты</strong></div><blockquote>«Работаем с A1 уже третий год. Сайт, SEO, реклама — всё в одних руках. Удобно, что не нужно объяснять задачу разным подрядчикам.»</blockquote><footer><span>ИС</span><div><strong>Игорь Сидоренко</strong><small>Собственник · ООО «СтройХМАО»</small></div></footer></article></li>
+            <li><article class="review-card"><div class="review-card__source"><span aria-label="5 из 5">★★★★★</span><strong>2ГИС</strong></div><blockquote>«Запустили таргет в ВК и лендинг на процедуры. Записи выросли на 60%, а стоимость заявки снизилась вдвое. Очень довольна результатом.»</blockquote><footer><span>ЕФ</span><div><strong>Елена Фролова</strong><small>Управляющая · Клиника косметологии «ArtMed»</small></div></footer></article></li>
+            <li><article class="review-card"><div class="review-card__source"><span aria-label="5 из 5">★★★★★</span><strong>Яндекс Карты</strong></div><blockquote>«Сделали сайт ЖК с шахматкой и 3D-туром. Настроили сквозную аналитику до брони. Теперь точно знаем, какой канал приносит покупателей.»</blockquote><footer><span>ДВ</span><div><strong>Дмитрий Волков</strong><small>Руководитель отдела продаж · ЖК «Новый квартал»</small></div></footer></article></li>
+            <li><article class="review-card"><div class="review-card__source"><span aria-label="5 из 5">★★★★★</span><strong>Яндекс Карты</strong></div><blockquote>«Перенесли курсы на новую платформу, сделали автоворонку и интеграцию с amoCRM. Продажи курсов выросли на 40% уже в первый месяц.»</blockquote><footer><span>ОН</span><div><strong>Ольга Назарова</strong><small>Основатель · Онлайн-школа «ПроЗнание»</small></div></footer></article></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section faq-section service-faq" aria-labelledby="seo-faq-title">
+        <div class="container faq-container">
+          <h2 id="seo-faq-title">Частые вопросы</h2>
+          <div class="faq-list">
+            <details><summary>Когда появятся первые результаты?</summary><div class="faq-answer"><p>Срок зависит от состояния сайта, конкуренции, региона, объёма спроса и скорости внедрения изменений.</p><p>Технические ошибки и содержание страниц можно улучшить сразу. Но поисковым системам требуется время, чтобы повторно обойти сайт, оценить изменения и скорректировать позиции.</p><p>Перед началом работ мы объясним, какие результаты реалистично ожидать и какие факторы могут повлиять на срок. Как правило речь идёт от 3-х месяцев.</p></div></details>
+            <details><summary>Можете ли вы гарантировать выход в ТОП?</summary><div class="faq-answer"><p>Нет. Ни один подрядчик не может управлять алгоритмами Яндекса или Google и гарантировать конкретную позицию.</p><p>Мы фиксируем состав работ, сроки их выполнения, порядок взаимодействия и отчётность. Также показываем динамику видимости, трафика и обращений.</p></div></details>
+            <details><summary>Чем SEO отличается от контекстной рекламы?</summary><div class="faq-answer"><p>Контекстная реклама позволяет начать получать переходы сразу после запуска кампании, но требует постоянного рекламного бюджета.</p><p>SEO обычно требует больше времени, поскольку связано с развитием сайта и переоценкой страниц поисковыми системами. При этом оно помогает постепенно расширять присутствие компании в поиске по большому количеству запросов.</p><p>Часто эти каналы эффективнее использовать вместе: реклама помогает получать обращения сейчас, а SEO развивает сайт на перспективу.</p></div></details>
+            <details><summary>Обязательно ли переделывать сайт?</summary><div class="faq-answer"><p>Не всегда.</p><p>Сначала мы проверяем текущую структуру, техническое состояние и содержание. Иногда достаточно исправить ошибки и доработать существующие страницы.</p><p>Если сайт сильно ограничивает продвижение, предложим поэтапную переработку или разработку новой версии и объясним, почему это необходимо.</p></div></details>
+            <details><summary>Можно ли продвигать новый сайт?</summary><div class="faq-answer"><p>Да. Более того, поисковый спрос и будущую структуру желательно учитывать ещё до начала дизайна и разработки.</p><p>Это позволяет заранее создать необходимые страницы, правильно настроить адреса и избежать лишних переделок после запуска.</p></div></details>
+            <details><summary>Кто готовит тексты?</summary><div class="faq-answer"><p>Мы можем подготовить тексты самостоятельно, отредактировать ваши материалы или работать совместно с экспертами компании.</p><p>Для сложных тематик запрашиваем фактическую информацию у специалистов клиента, чтобы содержание было точным и полезным.</p></div></details>
+            <details><summary>Кто внедряет технические изменения?</summary><div class="faq-answer"><p>Если сайт находится на поддержке A1, изменения внедряет наша команда разработки.</p><p>Если проект обслуживает другой подрядчик, мы подготовим технические задания и согласуем порядок взаимодействия.</p></div></details>
+            <details><summary>Что потребуется от нашей компании?</summary><div class="faq-answer"><p>На старте нам понадобится информация о бизнесе, приоритетных услугах, регионах и текущих каналах привлечения клиентов.</p><p>В процессе работы важно своевременно согласовывать материалы, предоставлять фактическую информацию и по возможности давать обратную связь по качеству обращений.</p></div></details>
+            <details><summary>Что делать, если поискового спроса мало?</summary><div class="faq-answer"><p>В таком случае мы не будем искусственно увеличивать объём SEO-работ.</p><p>Можно рассмотреть контекстную рекламу, продвижение на картах, работу с текущей клиентской базой, отраслевые площадки или другие каналы.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="contact-card">
+            <div class="contact-card__content">
+              <div class="contact-card__copy">
+                <div class="contact-card__label">Связаться</div>
+                <h2 id="contact-title">Обсудим ваш <span>проект</span>?</h2>
+                <p>Напишите в любой удобный мессенджер — пришлём план работ и смету за 1 рабочий день. Первая консультация бесплатно.</p>
+                <ul class="contact-badges"><li>Ответ за 24 часа</li><li>Бесплатная оценка</li><li>15+ специалистов в штате</li></ul>
+                <div class="response-time"><span aria-hidden="true"></span>Обычно отвечаем за 15 минут</div>
+                <div class="contact-actions">
+                  <a class="button button--primary button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">Написать в Telegram <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+                  <a class="button button--contact" href="https://max.ru/a1reklama" target="_blank" rel="noopener noreferrer">Max</a>
+                  <a class="button button--contact" href="tel:+73462000000">Позвонить</a>
+                </div>
+              </div>
+              <figure class="contact-director">
+                <div><img src="team/founder-avatar.jpg" alt="Эдуард Буторин, Директор A1 Reklama"></div>
+                <figcaption><strong>Эдуард Буторин</strong><span>Директор A1 Reklama</span><em>«Посмотрю ваш проект лично»</em></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand"><a class="brand brand--footer" href="./" aria-label="A1 Reklama, на главную"><img src="logo.png" width="55" height="70" alt=""></a><p>Диджитал-агентство полного цикла в Сургуте и Тюмени с 2015 года.</p></div>
+          <nav aria-label="Услуги в подвале"><h2>Услуги</h2><ul><li><a href="surgut/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="surgut/seo/">SEO-продвижение</a></li><li><a href="surgut/reklama/">Реклама</a></li><li><a href="surgut/vnedrenie-crm/">Внедрение CRM</a></li><li><a href="surgut/mobilnye-prilozheniya/">Мобильные приложения</a></li><li><a href="surgut/veb-dizajn/">Веб-дизайн</a></li><li><a href="surgut/otraslevaya-ekspertiza/">Отраслевая экспертиза</a></li><li><a href="surgut/tekhpodderzhka/">Техподдержка сайтов</a></li><li><a href="surgut/geomarketing/">Геомаркетинг</a></li></ul></nav>
+          <nav aria-label="Компания в подвале"><h2>Компания</h2><ul><li><a href="company/about/">О нас</a></li><li><a href="cases/">Кейсы</a></li><li><a href="blog/">Блог</a></li><li><a href="company/reviews/">Отзывы</a></li><li><a href="company/careers/">Вакансии</a></li><li><a href="prices/">Цены</a></li><li><a href="akcii/">Акции</a></li></ul></nav>
+          <div class="site-footer__offices">
+            <h2>Офисы</h2>
+            <div><a class="office-title" href="surgut/">Сургут</a><address><a href="tel:+73462000000">+7 (3462) 00-00-00</a><a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a><span>улица Университетская, 25, офис 408</span></address></div>
+            <div><a class="office-title" href="tyumen/">Тюмень</a><address><a href="tel:+73452000000">+7 (3452) 00-00-00</a><a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a><span>улица Республики, 61, офис 712</span></address></div>
+          </div>
+        </div>
+        <div class="site-footer__bottom"><div>© 2026 A1 Reklama. Все права защищены.</div><div><a href="privacy/">Политика конфиденциальности</a><a href="terms/">Пользовательское соглашение</a></div></div>
+      </div>
+    </footer>
+
+    <div class="mobile-sticky-actions" data-mobile-sticky data-visible="false">
+      <a href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+      <a href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">Обсудить продвижение <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+    </div>
+  </body>
+</html>
