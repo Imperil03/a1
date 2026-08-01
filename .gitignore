@@ -2,6 +2,7 @@
 Thumbs.db
 .idea/
 .vscode/
+.tmp/
 *.log
 .env
 .env.*

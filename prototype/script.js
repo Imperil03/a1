@@ -320,7 +320,14 @@ document.addEventListener("keydown", (event) => {
 const mobileSticky = document.querySelector("[data-mobile-sticky]");
 const contactSection = document.querySelector(".contact-section");
 const footer = document.querySelector(".site-footer");
+const pageHero = document.querySelector(".service-hero, .hero");
+const inlinePrimaryActions = Array.from(
+  document.querySelectorAll("main .button--primary"),
+);
 const mobileBreakpoint = window.matchMedia("(max-width: 767px)");
+let lastScrollPosition = window.scrollY;
+let mobileStickyPausedByScroll = false;
+let mobileStickyResumeTimer = null;
 
 function elementTouchesViewport(element) {
   if (!element) {
@@ -338,9 +345,18 @@ function updatePageState() {
     return;
   }
 
+  const heroBottom = pageHero?.getBoundingClientRect().bottom ?? 0;
+  const headerHeight = header?.offsetHeight ?? 0;
+  const heroHasPassed = pageHero
+    ? heroBottom <= headerHeight
+    : window.scrollY > 400;
+  const inlineActionIsVisible = inlinePrimaryActions.some(elementTouchesViewport);
+
   const shouldShow =
     mobileBreakpoint.matches &&
-    window.scrollY > 400 &&
+    heroHasPassed &&
+    !mobileStickyPausedByScroll &&
+    !inlineActionIsVisible &&
     !elementTouchesViewport(contactSection) &&
     !elementTouchesViewport(footer) &&
     document.body.classList.contains("menu-open") === false;
@@ -361,7 +377,31 @@ function requestPageStateUpdate() {
   });
 }
 
-window.addEventListener("scroll", requestPageStateUpdate, { passive: true });
+function handlePageScroll() {
+  const currentScrollPosition = window.scrollY;
+  const scrollDelta = currentScrollPosition - lastScrollPosition;
+
+  if (mobileBreakpoint.matches && Math.abs(scrollDelta) > 3) {
+    mobileStickyPausedByScroll = scrollDelta > 0;
+
+    if (mobileStickyResumeTimer !== null) {
+      window.clearTimeout(mobileStickyResumeTimer);
+    }
+
+    if (scrollDelta > 0) {
+      mobileStickyResumeTimer = window.setTimeout(() => {
+        mobileStickyPausedByScroll = false;
+        mobileStickyResumeTimer = null;
+        requestPageStateUpdate();
+      }, 700);
+    }
+  }
+
+  lastScrollPosition = currentScrollPosition;
+  requestPageStateUpdate();
+}
+
+window.addEventListener("scroll", handlePageScroll, { passive: true });
 window.addEventListener("resize", () => {
   if (window.matchMedia("(min-width: 1024px)").matches) {
     closeMobileMenu({ restoreFocus: false });
@@ -406,6 +446,14 @@ function scrollTeamSlider(direction) {
 
 teamPrevious?.addEventListener("click", () => scrollTeamSlider(-1));
 teamNext?.addEventListener("click", () => scrollTeamSlider(1));
+teamTrack?.addEventListener("keydown", (event) => {
+  if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
+    return;
+  }
+
+  event.preventDefault();
+  scrollTeamSlider(event.key === "ArrowLeft" ? -1 : 1);
+});
 teamTrack?.addEventListener("scroll", updateTeamSliderControls, { passive: true });
 window.addEventListener("resize", updateTeamSliderControls);
 updateTeamSliderControls();

@@ -34,8 +34,13 @@
   max-width: 1120px;
 }
 
-.service-hero h1 {
+.service-hero__label {
+  max-width: 100%;
+}
+
+.service-hero__headline {
   max-width: 1080px;
+  margin-top: 28px;
   font-family: var(--font-display);
   font-size: clamp(42px, 5.1vw, 68px);
   font-weight: 650;
@@ -48,7 +53,7 @@
   color: #465a76;
 }
 
-.service-hero__copy > p {
+.service-hero__description {
   max-width: 900px;
   margin-top: 28px;
   color: var(--ink-700);
@@ -1170,13 +1175,13 @@
     padding-block: 52px 50px;
   }
 
-  .service-hero h1 {
+  .service-hero__headline {
     font-size: clamp(31px, 8.8vw, 40px);
     line-height: 1.13;
     text-wrap: initial;
   }
 
-  .service-hero__copy > p {
+  .service-hero__description {
     margin-top: 22px;
     font-size: 17px;
     line-height: 1.62;

@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <title>Контекстная реклама в Яндекс Директе | A1-Интернет Эксперт</title>
+    <meta
+      name="description"
+      content="Настраиваем и ведём контекстную рекламу в Яндекс Директе: от оценки спроса и посадочных страниц до аналитики, оптимизации и масштабирования."
+    >
+    <base href="../">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="service.css">
+    <link rel="stylesheet" href="context.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="service-page context-page">
+    <!-- Общий компонент шапки страницы услуги. -->
+    <header class="site-header" data-header>
+      <div class="container header-grid">
+        <a class="brand" href="./" aria-label="A1-Интернет Эксперт, на главную">
+          <img src="logo.png" width="55" height="70" alt="">
+        </a>
+
+        <button
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Открыть меню"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          data-mobile-menu-toggle
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <nav class="desktop-nav" aria-label="Основная навигация">
+          <a href="company/about/">О нас</a>
+          <div class="services-trigger-wrap" data-services-shell>
+            <button
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="services-menu"
+              data-popover-toggle="services-menu"
+            >
+              Услуги
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+          </div>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="surgut/kontakty/">Контакты</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="location-select">
+            <button
+              class="location-select__toggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="city-menu"
+              data-popover-toggle="city-menu"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Выбрать город</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="city-menu" id="city-menu" hidden data-popover>
+              <a href="surgut/">Сургут</a>
+              <a href="tyumen/">Тюмень</a>
+            </div>
+          </div>
+
+          <a class="header-phone" href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+7 (3462) 00-00-00</span>
+          </a>
+
+          <a class="button button--header" href="surgut/kontakty/">
+            Обсудить проект
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m-6-6 6 6-6 6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="mega-menu" id="services-menu" hidden data-popover data-services-menu>
+        <div class="mega-menu__grid">
+          <div class="mega-menu__directions">
+            <div class="mega-menu__label">Направления</div>
+            <ul>
+              <li><a href="razrabotka-sajtov/" data-service-tab="web-development"><span>01</span>Разработка сайтов</a></li>
+              <li><a href="seo/" data-service-tab="seo"><span>02</span>SEO-продвижение</a></li>
+              <li><a class="is-active" href="kontekstnaya-reklama/" aria-current="page" data-service-tab="ads"><span>03</span>Контекстная реклама</a></li>
+              <li><a href="complex-marketing/" data-service-tab="complex"><span>04</span>Комплексный интернет-маркетинг</a></li>
+              <li><a href="vnedrenie-crm/" data-service-tab="crm"><span>05</span>Внедрение CRM</a></li>
+              <li><a href="mobilnye-prilozheniya/" data-service-tab="mobile"><span>06</span>Мобильные приложения</a></li>
+              <li><a href="veb-dizajn/" data-service-tab="design"><span>07</span>Веб-дизайн</a></li>
+              <li><a href="otraslevaya-ekspertiza/" data-service-tab="industries"><span>08</span>Отраслевая экспертиза</a></li>
+              <li><a href="tekhpodderzhka/" data-service-tab="support"><span>09</span>Техподдержка сайтов</a></li>
+              <li><a href="geomarketing/" data-service-tab="geomarketing"><span>10</span>Геомаркетинг</a></li>
+            </ul>
+          </div>
+
+          <div class="mega-menu__content">
+            <div class="mega-panel" data-service-panel="web-development" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Разработка сайтов</strong>
+                  <p>Разрабатываем корпоративные сайты, интернет-магазины, лендинги и личные кабинеты под задачи бизнеса: от структуры и прототипа до запуска, интеграций и дальнейшей поддержки. Работаем на 1С-Битрикс, WordPress, Tilda и Laravel.</p>
+                </div>
+                <a href="razrabotka-sajtov/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                <li><a href="razrabotka-sajtov/laravel/">Разработка на Laravel</a></li>
+                <li><a href="razrabotka-sajtov/joomla/">Сайты на Joomla</a></li>
+                <li><a href="razrabotka-sajtov/modx/">Сайты на MODX</a></li>
+                <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                <li><a href="razrabotka-sajtov/sajty-pod-seo/">Сайты под SEO</a></li>
+                <li><a href="razrabotka-sajtov/sajty-vizitki/">Сайты-визитки</a></li>
+                <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                <li><a href="razrabotka-sajtov/lichnye-kabinety/">Личные кабинеты</a></li>
+                <li><a href="razrabotka-sajtov/integratsiya-s-1c/">Интеграция с 1С</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="seo" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>SEO-продвижение</strong>
+                  <p>Комплексно продвигаем сайты в Яндексе и Google: собираем семантику, усиливаем техническую оптимизацию, контент, перелинковку и аналитику, чтобы сайт рос не только по позициям, но и по заявкам.</p>
+                </div>
+                <a href="seo/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                <li><a href="seo/audit/">SEO-аудит</a></li>
+                <li><a href="seo/tekhnicheskij-audit/">Технический аудит</a></li>
+                <li><a href="seo/1c-bitrix/">SEO для 1С-Битрикс</a></li>
+                <li><a href="seo/tilda/">SEO для Tilda</a></li>
+                <li><a href="seo/wordpress/">SEO для WordPress</a></li>
+                <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                <li><a href="seo/google/">Продвижение в Google</a></li>
+                <li><a href="seo/prodvizhenie-novyh-sajtov/">Продвижение новых сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="ads">
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Контекстная реклама</strong>
+                  <p>Настраиваем и ведём контекстную и таргетированную рекламу в Яндекс Директе, ВКонтакте и Telegram Ads: от запуска и тестов до ретаргетинга, оптимизации и сквозной аналитики. Работаем на заявки, продажи и понятную стоимость лида.</p>
+                </div>
+                <a href="kontekstnaya-reklama/" aria-current="page">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
+                <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
+                <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="complex" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Комплексный интернет-маркетинг</strong>
+                  <p>За стратегию продвижения, реализацию и аналитику отвечает одна команда A1. Все специалисты работают по общему плану, а инструменты дополняют друг друга и решают одну задачу — привлекать больше целевых обращений.</p>
+                </div>
+                <a href="complex-marketing/">Все услуги →</a>
+              </div>
+            </div>
+
+            <div class="mega-panel" data-service-panel="crm" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Внедрение CRM</strong>
+                  <p>Внедряем amoCRM и Битрикс24: настраиваем воронки, автоматизации и интеграции с сайтом, телефонией и мессенджерами, обучаем команду — чтобы заявки не терялись, а работа отдела продаж была прозрачной и управляемой.</p>
+                </div>
+                <a href="vnedrenie-crm/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="mobile" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Мобильные приложения</strong>
+                  <p>Разрабатываем мобильные приложения для iOS и Android: от проектирования и дизайна до разработки, тестирования и публикации. Делаем нативные и кроссплатформенные решения под задачи бизнеса.</p>
+                </div>
+                <a href="mobilnye-prilozheniya/">Все услуги →</a>
+              </div>
+            </div>
+
+            <div class="mega-panel" data-service-panel="design" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Веб-дизайн</strong>
+                  <p>Проектируем интерфейсы для сайтов, лендингов, личных кабинетов и приложений: продумываем структуру, сценарии, прототипы и дизайн, чтобы пользователю было удобно, понятно и легко совершить целевое действие.</p>
+                </div>
+                <a href="veb-dizajn/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                <li><a href="veb-dizajn/proektirovanie/">UX-проектирование</a></li>
+                <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                <li><a href="veb-dizajn/mobilnyh-prilozhenij/">Дизайн мобильных приложений</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="industries" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Отраслевая экспертиза</strong>
+                  <p>Маркетинг и разработка для конкретных ниш: стоматологии, автосалоны, медицинские и косметологические клиники, онлайн-курсы, новые ЖК.</p>
+                </div>
+                <a href="otraslevaya-ekspertiza/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/">Для медицинских клиник</a></li>
+                <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                <li><a href="otraslevaya-ekspertiza/onlajn-kursy/">Для онлайн-курсов</a></li>
+                <li><a href="otraslevaya-ekspertiza/novye-zhk/">Для новых ЖК</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="support" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Техподдержка сайтов</strong>
+                  <p>Берём сайты на сопровождение: дорабатываем функционал, обновляем CMS и контент, следим за стабильностью, безопасностью и резервным копированием, чтобы проект работал без сбоев и не терял заявки.</p>
+                </div>
+                <a href="tekhpodderzhka/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="tekhpodderzhka/s-seo/">Поддержка с SEO</a></li>
+                <li><a href="tekhpodderzhka/internet-magazinov/">Поддержка интернет-магазинов</a></li>
+                <li><a href="tekhpodderzhka/kompleksnoe-soprovozhdenie/">Комплексное сопровождение</a></li>
+                <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                <li><a href="tekhpodderzhka/dostavka-i-oplata/">Доставка и оплата</a></li>
+                <li><a href="tekhpodderzhka/obnovlenie-cms/">Обновление CMS</a></li>
+                <li><a href="tekhpodderzhka/testirovanie/">Тестирование сайта</a></li>
+                <li><a href="tekhpodderzhka/perenos-na-bitrix/">Перенос на Битрикс</a></li>
+                <li><a href="tekhpodderzhka/licenziya-bitrix/">Лицензия Битрикс</a></li>
+                <li><a href="tekhpodderzhka/lechenie-ot-virusov/">Лечение от вирусов</a></li>
+                <li><a href="tekhpodderzhka/napolnenie-sajtov/">Наполнение сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="geomarketing" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Геомаркетинг</strong>
+                  <p>Усиливаем локальную видимость бизнеса в Яндекс Картах, 2ГИС и Google: оформляем и развиваем карточки, подключаем георекламу и следим за актуальностью информации.</p>
+                </div>
+                <a href="geomarketing/">Все услуги →</a>
+              </div>
+            </div>
+
+            <div class="mega-menu__consultation">
+              <div>
+                <strong>Не знаете, с чего начать?</strong>
+                <p>Бесплатная консультация — подберём подходящие услуги под вашу задачу.</p>
+              </div>
+              <a class="button button--primary" href="surgut/kontakty/">
+                Получить консультацию
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu-overlay" hidden data-mobile-menu-overlay></div>
+    <aside class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Главное меню" hidden data-mobile-menu>
+      <div class="mobile-menu__header">
+        <div class="mobile-menu__title">Меню</div>
+        <button type="button" aria-label="Закрыть меню" data-mobile-menu-close>
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"></path></svg>
+        </button>
+      </div>
+      <div class="mobile-menu__body">
+        <nav aria-label="Услуги">
+          <ul class="mobile-services">
+            <li>
+              <details>
+                <summary>Разработка сайтов</summary>
+                <ul>
+                  <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                  <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                  <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                  <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                  <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                  <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>SEO-продвижение</summary>
+                <ul>
+                  <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                  <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                  <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                  <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                  <li><a href="seo/audit/">SEO-аудит</a></li>
+                  <li><a href="seo/tekhnicheskij-audit/">Технический аудит</a></li>
+                  <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                  <li><a href="seo/google/">Продвижение в Google</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details open>
+                <summary>Контекстная реклама</summary>
+                <ul>
+                  <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
+                  <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
+                  <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+            <li>
+              <details>
+                <summary>Внедрение CRM</summary>
+                <ul>
+                  <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                  <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                  <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="mobilnye-prilozheniya/">Мобильные приложения</a></li>
+            <li>
+              <details>
+                <summary>Веб-дизайн</summary>
+                <ul>
+                  <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                  <li><a href="veb-dizajn/proektirovanie/">UX-проектирование</a></li>
+                  <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Отраслевая экспертиза</summary>
+                <ul>
+                  <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                  <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                  <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/">Для медицинских клиник</a></li>
+                  <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Техподдержка сайтов</summary>
+                <ul>
+                  <li><a href="tekhpodderzhka/s-seo/">Поддержка с SEO</a></li>
+                  <li><a href="tekhpodderzhka/internet-magazinov/">Поддержка интернет-магазинов</a></li>
+                  <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                  <li><a href="tekhpodderzhka/testirovanie/">Тестирование сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="geomarketing/">Геомаркетинг</a></li>
+          </ul>
+        </nav>
+
+        <nav class="mobile-menu__secondary" aria-label="Разделы сайта">
+          <a href="company/about/">О нас</a>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="akcii/">Акции</a>
+          <a href="surgut/kontakty/">Контакты</a>
+        </nav>
+
+        <div class="mobile-menu__contacts">
+          <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
+          <a class="button button--primary" href="surgut/kontakty/">Обсудить проект</a>
+        </div>
+      </div>
+    </aside>
+    <main id="main-content" tabindex="-1">
+      <!-- Источники: DOCX «Контекстная реклама»; H1-лейбл и позиция директора — прямые решения пользователя, 01.08.2026. -->
+      <section class="service-hero" aria-labelledby="ads-hero-title">
+        <div class="container service-hero__inner">
+          <div class="service-hero__copy">
+            <h1 class="eyebrow service-hero__label" id="ads-hero-title"><span aria-hidden="true"></span>Агентство контекстной рекламы</h1>
+            <p class="service-hero__headline">
+              <span class="ads-hero-title__line">Превращаем <span class="service-hero__accent">Яндекс Директ</span></span>
+              <span class="ads-hero-title__line">в управляемую систему</span>
+              <span class="ads-hero-title__line">привлечения клиентов</span>
+            </p>
+            <p class="service-hero__description">Не ограничиваемся настройками рекламного кабинета. Изучаем спрос, сегментируем аудиторию, дорабатываем посадочные страницы и подключаем аналитику, чтобы управлять рекламной воронкой, находить слабые места и повышать количество целевых обращений.</p>
+            <a class="button button--primary button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">
+              Обсудить рекламу
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+            </a>
+          </div>
+
+          <dl class="service-hero__facts">
+            <div><dt>15 лет</dt><dd>работаем с интернет-рекламой</dd></div>
+            <div><dt>Реклама и сайт</dt><dd>сами дорабатываем посадочные страницы</dd></div>
+            <div><dt>Прозрачность</dt><dd>вы видите все основные метрики</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section section--cream ads-page-intro" aria-labelledby="ads-chain-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="ads-chain-title">Не только настройка рекламного кабинета</h2>
+            <p class="service-section-lead">Реклама работает, когда спрос, объявления и посадочная страница дополняют друг друга</p>
+            <p>Можно тщательно собрать ключевые фразы и подготовить объявления, но не получить нужного результата.</p>
+            <p>Пользователь может перейти на сайт и не найти нужную услугу, цену, ответ на свой вопрос или удобный способ обратиться в компанию. А без настроенной аналитики невозможно понять, какие кампании приводят целевые обращения, а какие только расходуют бюджет.</p>
+          </div>
+
+          <div class="ads-chain">
+            <div class="ads-chain__steps">
+              <p class="service-list-intro">Поэтому мы работаем со всей цепочкой:</p>
+              <ol>
+                <li>определяем, какие товары и услуги стоит рекламировать;</li>
+                <li>изучаем поисковый спрос и предложения конкурентов;</li>
+                <li>разделяем аудиторию по задачам и намерениям;</li>
+                <li>готовим объявления под конкретные предложения;</li>
+                <li>направляем пользователя на подходящую страницу;</li>
+                <li>проверяем содержание сайта, формы и мобильную версию;</li>
+                <li>настраиваем отслеживание звонков, заявок и сообщений;</li>
+                <li>анализируем стоимость и качество обращений;</li>
+                <li>перераспределяем бюджет в пользу эффективных кампаний.</li>
+              </ol>
+            </div>
+            <p class="ads-chain__conclusion">Если причина слабого результата находится не в рекламном кабинете, а на сайте, мы не ограничиваемся рекомендациями. К проекту могут подключиться дизайнер, редактор, аналитик и разработчик.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section ads-assessment" aria-labelledby="ads-assessment-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="ads-assessment-title">Предварительная оценка</h2>
+            <p class="service-section-lead">Сначала проверяем, готов ли проект к запуску рекламы</p>
+            <p>Яндекс Директ позволяет быстро начать привлекать посетителей, но сам по себе не делает предложение конкурентоспособным.</p>
+          </div>
+
+          <div class="ads-assessment__panel">
+            <div class="ads-assessment__criteria">
+              <p class="service-list-intro">Перед запуском мы оцениваем:</p>
+              <ul>
+                <li>достаточен ли поисковый спрос;</li>
+                <li>насколько высокая конкуренция;</li>
+                <li>какие товары или услуги выгоднее рекламировать в первую очередь;</li>
+                <li>соответствует ли сайт ожиданиям потенциальных клиентов;</li>
+                <li>настроено ли отслеживание обращений;</li>
+                <li>какой бюджет нужен для полноценного тестирования;</li>
+                <li>какая стоимость заявки допустима с учётом среднего чека и экономики бизнеса;</li>
+              </ul>
+            </div>
+            <div class="ads-assessment__options">
+              <p class="service-list-intro">После оценки предлагаем один из вариантов:</p>
+              <ul>
+                <li>запускать рекламу на текущий сайт;</li>
+                <li>сначала доработать отдельные страницы, формы или аналитику;</li>
+                <li>начать с одного приоритетного направления;</li>
+                <li>скорректировать бюджет или географию показов;</li>
+                <li>выбрать другой канал, если Яндекс Директ сейчас не подходит для задачи.</li>
+              </ul>
+            </div>
+            <div class="ads-assessment__action">
+              <p>Если сайт пока не готов к рекламе, мы покажем, что необходимо исправить до запуска. Если спрос слишком мал, конкуренция высока или бюджета недостаточно для полноценного тестирования, также скажем об этом заранее.</p>
+              <a class="button button--primary button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">Получить предварительную оценку <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--cream service-types-section ads-formats" aria-labelledby="ads-formats-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="ads-formats-title">Форматы рекламы в Яндекс Директе</h2>
+            <p class="service-section-lead">Подбираем рекламные инструменты под задачу и спрос</p>
+            <p>Одним компаниям важно показываться людям, которые уже ищут конкретную услугу. Другим нужно вернуть посетителей на сайт, представить новый продукт или рекламировать большой ассортимент товаров.</p>
+            <p>Мы определяем, какие форматы подходят вашему проекту, и не подключаем дополнительные кампании только ради увеличения объёма работ.</p>
+          </div>
+
+          <div class="site-types-list">
+            <article class="site-type-row">
+              <div class="site-type-row__identity">
+                <h3>Поисковая реклама</h3>
+                <dl class="site-type-row__meta">
+                  <div><dt>Стоимость ведения:</dt><dd>от 60 000 ₽ в месяц</dd></div>
+                  <div><dt>Срок запуска:</dt><dd>от 10 рабочих дней</dd></div>
+                </dl>
+              </div>
+              <div class="site-type-row__copy">
+                <p>Подходит для товаров и услуг, которые потенциальные клиенты уже ищут в Яндексе.</p>
+                <p>Объявление показывается в ответ на конкретный запрос пользователя и ведёт на страницу, соответствующую его задаче. Такой формат позволяет работать с уже сформированным спросом.</p>
+              </div>
+            </article>
+
+            <article class="site-type-row">
+              <div class="site-type-row__identity">
+                <h3><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в Рекламной сети Яндекса</a></h3>
+                <dl class="site-type-row__meta">
+                  <div><dt>Стоимость ведения:</dt><dd>от 45 000 ₽ в месяц</dd></div>
+                  <div><dt>Срок запуска:</dt><dd>от 7 рабочих дней</dd></div>
+                </dl>
+              </div>
+              <div class="site-type-row__copy">
+                <p>Подходит для знакомства аудитории с предложением, формирования спроса и повторного контакта с потенциальными клиентами.</p>
+                <p>Объявления с текстами, изображениями или видео показываются на сайтах и в сервисах рекламной сети Яндекса.</p>
+              </div>
+            </article>
+
+            <article class="site-type-row">
+              <div class="site-type-row__identity">
+                <h3><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></h3>
+                <dl class="site-type-row__meta">
+                  <div><dt>Стоимость ведения:</dt><dd>от 35 000 ₽ в месяц</dd></div>
+                  <div><dt>Срок запуска:</dt><dd>от 5 рабочих дней</dd></div>
+                </dl>
+              </div>
+              <div class="site-type-row__copy">
+                <p>Помогает повторно обратиться к людям, которые уже посещали сайт, смотрели товары или услуги, но пока не отправили заявку.</p>
+                <p>Особенно полезен в тематиках с высоким чеком или длительным выбором, где решение редко принимается после первого посещения.</p>
+              </div>
+            </article>
+
+            <article class="site-type-row">
+              <div class="site-type-row__identity">
+                <h3><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></h3>
+                <dl class="site-type-row__meta">
+                  <div><dt>Стоимость ведения:</dt><dd>от 55 000 ₽ в месяц</dd></div>
+                  <div><dt>Срок запуска:</dt><dd>от 10 рабочих дней</dd></div>
+                </dl>
+              </div>
+              <div class="site-type-row__copy">
+                <p>Подходит интернет-магазинам, производителям и продавцам с большим ассортиментом.</p>
+                <p>Объявления формируются на основе данных о товарах и могут содержать название, изображение, цену и другую важную информацию.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section ads-scenarios" aria-labelledby="ads-scenarios-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="ads-scenarios-title">С какими задачами к нам обращаются</h2>
+            <p class="service-section-lead">Помогаем запустить рекламу, повысить эффективность действующих кампаний или масштабировать успешные</p>
+          </div>
+          <div class="ads-scenarios__grid">
+            <article><h3>Нужно запустить рекламу с нуля</h3><p>Компания раньше не использовала Яндекс Директ или запускает новое направление.</p><p>Оцениваем спрос, проверяем сайт, настраиваем аналитику и создаём рекламные кампании под приоритетные услуги или товары.</p></article>
+            <article><h3>Реклама расходует бюджет, но заявок мало</h3><p>Проверяем не только настройки кампаний, но и запросы, аудитории, объявления, посадочные страницы и работу форм обратной связи.</p><p>Определяем, на каком этапе теряются потенциальные клиенты.</p></article>
+            <article><h3>Стоимость заявки стала слишком высокой</h3><p>Анализируем динамику конкуренции, стоимость трафика, структуру кампаний, конверсию сайта и качество поступающих обращений.</p><p>Ищем возможности снизить расходы или повысить отдачу от рекламного бюджета.</p></article>
+            <article><h3>Приходит много нецелевых обращений</h3><p>Изучаем запросы, площадки, аудитории и содержание объявлений. Проверяем, достаточно ли точно на сайте указаны цены, условия и ограничения.</p><p>Также согласовываем с отделом продаж, какие обращения считать целевыми.</p></article>
+            <article><h3>Непонятно, какая реклама работает</h3><p>Настраиваем цели, звонки, формы и передачу данных в CRM.</p><p>Разделяем результаты по кампаниям, направлениям и посадочным страницам, чтобы было видно, куда уходит бюджет, и что из этого приносит заявки.</p></article>
+            <article><h3>Нужно принять существующие кампании</h3><p>Проводим аудит, сохраняем полезную статистику и постепенно перестраиваем кампании.</p><p>Не останавливаем работающую рекламу без необходимости и не рушим то, что уже работает.</p></article>
+            <article><h3>Нужно увеличить объём заявок</h3><p>Определяем, какие кампании и аудитории уже дают приемлемый результат.</p><p>После этого расширяем семантику, тестируем новые предложения, подключаем дополнительные форматы и увеличиваем бюджет там, где это оправданно.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--cream cases-section service-cases" id="cases" aria-labelledby="ads-cases-title">
+        <div class="container">
+          <div class="section-heading service-cases__heading"><h2 id="ads-cases-title">Кейсы</h2></div>
+          <div class="cases-grid">
+            <a class="case-card case-card--feature" href="cases/">
+              <div class="case-card__tags"><span>Контекстная реклама</span><span>Медицина</span></div>
+              <div class="case-card__content"><h3>Снизили стоимость целевой записи для клиники</h3><div class="case-card__result"><strong>−37%</strong><span>стоимость целевой записи</span></div></div>
+            </a>
+            <a class="case-card case-card--small case-card--cream" href="cases/">
+              <div class="case-card__tags"><span>Контекстная реклама</span><span>Строительство</span></div>
+              <div class="case-card__content"><h3>Увеличили количество целевых обращений для компании строительных услуг</h3><div class="case-card__result"><strong>×2,1</strong><span>целевых обращений</span></div></div>
+            </a>
+            <a class="case-card case-card--small" href="cases/">
+              <div class="case-card__tags"><span>Товарная реклама</span><span>Интернет-магазин</span></div>
+              <div class="case-card__content"><h3>Увеличили выручку интернет-магазина из товарной рекламы</h3><div class="case-card__result"><strong>+68%</strong><span>выручка из рекламы</span></div></div>
+            </a>
+            <a class="case-card case-card--small case-card--blue" href="cases/">
+              <div class="case-card__tags"><span>Контекстная реклама</span><span>Недвижимость</span></div>
+              <div class="case-card__content"><h3>Снизили стоимость заявки для жилого комплекса</h3><div class="case-card__result"><strong>−29%</strong><span>стоимость заявки</span></div></div>
+            </a>
+            <a class="case-card case-card--wide" href="cases/">
+              <div class="case-card__tags"><span>Контекстная реклама</span><span>B2B</span></div>
+              <div class="case-card__content"><h3>Связали рекламу с CRM и увеличили количество квалифицированных лидов</h3><div class="case-card__result"><strong>+54%</strong><span>квалифицированных лидов</span></div></div>
+            </a>
+            <a class="case-card case-card--small case-card--cream" href="cases/">
+              <div class="case-card__tags"><span>Контекстная реклама</span><span>Перезапуск</span></div>
+              <div class="case-card__content"><h3>Перезапустили переданные рекламные кампании</h3><div class="case-card__result"><strong>12 дней</strong><span>до перезапуска</span></div></div>
+            </a>
+          </div>
+          <a class="section-link" href="cases/">Смотреть все кейсы <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+        </div>
+      </section>
+
+      <section class="section service-process ads-scope" aria-labelledby="ads-scope-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="ads-scope-title">Что входит в настройку и ведение рекламы</h2>
+            <p>Состав работ зависит от продукта, сайта, региона, конкуренции и рекламного бюджета.</p>
+            <p>Ниже показан базовый процесс настройки и ведения. Для конкретного проекта мы можем изменить состав и последовательность этапов, если этого требует задача.</p>
+          </div>
+
+          <ol class="service-process__list">
+            <li>
+              <details open>
+                <summary><span aria-hidden="true">1.</span><strong>Разбираемся в продукте и задаче<small class="ads-process__summary-result">Результат: цели рекламы и приоритетные направления запуска.</small></strong></summary>
+                <div class="service-process__body">
+                  <p class="service-list-intro">Обсуждаем:</p>
+                  <ul><li>какие товары и услуги являются приоритетными;</li><li>кто принимает решение о покупке;</li><li>в каких регионах нужно показывать рекламу;</li><li>какой средний чек и цикл сделки;</li><li>какие обращения считаются целевыми;</li><li>какая стоимость обращения может быть приемлемой.</li></ul>
+                </div>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">2.</span><strong>Изучаем спрос и конкурентов<small class="ads-process__summary-result">Результат: предварительная рекламная стратегия и оценка бюджета.</small></strong></summary>
+                <div class="service-process__body"><p>Анализируем, как пользователи ищут ваши товары и услуги, какие формулировки используют и какие условия, преимущества и аргументы предлагают конкуренты.</p><p>Оцениваем примерный объём спроса.</p></div>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">3.</span><strong>Проверяем сайт и посадочные страницы<small class="ads-process__summary-result">Результат: перечень необходимых доработок сайта.</small></strong></summary>
+                <div class="service-process__body">
+                  <p class="service-list-intro">Смотрим:</p>
+                  <ul><li>соответствует ли страница рекламному запросу;</li><li>понятно ли предложение;</li><li>указаны ли цены и условия;</li><li>достаточно ли доказательств;</li><li>удобно ли пользоваться сайтом со смартфона;</li><li>заметны ли формы, телефон и мессенджеры;</li><li>корректно ли передаются заявки.</li></ul>
+                  <p>Если на сайте нет страницы, которая точно соответствует рекламируемой услуге или предложению, мы рекомендуем создать отдельную посадочную страницу. Так посетитель сразу получает нужную информацию и быстрее переходит к обращению.</p>
+                </div>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">4.</span><strong>Настраиваем аналитику<small class="ads-process__summary-result">Результат: настроенное отслеживание основных действий пользователей.</small></strong></summary>
+                <div class="service-process__body">
+                  <p class="service-list-intro">Подключаем или проверяем:</p>
+                  <ul><li>Яндекс Метрику;</li><li>цели и события;</li><li>формы;</li><li>звонки;</li><li>переходы в мессенджеры;</li><li>электронную коммерцию;</li><li>передачу источников в CRM.</li></ul>
+                  <p>Без аналитики невозможно объективно понять, какие кампании и запросы приводят результат.</p>
+                </div>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">5.</span><strong>Собираем структуру рекламных кампаний<small class="ads-process__summary-result">Результат: более целевая аудитория, меньше бесполезных переходов и эффективнее расходуется рекламный бюджет.</small></strong></summary>
+                <div class="service-process__body"><p>Не объединяем в одной кампании услуги, рассчитанные на разные аудитории. Автоматические стратегии Яндекс Директа обучаются на интересах пользователей и стараются находить людей, которые с большей вероятностью оставят заявку. Если в одной кампании смешаны разные услуги и типы клиентов, система получает неоднородные данные и ей сложнее понять, какую именно аудиторию нужно привлекать.</p><p>Разделяем кампании там, где это необходимо.</p></div>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">6.</span><strong>Готовим объявления и креативы<small class="ads-process__summary-result">Результат: объявления, адаптированные под разные услуги, запросы и аудитории и подготовленные для дальнейшего тестирования.</small></strong></summary>
+                <div class="service-process__body">
+                  <p>Пишем заголовки и тексты, подбираем изображения и создаём несколько вариантов объявлений под разные запросы и сегменты аудитории.</p>
+                  <p class="service-list-intro">В объявлении стараемся сразу показать:</p>
+                  <ul><li>что именно предлагается;</li><li>кому подходит предложение;</li><li>ключевое преимущество;</li><li>цену или условия, если это уместно;</li><li>следующий шаг.</li></ul>
+                  <p>Не используем пустые лозунги и кликбейтные заголовки, которые привлекают внимание, но приводят нецелевые переходы. Объявление должно соответствовать реальному предложению компании и ожиданиям пользователя.</p>
+                </div>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">7.</span><strong>Запускаем кампании и проверяем первые результаты<small class="ads-process__summary-result">Результат: контролируемый запуск, достоверные данные для дальнейшей оптимизации и меньше риска потратить бюджет на рекламу, которая не приводит к обращению.</small></strong></summary>
+                <div class="service-process__body"><p>Перед запуском проверяем объявления, ссылки, цели, формы и ограничения бюджета, чтобы технические ошибки не приводили к бесполезным расходам и потерянным обращениям.</p><p>После старта следим, по каким запросам показывается реклама, куда переходят пользователи и какие действия совершают на сайте. Не меняем настройки хаотично после первых кликов — сначала собираем достаточно данных, чтобы принимать решения на основании статистики.</p><p>Если выясняется, что обращения теряются из-за сайта, формы или некорректной аналитики, подключаем нужного специалиста и устраняем причину, а не пытаемся компенсировать проблему повышением ставок.</p></div>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary><span aria-hidden="true">8.</span><strong>Оптимизируем рекламу<small class="ads-process__summary-result">Результат: меньше расходов на бесполезные переходы, больше бюджета направляется на работающие направления, а стоимость и качество обращений становятся более управляемыми.</small></strong></summary>
+                <div class="service-process__body">
+                  <p class="service-list-intro">Регулярно анализируем:</p>
+                  <ul><li>поисковые запросы — какие формулировки приводят потенциальных клиентов, а какие дают случайные переходы;</li><li>аудитории — какие группы пользователей чаще интересуются предложением и оставляют заявки;</li><li>площадки — где показы приводят полезные переходы, а где бюджет расходуется без достаточной отдачи;</li><li>объявления и креативы — какие тексты, изображения и предложения лучше привлекают нужную аудиторию;</li><li>устройства, время и регионы — при каких условиях реклама работает эффективнее;</li><li>посадочные страницы — где пользователи чаще обращаются, а где уходят, не найдя нужной информации;</li><li>стоимость и качество заявок — какие кампании приводят не просто больше обращений, а более подходящих клиентов.</li></ul>
+                  <p>На основании этих данных ограничиваем неэффективные запросы, аудитории и площадки. Бюджет направляем на кампании и услуги, которые показывают лучший результат.</p>
+                  <p>Также проверяем новые варианты объявлений, предложений и посадочных страниц, чтобы находить более эффективные способы привлечения аудитории.</p>
+                </div>
+              </details>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section--cream ads-landing" aria-labelledby="ads-landing-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="ads-landing-title">Посадочные страницы под конкретный запрос</h2>
+            <p class="service-section-lead">После перехода из рекламы человек должен сразу увидеть нужную услугу, условия и способ обратиться</p>
+            <p>Человек переходит по объявлению с конкретным ожиданием. Если реклама рассказывает об одной услуге, а ссылка ведёт на общую страницу с десятками направлений, ему приходится самостоятельно искать нужную информацию.</p>
+            <p>Из-за этого часть посетителей уходит, а стоимость обращения растёт.</p>
+          </div>
+          <div class="ads-landing__panel">
+            <p class="service-list-intro">Поэтому мы проверяем существующие страницы или создаём отдельные посадочные, на которых посетитель сразу видит:</p>
+            <ul>
+              <li><strong>конкретное предложение</strong> — какую услугу или товар вы предлагаете;</li>
+              <li><strong>цену и условия</strong> — ориентировочную стоимость, сроки, ограничения и другую информацию, важную для принятия решения;</li>
+              <li><strong>преимущества компании</strong> — не общие лозунги, а конкретные причины обратиться именно к вам;</li>
+              <li><strong>примеры и доказательства</strong> — выполненные проекты, фотографии, кейсы, отзывы, сертификаты или результаты;</li>
+              <li><strong>ответы на частые вопросы</strong> — информацию, которая помогает снять сомнения до обращения;</li>
+              <li><strong>удобный способ связи</strong> — форму, телефон или мессенджер рядом с предложением, без необходимости искать контакты по сайту.</li>
+            </ul>
+            <p>Так человек после перехода из рекламы сразу получает ту информацию, которую ожидал увидеть, быстрее оценивает предложение и легче принимает решение об обращении.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section ads-leads" aria-labelledby="ads-leads-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="ads-leads-title">Качество заявок</h2>
+            <p class="service-section-lead">Оцениваем не только количество обращений, но и их ценность для бизнеса</p>
+            <p>Низкая стоимость заявки ещё не означает, что реклама работает эффективно. Среди обращений могут быть спам, повторные заявки, запросы из других регионов или обращения по услугам, которые компания не оказывает.</p>
+            <p>Поэтому нам важно понимать, что происходит с заявкой после её получения: соответствует ли она вашему предложению, удалось ли связаться с человеком и был ли у него реальный интерес к покупке.</p>
+          </div>
+          <div class="ads-leads__panel">
+            <p class="service-list-intro">Для этого мы получаем обратную связь от менеджеров или используем данные CRM. На их основании можем:</p>
+            <ul>
+              <li>исключать запросы и аудитории, которые приводят неподходящие обращения;</li>
+              <li>точнее формулировать объявления и заранее указывать важные условия;</li>
+              <li>направлять пользователей на более подходящие посадочные страницы;</li>
+              <li>усиливать кампании, которые приводят заинтересованных клиентов;</li>
+              <li>перераспределять бюджет между услугами с учётом качества заявок.</li>
+            </ul>
+            <div class="ads-leads__outcome">
+              <p class="ads-leads__outcome-primary">Так реклама оптимизируется не под максимальное количество заполненных форм, а под обращения, которые имеют реальную ценность для бизнеса.</p>
+              <p class="ads-leads__outcome-context">На итоговый результат влияет не только реклама, но и само предложение компании, цены, скорость ответа и работа отдела продаж. Поэтому лучший результат достигается, когда рекламная статистика дополняется обратной связью о квалификации лидов.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--cream ads-reporting" aria-labelledby="ads-reporting-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="ads-reporting-title">Отчётность</h2>
+            <p class="service-section-lead">Вы понимаете, что происходит с рекламой и какие решения мы принимаем</p>
+          </div>
+          <div class="ads-reporting__panel">
+            <div class="ads-reporting__base">
+              <p class="service-list-intro">Каждый месяц вы получаете не просто таблицы с метриками: показами, кликами и расходами. Мы объясняем результаты понятным языком и показываем:</p>
+              <ul>
+                <li>сколько средств было вложено в рекламу;</li>
+                <li>сколько звонков, заявок и сообщений она принесла;</li>
+                <li>какие услуги и рекламные кампании сработали лучше;</li>
+                <li>где стоимость обращения изменилась и почему;</li>
+                <li>какие запросы и аудитории приводят подходящих клиентов;</li>
+                <li>где бюджет расходуется без достаточного результата;</li>
+                <li>какие объявления и посадочные страницы показали лучшую эффективность;</li>
+                <li>что мы изменили за отчётный период;</li>
+                <li>какие задачи планируем выполнить дальше.</li>
+              </ul>
+            </div>
+            <div class="ads-reporting__crm">
+              <p class="service-list-intro">Если подключена CRM или сквозная аналитика, дополнительно показываем:</p>
+              <ul><li>качество поступивших обращений;</li><li>количество квалифицированных заявок;</li><li>сделки и выручку;</li><li>стоимость привлечения клиента;</li><li>окупаемость рекламных расходов.</li></ul>
+            </div>
+            <p class="ads-reporting__outcome">В результате вы понимаете окупаемость рекламы, и какие действия мы предпринимаем для улучшения результата.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section service-pricing" aria-labelledby="ads-pricing-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="ads-pricing-title">Стоимость</h2>
+            <p class="service-section-lead">Стоимость настройки и ведения зависит от масштаба рекламной задачи</p>
+            <p>Чем больше товаров, услуг и регионов нужно рекламировать, тем больше потребуется отдельных кампаний, объявлений и посадочных страниц. Например, продвижение одной услуги в одном городе требует меньше работы, чем реклама большого каталога в нескольких регионах.</p>
+            <p>На стоимость также влияет готовность проекта к запуску. Если сайт уже содержит подходящие страницы, формы работают корректно, а заявки передаются в аналитику и CRM, можно сразу переходить к настройке кампаний. Если необходимо подготовить новые страницы, изображения, подключить цели, телефонию или передачу данных в CRM, эти работы оцениваются отдельно.</p>
+            <p>После обсуждения задачи мы покажем, что входит в настройку и ежемесячное ведение, какой рекламный бюджет потребуется для тестирования и какие дополнительные расходы могут возникнуть. Вы заранее понимаете состав работ и общую стоимость запуска.</p>
+          </div>
+          <ul class="service-price-list ads-price-list">
+            <li><div><h3>Аудит Яндекс Директа</h3><p>Проверяем существующие кампании, аналитику, посадочные страницы и готовим список приоритетных изменений.</p></div><strong>от 35 000 ₽</strong></li>
+            <li><div><h3>Настройка рекламы</h3><p>Анализируем спрос, создаём структуру рекламных кампаний, объявления и подключаем аналитику.</p></div><strong>от 80 000 ₽</strong></li>
+            <li><div><h3>Ведение Яндекс Директа</h3><p>Регулярно контролируем кампании, анализируем обращения, тестируем гипотезы и оптимизируем бюджет.</p></div><strong>от 60 000 ₽ в месяц</strong></li>
+            <li><div><h3>Перезапуск существующих кампаний</h3><p>Подходит, если реклама уже работает, но результат не устраивает или текущий подрядчик передаёт проект.</p></div><strong>от 90 000 ₽</strong></li>
+          </ul>
+          <div class="ads-budget">
+            <div>
+              <h3>Рекламный бюджет оплачивается отдельно</h3>
+              <p>Стоимость услуг A1 не включает деньги, которые расходуются на показы и переходы в Яндекс Директе.</p>
+            </div>
+            <div>
+              <p class="service-list-intro">До начала работы мы разделяем:</p>
+              <ul><li>стоимость настройки;</li><li>стоимость ежемесячного ведения;</li><li>рекламный бюджет;</li><li>возможные расходы на коллтрекинг, CRM или другие сервисы;</li><li>стоимость доработок сайта, если они необходимы.</li></ul>
+              <p>Вы заранее понимаете общий состав расходов.</p>
+            </div>
+            <a class="button button--primary button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">Рассчитать стоимость рекламы <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section service-project-team" aria-labelledby="ads-team-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="ads-team-title">Команда проекта</h2>
+            <p class="service-section-lead">Над рекламой работают специалисты разных направлений</p>
+          </div>
+          <div class="service-project-team__grid">
+            <article><h3>Руководитель проекта</h3><p>Организует работу и отвечает за коммуникацию.</p></article>
+            <article><h3>Специалист по контекстной рекламе</h3><p>Настраивает и оптимизирует кампании.</p></article>
+            <article><h3>Аналитик</h3><p>Настраивает отслеживание звонков, заявок и продаж, чтобы оценивать эффективность рекламы и принимать решения на основании данных.</p></article>
+            <article><h3>Дизайнер</h3><p>Разрабатывает изображения и рекламные креативы.</p></article>
+            <article><h3>Разработчик</h3><p>Дорабатывает посадочные страницы, формы и интеграции.</p></article>
+          </div>
+          <p class="service-project-team__conclusion">Состав команды зависит от задачи. Основным контактом остаётся руководитель проекта: он координирует специалистов и отвечает за то, чтобы реклама, аналитика и доработки сайта выполнялись согласованно.</p>
+
+          <div class="team-slider service-project-team__slider" data-team-slider>
+            <div class="team-slider__controls" aria-label="Навигация по команде">
+              <button class="team-slider__button" type="button" aria-label="Предыдущие сотрудники" aria-controls="ads-team-list" data-team-prev disabled><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+              <button class="team-slider__button" type="button" aria-label="Следующие сотрудники" aria-controls="ads-team-list" data-team-next><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
+            </div>
+            <ul class="team-members" id="ads-team-list" aria-label="Команда A1" tabindex="0" data-team-track>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Руководитель проекта</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Контекстная реклама</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Аналитика</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Дизайн</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Разработка</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Тексты</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Маркетинг</figcaption></figure></li>
+              <li><figure class="team-member"><div class="team-member__placeholder" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="23" r="12"></circle><path d="M12 58c0-12 8-20 20-20s20 8 20 20"></path></svg></div><figcaption>Техническая поддержка</figcaption></figure></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--cream service-reasons" aria-labelledby="ads-reasons-title">
+        <div class="container">
+          <div class="service-section-intro">
+            <h2 id="ads-reasons-title">Почему A1-Интернет Эксперт</h2>
+            <p class="service-section-lead">Не ограничиваем работу настройками Яндекс Директа</p>
+          </div>
+          <div class="service-reasons__grid">
+            <article><h3>Реклама и разработка одной командой</h3><p>Можем самостоятельно исправить форму, страницу или техническую ошибку, которая мешает получать обращения.</p></article>
+            <article><h3>Смотрим на целевые действия</h3><p>Оцениваем не только показы и клики, но и звонки, сообщения и заказы.</p></article>
+            <article><h3>Учитываем качество заявок</h3><p>Получаем обратную связь от клиента и корректируем кампании на основании реальных обращений.</p></article>
+            <article><h3>Показываем расходы и эффективность</h3><p>Вы знаете, сколько потрачено, какие кампании дали результат и какие изменения были внесены.</p></article>
+            <article><h3>Не скрываем рекламный кабинет</h3><p>Клиент получает необходимые доступы и сохраняет контроль над рекламой.</p></article>
+          </div>
+          <figure class="director-quote service-reasons__director">
+            <div class="director-quote__photo"><img src="team/founder-avatar.jpg" alt="Эдуард Буторин, Директор агентства A1-Интернет Эксперт" loading="lazy"></div>
+            <div class="director-quote__content">
+              <p class="director-quote__label">Позиция директора</p>
+              <blockquote><p>За 15 лет работы я убедился: клиенту не нужен маркетинг ради маркетинга.</p><p><strong>Нужны заявки и продажи.</strong> Поэтому сначала разбираемся, что реально работает в вашем бизнесе, — и только потом предлагаем решение.</p></blockquote>
+              <figcaption><strong>Эдуард Буторин</strong><span>Директор агентства A1-Интернет Эксперт</span></figcaption>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section faq-section service-faq" aria-labelledby="ads-faq-title">
+        <div class="container faq-container">
+          <h2 id="ads-faq-title">Частые вопросы</h2>
+          <div class="faq-list">
+            <details><summary>Когда реклама начнёт приводить обращения?</summary><div class="faq-answer"><p>Показы могут начаться вскоре после настройки и прохождения модерации. Но для объективной оценки необходимо накопить данные.</p><p>Срок зависит от спроса, бюджета, конкуренции, качества сайта и длительности принятия решения в нише.</p></div></details>
+            <details><summary>Можете ли вы гарантировать количество заявок?</summary><div class="faq-answer"><p>Нет. До запуска невозможно достоверно гарантировать количество и стоимость обращений.</p><p>Мы можем оценить спрос, заранее подготовить прогноз, правильно настроить аналитику и системно работать над улучшением результата.</p></div></details>
+            <details><summary>Какой рекламный бюджет нужен?</summary><div class="faq-answer"><p>Он зависит от тематики, региона, конкуренции и необходимого объёма обращений.</p><p>Слишком маленький бюджет может не позволить получить достаточно данных для оценки и оптимизации. Перед запуском мы предложим реалистичный диапазон.</p></div></details>
+            <details><summary>Входит ли рекламный бюджет в стоимость ведения?</summary><div class="faq-answer"><p>Нет. Услуги агентства и расходы на рекламу оплачиваются отдельно.</p><p>В предложении мы показываем обе суммы и возможные дополнительные расходы на сервисы.</p></div></details>
+            <details><summary>Нужен ли сайт для запуска рекламы?</summary><div class="faq-answer"><p>Для большинства задач нужен сайт или отдельная посадочная страница.</p><p>Некоторые форматы позволяют получать обращения без полноценного сайта, но перед запуском мы оценим, насколько это подходит вашему продукту.</p></div></details>
+            <details><summary>Что делать, если сайт плохо конвертирует?</summary><div class="faq-answer"><p>Проверим содержание, мобильную версию, формы и соответствие страницы рекламному запросу.</p><p>Небольшие изменения можем внести в рамках сопровождения или оценить отдельным этапом. Если требуется новая посадочная страница, предложим её разработку.</p></div></details>
+            <details><summary>Можно ли принять кампании от другого подрядчика?</summary><div class="faq-answer"><p>Да. Сначала проводим аудит, изучаем накопленную статистику и определяем, что можно сохранить.</p><p>Работающие кампании не останавливаем без причины.</p></div></details>
+            <details><summary>Кому принадлежит рекламный кабинет?</summary><div class="faq-answer"><p>Рекламный кабинет и накопленная статистика должны оставаться доступными клиенту.</p><p>Порядок предоставления доступов фиксируем до начала работы.</p></div></details>
+            <details><summary>Как вы определяете качество заявок?</summary><div class="faq-answer"><p>Согласовываем критерии целевого обращения и получаем обратную связь от ваших менеджеров.</p><p>Лучший вариант — передавать информацию о квалификации заявок через CRM или структурированный отчёт.</p></div></details>
+            <details><summary>Что потребуется от нашей компании?</summary><div class="faq-answer"><p>На старте понадобится информация о продукте, приоритетных услугах, ценах, регионах и допустимом бюджете.</p><p>После запуска важна обратная связь по качеству обращений и своевременное информирование об изменении условий, цен или загрузки отдела продаж.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="contact-card">
+            <div class="contact-card__content">
+              <div class="contact-card__copy">
+                <div class="contact-card__label">Связаться</div>
+                <h2 id="contact-title">Обсудим ваш <span>проект</span>?</h2>
+                <p>Напишите в любой удобный мессенджер — пришлём план работ и смету за 1 рабочий день. Первая консультация бесплатно.</p>
+                <ul class="contact-badges"><li>Ответ за 24 часа</li><li>Бесплатная оценка</li><li>15+ специалистов в штате</li></ul>
+                <div class="response-time"><span aria-hidden="true"></span>Обычно отвечаем за 15 минут</div>
+                <div class="contact-actions">
+                  <a class="button button--primary button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">Написать в Telegram <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+                  <a class="button button--contact" href="https://max.ru/a1reklama" target="_blank" rel="noopener noreferrer">Max</a>
+                  <a class="button button--contact" href="tel:+73462000000">Позвонить</a>
+                </div>
+              </div>
+              <figure class="contact-director">
+                <div><img src="team/founder-avatar.jpg" alt="Эдуард Буторин, Директор A1-Интернет Эксперт"></div>
+                <figcaption><strong>Эдуард Буторин</strong><span>Директор A1-Интернет Эксперт</span><em>«Посмотрю ваш проект лично»</em></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand"><a class="brand brand--footer" href="./" aria-label="A1-Интернет Эксперт, на главную"><img src="logo.png" width="55" height="70" alt=""></a><p>Диджитал-агентство полного цикла в Сургуте и Тюмени с 2015 года.</p></div>
+          <nav aria-label="Услуги в подвале"><h2>Услуги</h2><ul><li><a href="surgut/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="surgut/seo/">SEO-продвижение</a></li><li><a href="surgut/reklama/">Реклама</a></li><li><a href="complex-marketing/">Комплексный интернет-маркетинг</a></li><li><a href="surgut/vnedrenie-crm/">Внедрение CRM</a></li><li><a href="surgut/mobilnye-prilozheniya/">Мобильные приложения</a></li><li><a href="surgut/veb-dizajn/">Веб-дизайн</a></li><li><a href="surgut/otraslevaya-ekspertiza/">Отраслевая экспертиза</a></li><li><a href="surgut/tekhpodderzhka/">Техподдержка сайтов</a></li><li><a href="surgut/geomarketing/">Геомаркетинг</a></li></ul></nav>
+          <nav aria-label="Компания в подвале"><h2>Компания</h2><ul><li><a href="company/about/">О нас</a></li><li><a href="cases/">Кейсы</a></li><li><a href="blog/">Блог</a></li><li><a href="company/reviews/">Отзывы</a></li><li><a href="company/careers/">Вакансии</a></li><li><a href="prices/">Цены</a></li><li><a href="akcii/">Акции</a></li></ul></nav>
+          <div class="site-footer__offices">
+            <h2>Офисы</h2>
+            <div><a class="office-title" href="surgut/">Сургут</a><address><a href="tel:+73462000000">+7 (3462) 00-00-00</a><a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a><span>улица Университетская, 25, офис 408</span></address></div>
+            <div><a class="office-title" href="tyumen/">Тюмень</a><address><a href="tel:+73452000000">+7 (3452) 00-00-00</a><a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a><span>улица Республики, 61, офис 712</span></address></div>
+          </div>
+        </div>
+        <div class="site-footer__bottom"><div>© 2026 A1-Интернет Эксперт. Все права защищены.</div><div><a href="privacy/">Политика конфиденциальности</a><a href="terms/">Пользовательское соглашение</a></div></div>
+      </div>
+    </footer>
+
+    <div class="mobile-sticky-actions" data-mobile-sticky data-visible="false">
+      <a href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+      <a href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">Обсудить рекламу <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+    </div>
+  </body>
+</html>

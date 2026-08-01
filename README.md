@@ -19,10 +19,12 @@
 
 - Главная пересобрана в `prototype/index.html` на чистых HTML, CSS и vanilla JS по визуальному и функциональному каркасу первой версии.
 - Её структура и карта источников зафиксированы в `docs/pages/home.md`.
-- Общая система страниц услуг реализована на двух экземплярах:
-  `prototype/razrabotka-sajtov/` и `prototype/seo/`. Общий каркас описан в
-  `docs/pages/service-template.md`, источники страниц — в
-  `docs/pages/web-development.md` и `docs/pages/seo-promotion.md`.
+- Общая система страниц услуг реализована на четырёх экземплярах:
+  `prototype/razrabotka-sajtov/`, `prototype/seo/`,
+  `prototype/kontekstnaya-reklama/` и `prototype/complex-marketing/`. Общий
+  каркас описан в `docs/pages/service-template.md`, источники страниц — в
+  `docs/pages/web-development.md`, `docs/pages/seo-promotion.md`,
+  `docs/pages/contextual-advertising.md` и `docs/pages/complex-marketing.md`.
 - Четыре основные услуги используют общие токены и компоненты, но получают
   собственную последовательность и от двух до четырёх центральных UX-модулей.
 - Старая главная сохранена в `prototype/test/` для визуального сравнения.
@@ -70,14 +72,20 @@ docs/
     service-template.md   общий каркас страниц услуг
     web-development.md    page brief разработки сайтов
     seo-promotion.md      page brief SEO-продвижения
+    contextual-advertising.md  page brief контекстной рекламы
+    complex-marketing.md  page brief комплексного интернет-маркетинга
 prototype/
   index.html              новая главная
   styles.css              стили прототипа
   service.css             общие компоненты страниц услуг
   seo.css                 индивидуальная композиция SEO-блоков
+  context.css             индивидуальная композиция рекламных блоков
+  complex.css             индивидуальная композиция комплексного маркетинга
   script.js               меню и доступные раскрывающиеся элементы
   razrabotka-sajtov/      страница разработки сайтов
   seo/                    страница SEO-продвижения
+  kontekstnaya-reklama/   страница контекстной рекламы
+  complex-marketing/      страница комплексного интернет-маркетинга
   assets/fonts/           локальные шрифты новой главной
   test/                   старая главная
   _next/                  зависимости старой главной
@@ -85,9 +93,9 @@ prototype/
 
 ## С чего продолжать
 
-1. Просмотреть и согласовать страницы разработки сайтов и SEO-продвижения.
+1. Просмотреть и согласовать четыре основные страницы услуг.
 2. После отдельного SERP-анализа утвердить production URL для услуг и городов.
-3. Продолжить контекстной рекламой и комплексным интернет-маркетингом только
-   после собственного page brief каждой страницы.
+3. После содержательного согласования провести общий финальный аудит страниц
+   услуг и определить следующий раздел.
 
 Перед любой работой прочитайте `AGENTS.md`.

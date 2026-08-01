@@ -45,7 +45,9 @@
   --cream-300: #c8c5bb;
   --paper: #ffffff;
   --ink-900: #1c1c1a;
+  --ink-800: #2e2e2a;
   --ink-700: #3f3f3a;
+  --ink-600: #51514b;
   --ink-500: #626159;
   --ink-400: #77756d;
   --accent-50: #f0f0ed;
@@ -57,9 +59,12 @@
   --accent-700: #171715;
   --brand-50: #f1f3f6;
   --brand-100: #e1e6ee;
+  --brand-200: #c7d0dd;
+  --brand-300: #a9b6c7;
   --brand-400: #8795a8;
   --brand-500: #66768d;
   --brand-600: #465a76;
+  --brand-700: #34445c;
   --success: #3e8e6b;
 
   --container: 1280px;
@@ -2984,6 +2989,14 @@ address {
 
   .mobile-menu {
     width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-services details a,
+  .site-footer nav a,
+  .site-footer__offices address a {
+    min-height: 44px;
   }
 }
 

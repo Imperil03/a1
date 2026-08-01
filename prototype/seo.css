@@ -6,7 +6,7 @@
   max-width: 920px;
 }
 
-.seo-page .service-hero h1 {
+.seo-page .service-hero__headline {
   max-width: 850px;
 }
 
@@ -322,7 +322,7 @@
 }
 
 @media (max-width: 767px) {
-  .seo-page .service-hero h1 {
+  .seo-page .service-hero__headline {
     font-size: clamp(25px, 7.7vw, 30px);
     line-height: 1.16;
   }

@@ -1,0 +1,678 @@
+/* Contextual advertising service page: service-specific composition only.
+   Shared tokens, navigation, typography and reusable components live in
+   styles.css and service.css. */
+
+.context-page .service-section-intro {
+  max-width: 920px;
+}
+
+.context-page .service-hero__headline {
+  max-width: 980px;
+}
+
+.ads-hero-title__line {
+  display: block;
+}
+
+/* Full advertising chain */
+
+.ads-chain {
+  max-width: 1120px;
+  overflow: hidden;
+  border: 1px solid var(--cream-200);
+  border-radius: var(--radius-xl);
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+}
+
+.ads-chain__steps {
+  padding: 30px 34px 34px;
+}
+
+.ads-chain__steps > ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 24px;
+  margin-top: 18px;
+  counter-reset: ads-chain;
+}
+
+.ads-chain__steps li {
+  position: relative;
+  min-height: 92px;
+  padding: 25px 8px 18px 42px;
+  border-top: 1px solid var(--cream-200);
+  color: var(--ink-700);
+  line-height: 1.58;
+  counter-increment: ads-chain;
+}
+
+.ads-chain__steps li::before {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid var(--brand-100);
+  border-radius: 50%;
+  color: var(--brand-700);
+  background: var(--brand-50);
+  content: counter(ads-chain, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ads-chain__conclusion {
+  margin: 0;
+  padding: 28px 36px;
+  color: var(--cream-100);
+  background: var(--ink-900);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+/* Preliminary assessment: inputs first, possible decision second */
+
+.ads-assessment__panel {
+  display: grid;
+  max-width: 1120px;
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+  overflow: hidden;
+  border: 1px solid var(--cream-200);
+  border-radius: var(--radius-xl);
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+}
+
+.ads-assessment__criteria,
+.ads-assessment__options {
+  min-width: 0;
+  padding: 34px;
+}
+
+.ads-assessment__criteria ul,
+.ads-assessment__options ul {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.ads-assessment__criteria ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 26px;
+}
+
+.ads-assessment li,
+.ads-landing li,
+.ads-leads li,
+.ads-reporting li,
+.ads-budget li {
+  position: relative;
+  padding-left: 19px;
+  line-height: 1.58;
+}
+
+.ads-assessment li::before,
+.ads-landing li::before,
+.ads-leads li::before,
+.ads-reporting li::before,
+.ads-budget li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-500);
+  content: "";
+}
+
+.ads-assessment__criteria li {
+  color: var(--ink-700);
+}
+
+.ads-assessment__options {
+  color: rgba(255, 255, 255, 0.82);
+  background: var(--ink-900);
+}
+
+.ads-assessment__options .service-list-intro,
+.ads-assessment__options li {
+  color: inherit;
+}
+
+.ads-assessment__options li::before {
+  background: #d9e2ee;
+}
+
+.ads-assessment__action {
+  display: grid;
+  min-width: 0;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 34px;
+  align-items: center;
+  padding: 26px 34px;
+  border-top: 1px solid var(--brand-100);
+  background: var(--brand-50);
+}
+
+.ads-assessment__action p {
+  max-width: 70ch;
+  color: var(--ink-800);
+  font-weight: 650;
+  line-height: 1.62;
+}
+
+/* Four advertising formats */
+
+.ads-formats .site-type-row__meta {
+  grid-template-columns: 1fr;
+}
+
+.ads-formats .site-type-row__meta dd {
+  white-space: normal;
+}
+
+/* Seven reasons for contacting the studio */
+
+.ads-scenarios__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ads-scenarios__grid article {
+  grid-column: span 4;
+  min-height: 256px;
+  padding: 29px;
+  border: 1px solid var(--cream-200);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+}
+
+.ads-scenarios__grid article:nth-child(n + 4) {
+  grid-column: span 3;
+  min-height: 236px;
+}
+
+.ads-scenarios__grid h3 {
+  font-family: var(--font-display);
+  font-size: clamp(19px, 1.9vw, 23px);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.32;
+}
+
+.ads-scenarios__grid p {
+  margin-top: 15px;
+  color: var(--ink-700);
+  line-height: 1.62;
+}
+
+.ads-scenarios__grid p + p {
+  margin-top: 17px;
+  padding-top: 15px;
+  border-top: 1px solid var(--cream-200);
+  color: var(--ink-800);
+  font-weight: 600;
+}
+
+/* Landing page, lead quality and reporting form one explanatory sequence,
+   but each panel has a different reading task. */
+
+.ads-landing__panel,
+.ads-leads__panel,
+.ads-reporting__panel {
+  max-width: 1120px;
+  overflow: hidden;
+  border: 1px solid var(--cream-200);
+  border-radius: var(--radius-xl);
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+}
+
+.ads-landing__panel > .service-list-intro,
+.ads-leads__panel > .service-list-intro,
+.ads-reporting__base,
+.ads-reporting__crm {
+  padding: 34px;
+}
+
+.ads-landing__panel > ul,
+.ads-leads__panel > ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px 30px;
+  padding: 0 34px 34px;
+  color: var(--ink-700);
+}
+
+.ads-landing__panel > p:last-child,
+.ads-leads__outcome,
+.ads-reporting__outcome {
+  margin: 0;
+  padding: 24px 34px;
+  border-top: 1px solid var(--brand-100);
+  color: var(--ink-800);
+  background: var(--brand-50);
+  font-weight: 650;
+  line-height: 1.62;
+}
+
+.ads-landing__panel > p:last-child {
+  font-weight: 650;
+}
+
+.ads-landing__panel li strong {
+  color: var(--ink-900);
+  font-weight: 700;
+}
+
+.ads-leads__panel {
+  background: var(--paper);
+}
+
+.ads-leads__outcome {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  padding: 0;
+  border-top: 1px solid var(--brand-100);
+  background: transparent;
+}
+
+.ads-leads__outcome p {
+  padding: 26px 34px;
+  line-height: 1.62;
+}
+
+.ads-leads__outcome-primary {
+  color: var(--cream-100);
+  background: var(--ink-900);
+  font-weight: 650;
+}
+
+.ads-leads__outcome-context {
+  border-left: 1px solid var(--brand-100);
+  color: var(--ink-700);
+  background: var(--brand-50);
+  font-weight: 500;
+}
+
+.ads-reporting__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+}
+
+.ads-reporting__base ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 28px;
+  margin-top: 18px;
+  color: var(--ink-700);
+}
+
+.ads-reporting__crm {
+  color: rgba(255, 255, 255, 0.82);
+  background: var(--ink-900);
+}
+
+.ads-reporting__crm .service-list-intro,
+.ads-reporting__crm li {
+  color: inherit;
+}
+
+.ads-reporting__crm ul {
+  display: grid;
+  gap: 11px;
+  margin-top: 18px;
+}
+
+.ads-reporting__crm li::before {
+  background: #d9e2ee;
+}
+
+.ads-reporting__outcome {
+  grid-column: 1 / -1;
+}
+
+/* Prices and advertising budget are deliberately separated. */
+
+.context-page .service-price-list > li {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.context-page .service-price-list h3 + p {
+  max-width: 70ch;
+  margin-top: 7px;
+  color: var(--ink-600);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.ads-budget {
+  display: grid;
+  max-width: 1120px;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  gap: 42px;
+  margin-top: 22px;
+  padding: 34px;
+  border: 1px solid var(--brand-100);
+  border-radius: var(--radius-xl);
+  background: var(--brand-50);
+}
+
+.ads-budget h3 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.ads-budget h3 + p {
+  margin-top: 16px;
+  color: var(--ink-700);
+  line-height: 1.62;
+}
+
+.ads-budget ul {
+  display: grid;
+  gap: 9px;
+  margin-top: 13px;
+  color: var(--ink-700);
+}
+
+.ads-budget > div:last-of-type > p:last-child {
+  margin-top: 20px;
+  color: var(--ink-900);
+  font-weight: 700;
+}
+
+.ads-budget > .button {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+@media (min-width: 768px) {
+  .ads-budget > .button {
+    grid-column: 2;
+  }
+}
+
+.ads-process__summary-result {
+  display: block;
+  max-width: 78ch;
+  margin-top: 7px;
+  color: var(--ink-600);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.48;
+}
+
+/* Five roles and five reasons fill balanced rows without empty cards. */
+
+.context-page .service-project-team__grid,
+.context-page .service-reasons__grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.context-page .service-project-team__grid article,
+.context-page .service-reasons__grid article {
+  grid-column: span 2;
+}
+
+.context-page .service-project-team__grid article:nth-child(n + 4),
+.context-page .service-reasons__grid article:nth-child(n + 4) {
+  grid-column: span 3;
+}
+
+@media (max-width: 1023px) {
+  .ads-chain__steps > ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ads-scenarios__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ads-scenarios__grid article,
+  .ads-scenarios__grid article:nth-child(n + 4) {
+    grid-column: auto;
+    min-height: 0;
+  }
+
+  .ads-scenarios__grid article:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .context-page .service-project-team__grid,
+  .context-page .service-reasons__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .context-page .service-project-team__grid article,
+  .context-page .service-project-team__grid article:nth-child(n + 4),
+  .context-page .service-reasons__grid article,
+  .context-page .service-reasons__grid article:nth-child(n + 4) {
+    grid-column: auto;
+  }
+
+  .context-page .service-project-team__grid article:last-child,
+  .context-page .service-reasons__grid article:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .context-page .service-hero__label {
+    font-size: 12px;
+  }
+
+  .context-page .service-hero__headline {
+    font-size: clamp(25px, 7.7vw, 30px);
+    line-height: 1.16;
+  }
+
+  .context-page .service-hero__facts > div,
+  .context-page .service-hero__facts > div + div {
+    gap: 14px;
+  }
+
+  .context-page .service-hero__facts dt {
+    width: 178px;
+    font-size: 20px;
+  }
+
+  .context-page .service-hero__facts dd {
+    font-size: 12px;
+  }
+
+  .ads-chain__steps {
+    padding: 8px 23px 22px;
+  }
+
+  .ads-chain__steps > ol {
+    grid-template-columns: 1fr;
+  }
+
+  .ads-chain__steps li {
+    min-height: 0;
+    padding-block: 20px;
+  }
+
+  .ads-chain__steps li::before {
+    top: 17px;
+  }
+
+  .ads-chain__conclusion,
+  .ads-assessment__criteria,
+  .ads-assessment__options,
+  .ads-assessment__action,
+  .ads-landing__panel > .service-list-intro,
+  .ads-leads__panel > .service-list-intro,
+  .ads-reporting__base,
+  .ads-reporting__crm,
+  .ads-reporting__outcome,
+  .ads-budget {
+    padding: 24px 23px;
+  }
+
+  .ads-assessment__panel,
+  .ads-reporting__panel,
+  .ads-budget {
+    grid-template-columns: 1fr;
+  }
+
+  .ads-assessment__criteria ul,
+  .ads-reporting__base ul,
+  .ads-landing__panel > ul,
+  .ads-leads__panel > ul,
+  .ads-leads__outcome {
+    grid-template-columns: 1fr;
+  }
+
+  .ads-landing__panel > ul,
+  .ads-leads__panel > ul {
+    padding: 0 23px 24px;
+  }
+
+  .ads-assessment__action {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .ads-assessment__action .button,
+  .ads-budget > .button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .ads-scenarios__grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-block: 1px solid var(--cream-300);
+  }
+
+  .ads-scenarios__grid article,
+  .ads-scenarios__grid article:last-child {
+    grid-column: auto;
+    padding: 24px 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .ads-scenarios__grid article + article {
+    border-top: 1px solid var(--cream-300);
+  }
+
+  .ads-scenarios__grid p {
+    margin-top: 12px;
+  }
+
+  .ads-scenarios__grid p + p {
+    margin-top: 13px;
+    padding-top: 12px;
+  }
+
+  .ads-leads__outcome p {
+    padding: 24px 23px;
+  }
+
+  .ads-leads__outcome-context {
+    border-top: 1px solid var(--brand-100);
+    border-left: 0;
+  }
+
+  .ads-formats .site-type-row__meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .ads-formats .site-type-row__meta dt {
+    font-size: 12px;
+  }
+
+  .ads-formats .site-type-row h3 a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .ads-scope .service-process__list summary {
+    align-items: start;
+  }
+
+  .ads-scope .service-process__list summary::after {
+    margin-top: 12px;
+  }
+
+  .ads-scope .ads-process__summary-result {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .context-page .service-cases .case-card,
+  .context-page .service-cases .case-card--feature,
+  .context-page .service-cases .case-card--wide {
+    min-height: 0;
+    padding: 20px;
+  }
+
+  .context-page .service-cases .case-card h3,
+  .context-page .service-cases .case-card--feature h3 {
+    font-size: 20px;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+
+  .context-page .service-price-list > li {
+    grid-template-columns: 1fr;
+  }
+
+  .context-page .service-price-list strong {
+    justify-self: start;
+  }
+
+  .context-page .service-project-team__grid,
+  .context-page .service-reasons__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .context-page .service-project-team__grid article:last-child,
+  .context-page .service-reasons__grid article:last-child {
+    grid-column: auto;
+  }
+
+  .context-page .service-reasons__grid {
+    gap: 0;
+    border-block: 1px solid var(--cream-300);
+  }
+
+  .context-page .service-reasons__grid article,
+  .context-page .service-reasons__grid article:last-child {
+    min-height: 0;
+    padding: 22px 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .context-page .service-reasons__grid article + article {
+    border-top: 1px solid var(--cream-300);
+  }
+}
