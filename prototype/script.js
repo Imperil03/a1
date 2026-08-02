@@ -320,7 +320,9 @@ document.addEventListener("keydown", (event) => {
 const mobileSticky = document.querySelector("[data-mobile-sticky]");
 const contactSection = document.querySelector(".contact-section");
 const footer = document.querySelector(".site-footer");
-const pageHero = document.querySelector(".service-hero, .hero");
+const pageHero = document.querySelector(
+  ".service-hero, .hero, .about-hero, .blog-hero, .article-hero",
+);
 const inlinePrimaryActions = Array.from(
   document.querySelectorAll("main .button--primary"),
 );
@@ -542,3 +544,422 @@ reviewsTrack?.addEventListener("keydown", (event) => {
 });
 window.addEventListener("resize", updateReviewsSliderControls);
 updateReviewsSliderControls();
+
+const aboutTimeline = document.querySelector("[data-about-timeline]");
+const aboutTimelineItems = aboutTimeline
+  ? [...aboutTimeline.querySelectorAll(":scope > li")]
+  : [];
+let aboutTimelineFrame = 0;
+
+function updateAboutTimeline() {
+  aboutTimelineFrame = 0;
+
+  if (!aboutTimeline) {
+    return;
+  }
+
+  const bounds = aboutTimeline.getBoundingClientRect();
+  const startLine = window.innerHeight * 0.72;
+  const endLine = window.innerHeight * 0.32;
+  const travel = Math.max(bounds.height + startLine - endLine, 1);
+  const progress = Math.min(Math.max((startLine - bounds.top) / travel, 0), 1);
+
+  aboutTimeline.style.setProperty("--timeline-progress", progress.toFixed(3));
+
+  aboutTimelineItems.forEach((item) => {
+    const isReached = item.getBoundingClientRect().top <= window.innerHeight * 0.64;
+    item.classList.toggle("is-reached", isReached);
+  });
+}
+
+function requestAboutTimelineUpdate() {
+  if (!aboutTimelineFrame) {
+    aboutTimelineFrame = window.requestAnimationFrame(updateAboutTimeline);
+  }
+}
+
+function configureAboutTimelineMotion() {
+  if (!aboutTimeline) {
+    return;
+  }
+
+  window.removeEventListener("scroll", requestAboutTimelineUpdate);
+  window.removeEventListener("resize", requestAboutTimelineUpdate);
+
+  if (reduceMotion.matches) {
+    aboutTimeline.style.setProperty("--timeline-progress", "1");
+    aboutTimelineItems.forEach((item) => item.classList.add("is-reached"));
+    return;
+  }
+
+  window.addEventListener("scroll", requestAboutTimelineUpdate, { passive: true });
+  window.addEventListener("resize", requestAboutTimelineUpdate);
+  requestAboutTimelineUpdate();
+}
+
+reduceMotion.addEventListener?.("change", configureAboutTimelineMotion);
+configureAboutTimelineMotion();
+
+const aboutPeopleStrip = document.querySelector("[data-about-people-strip]");
+const aboutPeopleToggle = aboutPeopleStrip?.querySelector(
+  "[data-about-people-toggle]",
+);
+const aboutPeoplePauseIcon = aboutPeopleToggle?.querySelector(
+  "[data-about-people-pause-icon]",
+);
+const aboutPeoplePlayIcon = aboutPeopleToggle?.querySelector(
+  "[data-about-people-play-icon]",
+);
+
+function updateAboutPeopleMotionControl() {
+  if (!aboutPeopleStrip || !aboutPeopleToggle) {
+    return;
+  }
+
+  const isPaused = aboutPeopleStrip.dataset.paused === "true";
+  aboutPeopleToggle.setAttribute("aria-pressed", String(isPaused));
+  aboutPeopleToggle.setAttribute(
+    "aria-label",
+    isPaused
+      ? "Продолжить движение фотографий команды"
+      : "Остановить движение фотографий команды",
+  );
+
+  if (aboutPeoplePauseIcon) {
+    aboutPeoplePauseIcon.hidden = isPaused;
+  }
+
+  if (aboutPeoplePlayIcon) {
+    aboutPeoplePlayIcon.hidden = !isPaused;
+  }
+}
+
+aboutPeopleToggle?.addEventListener("click", () => {
+  const isPaused = aboutPeopleStrip?.dataset.paused === "true";
+  aboutPeopleStrip.dataset.paused = String(!isPaused);
+  updateAboutPeopleMotionControl();
+});
+
+updateAboutPeopleMotionControl();
+
+const blogGrid = document.querySelector("[data-blog-grid]");
+const blogCards = blogGrid
+  ? [...blogGrid.querySelectorAll("[data-blog-card]")]
+  : [];
+const blogFilters = [
+  ...document.querySelectorAll("[data-blog-filter]"),
+];
+const blogStatus = document.querySelector("[data-blog-status]");
+const blogMaterialsTitle = document.querySelector("#materials-title");
+const blogCount = document.querySelector("[data-blog-count]");
+const blogPagination = document.querySelector("[data-blog-pagination]");
+const blogPageList = document.querySelector("[data-blog-page-list]");
+const blogPagePrevious = document.querySelector("[data-blog-page-prev]");
+const blogPageNext = document.querySelector("[data-blog-page-next]");
+const BLOG_PAGE_SIZE = 6;
+let activeBlogFilter = "all";
+let activeBlogPage = 1;
+
+function getMaterialsLabel(count) {
+  const lastTwo = count % 100;
+  const last = count % 10;
+
+  if (lastTwo >= 11 && lastTwo <= 14) {
+    return "материалов";
+  }
+
+  if (last === 1) {
+    return "материал";
+  }
+
+  if (last >= 2 && last <= 4) {
+    return "материала";
+  }
+
+  return "материалов";
+}
+
+function getBlogCatalogUrl({
+  filter = activeBlogFilter,
+  page = activeBlogPage,
+  keepCurrentHash = false,
+} = {}) {
+  const nextUrl = new URL(window.location.href);
+  nextUrl.searchParams.delete("author");
+  nextUrl.searchParams.delete("category");
+  nextUrl.searchParams.delete("page");
+
+  if (filter !== "all") {
+    nextUrl.searchParams.set("category", filter);
+  }
+
+  if (page > 1) {
+    nextUrl.searchParams.set("page", String(page));
+  }
+
+  nextUrl.hash = keepCurrentHash ? window.location.hash : "materials";
+  return nextUrl;
+}
+
+function updateBlogDirectionLink(link, targetPage, isDisabled) {
+  if (!link) {
+    return;
+  }
+
+  link.dataset.blogPage = String(targetPage);
+
+  if (isDisabled) {
+    link.setAttribute("aria-disabled", "true");
+    link.removeAttribute("href");
+    link.setAttribute("tabindex", "-1");
+    return;
+  }
+
+  link.removeAttribute("aria-disabled");
+  link.href = getBlogCatalogUrl({ page: targetPage });
+  link.removeAttribute("tabindex");
+}
+
+function renderBlogPagination(pageCount) {
+  if (!blogPagination || !blogPageList) {
+    return;
+  }
+
+  blogPagination.hidden = pageCount <= 1;
+  blogPageList.replaceChildren();
+
+  if (pageCount <= 1) {
+    updateBlogDirectionLink(blogPagePrevious, 1, true);
+    updateBlogDirectionLink(blogPageNext, 1, true);
+    return;
+  }
+
+  for (let page = 1; page <= pageCount; page += 1) {
+    const pageLink = document.createElement("a");
+    pageLink.href = getBlogCatalogUrl({ page });
+    pageLink.dataset.blogPage = String(page);
+    pageLink.textContent = String(page);
+    pageLink.setAttribute("aria-label", `Страница ${page}`);
+
+    if (page === activeBlogPage) {
+      pageLink.setAttribute("aria-current", "page");
+    }
+
+    blogPageList.append(pageLink);
+  }
+
+  updateBlogDirectionLink(
+    blogPagePrevious,
+    Math.max(activeBlogPage - 1, 1),
+    activeBlogPage === 1,
+  );
+  updateBlogDirectionLink(
+    blogPageNext,
+    Math.min(activeBlogPage + 1, pageCount),
+    activeBlogPage === pageCount,
+  );
+}
+
+function updateBlogCatalog({ announce = false } = {}) {
+  if (!blogGrid) {
+    return;
+  }
+
+  const matchingCards = blogCards.filter(
+    (card) =>
+      activeBlogFilter === "all" ||
+      card.dataset.blogCategory === activeBlogFilter,
+  );
+  const pageCount = Math.max(
+    Math.ceil(matchingCards.length / BLOG_PAGE_SIZE),
+    1,
+  );
+  activeBlogPage = Math.min(Math.max(activeBlogPage, 1), pageCount);
+
+  const firstCardIndex = (activeBlogPage - 1) * BLOG_PAGE_SIZE;
+  const pageCards = matchingCards.slice(
+    firstCardIndex,
+    firstCardIndex + BLOG_PAGE_SIZE,
+  );
+
+  blogCards.forEach((card) => {
+    card.hidden = !pageCards.includes(card);
+  });
+
+  blogFilters.forEach((filter) => {
+    const isActive = filter.dataset.blogFilter === activeBlogFilter;
+    filter.setAttribute("aria-pressed", String(isActive));
+  });
+
+  if (blogMaterialsTitle) {
+    blogMaterialsTitle.textContent = "Материалы";
+  }
+
+  if (blogCount) {
+    blogCount.textContent = `${matchingCards.length} ${getMaterialsLabel(matchingCards.length)}`;
+  }
+
+  renderBlogPagination(pageCount);
+
+  if (announce && blogStatus) {
+    blogStatus.textContent = `Страница ${activeBlogPage} из ${pageCount}. Показано ${pageCards.length} из ${matchingCards.length} материалов.`;
+  }
+}
+
+blogFilters.forEach((filter) => {
+  filter.addEventListener("click", () => {
+    activeBlogFilter = filter.dataset.blogFilter;
+    activeBlogPage = 1;
+
+    const nextUrl = getBlogCatalogUrl();
+    window.history.pushState({}, "", nextUrl);
+    updateBlogCatalog({ announce: true });
+  });
+});
+
+blogPagination?.addEventListener("click", (event) => {
+  const pageLink = event.target.closest("[data-blog-page]");
+
+  if (
+    !pageLink ||
+    pageLink.getAttribute("aria-disabled") === "true" ||
+    event.button !== 0 ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey
+  ) {
+    return;
+  }
+
+  event.preventDefault();
+  activeBlogPage = Number.parseInt(pageLink.dataset.blogPage, 10);
+  window.history.pushState({}, "", pageLink.href);
+  updateBlogCatalog({ announce: true });
+  blogPagination
+    ?.querySelector('[data-blog-page][aria-current="page"]')
+    ?.focus({ preventScroll: true });
+  document.querySelector("#materials")?.scrollIntoView({
+    behavior: reduceMotion.matches ? "auto" : "smooth",
+    block: "start",
+  });
+});
+
+function readBlogCatalogLocation() {
+  const blogQuery = new URLSearchParams(window.location.search);
+  const requestedCategory = blogQuery.get("category");
+  const availableCategories = new Set(
+    blogFilters.map((filter) => filter.dataset.blogFilter),
+  );
+
+  activeBlogFilter =
+    requestedCategory && availableCategories.has(requestedCategory)
+      ? requestedCategory
+      : "all";
+
+  const requestedPage = blogQuery.get("page");
+  const parsedPage = Number.parseInt(requestedPage ?? "1", 10);
+  const hasValidPage =
+    requestedPage === null ||
+    (/^\d+$/.test(requestedPage) && parsedPage >= 1);
+  const matchingCount = blogCards.filter(
+    (card) =>
+      activeBlogFilter === "all" ||
+      card.dataset.blogCategory === activeBlogFilter,
+  ).length;
+  const pageCount = Math.max(Math.ceil(matchingCount / BLOG_PAGE_SIZE), 1);
+
+  activeBlogPage = hasValidPage
+    ? Math.min(parsedPage, pageCount)
+    : 1;
+
+  const normalizedUrl = getBlogCatalogUrl({ keepCurrentHash: true });
+  if (normalizedUrl.href !== window.location.href) {
+    window.history.replaceState({}, "", normalizedUrl);
+  }
+}
+
+if (blogGrid) {
+  readBlogCatalogLocation();
+  updateBlogCatalog();
+
+  window.addEventListener("popstate", () => {
+    readBlogCatalogLocation();
+    updateBlogCatalog({ announce: true });
+  });
+}
+
+const articleToc = document.querySelector("[data-article-toc]");
+const articleTocLinks = [
+  ...document.querySelectorAll("[data-article-toc-link]"),
+];
+const articleChapters = [
+  ...document.querySelectorAll("[data-article-chapter]"),
+];
+const articleDesktop = window.matchMedia("(min-width: 900px)");
+
+function syncArticleTocLayout() {
+  if (articleToc) {
+    articleToc.open = articleDesktop.matches;
+  }
+}
+
+articleDesktop.addEventListener?.("change", () => {
+  syncArticleTocLayout();
+});
+
+articleTocLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    if (!articleDesktop.matches && articleToc) {
+      articleToc.open = false;
+    }
+  });
+});
+
+let articleNavigationFrame = null;
+
+function updateArticleNavigation() {
+  articleNavigationFrame = null;
+
+  if (articleChapters.length === 0) {
+    return;
+  }
+
+  const marker =
+    (header?.offsetHeight ?? 72) +
+    Math.min(window.innerHeight * 0.28, 220);
+  let activeChapter = articleChapters[0];
+
+  articleChapters.forEach((chapter) => {
+    if (chapter.getBoundingClientRect().top <= marker) {
+      activeChapter = chapter;
+    }
+  });
+
+  articleTocLinks.forEach((link) => {
+    const isCurrent =
+      new URL(link.href).hash === `#${activeChapter.id}`;
+    link.toggleAttribute("aria-current", isCurrent);
+
+    if (isCurrent) {
+      link.setAttribute("aria-current", "location");
+    }
+  });
+}
+
+function requestArticleNavigationUpdate() {
+  if (articleNavigationFrame === null) {
+    articleNavigationFrame = window.requestAnimationFrame(
+      updateArticleNavigation,
+    );
+  }
+}
+
+if (articleToc) {
+  syncArticleTocLayout();
+  updateArticleNavigation();
+  window.addEventListener("scroll", requestArticleNavigationUpdate, {
+    passive: true,
+  });
+  window.addEventListener("resize", requestArticleNavigationUpdate);
+}
