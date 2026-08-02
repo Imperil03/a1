@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="../../">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <title>Нейросети в SEO: как работать без потери качества</title>
+    <meta name="description" content="Как использовать нейросети в SEO: выбрать подходящие задачи, подготовить исходные данные, проверить факты и довести материал до публикации.">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="article-page">
+    <header class="site-header" data-header>
+      <div class="container header-grid">
+        <a class="brand" href="./" aria-label="A1-Интернет Эксперт, на главную">
+          <img src="logo.png" width="55" height="70" alt="">
+        </a>
+
+        <button
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Открыть меню"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          data-mobile-menu-toggle
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <nav class="desktop-nav" aria-label="Основная навигация">
+          <a href="company/about/">О нас</a>
+          <div class="services-trigger-wrap" data-services-shell>
+            <button
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="services-menu"
+              data-popover-toggle="services-menu"
+            >
+              Услуги
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+          </div>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/" aria-current="page">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="surgut/kontakty/">Контакты</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="location-select">
+            <button
+              class="location-select__toggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="city-menu"
+              data-popover-toggle="city-menu"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Выбрать город</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="city-menu" id="city-menu" hidden data-popover>
+              <a href="surgut/">Сургут</a>
+              <a href="tyumen/">Тюмень</a>
+            </div>
+          </div>
+
+          <a class="header-phone" href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+7 (3462) 00-00-00</span>
+          </a>
+
+          <a class="button button--header" href="surgut/kontakty/">
+            Обсудить проект
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m-6-6 6 6-6 6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="mega-menu"
+        id="services-menu"
+        hidden
+        data-popover
+        data-services-menu
+      >
+        <div class="mega-menu__grid">
+          <div class="mega-menu__directions">
+            <div class="mega-menu__label">Направления</div>
+            <ul>
+              <li>
+                <a class="is-active" href="razrabotka-sajtov/" data-service-tab="web-development">
+                  <span>01</span>Разработка сайтов
+                </a>
+              </li>
+              <li>
+                <a href="seo/" data-service-tab="seo"><span>02</span>SEO-продвижение</a>
+              </li>
+              <li>
+                <a href="kontekstnaya-reklama/" data-service-tab="ads"><span>03</span>Контекстная реклама</a>
+              </li>
+              <li>
+                <a href="complex-marketing/" data-service-tab="complex"><span>04</span>Комплексный интернет-маркетинг</a>
+              </li>
+              <li>
+                <a href="vnedrenie-crm/" data-service-tab="crm"><span>05</span>Внедрение CRM</a>
+              </li>
+              <li>
+                <a href="mobilnye-prilozheniya/" data-service-tab="mobile"><span>06</span>Мобильные приложения</a>
+              </li>
+              <li>
+                <a href="veb-dizajn/" data-service-tab="design"><span>07</span>Веб-дизайн</a>
+              </li>
+              <li>
+                <a href="otraslevaya-ekspertiza/" data-service-tab="industries"><span>08</span>Отраслевая экспертиза</a>
+              </li>
+              <li>
+                <a href="tekhpodderzhka/" data-service-tab="support"><span>09</span>Техподдержка сайтов</a>
+              </li>
+              <li>
+                <a href="geomarketing/" data-service-tab="geomarketing"><span>10</span>Геомаркетинг</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mega-menu__content">
+            <div class="mega-panel" data-service-panel="web-development">
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Разработка сайтов</strong>
+                  <p>Разрабатываем корпоративные сайты, интернет-магазины, лендинги и личные кабинеты под задачи бизнеса: от структуры и прототипа до запуска, интеграций и дальнейшей поддержки. Работаем на 1С-Битрикс, WordPress, Tilda и Laravel.</p>
+                </div>
+                <a href="razrabotka-sajtov/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                <li><a href="razrabotka-sajtov/laravel/">Разработка на Laravel</a></li>
+                <li><a href="razrabotka-sajtov/joomla/">Сайты на Joomla</a></li>
+                <li><a href="razrabotka-sajtov/modx/">Сайты на MODX</a></li>
+                <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                <li><a href="razrabotka-sajtov/sajty-pod-seo/">Сайты под SEO</a></li>
+                <li><a href="razrabotka-sajtov/sajty-vizitki/">Сайты-визитки</a></li>
+                <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                <li><a href="razrabotka-sajtov/lichnye-kabinety/">Личные кабинеты</a></li>
+                <li><a href="razrabotka-sajtov/integratsiya-s-1c/">Интеграция с 1С</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="seo" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>SEO-продвижение</strong>
+                  <p>Комплексно продвигаем сайты в Яндексе и Google: собираем семантику, усиливаем техническую оптимизацию, контент, перелинковку и аналитику, чтобы сайт рос не только по позициям, но и по заявкам.</p>
+                </div>
+                <a href="seo/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                <li><a href="seo/audit/">SEO-аудит</a></li>
+                <li><a href="seo/tekhnicheskij-audit/">Технический аудит</a></li>
+                <li><a href="seo/1c-bitrix/">SEO для 1С-Битрикс</a></li>
+                <li><a href="seo/tilda/">SEO для Tilda</a></li>
+                <li><a href="seo/wordpress/">SEO для WordPress</a></li>
+                <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                <li><a href="seo/google/">Продвижение в Google</a></li>
+                <li><a href="seo/prodvizhenie-novyh-sajtov/">Продвижение новых сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="ads" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Контекстная реклама</strong>
+                  <p>Настраиваем и ведём контекстную и таргетированную рекламу в Яндекс Директе, ВКонтакте и Telegram Ads: от запуска и тестов до ретаргетинга, оптимизации и сквозной аналитики. Работаем на заявки, продажи и понятную стоимость лида.</p>
+                </div>
+                <a href="kontekstnaya-reklama/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
+                <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
+                <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="complex" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Комплексный интернет-маркетинг</strong>
+                  <p>За стратегию продвижения, реализацию и аналитику отвечает одна команда A1. Все специалисты работают по общему плану, а инструменты дополняют друг друга и решают одну задачу — привлекать больше целевых обращений.</p>
+                </div>
+                <a href="complex-marketing/">Все услуги →</a>
+              </div>
+            </div>
+
+            <div class="mega-panel" data-service-panel="crm" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Внедрение CRM</strong>
+                  <p>Внедряем amoCRM и Битрикс24: настраиваем воронки, автоматизации и интеграции с сайтом, телефонией и мессенджерами, обучаем команду — чтобы заявки не терялись, а работа отдела продаж была прозрачной и управляемой.</p>
+                </div>
+                <a href="vnedrenie-crm/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="mobile" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Мобильные приложения</strong>
+                  <p>Разрабатываем мобильные приложения для iOS и Android: от проектирования и дизайна до разработки, тестирования и публикации. Делаем нативные и кроссплатформенные решения под задачи бизнеса.</p>
+                </div>
+                <a href="mobilnye-prilozheniya/">Все услуги →</a>
+              </div>
+            </div>
+
+            <div class="mega-panel" data-service-panel="design" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Веб-дизайн</strong>
+                  <p>Проектируем интерфейсы для сайтов, лендингов, личных кабинетов и приложений: продумываем структуру, сценарии, прототипы и дизайн, чтобы пользователю было удобно, понятно и легко совершить целевое действие.</p>
+                </div>
+                <a href="veb-dizajn/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                <li><a href="veb-dizajn/proektirovanie/">UX-проектирование</a></li>
+                <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                <li><a href="veb-dizajn/mobilnyh-prilozhenij/">Дизайн мобильных приложений</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="industries" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Отраслевая экспертиза</strong>
+                  <p>Маркетинг и разработка для конкретных ниш: стоматологии, автосалоны, медицинские и косметологические клиники, онлайн-курсы, новые ЖК.</p>
+                </div>
+                <a href="otraslevaya-ekspertiza/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/">Для медицинских клиник</a></li>
+                <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                <li><a href="otraslevaya-ekspertiza/onlajn-kursy/">Для онлайн-курсов</a></li>
+                <li><a href="otraslevaya-ekspertiza/novye-zhk/">Для новых ЖК</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="support" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Техподдержка сайтов</strong>
+                  <p>Берём сайты на сопровождение: дорабатываем функционал, обновляем CMS и контент, следим за стабильностью, безопасностью и резервным копированием, чтобы проект работал без сбоев и не терял заявки.</p>
+                </div>
+                <a href="tekhpodderzhka/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="tekhpodderzhka/s-seo/">Поддержка с SEO</a></li>
+                <li><a href="tekhpodderzhka/internet-magazinov/">Поддержка интернет-магазинов</a></li>
+                <li><a href="tekhpodderzhka/kompleksnoe-soprovozhdenie/">Комплексное сопровождение</a></li>
+                <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                <li><a href="tekhpodderzhka/dostavka-i-oplata/">Доставка и оплата</a></li>
+                <li><a href="tekhpodderzhka/obnovlenie-cms/">Обновление CMS</a></li>
+                <li><a href="tekhpodderzhka/testirovanie/">Тестирование сайта</a></li>
+                <li><a href="tekhpodderzhka/perenos-na-bitrix/">Перенос на Битрикс</a></li>
+                <li><a href="tekhpodderzhka/licenziya-bitrix/">Лицензия Битрикс</a></li>
+                <li><a href="tekhpodderzhka/lechenie-ot-virusov/">Лечение от вирусов</a></li>
+                <li><a href="tekhpodderzhka/napolnenie-sajtov/">Наполнение сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="geomarketing" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Геомаркетинг</strong>
+                  <p>Усиливаем локальную видимость бизнеса в Яндекс Картах, 2ГИС и Google: оформляем и развиваем карточки, подключаем георекламу и следим за актуальностью информации.</p>
+                </div>
+                <a href="geomarketing/">Все услуги →</a>
+              </div>
+            </div>
+
+            <div class="mega-menu__consultation">
+              <div>
+                <strong>Не знаете, с чего начать?</strong>
+                <p>Бесплатная консультация — подберём подходящие услуги под вашу задачу.</p>
+              </div>
+              <a class="button button--primary" href="surgut/kontakty/">
+                Получить консультацию
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu-overlay" hidden data-mobile-menu-overlay></div>
+    <aside
+      class="mobile-menu"
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Главное меню"
+      hidden
+      data-mobile-menu
+    >
+      <div class="mobile-menu__header">
+        <div class="mobile-menu__title">Меню</div>
+        <button type="button" aria-label="Закрыть меню" data-mobile-menu-close>
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m5 5 14 14M19 5 5 19"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-menu__body">
+        <nav aria-label="Услуги">
+          <ul class="mobile-services">
+            <li>
+              <details>
+                <summary>Разработка сайтов</summary>
+                <ul>
+                  <li><a href="razrabotka-sajtov/">Все услуги</a></li>
+                  <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                  <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                  <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                  <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                  <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                  <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>SEO-продвижение</summary>
+                <ul>
+                  <li><a href="seo/">Все услуги</a></li>
+                  <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                  <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                  <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                  <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                  <li><a href="seo/audit/">SEO-аудит</a></li>
+                  <li><a href="seo/tekhnicheskij-audit/">Технический аудит</a></li>
+                  <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                  <li><a href="seo/google/">Продвижение в Google</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Контекстная реклама</summary>
+                <ul>
+                  <li><a href="kontekstnaya-reklama/">Все услуги</a></li>
+                  <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
+                  <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
+                  <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+            <li>
+              <details>
+                <summary>Внедрение CRM</summary>
+                <ul>
+                  <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                  <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                  <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="mobilnye-prilozheniya/">Мобильные приложения</a></li>
+            <li>
+              <details>
+                <summary>Веб-дизайн</summary>
+                <ul>
+                  <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                  <li><a href="veb-dizajn/proektirovanie/">UX-проектирование</a></li>
+                  <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Отраслевая экспертиза</summary>
+                <ul>
+                  <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                  <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                  <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/">Для медицинских клиник</a></li>
+                  <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Техподдержка сайтов</summary>
+                <ul>
+                  <li><a href="tekhpodderzhka/s-seo/">Поддержка с SEO</a></li>
+                  <li><a href="tekhpodderzhka/internet-magazinov/">Поддержка интернет-магазинов</a></li>
+                  <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                  <li><a href="tekhpodderzhka/testirovanie/">Тестирование сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="geomarketing/">Геомаркетинг</a></li>
+          </ul>
+        </nav>
+
+        <nav class="mobile-menu__secondary" aria-label="Разделы сайта">
+          <a href="company/about/">О нас</a>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/" aria-current="page">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="akcii/">Акции</a>
+          <a href="surgut/kontakty/">Контакты</a>
+        </nav>
+
+        <div class="mobile-menu__contacts">
+          <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
+          <a class="button button--primary" href="surgut/kontakty/">Обсудить проект</a>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main-content" tabindex="-1">
+      <article>
+        <header class="article-hero" aria-labelledby="article-title">
+          <div class="container">
+            <div class="article-hero__copy">
+              <nav class="article-breadcrumbs" aria-label="Хлебные крошки"><ol>
+                <li><a href="./">Главная</a></li><li><a href="blog/">Блог</a></li><li><a href="blog/?category=seo#materials">SEO</a></li><li aria-current="page">Нейросети в SEO</li>
+              </ol></nav>
+              <h1 id="article-title">Нейросети в SEO: как ускорить работу и не потерять качество</h1>
+              <p class="article-hero__lead">Нейросеть помогает быстрее собирать варианты, структурировать информацию и готовить черновики. Но результат зависит не от самого инструмента, а от исходных данных, контроля специалиста и понятного процесса проверки.</p>
+              <div class="article-author-line">
+                <a class="article-author-line__link" href="blog/authors/anna-ivanova/" aria-label="Страница автора Анны Ивановой"><span class="article-author-line__avatar" aria-hidden="true"></span><span class="article-author-line__copy"><strong>Анна Иванова</strong><span>SEO-специалист</span></span></a>
+                <div class="blog-meta" aria-label="Информация о публикации"><time datetime="2026-08-02">2 августа 2026</time><span>13 минут</span></div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="article-intro"><div class="container article-intro__grid">
+          <details class="article-toc" data-article-toc>
+            <summary><span>Содержание статьи</span><small>6 разделов</small></summary>
+            <ol>
+              <li><a href="blog/neyroseti-v-seo/#process" data-article-toc-link><span>01</span>SEO-процесс</a></li>
+              <li><a href="blog/neyroseti-v-seo/#source-data" data-article-toc-link><span>02</span>Исходные данные</a></li>
+              <li><a href="blog/neyroseti-v-seo/#tasks" data-article-toc-link><span>03</span>Задачи для нейросети</a></li>
+              <li><a href="blog/neyroseti-v-seo/#publication" data-article-toc-link><span>04</span>От черновика к публикации</a></li>
+              <li><a href="blog/neyroseti-v-seo/#check" data-article-toc-link><span>05</span>Проверка материала</a></li>
+              <li><a href="blog/neyroseti-v-seo/#team-process" data-article-toc-link><span>06</span>Процесс в команде</a></li>
+            </ol>
+          </details>
+          <aside class="article-quick" aria-label="Краткие выводы"><strong>Коротко</strong><ul>
+            <li>Используйте нейросеть там, где нужно быстро подготовить варианты, сгруппировать информацию или собрать первый черновик.</li>
+            <li>Передавайте ей контекст: задачу страницы, аудиторию, поисковый спрос, факты о продукте и ограничения.</li>
+            <li>Проверяйте смысл, факты, соответствие запросу, полезность и связь страницы с остальным сайтом.</li>
+            <li>Не масштабируйте процесс, пока не понятно, кто отвечает за исходные данные и принимает материал перед публикацией.</li>
+          </ul></aside>
+        </div></div>
+
+        <div class="article-content"><div class="container">
+          <section class="article-chapter" id="process" aria-labelledby="process-title" data-article-chapter>
+            <div class="article-chapter__rail"><h2 class="article-chapter__title" id="process-title">Нейросеть не заменяет SEO-процесс</h2></div>
+            <div class="article-chapter__body">
+              <p>Нейросеть полезна не как автор, которому можно передать страницу целиком, а как инструмент для отдельных операций. Она быстро предлагает варианты структуры, формулировок и группировки данных. SEO-специалист по-прежнему определяет задачу страницы, проверяет поисковый спрос, выбирает источники и отвечает за итоговый материал.</p>
+              <p>Официальная позиция поисковых систем строится вокруг качества и пользы, а не вокруг запрета конкретного инструмента. Google рекомендует следить за точностью, качеством и релевантностью автоматически подготовленного контента и предупреждает, что массовое создание страниц без дополнительной ценности может нарушать правила о масштабированном контенте. Яндекс отдельно советует писать для людей, избегать запросного спама и не увеличивать объём текста без пользы для читателя.</p>
+              <p><a href="https://developers.google.com/search/docs/fundamentals/using-gen-ai-content" target="_blank" rel="noopener noreferrer">Рекомендации Google по использованию генеративного ИИ</a> и <a href="https://yandex.ru/support/webmaster/ru/threat/seo-text" target="_blank" rel="noopener noreferrer">рекомендации Яндекса по SEO-текстам</a> помогают задать рамки проверки.</p>
+              <blockquote class="article-quote">Нейросеть ускоряет работу с вариантами. Ответственность за смысл, факты и итоговое решение остаётся у специалиста.</blockquote>
+              <h3>Где инструмент помогает</h3>
+              <ul class="article-list"><li>сгруппировать запросы по близкому смыслу;</li><li>предложить несколько вариантов структуры страницы;</li><li>найти повторы и пробелы в черновике;</li><li>упростить сложную формулировку;</li><li>подготовить варианты title и description;</li><li>превратить заметки эксперта в последовательный первый черновик;</li><li>проверить единообразие терминов и оформления.</li></ul>
+              <h3>Что не стоит отдавать без контроля</h3>
+              <ul class="article-list"><li>окончательное распределение запросов по страницам;</li><li>выбор приоритетов продвижения;</li><li>факты о компании, услуге и продукте;</li><li>выводы по аналитике и поведению пользователей;</li><li>публикацию материалов в тематиках, где ошибка может навредить человеку;</li><li>решение о том, готова ли страница к индексации.</li></ul>
+            </div>
+          </section>
+
+          <section class="article-chapter" id="source-data" aria-labelledby="source-data-title" data-article-chapter>
+            <div class="article-chapter__rail"><h2 class="article-chapter__title" id="source-data-title">Качественный результат начинается с исходных данных</h2></div>
+            <div class="article-chapter__body">
+              <p>Слабый результат часто появляется ещё до первого запроса к нейросети. Если написать только «подготовь SEO-текст про услугу», инструменту придётся самостоятельно угадывать аудиторию, задачу страницы, особенности предложения и факты. Получится гладкий, но общий текст, который легко подходит нескольким компаниям одновременно.</p>
+              <p><strong>Перед началом работы соберите короткий пакет исходных данных. Он не должен быть большим, но должен отвечать на семь вопросов:</strong></p>
+              <ol class="article-steps"><li>Какую задачу решает страница?</li><li>Кто будет её читать и что уже знает о продукте?</li><li>По каким запросам человек может искать решение?</li><li>Какой следующий шаг мы от него ждём?</li><li>Какие факты и ограничения нельзя искажать?</li><li>Какие материалы уже есть: интервью, аналитика, карточки услуг, документы?</li><li>В каком формате нужен результат: структура, список вопросов, черновик или проверка готового текста?</li></ol>
+              <h3>Шаблон задания</h3>
+              <pre class="article-prompt"><code>Задача: подготовить структуру страницы об услуге.
+Аудитория: [кто читает и в какой ситуации].
+Целевое действие: [что должен сделать человек].
+Поисковые запросы: [список или группы].
+Факты, которые можно использовать: [проверенные сведения].
+Что нельзя утверждать: [ограничения].
+Формат ответа: H1, H2, вопросы пользователя и краткая задача каждого раздела.
+Не добавляй цифры, клиентов, результаты и свойства услуги, которых нет в исходных данных.</code></pre>
+              <aside class="article-note"><strong>Важно:</strong> если исходных данных нет, нейросеть может заполнить пробелы правдоподобными, но неподтверждёнными деталями. Такие фрагменты нельзя оставлять на странице только потому, что они звучат убедительно.</aside>
+              <figure class="article-figure"><div class="article-figure__visual" role="img" aria-label="Сравнение короткого запроса и подробного задания для нейросети"></div><figcaption>Чем точнее рамки задачи, тем меньше времени уходит на исправление общего или недостоверного черновика.</figcaption></figure>
+            </div>
+          </section>
+
+          <section class="article-chapter" id="tasks" aria-labelledby="tasks-title" data-article-chapter>
+            <div class="article-chapter__rail"><h2 class="article-chapter__title" id="tasks-title">Какие задачи можно передать нейросети</h2></div>
+            <div class="article-chapter__body">
+              <p>Нейросеть удобнее подключать после того, как специалист разобрался в задаче и собрал источники. На каждом этапе у инструмента своя роль, а у человека — свой контроль.</p>
+              <div class="article-table-wrap"><table class="article-table">
+                <thead><tr><th>Задача</th><th>Что делает нейросеть</th><th>Что проверяет специалист</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Задача">Группировка запросов</td><td data-label="Нейросеть">Предлагает объединение близких формулировок</td><td data-label="Специалист">Смысл, интент и необходимость отдельной страницы</td></tr>
+                  <tr><td data-label="Задача">Структура материала</td><td data-label="Нейросеть">Собирает варианты H2 и H3</td><td data-label="Специалист">Полноту ответа, порядок и отсутствие повторов</td></tr>
+                  <tr><td data-label="Задача">Первый черновик</td><td data-label="Нейросеть">Превращает факты и заметки в связный текст</td><td data-label="Специалист">Точность, полезность, тон и соответствие услуге</td></tr>
+                  <tr><td data-label="Задача">Метаданные</td><td data-label="Нейросеть">Предлагает варианты title и description</td><td data-label="Специалист">Поисковый интент, уникальность и обещание страницы</td></tr>
+                  <tr><td data-label="Задача">Внутренние ссылки</td><td data-label="Нейросеть">Находит места для тематических переходов</td><td data-label="Специалист">Релевантность страницы и естественность анкоров</td></tr>
+                  <tr><td data-label="Задача">Редакторская проверка</td><td data-label="Нейросеть">Ищет повторы, длинные предложения и разные термины</td><td data-label="Специалист">Смысл правок и сохранность профессиональных нюансов</td></tr>
+                </tbody>
+              </table></div>
+              <h3>Пример: подготовка структуры услуги</h3>
+              <p>Исходная задача: на сайте есть одна общая страница о ремонте оборудования, хотя пользователи ищут диагностику, срочный ремонт и обслуживание по договору отдельно.</p>
+              <p>Нейросеть может сгруппировать формулировки, выписать повторяющиеся вопросы и предложить черновой состав страниц. Но решение о разделении принимает специалист: он сопоставляет спрос с реальными услугами, регионом работы и возможностями компании.</p>
+              <p>Результатом этапа становится не автоматически опубликованная структура, а рабочая гипотеза для проверки.</p>
+              <p><a href="razrabotka-sajtov/">Подробнее о том, как мы проектируем структуру сайта для продвижения</a>.</p>
+            </div>
+          </section>
+
+          <section class="article-chapter" id="publication" aria-labelledby="publication-title" data-article-chapter>
+            <div class="article-chapter__rail"><h2 class="article-chapter__title" id="publication-title">Как пройти путь от черновика до публикации</h2></div>
+            <div class="article-chapter__body">
+              <p>Работа становится управляемой, когда у каждого этапа есть результат и ответственный. Для небольшой команды достаточно семи шагов.</p>
+              <figure class="article-process-figure"><div class="article-process-figure__flow" role="img" aria-label="Этапы работы с нейросетью при подготовке SEO-материала"><span></span><span></span><span></span><span></span><span></span></div><figcaption>Нейросеть подключается к отдельным этапам SEO-процесса, но не заменяет постановку задачи и итоговую проверку.</figcaption></figure>
+              <ol class="article-steps"><li><strong>Определить задачу страницы.</strong> Зафиксировать аудиторию, поисковый интент и целевое действие.</li><li><strong>Собрать источники.</strong> Добавить сведения о продукте, интервью с экспертом, поисковые запросы и доступную аналитику.</li><li><strong>Подготовить структуру.</strong> Попросить нейросеть предложить варианты, затем собрать из них один логичный план.</li><li><strong>Утвердить смысл до написания текста.</strong> Проверить, отвечает ли каждый раздел на отдельный вопрос читателя.</li><li><strong>Собрать черновик частями.</strong> Работать по одному разделу, передавая только относящиеся к нему факты и ограничения.</li><li><strong>Провести экспертную и редакторскую проверку.</strong> Сначала проверить факты и профессиональный смысл, затем язык, оформление и ссылки.</li><li><strong>Опубликовать и наблюдать.</strong> После индексации смотреть не только позиции, но и переходы, поведение на странице и обращения.</li></ol>
+              <h3>Почему не стоит генерировать всю страницу одним запросом</h3>
+              <p>Большой запрос кажется быстрым способом получить готовый материал. На практике в длинном ответе сложнее заметить повтор, выдуманный факт или неверный переход между разделами. Работа частями упрощает проверку: специалист видит, на каких исходных данных построен каждый вывод.</p>
+              <aside class="article-inline-cta"><h3>Нужно выстроить SEO-процесс для сайта?</h3><p>Разберём текущую структуру, найдём приоритетные задачи и определим, где автоматизация поможет команде, а где нужен ручной анализ.</p><a class="section-link" href="seo/">Обсудить SEO-продвижение<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a></aside>
+            </div>
+          </section>
+
+          <section class="article-chapter" id="check" aria-labelledby="check-title" data-article-chapter>
+            <div class="article-chapter__rail"><h2 class="article-chapter__title" id="check-title">Что проверить перед публикацией</h2></div>
+            <div class="article-chapter__body">
+              <p>Готовность текста нельзя оценить по тому, насколько уверенно он написан. Проверка начинается с вопроса: получит ли человек точный и полезный ответ, ради которого открыл страницу?</p>
+              <h3>Чек-лист выпускающего редактора</h3>
+              <ul class="article-list"><li>Страница отвечает на конкретный поисковый интент.</li><li>Заголовок обещает то, что раскрывает текст.</li><li>Все цифры, условия и факты можно проверить по источнику.</li><li>В тексте нет выдуманных клиентов, результатов, функций и цитат.</li><li>Есть собственный пример, наблюдение специалиста или полезный инструмент.</li><li>Разделы не повторяют одну мысль разными словами.</li><li>Термины используются последовательно и объяснены читателю.</li><li>Внутренние ссылки помогают продолжить путь, а не вставлены ради SEO.</li><li>Призыв к действию связан с темой страницы.</li><li>Материал прочитан человеком целиком, включая подписи, метаданные и текст кнопок.</li></ul>
+              <h3>Пример редакторской правки</h3>
+              <div class="article-example"><div><strong>До</strong><p>Нейросети являются современным и эффективным инструментом, который позволяет существенно улучшить SEO-продвижение сайта и создавать качественный контент в кратчайшие сроки.</p></div><div><strong>После</strong><p>Нейросеть может сгруппировать запросы, предложить структуру и подготовить черновик. Специалист проверяет интент, факты и пользу страницы перед публикацией.</p></div></div>
+              <p>Во втором варианте нет обещания результата без доказательств. Читатель понимает, какие действия выполняет инструмент и за что отвечает человек.</p>
+              <aside class="article-note"><strong>Важное замечание:</strong> проверяйте не только ошибки, но и отсутствие собственной ценности. Фактически верный текст всё равно может быть бесполезным, если он лишь пересказывает то, что уже опубликовано на десятках сайтов.</aside>
+            </div>
+          </section>
+
+          <section class="article-chapter" id="team-process" aria-labelledby="team-process-title" data-article-chapter>
+            <div class="article-chapter__rail"><h2 class="article-chapter__title" id="team-process-title">Как закрепить процесс в команде</h2></div>
+            <div class="article-chapter__body">
+              <p>Разовые удачные запросы не превращают нейросеть в рабочий инструмент. Команде нужны общие правила: какие данные разрешено передавать, кто проверяет факты, где хранится актуальная версия и кто принимает материал.</p>
+              <h3>Минимальный регламент</h3>
+              <ol class="article-steps"><li>У каждой задачи есть владелец и понятный ожидаемый результат.</li><li>Проверенные факты хранятся отдельно от сгенерированного черновика.</li><li>Неподтверждённые сведения помечаются и не попадают в публикацию.</li><li>Эксперт проверяет профессиональный смысл, редактор — структуру и язык.</li><li>Финальное решение принимает человек, который отвечает за страницу.</li><li>Удачные шаблоны заданий сохраняются вместе с пояснением, для каких задач они подходят.</li></ol>
+              <p>Оценивать процесс лучше по рабочим признакам: сколько времени проходит от брифа до проверенного черновика, сколько существенных ошибок находит редактор, какие разделы приходится переписывать и на каком этапе теряются источники. Эти показатели помогают улучшать процесс, но сами по себе не доказывают рост трафика или заявок.</p>
+              <h3>Частые вопросы</h3>
+              <div class="article-faq">
+                <details><summary>Можно ли публиковать текст, подготовленный нейросетью?</summary><p>Можно, если материал проверен, полезен читателю и соответствует правилам поисковых систем. Сам способ подготовки не заменяет оценку качества. Перед публикацией проверьте факты, оригинальную ценность, соответствие запросу и отсутствие массово созданных страниц, которые отличаются только отдельными словами.</p></details>
+                <details><summary>Заменит ли нейросеть SEO-специалиста?</summary><p>Она может сократить ручную работу с вариантами и черновиками, но не определяет цели бизнеса и не отвечает за достоверность. Специалист связывает поисковый спрос с услугами компании, выбирает приоритеты, оценивает ограничения сайта и принимает итоговое решение.</p></details>
+                <details><summary>С каких задач лучше начать?</summary><p>Начните с операций, где ошибку легко заметить и исправить: группировки заметок, вариантов структуры, поиска повторов или редакторской проверки. Не начинайте с автоматической публикации большого числа страниц. Сначала проверьте процесс на одном материале и зафиксируйте правила контроля.</p></details>
+              </div>
+              <h3>Вывод</h3>
+              <p>Нейросеть приносит пользу в SEO, когда встроена в понятный процесс. Дайте ей задачу, контекст и проверенные источники, используйте для конкретного этапа, а затем проверьте результат по смыслу и фактам. Такой подход ускоряет подготовительную работу, не передавая инструменту ответственность за содержание страницы.</p>
+            </div>
+          </section>
+
+          <section class="article-service" aria-labelledby="service-title">
+            <div><div class="article-service__label">Услуга по теме</div><h2 id="service-title">SEO-продвижение сайтов</h2></div>
+            <p>Развиваем структуру сайта, расширяем его видимость по целевым запросам и привлекаем поисковый трафик.</p>
+            <a class="section-link" href="seo/">Подробнее об SEO-продвижении<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+          </section>
+        </div></div>
+      </article>
+
+      <section class="article-afterword" aria-labelledby="author-title"><div class="container">
+        <div class="article-author-card"><a class="article-author-card__avatar-link" href="blog/authors/anna-ivanova/" aria-label="Страница автора Анны Ивановой"><span class="article-author-card__avatar" aria-hidden="true"></span></a><div><h2 id="author-title"><a href="blog/authors/anna-ivanova/">Анна Иванова</a></h2><p class="article-author-card__role">SEO-специалист</p><p class="article-author-card__description">Проектирует структуру сайта, анализирует поисковый спрос и отвечает за развитие органического трафика.</p></div><a class="section-link" href="blog/authors/anna-ivanova/">Все статьи автора<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a></div>
+        <section class="article-related" aria-labelledby="related-title">
+          <div class="article-related__header"><h2 id="related-title">Материалы по теме</h2><a class="section-link" href="blog/">Все материалы блога<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a></div>
+          <div class="article-related__grid">
+            <article class="article-related-card"><span class="blog-category">SEO</span><h3>Как понять, какие страницы нужны сайту для продвижения</h3><p>Объясняем, как превратить поисковые запросы в понятную структуру и не создавать несколько страниц с одинаковым смыслом.</p></article>
+            <article class="article-related-card"><span class="blog-category">аналитика</span><h3>Что проверить в аналитике до запуска продвижения</h3><p>Собираем минимальный набор целей и данных, без которого нельзя связать поисковые переходы с обращениями.</p></article>
+            <article class="article-related-card"><span class="blog-category">разработка сайтов</span><h3>Как подготовить структуру сайта до начала дизайна</h3><p>Показываем, как связать поисковый спрос, услуги компании и путь пользователя до работы над интерфейсом.</p></article>
+          </div>
+        </section>
+      </div></section>
+
+      <section class="article-final-cta" aria-labelledby="final-cta-title"><div class="container"><div class="article-final-cta__card">
+        <div><h2 id="final-cta-title">Нужно решить похожую задачу?</h2><p>Расскажите о проекте. Мы изучим текущую ситуацию, зададим уточняющие вопросы и предложим подходящий первый шаг.</p></div>
+        <a class="button button--primary button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">Обсудить проект<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+      </div></div></section>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand">
+            <a class="brand brand--footer" href="./" aria-label="A1-Интернет Эксперт, на главную">
+              <img src="logo.png" width="55" height="70" alt="">
+            </a>
+            <p>Диджитал-агентство полного цикла в Сургуте и Тюмени с 2015 года.</p>
+          </div>
+
+          <nav aria-label="Услуги в подвале">
+            <h2>Услуги</h2>
+            <ul>
+              <li><a href="razrabotka-sajtov/">Разработка сайтов</a></li>
+              <li><a href="seo/">SEO-продвижение</a></li>
+              <li><a href="kontekstnaya-reklama/">Реклама</a></li>
+              <li><a href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+              <li><a href="surgut/vnedrenie-crm/">Внедрение CRM</a></li>
+              <li><a href="surgut/mobilnye-prilozheniya/">Мобильные приложения</a></li>
+              <li><a href="surgut/veb-dizajn/">Веб-дизайн</a></li>
+              <li><a href="surgut/otraslevaya-ekspertiza/">Отраслевая экспертиза</a></li>
+              <li><a href="surgut/tekhpodderzhka/">Техподдержка сайтов</a></li>
+              <li><a href="surgut/geomarketing/">Геомаркетинг</a></li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Компания в подвале">
+            <h2>Компания</h2>
+            <ul>
+              <li><a href="company/about/">О нас</a></li>
+              <li><a href="cases/">Кейсы</a></li>
+              <li><a href="blog/" aria-current="page">Блог</a></li>
+              <li><a href="company/reviews/">Отзывы</a></li>
+              <li><a href="company/careers/">Вакансии</a></li>
+              <li><a href="prices/">Цены</a></li>
+              <li><a href="akcii/">Акции</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__offices">
+            <h2>Офисы</h2>
+            <div>
+              <a class="office-title" href="surgut/">Сургут</a>
+              <address>
+                <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
+                <a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a>
+                <span>улица Университетская, 25, офис 408</span>
+              </address>
+            </div>
+            <div>
+              <a class="office-title" href="tyumen/">Тюмень</a>
+              <address>
+                <a href="tel:+73452000000">+7 (3452) 00-00-00</a>
+                <a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a>
+                <span>улица Республики, 61, офис 712</span>
+              </address>
+            </div>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <div>© 2026 A1-Интернет Эксперт. Все права защищены.</div>
+          <div>
+            <a href="privacy/">Политика конфиденциальности</a>
+            <a href="terms/">Пользовательское соглашение</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mobile-sticky-actions" data-mobile-sticky data-visible="false">
+      <a href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </a>
+      <a href="surgut/kontakty/">
+        Обсудить проект
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+      </a>
+    </div>
+  </body>
+</html>

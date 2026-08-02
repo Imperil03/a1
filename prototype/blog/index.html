@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="../">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <title>Блог A1-Интернет Эксперт</title>
+    <meta name="description" content="Практические материалы A1-Интернет Эксперт о разработке сайтов, SEO, контекстной рекламе, аналитике и технологиях.">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="blog-page">
+    <header class="site-header" data-header>
+      <div class="container header-grid">
+        <a class="brand" href="./" aria-label="A1-Интернет Эксперт, на главную">
+          <img src="logo.png" width="55" height="70" alt="">
+        </a>
+
+        <button
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Открыть меню"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          data-mobile-menu-toggle
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <nav class="desktop-nav" aria-label="Основная навигация">
+          <a href="company/about/">О нас</a>
+          <div class="services-trigger-wrap" data-services-shell>
+            <button
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="services-menu"
+              data-popover-toggle="services-menu"
+            >
+              Услуги
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+          </div>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/" aria-current="page">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="surgut/kontakty/">Контакты</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="location-select">
+            <button
+              class="location-select__toggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="city-menu"
+              data-popover-toggle="city-menu"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Выбрать город</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="city-menu" id="city-menu" hidden data-popover>
+              <a href="surgut/">Сургут</a>
+              <a href="tyumen/">Тюмень</a>
+            </div>
+          </div>
+
+          <a class="header-phone" href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+7 (3462) 00-00-00</span>
+          </a>
+
+          <a class="button button--header" href="surgut/kontakty/">
+            Обсудить проект
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m-6-6 6 6-6 6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="mega-menu"
+        id="services-menu"
+        hidden
+        data-popover
+        data-services-menu
+      >
+        <div class="mega-menu__grid">
+          <div class="mega-menu__directions">
+            <div class="mega-menu__label">Направления</div>
+            <ul>
+              <li>
+                <a class="is-active" href="razrabotka-sajtov/" data-service-tab="web-development">
+                  <span>01</span>Разработка сайтов
+                </a>
+              </li>
+              <li>
+                <a href="seo/" data-service-tab="seo"><span>02</span>SEO-продвижение</a>
+              </li>
+              <li>
+                <a href="kontekstnaya-reklama/" data-service-tab="ads"><span>03</span>Контекстная реклама</a>
+              </li>
+              <li>
+                <a href="complex-marketing/" data-service-tab="complex"><span>04</span>Комплексный интернет-маркетинг</a>
+              </li>
+              <li>
+                <a href="vnedrenie-crm/" data-service-tab="crm"><span>05</span>Внедрение CRM</a>
+              </li>
+              <li>
+                <a href="mobilnye-prilozheniya/" data-service-tab="mobile"><span>06</span>Мобильные приложения</a>
+              </li>
+              <li>
+                <a href="veb-dizajn/" data-service-tab="design"><span>07</span>Веб-дизайн</a>
+              </li>
+              <li>
+                <a href="otraslevaya-ekspertiza/" data-service-tab="industries"><span>08</span>Отраслевая экспертиза</a>
+              </li>
+              <li>
+                <a href="tekhpodderzhka/" data-service-tab="support"><span>09</span>Техподдержка сайтов</a>
+              </li>
+              <li>
+                <a href="geomarketing/" data-service-tab="geomarketing"><span>10</span>Геомаркетинг</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mega-menu__content">
+            <div class="mega-panel" data-service-panel="web-development">
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Разработка сайтов</strong>
+                  <p>Разрабатываем корпоративные сайты, интернет-магазины, лендинги и личные кабинеты под задачи бизнеса: от структуры и прототипа до запуска, интеграций и дальнейшей поддержки. Работаем на 1С-Битрикс, WordPress, Tilda и Laravel.</p>
+                </div>
+                <a href="razrabotka-sajtov/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                <li><a href="razrabotka-sajtov/laravel/">Разработка на Laravel</a></li>
+                <li><a href="razrabotka-sajtov/joomla/">Сайты на Joomla</a></li>
+                <li><a href="razrabotka-sajtov/modx/">Сайты на MODX</a></li>
+                <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                <li><a href="razrabotka-sajtov/sajty-pod-seo/">Сайты под SEO</a></li>
+                <li><a href="razrabotka-sajtov/sajty-vizitki/">Сайты-визитки</a></li>
+                <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                <li><a href="razrabotka-sajtov/lichnye-kabinety/">Личные кабинеты</a></li>
+                <li><a href="razrabotka-sajtov/integratsiya-s-1c/">Интеграция с 1С</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="seo" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>SEO-продвижение</strong>
+                  <p>Комплексно продвигаем сайты в Яндексе и Google: собираем семантику, усиливаем техническую оптимизацию, контент, перелинковку и аналитику, чтобы сайт рос не только по позициям, но и по заявкам.</p>
+                </div>
+                <a href="seo/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                <li><a href="seo/audit/">SEO-аудит</a></li>
+                <li><a href="seo/tekhnicheskij-audit/">Технический аудит</a></li>
+                <li><a href="seo/1c-bitrix/">SEO для 1С-Битрикс</a></li>
+                <li><a href="seo/tilda/">SEO для Tilda</a></li>
+                <li><a href="seo/wordpress/">SEO для WordPress</a></li>
+                <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                <li><a href="seo/google/">Продвижение в Google</a></li>
+                <li><a href="seo/prodvizhenie-novyh-sajtov/">Продвижение новых сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="ads" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Контекстная реклама</strong>
+                  <p>Настраиваем и ведём контекстную и таргетированную рекламу в Яндекс Директе, ВКонтакте и Telegram Ads: от запуска и тестов до ретаргетинга, оптимизации и сквозной аналитики. Работаем на заявки, продажи и понятную стоимость лида.</p>
+                </div>
+                <a href="kontekstnaya-reklama/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
+                <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
+                <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="complex" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Комплексный интернет-маркетинг</strong>
+                  <p>За стратегию продвижения, реализацию и аналитику отвечает одна команда A1. Все специалисты работают по общему плану, а инструменты дополняют друг друга и решают одну задачу — привлекать больше целевых обращений.</p>
+                </div>
+                <a href="complex-marketing/">Все услуги →</a>
+              </div>
+            </div>
+
+            <div class="mega-panel" data-service-panel="crm" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Внедрение CRM</strong>
+                  <p>Внедряем amoCRM и Битрикс24: настраиваем воронки, автоматизации и интеграции с сайтом, телефонией и мессенджерами, обучаем команду — чтобы заявки не терялись, а работа отдела продаж была прозрачной и управляемой.</p>
+                </div>
+                <a href="vnedrenie-crm/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="mobile" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Мобильные приложения</strong>
+                  <p>Разрабатываем мобильные приложения для iOS и Android: от проектирования и дизайна до разработки, тестирования и публикации. Делаем нативные и кроссплатформенные решения под задачи бизнеса.</p>
+                </div>
+                <a href="mobilnye-prilozheniya/">Все услуги →</a>
+              </div>
+            </div>
+
+            <div class="mega-panel" data-service-panel="design" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Веб-дизайн</strong>
+                  <p>Проектируем интерфейсы для сайтов, лендингов, личных кабинетов и приложений: продумываем структуру, сценарии, прототипы и дизайн, чтобы пользователю было удобно, понятно и легко совершить целевое действие.</p>
+                </div>
+                <a href="veb-dizajn/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                <li><a href="veb-dizajn/proektirovanie/">UX-проектирование</a></li>
+                <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                <li><a href="veb-dizajn/mobilnyh-prilozhenij/">Дизайн мобильных приложений</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="industries" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Отраслевая экспертиза</strong>
+                  <p>Маркетинг и разработка для конкретных ниш: стоматологии, автосалоны, медицинские и косметологические клиники, онлайн-курсы, новые ЖК.</p>
+                </div>
+                <a href="otraslevaya-ekspertiza/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/">Для медицинских клиник</a></li>
+                <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                <li><a href="otraslevaya-ekspertiza/onlajn-kursy/">Для онлайн-курсов</a></li>
+                <li><a href="otraslevaya-ekspertiza/novye-zhk/">Для новых ЖК</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="support" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Техподдержка сайтов</strong>
+                  <p>Берём сайты на сопровождение: дорабатываем функционал, обновляем CMS и контент, следим за стабильностью, безопасностью и резервным копированием, чтобы проект работал без сбоев и не терял заявки.</p>
+                </div>
+                <a href="tekhpodderzhka/">Все услуги →</a>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="tekhpodderzhka/s-seo/">Поддержка с SEO</a></li>
+                <li><a href="tekhpodderzhka/internet-magazinov/">Поддержка интернет-магазинов</a></li>
+                <li><a href="tekhpodderzhka/kompleksnoe-soprovozhdenie/">Комплексное сопровождение</a></li>
+                <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                <li><a href="tekhpodderzhka/dostavka-i-oplata/">Доставка и оплата</a></li>
+                <li><a href="tekhpodderzhka/obnovlenie-cms/">Обновление CMS</a></li>
+                <li><a href="tekhpodderzhka/testirovanie/">Тестирование сайта</a></li>
+                <li><a href="tekhpodderzhka/perenos-na-bitrix/">Перенос на Битрикс</a></li>
+                <li><a href="tekhpodderzhka/licenziya-bitrix/">Лицензия Битрикс</a></li>
+                <li><a href="tekhpodderzhka/lechenie-ot-virusov/">Лечение от вирусов</a></li>
+                <li><a href="tekhpodderzhka/napolnenie-sajtov/">Наполнение сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="geomarketing" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Геомаркетинг</strong>
+                  <p>Усиливаем локальную видимость бизнеса в Яндекс Картах, 2ГИС и Google: оформляем и развиваем карточки, подключаем георекламу и следим за актуальностью информации.</p>
+                </div>
+                <a href="geomarketing/">Все услуги →</a>
+              </div>
+            </div>
+
+            <div class="mega-menu__consultation">
+              <div>
+                <strong>Не знаете, с чего начать?</strong>
+                <p>Бесплатная консультация — подберём подходящие услуги под вашу задачу.</p>
+              </div>
+              <a class="button button--primary" href="surgut/kontakty/">
+                Получить консультацию
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu-overlay" hidden data-mobile-menu-overlay></div>
+    <aside
+      class="mobile-menu"
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Главное меню"
+      hidden
+      data-mobile-menu
+    >
+      <div class="mobile-menu__header">
+        <div class="mobile-menu__title">Меню</div>
+        <button type="button" aria-label="Закрыть меню" data-mobile-menu-close>
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m5 5 14 14M19 5 5 19"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-menu__body">
+        <nav aria-label="Услуги">
+          <ul class="mobile-services">
+            <li>
+              <details>
+                <summary>Разработка сайтов</summary>
+                <ul>
+                  <li><a href="razrabotka-sajtov/">Все услуги</a></li>
+                  <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                  <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                  <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                  <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                  <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                  <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>SEO-продвижение</summary>
+                <ul>
+                  <li><a href="seo/">Все услуги</a></li>
+                  <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                  <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                  <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                  <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                  <li><a href="seo/audit/">SEO-аудит</a></li>
+                  <li><a href="seo/tekhnicheskij-audit/">Технический аудит</a></li>
+                  <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                  <li><a href="seo/google/">Продвижение в Google</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Контекстная реклама</summary>
+                <ul>
+                  <li><a href="kontekstnaya-reklama/">Все услуги</a></li>
+                  <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
+                  <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
+                  <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+            <li>
+              <details>
+                <summary>Внедрение CRM</summary>
+                <ul>
+                  <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                  <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                  <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="mobilnye-prilozheniya/">Мобильные приложения</a></li>
+            <li>
+              <details>
+                <summary>Веб-дизайн</summary>
+                <ul>
+                  <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                  <li><a href="veb-dizajn/proektirovanie/">UX-проектирование</a></li>
+                  <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Отраслевая экспертиза</summary>
+                <ul>
+                  <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                  <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                  <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/">Для медицинских клиник</a></li>
+                  <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Техподдержка сайтов</summary>
+                <ul>
+                  <li><a href="tekhpodderzhka/s-seo/">Поддержка с SEO</a></li>
+                  <li><a href="tekhpodderzhka/internet-magazinov/">Поддержка интернет-магазинов</a></li>
+                  <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                  <li><a href="tekhpodderzhka/testirovanie/">Тестирование сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="geomarketing/">Геомаркетинг</a></li>
+          </ul>
+        </nav>
+
+        <nav class="mobile-menu__secondary" aria-label="Разделы сайта">
+          <a href="company/about/">О нас</a>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/" aria-current="page">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="akcii/">Акции</a>
+          <a href="surgut/kontakty/">Контакты</a>
+        </nav>
+
+        <div class="mobile-menu__contacts">
+          <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
+          <a class="button button--primary" href="surgut/kontakty/">Обсудить проект</a>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main-content" tabindex="-1">
+      <section class="blog-hero" aria-labelledby="blog-title">
+        <div class="container"><div class="blog-hero__copy"><h1 id="blog-title">Блог A1-Интернет Эксперт</h1><p>Пишем о задачах, с которыми сталкиваемся в проектах: разбираем решения, объясняем сложные вопросы и делимся практическими рекомендациями.</p></div></div>
+      </section>
+
+      <section class="blog-library" id="materials" aria-labelledby="materials-title">
+        <div class="container">
+          <div class="blog-library__header"><h2 id="materials-title">Материалы</h2><p class="blog-library__count" data-blog-count>10 материалов</p></div>
+          <div class="blog-filters" role="group" aria-label="Тематики статей" data-blog-filters>
+            <button class="blog-filter" type="button" data-blog-filter="all" aria-pressed="true">все материалы</button>
+            <button class="blog-filter" type="button" data-blog-filter="web" aria-pressed="false">разработка сайтов</button>
+            <button class="blog-filter" type="button" data-blog-filter="seo" aria-pressed="false">SEO</button>
+            <button class="blog-filter" type="button" data-blog-filter="ads" aria-pressed="false">контекстная реклама</button>
+            <button class="blog-filter" type="button" data-blog-filter="analytics" aria-pressed="false">аналитика</button>
+            <button class="blog-filter" type="button" data-blog-filter="tech" aria-pressed="false">технологии</button>
+          </div>
+          <div class="blog-grid" data-blog-grid>
+            <article class="blog-card" data-blog-card data-blog-category="seo" data-blog-author="anna-ivanova">
+              <a class="blog-card__media blog-card__media--seo" href="blog/neyroseti-v-seo/" aria-label="Читать статью «Нейросети в SEO: как ускорить работу и не потерять качество»"></a>
+              <div class="blog-card__body"><a class="blog-category" href="blog/?category=seo#materials">SEO</a><h3><a href="blog/neyroseti-v-seo/">Нейросети в SEO: как ускорить работу и не потерять качество</a></h3><p class="blog-card__description">Разбираем, какие SEO-задачи можно передать нейросети, где нужен контроль специалиста и как выстроить процесс от исходных данных до публикации.</p><div class="blog-meta" aria-label="Информация о материале"><a class="blog-author-link" href="blog/authors/anna-ivanova/">Анна Иванова</a><time datetime="2026-08-02">2 августа 2026</time><span>13 минут</span></div></div>
+            </article>
+            <article class="blog-card" data-blog-card data-blog-category="web">
+              <div class="blog-card__media blog-card__media--web" role="img" aria-label="Схема разделов сайта и пользовательских маршрутов"></div>
+              <div class="blog-card__body"><a class="blog-category" href="blog/?category=web#materials">разработка сайтов</a><h3>Как подготовить структуру сайта до начала дизайна</h3><p class="blog-card__description">Показываем, как связать поисковый спрос, услуги компании и путь пользователя, чтобы после дизайна не пришлось заново собирать разделы.</p><div class="blog-meta"><span>Команда A1-Интернет Эксперт</span><time datetime="2026-07-28">28 июля 2026</time><span>8 минут</span></div></div>
+            </article>
+            <article class="blog-card" data-blog-card data-blog-category="web">
+              <div class="blog-card__media blog-card__media--web" role="img" aria-label="Рабочая доска с группами материалов для будущего сайта"></div>
+              <div class="blog-card__body"><a class="blog-category" href="blog/?category=web#materials">разработка сайтов</a><h3>Корпоративный сайт: какие материалы собрать до старта</h3><p class="blog-card__description">Чек-лист для команды клиента: информация об услугах, аудитории, процессах, доказательствах и ограничениях проекта.</p><div class="blog-meta"><span>Команда A1-Интернет Эксперт</span><time datetime="2026-07-16">16 июля 2026</time><span>7 минут</span></div></div>
+            </article>
+            <article class="blog-card" data-blog-card data-blog-category="seo" data-blog-author="anna-ivanova">
+              <div class="blog-card__media blog-card__media--seo" role="img" aria-label="Карта запросов, объединённых в группы и страницы"></div>
+              <div class="blog-card__body"><a class="blog-category" href="blog/?category=seo#materials">SEO</a><h3>Как понять, какие страницы нужны сайту для продвижения</h3><p class="blog-card__description">Объясняем, как превратить поисковые запросы в понятную структуру и не создавать несколько страниц с одинаковым смыслом.</p><div class="blog-meta"><a class="blog-author-link" href="blog/authors/anna-ivanova/">Анна Иванова</a><time datetime="2026-07-09">9 июля 2026</time><span>9 минут</span></div></div>
+            </article>
+            <article class="blog-card" data-blog-card data-blog-category="seo" data-blog-author="anna-ivanova">
+              <div class="blog-card__media blog-card__media--seo" role="img" aria-label="Последовательность от поискового запроса до обращения"></div>
+              <div class="blog-card__body"><a class="blog-category" href="blog/?category=seo#materials">SEO</a><h3>Почему позиции растут, а заявок больше не становится</h3><p class="blog-card__description">Разбираем разрыв между видимостью сайта и обращениями: запросы, посадочные страницы, предложение, формы и аналитика.</p><div class="blog-meta"><a class="blog-author-link" href="blog/authors/anna-ivanova/">Анна Иванова</a><time datetime="2026-06-30">30 июня 2026</time><span>8 минут</span></div></div>
+            </article>
+            <article class="blog-card" data-blog-card data-blog-category="ads">
+              <div class="blog-card__media blog-card__media--ads" role="img" aria-label="Два сценария контакта пользователя с рекламой"></div>
+              <div class="blog-card__body"><a class="blog-category" href="blog/?category=ads#materials">контекстная реклама</a><h3>Поисковая реклама и РСЯ: для каких задач нужен каждый формат</h3><p class="blog-card__description">Сравниваем работу со сформированным спросом и знакомство новой аудитории с предложением.</p><div class="blog-meta"><span>Команда A1-Интернет Эксперт</span><time datetime="2026-06-19">19 июня 2026</time><span>7 минут</span></div></div>
+            </article>
+            <article class="blog-card" data-blog-card data-blog-category="ads">
+              <div class="blog-card__media blog-card__media--ads" role="img" aria-label="Фрагменты посадочной страницы с отмеченными зонами проверки"></div>
+              <div class="blog-card__body"><a class="blog-category" href="blog/?category=ads#materials">контекстная реклама</a><h3>Что проверить на посадочной странице до запуска Директа</h3><p class="blog-card__description">Практический список: соответствие объявлению, содержание первого экрана, доказательства, форма обращения и настройка целей.</p><div class="blog-meta"><span>Команда A1-Интернет Эксперт</span><time datetime="2026-06-06">6 июня 2026</time><span>6 минут</span></div></div>
+            </article>
+            <article class="blog-card" data-blog-card data-blog-category="analytics">
+              <div class="blog-card__media blog-card__media--analytics" role="img" aria-label="Воронка событий от просмотра до подтверждённого обращения"></div>
+              <div class="blog-card__body"><a class="blog-category" href="blog/?category=analytics#materials">аналитика</a><h3>Как настроить цели и не считать каждое нажатие заявкой</h3><p class="blog-card__description">Отделяем реальные обращения от промежуточных действий и определяем, какие события нужны для оценки рекламы и SEO.</p><div class="blog-meta"><span>Команда A1-Интернет Эксперт</span><time datetime="2026-05-27">27 мая 2026</time><span>8 минут</span></div></div>
+            </article>
+            <article class="blog-card" data-blog-card data-blog-category="analytics">
+              <div class="blog-card__media blog-card__media--analytics" role="img" aria-label="Путь данных из рекламы и сайта в систему учёта обращений"></div>
+              <div class="blog-card__body"><a class="blog-category" href="blog/?category=analytics#materials">аналитика</a><h3>Откуда пришла заявка: базовая схема аналитики без лишней сложности</h3><p class="blog-card__description">Показываем, какие данные связать, чтобы видеть источник обращения и не собирать отчётность ради отчётности.</p><div class="blog-meta"><span>Команда A1-Интернет Эксперт</span><time datetime="2026-05-14">14 мая 2026</time><span>9 минут</span></div></div>
+            </article>
+            <article class="blog-card" data-blog-card data-blog-category="tech">
+              <div class="blog-card__media blog-card__media--tech" role="img" aria-label="Два пользовательских сценария: простое обращение и работа в личном кабинете"></div>
+              <div class="blog-card__body"><a class="blog-category" href="blog/?category=tech#materials">технологии</a><h3>Когда сайту нужен личный кабинет, а когда достаточно формы</h3><p class="blog-card__description">Сравниваем сценарии, объём данных и поддержку, чтобы не усложнять проект раньше времени.</p><div class="blog-meta"><span>Команда A1-Интернет Эксперт</span><time datetime="2026-04-29">29 апреля 2026</time><span>8 минут</span></div></div>
+            </article>
+          </div>
+          <nav class="blog-pagination" aria-label="Пагинация блога" data-blog-pagination hidden>
+            <a class="blog-pagination__direction" href="blog/#materials" rel="prev" data-blog-page-prev>Назад</a>
+            <span class="blog-pagination__pages" data-blog-page-list></span>
+            <a class="blog-pagination__direction" href="blog/?page=2#materials" rel="next" data-blog-page-next>Вперёд</a>
+          </nav>
+          <p class="blog-status" aria-live="polite" data-blog-status></p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand">
+            <a class="brand brand--footer" href="./" aria-label="A1-Интернет Эксперт, на главную">
+              <img src="logo.png" width="55" height="70" alt="">
+            </a>
+            <p>Диджитал-агентство полного цикла в Сургуте и Тюмени с 2015 года.</p>
+          </div>
+
+          <nav aria-label="Услуги в подвале">
+            <h2>Услуги</h2>
+            <ul>
+              <li><a href="razrabotka-sajtov/">Разработка сайтов</a></li>
+              <li><a href="seo/">SEO-продвижение</a></li>
+              <li><a href="kontekstnaya-reklama/">Реклама</a></li>
+              <li><a href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+              <li><a href="surgut/vnedrenie-crm/">Внедрение CRM</a></li>
+              <li><a href="surgut/mobilnye-prilozheniya/">Мобильные приложения</a></li>
+              <li><a href="surgut/veb-dizajn/">Веб-дизайн</a></li>
+              <li><a href="surgut/otraslevaya-ekspertiza/">Отраслевая экспертиза</a></li>
+              <li><a href="surgut/tekhpodderzhka/">Техподдержка сайтов</a></li>
+              <li><a href="surgut/geomarketing/">Геомаркетинг</a></li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Компания в подвале">
+            <h2>Компания</h2>
+            <ul>
+              <li><a href="company/about/">О нас</a></li>
+              <li><a href="cases/">Кейсы</a></li>
+              <li><a href="blog/" aria-current="page">Блог</a></li>
+              <li><a href="company/reviews/">Отзывы</a></li>
+              <li><a href="company/careers/">Вакансии</a></li>
+              <li><a href="prices/">Цены</a></li>
+              <li><a href="akcii/">Акции</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__offices">
+            <h2>Офисы</h2>
+            <div>
+              <a class="office-title" href="surgut/">Сургут</a>
+              <address>
+                <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
+                <a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a>
+                <span>улица Университетская, 25, офис 408</span>
+              </address>
+            </div>
+            <div>
+              <a class="office-title" href="tyumen/">Тюмень</a>
+              <address>
+                <a href="tel:+73452000000">+7 (3452) 00-00-00</a>
+                <a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a>
+                <span>улица Республики, 61, офис 712</span>
+              </address>
+            </div>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <div>© 2026 A1-Интернет Эксперт. Все права защищены.</div>
+          <div>
+            <a href="privacy/">Политика конфиденциальности</a>
+            <a href="terms/">Пользовательское соглашение</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mobile-sticky-actions" data-mobile-sticky data-visible="false">
+      <a href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </a>
+      <a href="surgut/kontakty/">
+        Обсудить проект
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+      </a>
+    </div>
+  </body>
+</html>
