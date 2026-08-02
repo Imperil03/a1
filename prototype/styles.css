@@ -2190,22 +2190,6 @@ address {
   line-height: 1.55;
 }
 
-.contact-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 24px;
-}
-
-.contact-badges li {
-  padding: 6px 11px;
-  border: 1px solid var(--brand-100);
-  border-radius: 999px;
-  background: var(--paper);
-  font-size: 12px;
-  font-weight: 650;
-}
-
 .response-time {
   display: flex;
   align-items: center;

@@ -224,18 +224,6 @@
   line-height: 1.45;
 }
 
-.seo-process__conclusion {
-  max-width: 1120px;
-  margin-top: 18px;
-  padding: 22px 26px;
-  border: 1px solid var(--brand-100);
-  border-radius: 16px;
-  color: var(--ink-800);
-  background: var(--brand-50);
-  font-weight: 650;
-  line-height: 1.58;
-}
-
 .seo-reporting__panel {
   max-width: 1120px;
   overflow: hidden;
