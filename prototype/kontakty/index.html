@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="../../../">
+    <base href="../">
     <meta name="theme-color" content="#ffffff">
     <meta name="color-scheme" content="light">
-    <title>Анна Иванова — SEO-специалист | Блог A1-Интернет Эксперт</title>
-    <meta name="description" content="Анна Иванова — SEO-специалист. Проектирует структуру сайта, анализирует поисковый спрос и отвечает за развитие органического трафика.">
+    <title>Контакты — A1-Интернет Эксперт</title>
+    <meta name="description" content="Контакты A1-Интернет Эксперт: телефоны, email, Telegram, адреса и часы работы офисов в Сургуте и Тюмени.">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="contacts.css">
     <script src="script.js" defer></script>
   </head>
-  <body class="article-page author-profile-page">
+  <body class="contacts-page">
     <header class="site-header" data-header>
       <div class="container header-grid">
         <a class="brand" href="./" aria-label="A1-Интернет Эксперт, на главную">
@@ -50,9 +50,9 @@
             </button>
           </div>
           <a href="cases/">Кейсы</a>
-          <a href="blog/" aria-current="page">Блог</a>
+          <a href="blog/">Блог</a>
           <a href="prices/">Цены</a>
-          <a href="kontakty/">Контакты</a>
+          <a href="kontakty/" aria-current="page">Контакты</a>
         </nav>
 
         <div class="header-actions">
@@ -82,12 +82,12 @@
 
           <a class="header-phone" href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
             <span>+7 (3462) 00-00-00</span>
           </a>
 
-          <a class="button button--header" href="kontakty/">
+          <a class="button button--header" href="#channels">
             Обсудить проект
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M5 12h14m-6-6 6 6-6 6"></path>
@@ -314,7 +314,7 @@
                 <strong>Не знаете, с чего начать?</strong>
                 <p>Бесплатная консультация — подберём подходящие услуги под вашу задачу.</p>
               </div>
-              <a class="button button--primary" href="kontakty/">
+              <a class="button button--primary" href="#channels">
                 Получить консультацию
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12h14m-6-6 6 6-6 6"></path>
@@ -439,87 +439,194 @@
         <nav class="mobile-menu__secondary" aria-label="Разделы сайта">
           <a href="company/about/">О нас</a>
           <a href="cases/">Кейсы</a>
-          <a href="blog/" aria-current="page">Блог</a>
+          <a href="blog/">Блог</a>
           <a href="prices/">Цены</a>
           <a href="akcii/">Акции</a>
-          <a href="kontakty/">Контакты</a>
+          <a href="kontakty/" aria-current="page">Контакты</a>
         </nav>
 
         <div class="mobile-menu__contacts">
           <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
-          <a class="button button--primary" href="kontakty/">Обсудить проект</a>
+          <a class="button button--primary" href="#channels">Обсудить проект</a>
         </div>
       </div>
     </aside>
 
     <main id="main-content" tabindex="-1">
-      <section class="author-profile-hero" aria-labelledby="author-profile-title">
-        <div class="container">
-          <nav class="article-breadcrumbs" aria-label="Хлебные крошки">
-            <ol>
-              <li><a href="./">Главная</a></li>
-              <li><a href="blog/">Блог</a></li>
-              <li aria-current="page">Анна Иванова</li>
-            </ol>
-          </nav>
+      <section class="contacts-hero" aria-labelledby="contacts-title">
+        <div class="container contacts-hero__grid">
+          <div class="contacts-hero__intro">
+            <h1 id="contacts-title">Контакты</h1>
+            <p class="contacts-hero__lead">Выберите удобный способ связи. Обсудим задачу, зададим уточняющие вопросы и предложим подходящий первый шаг.</p>
+            <p class="contacts-availability">На связи по будням, 9:00–18:00</p>
+          </div>
 
-          <div class="author-profile-hero__content">
-            <span class="author-profile-avatar article-author-card__avatar" role="img" aria-label="Место для фотографии Анны Ивановой"></span>
-            <div class="author-profile-hero__copy">
-              <h1 id="author-profile-title">Анна Иванова</h1>
-              <p class="author-profile-role">SEO-специалист</p>
-              <dl class="author-profile-facts">
-                <div>
-                  <dt>Опыт</dt>
-                  <dd>В SEO с 2018 года</dd>
-                </div>
-                <div>
-                  <dt>Специализация деятельности</dt>
-                  <dd>Проектирует структуру сайта, анализирует поисковый спрос и отвечает за развитие органического трафика.</dd>
-                </div>
-              </dl>
+          <div class="contact-channels" id="channels" aria-label="Способы связи">
+            <a
+              class="contact-channel contact-channel--primary"
+              href="https://t.me/a1reklama"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Написать в Telegram, откроется в новой вкладке"
+            >
+              <span class="contact-channel__top">
+                <span class="contact-channel__label">Быстрее всего</span>
+                <span class="contact-channel__icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24"><path d="m21 3-7.5 18-4.2-7.2L3 10.5 21 3Z"></path><path d="m9.3 13.8 4.1-3.8"></path></svg>
+                </span>
+              </span>
+              <span class="contact-channel__body">
+                <strong class="contact-channel__value">Написать в Telegram</strong>
+                <span class="contact-channel__meta">Обычно отвечаем за 15 минут</span>
+              </span>
+              <span class="contact-channel__arrow" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+              </span>
+            </a>
+
+            <a class="contact-channel" href="tel:+73462000000">
+              <span class="contact-channel__top">
+                <span class="contact-channel__label">Позвонить</span>
+                <span class="contact-channel__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </span>
+              </span>
+              <span class="contact-channel__body">
+                <strong class="contact-channel__value"><span>+7 (3462)</span> <span>00-00-00</span></strong>
+                <span class="contact-channel__meta">Пн–пт, 9:00–18:00</span>
+              </span>
+              <span class="contact-channel__arrow" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+              </span>
+            </a>
+
+            <a class="contact-channel" href="mailto:hello@a1-reklama.ru?subject=%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82">
+              <span class="contact-channel__top">
+                <span class="contact-channel__label">Написать на почту</span>
+                <span class="contact-channel__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+                </span>
+              </span>
+              <span class="contact-channel__body">
+                <strong class="contact-channel__value">hello@a1-reklama.ru</strong>
+                <span class="contact-channel__meta">Для файлов, брифов и документов</span>
+              </span>
+              <span class="contact-channel__arrow" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="contacts-section" aria-labelledby="offices-title">
+        <div class="container">
+          <div class="contacts-heading">
+            <h2 id="offices-title">Офисы</h2>
+            <p>Если удобнее встретиться лично, заранее договоритесь о времени — подготовим нужных специалистов к разговору.</p>
+          </div>
+
+          <div class="office-grid">
+            <article class="office-card" id="surgut">
+              <div class="office-card__header">
+                <h3>Сургут</h3>
+                <span class="office-card__status">Основной офис</span>
+              </div>
+              <address>
+                <dl>
+                  <div class="office-detail">
+                    <dt>Телефон</dt>
+                    <dd><a href="tel:+73462000000">+7 (3462) 00-00-00</a></dd>
+                  </div>
+                  <div class="office-detail">
+                    <dt>Email</dt>
+                    <dd><a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a></dd>
+                  </div>
+                  <div class="office-detail">
+                    <dt>Адрес</dt>
+                    <dd>улица Университетская, 25, офис 408</dd>
+                  </div>
+                  <div class="office-detail">
+                    <dt>Часы работы</dt>
+                    <dd>Пн–пт, 9:00–18:00</dd>
+                  </div>
+                </dl>
+              </address>
+              <div class="office-card__routes" aria-label="Маршрут до офиса в Сургуте">
+                <a href="https://yandex.ru/maps/?text=Сургут%2C%20улица%20Университетская%2C%2025" target="_blank" rel="noopener noreferrer" aria-label="Открыть адрес офиса в Сургуте в Яндекс Картах, новая вкладка">
+                  Яндекс Карты
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v6H5V5h6"></path></svg>
+                </a>
+                <a href="https://2gis.ru/search/Сургут%2C%20улица%20Университетская%2C%2025" target="_blank" rel="noopener noreferrer" aria-label="Открыть адрес офиса в Сургуте в 2ГИС, новая вкладка">
+                  2ГИС
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v6H5V5h6"></path></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="office-card" id="tyumen">
+              <div class="office-card__header">
+                <h3>Тюмень</h3>
+                <span class="office-card__status">Региональный офис</span>
+              </div>
+              <address>
+                <dl>
+                  <div class="office-detail">
+                    <dt>Телефон</dt>
+                    <dd><a href="tel:+73452000000">+7 (3452) 00-00-00</a></dd>
+                  </div>
+                  <div class="office-detail">
+                    <dt>Email</dt>
+                    <dd><a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a></dd>
+                  </div>
+                  <div class="office-detail">
+                    <dt>Адрес</dt>
+                    <dd>улица Республики, 61, офис 712</dd>
+                  </div>
+                  <div class="office-detail">
+                    <dt>Часы работы</dt>
+                    <dd>Пн–пт, 9:00–18:00</dd>
+                  </div>
+                </dl>
+              </address>
+              <div class="office-card__routes" aria-label="Маршрут до офиса в Тюмени">
+                <a href="https://yandex.ru/maps/?text=Тюмень%2C%20улица%20Республики%2C%2061" target="_blank" rel="noopener noreferrer" aria-label="Открыть адрес офиса в Тюмени в Яндекс Картах, новая вкладка">
+                  Яндекс Карты
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v6H5V5h6"></path></svg>
+                </a>
+                <a href="https://2gis.ru/search/Тюмень%2C%20улица%20Республики%2C%2061" target="_blank" rel="noopener noreferrer" aria-label="Открыть адрес офиса в Тюмени в 2ГИС, новая вкладка">
+                  2ГИС
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v6H5V5h6"></path></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contacts-section contacts-section--soft" aria-labelledby="contact-prep-title">
+        <div class="container">
+          <div class="contact-prep">
+            <div class="contact-prep__intro">
+              <h2 id="contact-prep-title">Чтобы начать, достаточно нескольких строк</h2>
+              <p>Подробное техническое задание не обязательно. Сначала разберёмся в задаче и вместе определим, какие данные понадобятся дальше.</p>
+            </div>
+            <div class="contact-prep__content">
+              <ol class="contact-prep__list">
+                <li><span>Ссылка на текущий сайт или название компании</span></li>
+                <li><span>Что хотите запустить, изменить или улучшить</span></li>
+                <li><span>Какой результат считаете важным для бизнеса</span></li>
+              </ol>
+              <a class="button button--primary contact-prep__action" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer" aria-label="Написать о проекте в Telegram, откроется в новой вкладке">
+                Написать о проекте
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+              </a>
             </div>
           </div>
         </div>
       </section>
-
-      <section class="author-profile-articles blog-library" aria-labelledby="author-articles-title">
-        <div class="container">
-          <div class="author-profile-articles__header blog-library__header">
-            <h2 id="author-articles-title">Статьи автора</h2>
-          </div>
-
-          <div class="author-profile-articles__grid blog-grid">
-            <article class="author-profile-article blog-card">
-              <a
-                class="blog-card__media blog-card__media--seo"
-                href="blog/neyroseti-v-seo/"
-                aria-label="Читать статью «Нейросети в SEO: как ускорить работу и не потерять качество»"
-              ></a>
-              <div class="blog-card__body">
-                <a class="blog-category" href="blog/?category=seo#materials">SEO</a>
-                <h3>
-                  <a href="blog/neyroseti-v-seo/">Нейросети в SEO: как ускорить работу и не потерять качество</a>
-                </h3>
-                <p class="blog-card__description">Разбираем, какие SEO-задачи можно передать нейросети, где нужен контроль специалиста и как выстроить процесс от исходных данных до публикации.</p>
-                <div class="blog-meta" aria-label="Информация о материале">
-                  <span>Анна Иванова</span>
-                  <time datetime="2026-08-02">2 августа 2026</time>
-                  <span>13 минут</span>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <a class="author-profile-back section-link" href="blog/">
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M19 12H5m6 6-6-6 6-6"></path>
-            </svg>
-            Все материалы блога
-          </a>
-        </div>
-      </section>
     </main>
+
     <footer class="site-footer">
       <div class="container">
         <div class="site-footer__grid">
@@ -551,7 +658,7 @@
             <ul>
               <li><a href="company/about/">О нас</a></li>
               <li><a href="cases/">Кейсы</a></li>
-              <li><a href="blog/" aria-current="page">Блог</a></li>
+              <li><a href="blog/">Блог</a></li>
               <li><a href="company/reviews/">Отзывы</a></li>
               <li><a href="company/careers/">Вакансии</a></li>
               <li><a href="prices/">Цены</a></li>
@@ -562,7 +669,7 @@
           <div class="site-footer__offices">
             <h2>Офисы</h2>
             <div>
-              <a class="office-title" href="surgut/">Сургут</a>
+              <a class="office-title" href="kontakty/#surgut">Сургут</a>
               <address>
                 <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
                 <a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a>
@@ -570,7 +677,7 @@
               </address>
             </div>
             <div>
-              <a class="office-title" href="tyumen/">Тюмень</a>
+              <a class="office-title" href="kontakty/#tyumen">Тюмень</a>
               <address>
                 <a href="tel:+73452000000">+7 (3452) 00-00-00</a>
                 <a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a>
@@ -596,8 +703,8 @@
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>
       </a>
-      <a href="kontakty/">
-        Обсудить проект
+      <a href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">
+        Написать в Telegram
         <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
       </a>
     </div>
