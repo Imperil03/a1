@@ -1554,11 +1554,26 @@ address {
 }
 
 .team-member figcaption {
+  display: grid;
+  min-height: 64px;
+  gap: 4px;
+  align-content: start;
   margin-top: 15px;
+}
+
+.team-member figcaption strong {
+  color: var(--ink-900);
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 650;
-  line-height: 1.35;
+  line-height: 1.3;
+}
+
+.team-member figcaption span {
+  color: var(--ink-500);
+  font-size: 13px;
+  line-height: 1.4;
+  hyphens: auto;
 }
 
 .director-quote {
@@ -2794,7 +2809,15 @@ address {
   }
 
   .team-member figcaption {
+    min-height: 80px;
     margin-top: 12px;
+  }
+
+  .team-member figcaption strong {
+    font-size: 13px;
+  }
+
+  .team-member figcaption span {
     font-size: 12px;
   }
 
