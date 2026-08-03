@@ -22,7 +22,6 @@
 
 .cases-catalog-hero h1,
 .case-detail-hero h1,
-.case-quick-result h2,
 .case-story h2,
 .case-context-cta h2,
 .case-related h2 {
@@ -703,54 +702,38 @@ a.cases-catalog-card:hover .cases-catalog-card__arrow {
 /* Quick result */
 
 .case-quick-result {
-  padding: 104px 0 96px;
+  padding: 72px 0 80px;
   background: var(--cream-100);
 }
 
-.case-quick-result h2 {
-  max-width: 800px;
-  font-size: clamp(38px, 4.4vw, 58px);
-  line-height: 1.06;
-}
-
 .case-quick-result__heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.55fr);
-  gap: clamp(48px, 8vw, 112px);
-  align-items: start;
+  display: block;
 }
 
-.case-quick-result__heading > div {
-  display: grid;
-  gap: 20px;
-}
-
-.case-quick-result__heading > div > span {
+.case-quick-result__label {
+  margin: 0;
   color: var(--brand-700);
   font-size: 11px;
   font-weight: 850;
+  line-height: 1.4;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.case-quick-result__heading .case-data-note {
-  margin: 36px 0 0;
 }
 
 .case-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 64px;
+  margin-top: 34px;
   border-top: 1px solid var(--cream-300);
   border-bottom: 1px solid var(--cream-300);
 }
 
 .case-metrics > div {
   display: grid;
-  min-height: 210px;
+  min-height: 190px;
   align-content: start;
   gap: 12px;
-  padding: 34px 34px 38px;
+  padding: 30px 34px 34px;
   border-left: 1px solid var(--cream-300);
 }
 
@@ -2831,17 +2814,8 @@ a.cases-catalog-card:hover .cases-catalog-card__arrow {
     border-top: 0;
   }
 
-  .case-quick-result__heading {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .case-quick-result h2 {
-    font-size: 34px;
-  }
-
-  .case-quick-result__heading .case-data-note {
-    margin-top: 0;
+  .case-quick-result__label {
+    font-size: 10px;
   }
 
   .case-story-layout {
