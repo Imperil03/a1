@@ -1926,6 +1926,22 @@ address {
   line-height: 1.4;
 }
 
+.industries-list a {
+  display: flex;
+  width: calc(100% + 40px);
+  min-height: 104px;
+  align-items: center;
+  margin: -20px;
+  padding: 20px;
+  border-radius: inherit;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.industries-list a:hover {
+  color: var(--brand-700);
+  background: var(--brand-100);
+}
+
 /* Credentials and clients */
 
 .credentials-section {
@@ -3176,6 +3192,10 @@ address {
   }
 
   .industries-list li {
+    min-height: 78px;
+  }
+
+  .industries-list a {
     min-height: 78px;
   }
 

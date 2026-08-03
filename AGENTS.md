@@ -54,6 +54,9 @@
   Тюмени.
 - `prototype/prices/index.html` — самостоятельная страница цен с открытым
   каталогом услуг и якорной навигацией по категориям.
+- `prototype/otraslevaya-ekspertiza/medicinskie-kliniki/index.html` — первая
+  страница раздела отраслевой экспертизы: продвижение медицинских клиник и
+  центров.
 - `prototype/test/index.html` — старая главная для визуального сравнения.
 - `docs/pages/home.md` — page brief новой главной.
 - `docs/pages/service-template.md` — общий каркас коммерческих страниц услуг.
@@ -70,6 +73,8 @@
   автора.
 - `docs/pages/contacts.md` — page brief общей страницы контактов.
 - `docs/pages/prices.md` — page brief страницы цен.
+- `docs/pages/medical-clinic-marketing.md` — page brief продвижения медицинских
+  клиник и центров.
 - Старый Next.js static export нельзя нормально редактировать: исходников React/Next.js в репозитории нет. Его файлы сохранены только для маршрута `/test/`.
 - Остальные внутренние страницы проектируются с нуля по общему шаблону и
   собственным page brief.

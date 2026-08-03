@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="../../">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <title>Продвижение медицинских клиник и центров | A1-Интернет Эксперт</title>
+    <meta name="description" content="Продвижение медицинских клиник: сайты и посадочные страницы, SEO, Яндекс Директ, карты, репутация, медицинский контент и аналитика записей.">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="medical.css?v=20260803-1">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="medical-page">
+    <header class="site-header" data-header>
+      <div class="container header-grid">
+        <a class="brand" href="./" aria-label="A1-Интернет Эксперт, на главную">
+          <img src="logo.png" width="55" height="70" alt="">
+        </a>
+
+        <button
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Открыть меню"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          data-mobile-menu-toggle
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <nav class="desktop-nav" aria-label="Основная навигация">
+          <div class="company-trigger-wrap" data-company-shell>
+            <button type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu" data-popover-toggle="company-menu">
+              О компании
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div class="company-menu" id="company-menu" hidden data-popover data-company-menu>
+              <a href="company/about/">О компании</a>
+              <a href="company/reviews/">Отзывы</a>
+              <a href="company/careers/">Вакансии</a>
+            </div>
+          </div>
+          <div class="services-trigger-wrap" data-services-shell>
+            <button
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="services-menu"
+              data-popover-toggle="services-menu"
+            >
+              Услуги
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+          </div>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="kontakty/">Контакты</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="location-select">
+            <button
+              class="location-select__toggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="city-menu"
+              data-popover-toggle="city-menu"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Выбрать город</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="city-menu" id="city-menu" hidden data-popover>
+              <a href="surgut/">Сургут</a>
+              <a href="tyumen/">Тюмень</a>
+            </div>
+          </div>
+
+          <a class="header-phone" href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+7 (3462) 00-00-00</span>
+          </a>
+
+          <a class="button button--header" href="kontakty/">
+            Обсудить проект
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m-6-6 6 6-6 6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="mega-menu"
+        id="services-menu"
+        hidden
+        data-popover
+        data-services-menu
+      >
+        <div class="mega-menu__grid">
+          <div class="mega-menu__directions">
+            <div class="mega-menu__label">Направления</div>
+            <ul>
+              <li>
+                <button type="button" data-service-tab="web-development">
+                  <span>01</span>Разработка сайтов
+                </button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="seo"><span>02</span>SEO-продвижение</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="ads"><span>03</span>Контекстная реклама</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="complex"><span>04</span>Комплексный интернет-маркетинг</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="crm"><span>05</span>Внедрение CRM</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="mobile"><span>06</span>Мобильные приложения</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="design"><span>07</span>Веб-дизайн</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="industries"><span>08</span>Отраслевая экспертиза</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="support"><span>09</span>Техподдержка сайтов</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="geomarketing"><span>10</span>Геомаркетинг</button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mega-menu__content">
+            <div class="mega-panel" data-service-panel="web-development">
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Разработка сайтов</strong>
+                  <p>Разрабатываем корпоративные сайты, интернет-магазины, лендинги и личные кабинеты под задачи бизнеса: от структуры и прототипа до запуска, интеграций и дальнейшей поддержки. Работаем на 1С-Битрикс, WordPress, Tilda и Laravel.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="razrabotka-sajtov/">Разработка сайтов</a></li>
+                <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                <li><a href="razrabotka-sajtov/laravel/">Разработка на Laravel</a></li>
+                <li><a href="razrabotka-sajtov/joomla/">Сайты на Joomla</a></li>
+                <li><a href="razrabotka-sajtov/modx/">Сайты на MODX</a></li>
+                <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                <li><a href="razrabotka-sajtov/sajty-pod-seo/">Сайты под SEO</a></li>
+                <li><a href="razrabotka-sajtov/sajty-vizitki/">Сайты-визитки</a></li>
+                <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                <li><a href="razrabotka-sajtov/lichnye-kabinety/">Личные кабинеты</a></li>
+                <li><a href="razrabotka-sajtov/integratsiya-s-1c/">Интеграция с 1С</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="seo" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>SEO-продвижение</strong>
+                  <p>Комплексно продвигаем сайты в Яндексе и Google: собираем семантику, усиливаем техническую оптимизацию, контент, перелинковку и аналитику, чтобы сайт рос не только по позициям, но и по заявкам.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="seo/">SEO-продвижение</a></li>
+                <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                <li><a href="seo/audit/">SEO-аудит</a></li>
+                <li><a href="seo/1c-bitrix/">SEO для 1С-Битрикс</a></li>
+                <li><a href="seo/tilda/">SEO для Tilda</a></li>
+                <li><a href="seo/wordpress/">SEO для WordPress</a></li>
+                <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                <li><a href="seo/google/">Продвижение в Google</a></li>
+                <li><a href="seo/prodvizhenie-novyh-sajtov/">Продвижение новых сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="ads" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Контекстная реклама</strong>
+                  <p>Настраиваем и ведём контекстную и таргетированную рекламу в Яндекс Директе, ВКонтакте и Telegram Ads: от запуска и тестов до ретаргетинга, оптимизации и сквозной аналитики. Работаем на заявки, продажи и понятную стоимость лида.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="kontekstnaya-reklama/">Контекстная реклама</a></li>
+                <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
+                <li><a href="kontekstnaya-reklama/audit-direct/">Аудит Яндекс Директа</a></li>
+                <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
+                <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="complex" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Комплексный интернет-маркетинг</strong>
+                  <p>За стратегию продвижения, реализацию и аналитику отвечает одна команда A1. Все специалисты работают по общему плану, а инструменты дополняют друг друга и решают одну задачу — привлекать больше целевых обращений.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="crm" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Внедрение CRM</strong>
+                  <p>Внедряем amoCRM и Битрикс24: настраиваем воронки, автоматизации и интеграции с сайтом, телефонией и мессенджерами, обучаем команду — чтобы заявки не терялись, а работа отдела продаж была прозрачной и управляемой.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="mobile" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Мобильные приложения</strong>
+                  <p>Разрабатываем мобильные приложения для iOS и Android: от проектирования и дизайна до разработки, тестирования и публикации. Делаем нативные и кроссплатформенные решения под задачи бизнеса.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mega-panel" data-service-panel="design" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Веб-дизайн</strong>
+                  <p>Проектируем интерфейсы для сайтов, лендингов, личных кабинетов и приложений: продумываем структуру, сценарии, прототипы и дизайн, чтобы пользователю было удобно, понятно и легко совершить целевое действие.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                <li><a href="veb-dizajn/mobilnyh-prilozhenij/">Дизайн мобильных приложений</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="industries" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Отраслевая экспертиза</strong>
+                  <p>Маркетинг и разработка для конкретных ниш: стоматологии, автосалоны, медицинские и косметологические клиники, онлайн-курсы, новые ЖК.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/" aria-current="page">Для медицинских клиник</a></li>
+                <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                <li><a href="otraslevaya-ekspertiza/onlajn-kursy/">Для онлайн-курсов</a></li>
+                <li><a href="otraslevaya-ekspertiza/novye-zhk/">Для новых ЖК</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="support" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Техподдержка сайтов</strong>
+                  <p>Берём сайты на сопровождение: дорабатываем функционал, обновляем CMS и контент, следим за стабильностью, безопасностью и резервным копированием, чтобы проект работал без сбоев и не терял заявки.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                <li><a href="tekhpodderzhka/obnovlenie-cms/">Обновление CMS</a></li>
+                <li><a href="tekhpodderzhka/perenos-na-bitrix/">Перенос на Битрикс</a></li>
+                <li><a href="tekhpodderzhka/licenziya-bitrix/">Лицензия Битрикс</a></li>
+                <li><a href="tekhpodderzhka/lechenie-ot-virusov/">Лечение от вирусов</a></li>
+                <li><a href="tekhpodderzhka/napolnenie-sajtov/">Наполнение сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="geomarketing" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Геомаркетинг</strong>
+                  <p>Усиливаем локальную видимость бизнеса в Яндекс Картах, 2ГИС и Google: оформляем и развиваем карточки, подключаем георекламу и следим за актуальностью информации.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mega-menu__consultation">
+              <div>
+                <strong>Не знаете, с чего начать?</strong>
+                <p>Бесплатная консультация — подберём подходящие услуги под вашу задачу.</p>
+              </div>
+              <a class="button button--primary" href="kontakty/">
+                Получить консультацию
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu-overlay" hidden data-mobile-menu-overlay></div>
+    <aside
+      class="mobile-menu"
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Главное меню"
+      hidden
+      data-mobile-menu
+    >
+      <div class="mobile-menu__header">
+        <div class="mobile-menu__title">Меню</div>
+        <button type="button" aria-label="Закрыть меню" data-mobile-menu-close>
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m5 5 14 14M19 5 5 19"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-menu__body">
+        <nav aria-label="Услуги">
+          <ul class="mobile-services">
+            <li>
+              <details>
+                <summary>Разработка сайтов</summary>
+                <ul>
+                  <li><a class="mobile-service-hub" href="razrabotka-sajtov/">Разработка сайтов</a></li>
+                  <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                  <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                  <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                  <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                  <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                  <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>SEO-продвижение</summary>
+                <ul>
+                  <li><a class="mobile-service-hub" href="seo/">SEO-продвижение</a></li>
+                  <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                  <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                  <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                  <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                  <li><a href="seo/audit/">SEO-аудит</a></li>
+                  <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                  <li><a href="seo/google/">Продвижение в Google</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Контекстная реклама</summary>
+                <ul>
+                  <li><a class="mobile-service-hub" href="kontekstnaya-reklama/">Контекстная реклама</a></li>
+                  <li><a href="kontekstnaya-reklama/audit-direct/">Аудит Яндекс Директа</a></li>
+                  <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
+                  <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
+                  <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a class="mobile-service-hub" href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+            <li>
+              <details>
+                <summary>Внедрение CRM</summary>
+                <ul>
+                  <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                  <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                  <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><span class="mobile-service-label">Мобильные приложения</span></li>
+            <li>
+              <details>
+                <summary>Веб-дизайн</summary>
+                <ul>
+                  <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                  <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Отраслевая экспертиза</summary>
+                <ul>
+                  <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                  <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                  <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/" aria-current="page">Для медицинских клиник</a></li>
+                  <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Техподдержка сайтов</summary>
+                <ul>
+                  <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><span class="mobile-service-label">Геомаркетинг</span></li>
+          </ul>
+        </nav>
+
+        <nav class="mobile-menu__secondary" aria-label="Разделы сайта">
+          <details class="mobile-company">
+            <summary>О компании</summary>
+            <ul>
+              <li><a href="company/about/">О компании</a></li>
+              <li><a href="company/reviews/">Отзывы</a></li>
+              <li><a href="company/careers/">Вакансии</a></li>
+            </ul>
+          </details>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="akcii/">Акции</a>
+          <a href="kontakty/">Контакты</a>
+        </nav>
+
+        <div class="mobile-menu__contacts">
+          <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
+          <a class="button button--primary" href="kontakty/">Обсудить проект</a>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main-content" tabindex="-1">
+      <!-- CONTENT SOURCE: direct user text, 03.08.2026. Working counts and prices are prototype data. -->
+      <section class="medical-hero" aria-labelledby="medical-hero-title">
+        <div class="container medical-hero__inner">
+          <nav class="site-breadcrumbs" aria-label="Хлебные крошки">
+            <ol><li><a href="./">Главная</a></li><li aria-current="page">Продвижение медицинских клиник и центров</li></ol>
+          </nav>
+
+          <div class="medical-hero__grid">
+            <div class="medical-hero__copy">
+              <h1 class="eyebrow medical-hero__label" id="medical-hero-title"><span aria-hidden="true"></span>Продвижение медицинских клиник и центров</h1>
+              <p class="medical-hero__headline">Помогаем привлекать пациентов на приоритетные услуги и увеличивать количество записей</p>
+              <p class="medical-hero__description">Разрабатываем и дорабатываем сайты клиник, запускаем SEO и Яндекс Директ, работаем с картами, отзывами и аналитикой.</p>
+              <p class="medical-hero__description">Учитываем, как пациенты выбирают врача и клинику, какую информацию хотят получить до обращения и какие требования действуют при рекламе медицинских услуг.</p>
+              <div class="medical-hero__actions">
+                <a class="button button--primary button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">Обсудить продвижение клиники<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+                <a class="medical-text-link" href="otraslevaya-ekspertiza/medicinskie-kliniki/#medical-cases">Посмотреть медицинские проекты</a>
+              </div>
+            </div>
+
+            <aside class="medical-hero__thesis">
+              <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 3v28M3 17h28"></path><circle cx="17" cy="17" r="13"></circle></svg>
+              <p>Наша задача — не просто увеличить посещаемость сайта, а помочь клинике получать больше целевых обращений по направлениям, которые важно развивать.</p>
+            </aside>
+          </div>
+
+          <dl class="medical-hero__facts">
+            <div><dt>Почти 15 лет</dt><dd>разрабатываем и продвигаем сайты</dd></div>
+            <div><dt>12 медицинских проектов</dt><dd>стоматологии, косметология и медицинские центры</dd></div>
+            <div><dt>Все работы в одной команде</dt><dd>сайт, SEO, реклама, контент и аналитика</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="medical-section medical-experience" aria-labelledby="medical-experience-title">
+        <div class="container">
+          <div class="medical-section__intro">
+            <h2 id="medical-experience-title">Наш опыт в медицинских проектах</h2>
+            <p class="medical-section__lead">Работаем с клиниками и понимаем особенности выбора медицинских услуг</p>
+            <p>Мы продвигали стоматологии, косметологические и многопрофильные клиники, отдельные услуги, врачей, обследования и аппаратные методики.</p>
+            <p>В медицинской тематике недостаточно просто привести человека на сайт. До обращения пациент обычно изучает врача, стоимость, оборудование, отзывы, расположение клиники и порядок лечения.</p>
+            <p>Поэтому мы работаем не только с рекламой или поисковыми позициями. Проверяем, есть ли на сайте необходимая информация, удобно ли найти подходящего специалиста и насколько просто записаться на приём.</p>
+          </div>
+          <ul class="medical-logo-rail" aria-label="Медицинские проекты A1">
+            <li><span>Niko M</span></li>
+            <li><span>Maestro</span></li>
+            <li><span>Кожа</span></li>
+            <li><span>Молекула</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="medical-section medical-section--cream medical-specifics" aria-labelledby="medical-specifics-title">
+        <div class="container">
+          <div class="medical-section__intro">
+            <h2 id="medical-specifics-title">Что важно учитывать при продвижении клиники</h2>
+          </div>
+          <div class="medical-specifics__list">
+            <article>
+              <span class="medical-index">01</span>
+              <div><h3>Пациент выбирает не только по цене</h3><p>Перед записью человек оценивает опыт врача, квалификацию, оборудование, методы лечения, отзывы и условия приёма.</p><p>Поэтому рядом с описанием услуги должны находиться конкретные доказательства: специалисты, лицензии, фотографии, стоимость, оборудование и примеры работ.</p></div>
+            </article>
+            <article>
+              <span class="medical-index">02</span>
+              <div><h3>Пациенты ищут услуги, врачей и информацию о симптомах</h3><p>Один человек ищет конкретную процедуру, другой — врача нужной специальности, третий начинает с симптома или названия обследования.</p><p>Для каждого важного сценария на сайте должна быть подходящая страница. Одного общего раздела «Услуги» обычно недостаточно.</p></div>
+            </article>
+            <article>
+              <span class="medical-index">03</span>
+              <div><h3>Расположение клиники влияет на выбор</h3><p>Пациенту важно, насколько удобно добраться до клиники, когда ведётся приём и можно ли быстро записаться.</p><p>Поэтому медицинским проектам особенно важны Яндекс Карты, 2ГИС, карточки филиалов, актуальные контакты, фотографии, расписание и отзывы.</p></div>
+            </article>
+            <article>
+              <span class="medical-index">04</span>
+              <div><h3>Медицинская реклама требует особой точности</h3><p>В объявлениях и на сайте нельзя использовать неподтверждённые обещания и произвольные медицинские формулировки.</p><p>Мы учитываем требования законодательства, правила рекламных площадок, лицензию клиники и фактическую информацию об услугах.</p></div>
+            </article>
+            <article>
+              <span class="medical-index">05</span>
+              <div><h3>Важно учитывать не только обращения, но и записи на приём</h3><p>Заполненная форма ещё не означает, что пациент выбрал услугу и пришёл в клинику.</p><p>Если клиника передаёт обезличенные данные из CRM или медицинской системы, мы можем оценивать подтверждённые записи, состоявшиеся посещения и результат по отдельным направлениям.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="medical-section medical-cases" id="medical-cases" aria-labelledby="medical-cases-title">
+        <div class="container">
+          <div class="medical-section__intro"><h2 id="medical-cases-title">Наши проекты в медицинской тематике</h2></div>
+          <div class="medical-case-grid">
+            <article class="medical-case-card medical-case-card--featured">
+              <div class="medical-case-card__header"><div><h3>Niko M</h3><p>стоматологическая клиника</p></div><span>SEO + развитие сайта</span></div>
+              <div class="medical-case-card__story">
+                <div><strong>Задача</strong><p>Расширить присутствие клиники в поиске по приоритетным стоматологическим услугам и увеличить количество первичных обращений.</p></div>
+                <div><strong>Что сделали</strong><p>Переработали структуру сайта, создали отдельные страницы направлений, улучшили содержание услуг и устранили технические ограничения.</p></div>
+              </div>
+              <div class="medical-case-card__results" aria-label="Результат за 8 месяцев">
+                <div><strong>14 → 32</strong><span>обращения из поиска в месяц</span></div>
+                <div><strong>+78%</strong><span>небрендовый поисковый трафик</span></div>
+                <div><strong>18% → 62%</strong><span>запросов в ТОП-10</span></div>
+              </div>
+              <a class="medical-case-card__link" href="cases/niko-m/">Смотреть кейс Niko M<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+            </article>
+
+            <article class="medical-case-card">
+              <div class="medical-case-card__header"><div><h3>Maestro</h3><p>стоматологическая клиника</p></div></div>
+              <div class="medical-case-card__story">
+                <div><strong>Задача</strong><p>Расширить видимость сайта по направлениям лечения зубов, хирургии, имплантации и ортодонтии.</p></div>
+                <div><strong>Что сделали</strong><p>Создали отдельные страницы услуг, переработали основные разделы и связали каждое направление с подходящими специалистами, ценами и способами записи.</p></div>
+              </div>
+            </article>
+
+            <article class="medical-case-card">
+              <div class="medical-case-card__header"><div><h3>Кожа</h3><p>клиника</p></div></div>
+              <div class="medical-case-card__story">
+                <div><strong>Задача</strong><p>Охватить спрос по дерматологии, косметологии, лазерным и инъекционным процедурам.</p></div>
+                <div><strong>Что сделали</strong><p>Развили структуру сайта по отдельным услугам, аппаратам и методикам. Добавили информацию о специалистах, стоимости процедур, показаниях и используемых технологиях.</p></div>
+              </div>
+            </article>
+          </div>
+          <a class="medical-text-link medical-cases__all" href="cases/">Смотреть все медицинские проекты</a>
+        </div>
+      </section>
+
+      <section class="medical-section medical-decision" aria-labelledby="medical-decision-title">
+        <div class="container">
+          <div class="medical-section__intro"><h2 id="medical-decision-title">Как пациент принимает решение о записи</h2></div>
+          <ol class="medical-decision__steps">
+            <li><span>01</span><h3>Ищет подходящую услугу или специалиста</h3><p>Пациент может искать конкретную процедуру, врача, обследование или информацию о симптоме.</p><p>На этом этапе важно, чтобы страница клиники соответствовала его запросу и давала понятный ответ.</p></li>
+            <li><span>02</span><h3>Сравнивает клиники</h3><p>Человек оценивает специалистов, цены, расположение, оборудование, отзывы и условия приёма.</p><p>Сайт должен помочь быстро найти нужную информацию, а не заставлять переходить между десятками разделов.</p></li>
+            <li><span>03</span><h3>Проверяет, можно ли доверять клинике</h3><p>Перед обращением пациент изучает образование и опыт врача, документы, методы лечения, фотографии и отзывы.</p><p>Эти материалы должны находиться рядом с описанием услуги, а не быть спрятаны в других разделах сайта.</p></li>
+            <li><span>04</span><h3>Записывается на приём</h3><p>Форма, телефон, мессенджер или онлайн-запись должны быть удобными, особенно на смартфоне.</p><p>После обращения важно быстро связаться с пациентом и подтвердить запись.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="medical-section medical-site" aria-labelledby="medical-site-title">
+        <div class="container medical-site__layout">
+          <div class="medical-site__sticky">
+            <h2 id="medical-site-title">Что должно быть на сайте клиники</h2>
+          </div>
+          <div class="medical-site__requirements">
+            <article><span>01</span><div><h3>Отдельные страницы для приоритетных услуг</h3><p>Для каждой важной услуги создаём страницу, которая отвечает на основные вопросы пациента и помогает перейти к записи.</p></div></article>
+            <article><span>02</span><div><h3>Понятное описание услуги</h3><p>Объясняем, кому она может подойти, какие задачи решает и в каких случаях применяется.</p></div></article>
+            <article><span>03</span><div><h3>Информация о врачах</h3><p>Показываем специалистов, которые ведут приём или проводят процедуру: их специализацию, образование, опыт и направления работы.</p></div></article>
+            <article><span>04</span><div><h3>Цена и условия</h3><p>Указываем стоимость, диапазон цен или объясняем, от чего зависит итоговая сумма.</p></div></article>
+            <article><span>05</span><div><h3>Порядок лечения или обследования</h3><p>Раскрываем основные этапы, продолжительность, подготовку и дальнейшие действия пациента.</p></div></article>
+            <article><span>06</span><div><h3>Ограничения и противопоказания</h3><p>Размещаем важную информацию, которую необходимо учитывать до записи.</p></div></article>
+            <article><span>07</span><div><h3>Доказательства опыта клиники</h3><p>Показываем лицензию, оборудование, фотографии, отзывы, примеры работ и другие подтверждённые материалы.</p></div></article>
+            <article><span>08</span><div><h3>Удобная запись</h3><p>Размещаем форму, телефон, мессенджер или онлайн-запись рядом с предложением, чтобы пациенту не приходилось искать контакты по всему сайту.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="medical-section medical-section--cream medical-types" aria-labelledby="medical-types-title">
+        <div class="container">
+          <div class="medical-section__intro"><h2 id="medical-types-title">С какими медицинскими проектами мы работаем</h2></div>
+          <div class="medical-types__grid">
+            <article class="medical-types__wide"><h3>Многопрофильные клиники</h3><p>Помогаем выстроить понятную структуру большого сайта: разделить услуги, врачей, обследования и филиалы и связать их между собой.</p><p>Пациенту становится проще найти подходящее направление и записаться к нужному специалисту.</p></article>
+            <article><h3>Стоматологические клиники</h3><p>Работаем с терапией, хирургией, имплантацией, ортодонтией, протезированием, детской стоматологией и другими направлениями.</p><p>Разные стоматологические услуги пациенты ищут и сравнивают по-разному. Поэтому для имплантации, лечения зубов, ортодонтии и других направлений создаём отдельные страницы и рекламные кампании.</p></article>
+            <article><h3>Косметология и эстетическая медицина</h3><p>Продвигаем аппаратные, инъекционные и уходовые процедуры, дерматологию, трихологию и лазерные технологии.</p><p>Создаём отдельные страницы для процедур и медицинских направлений, чтобы посетителю было понятно, какую задачу решает каждая услуга и к какому специалисту обратиться.</p></article>
+            <article><h3>Диагностические центры и лаборатории</h3><p>Работаем с МРТ, КТ, УЗИ, функциональной диагностикой, анализами и комплексными обследованиями.</p><p>На первый план выводим стоимость, подготовку, оборудование, сроки получения результата, расположение и возможность быстро записаться.</p></article>
+            <article><h3>Педиатрические и специализированные клиники</h3><p>Учитываем, что решение часто принимает родитель или родственник пациента.</p><p>Подробно раскрываем квалификацию специалистов, условия приёма, возрастные ограничения и порядок подготовки.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="medical-section medical-stack" aria-labelledby="medical-stack-title">
+        <div class="container">
+          <div class="medical-section__intro">
+            <h2 id="medical-stack-title">Из чего может состоять продвижение клиники</h2>
+            <p class="medical-section__lead">Состав работ зависит от задач и текущей ситуации</p>
+            <p>Не каждой клинике одновременно нужны новый сайт, SEO, реклама и CRM. Перед началом работы мы определяем, какие задачи необходимо решить сейчас, а что можно подключить позднее.</p>
+          </div>
+          <div class="medical-stack__grid">
+            <article><span>01</span><h3><a href="razrabotka-sajtov/">Сайт и посадочные страницы</a></h3><p>Создаём и дорабатываем страницы услуг, врачей, филиалов, оборудования и программ лечения.</p><p>Связываем конкретную услугу с подходящим специалистом, стоимостью и удобным способом записи.</p></article>
+            <article><span>02</span><h3><a href="seo/">SEO-продвижение</a></h3><p>Охватываем спрос не только по общим запросам вроде «медицинский центр», но и по отдельным услугам, методам лечения, врачам и обследованиям.</p><p>Развиваем структуру, содержание и техническую основу сайта.</p></article>
+            <article><span>03</span><h3><a href="kontekstnaya-reklama/">Яндекс Директ</a></h3><p>Запускаем рекламу по приоритетным направлениям и ведём посетителя сразу на подходящую страницу.</p><p>Анализируем поисковые запросы, объявления, посадочные страницы и качество поступающих обращений.</p></article>
+            <article><span>04</span><h3>Карты и геосервисы</h3><p>Развиваем карточки филиалов в Яндекс Картах, 2ГИС и других сервисах.</p><p>Следим за актуальностью услуг, фотографий, расписания, контактов и способов записи.</p></article>
+            <article><span>05</span><h3>Репутация</h3><p>Отслеживаем отзывы на картах, медицинских агрегаторах и других площадках.</p><p>Помогаем организовать работу с обратной связью и корректно отвечать на отзывы пациентов.</p></article>
+            <article><span>06</span><h3>Контент</h3><p>Готовим страницы услуг, врачей и оборудования, а также материалы о диагностике, подготовке и лечении.</p><p>Содержание создаётся на основе фактической информации клиники и согласовывается с профильными специалистами.</p></article>
+            <article class="medical-stack__wide"><span>07</span><h3>CRM и аналитика</h3><p>Настраиваем передачу источников обращений и статусов заявок.</p><p>Это помогает оценивать не только количество форм и звонков, но и подтверждённые записи по отдельным направлениям.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="medical-section medical-content" aria-labelledby="medical-content-title">
+        <div class="container">
+          <div class="medical-section__intro">
+            <h2 id="medical-content-title">Подготовка медицинских текстов</h2>
+            <p class="medical-section__lead">Тексты готовим вместе со специалистами клиники</p>
+            <p>Редактор A1 отвечает за структуру материала, понятность текста и соответствие поисковому спросу. Врач или другой профильный специалист — за медицинскую точность.</p>
+            <p>Мы не публикуем информацию о лечении, диагностике, показаниях и противопоказаниях без согласования с экспертом клиники.</p>
+          </div>
+          <div class="medical-content__proof">
+            <div class="medical-content__roles">
+              <article><span>A1</span><h3>Редактор A1</h3><p>Отвечает за структуру материала, понятность текста и соответствие поисковому спросу.</p></article>
+              <article><span>MD</span><h3>Врач или другой профильный специалист</h3><p>Отвечает за медицинскую точность.</p></article>
+            </div>
+            <div class="medical-content__byline">
+              <p><strong>На странице можно указать:</strong></p>
+              <ul><li>автора или медицинского эксперта;</li><li>специальность и квалификацию;</li><li>дату подготовки и обновления материала;</li><li>используемые источники;</li><li>клинику, которая отвечает за содержание.</li></ul>
+              <p>Так пациент понимает, кто подготовил информацию и насколько ей можно доверять.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="medical-section medical-direct" aria-labelledby="medical-direct-title">
+        <div class="container medical-direct__panel">
+          <div class="medical-direct__copy">
+            <h2 id="medical-direct-title">Яндекс Директ для медицинских услуг</h2>
+            <p class="medical-section__lead">Проверяем объявления и страницы до запуска кампаний</p>
+            <p><strong>Перед публикацией рекламы проверяем:</strong></p>
+            <ul><li>соответствует ли предложение лицензии клиники;</li><li>корректно ли описаны услуги и методы лечения;</li><li>нет ли обещаний гарантированного результата;</li><li>подтверждаются ли цены и условия;</li><li>размещены ли необходимые предупреждения;</li><li>соответствует ли реклама правилам выбранной площадки.</li></ul>
+          </div>
+          <div class="medical-direct__outcome">
+            <p>Это снижает риск отклонения кампаний и ситуаций, когда готовые объявления или страницы приходится срочно переделывать.</p>
+            <p>Для разных услуг создаём отдельные рекламные кампании и посадочные страницы. Человек, который ищет имплантацию, косметологическую процедуру или обследование, должен сразу увидеть информацию именно об этой услуге.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="medical-section medical-section--dark medical-analytics" aria-labelledby="medical-analytics-title">
+        <div class="container">
+          <div class="medical-section__intro">
+            <h2 id="medical-analytics-title">Как оцениваем результат продвижения</h2>
+            <p class="medical-section__lead">При наличии данных учитываем обращения, записи и состоявшиеся посещения</p>
+            <p>Среди обращений могут быть спам, повторные заявки, пациенты из неподходящего региона или запросы по услугам, которых нет в клинике.</p>
+          </div>
+          <div class="medical-analytics__layout">
+            <div class="medical-analytics__funnel" aria-label="Уровни оценки результата">
+              <span>Целевые обращения</span>
+              <span>Подтверждённые записи</span>
+              <span>Состоявшиеся посещения</span>
+              <span>Результат по услугам</span>
+            </div>
+            <div class="medical-analytics__details">
+              <p><strong>Если клиника передаёт обезличенные данные из CRM или медицинской системы, мы анализируем:</strong></p>
+              <ul><li>целевые обращения;</li><li>подтверждённые записи;</li><li>состоявшиеся посещения;</li><li>стоимость привлечения пациента;</li><li>результат по отдельным услугам;</li><li>загрузку направлений, врачей и филиалов;</li><li>выручку по направлениям, если эти данные доступны.</li></ul>
+            </div>
+          </div>
+          <div class="medical-analytics__note">
+            <p>Для маркетингового анализа не требуются персональные медицинские данные пациента. Достаточно источника обращения, выбранной услуги и статуса записи.</p>
+            <p>В результате вы понимаете, какие каналы приводят пациентов, где обращения теряются и куда стоит направлять бюджет дальше.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="medical-section medical-process" aria-labelledby="medical-process-title">
+        <div class="container">
+          <div class="medical-section__intro">
+            <h2 id="medical-process-title">Как проходит работа</h2>
+            <p class="medical-section__lead">Сначала определяем приоритетные услуги и проблемы текущего продвижения</p>
+          </div>
+          <ol class="medical-process__list">
+            <li><details open><summary><span>01</span><strong>Обсуждаем задачи клиники</strong></summary><p>Уточняем приоритетные направления, специалистов, филиалы, текущую загрузку и результаты действующего продвижения.</p></details></li>
+            <li><details><summary><span>02</span><strong>Изучаем спрос и конкурентов</strong></summary><p>Анализируем, как пациенты ищут услуги и врачей, какие клиники рассматривают и какую информацию ожидают увидеть.</p></details></li>
+            <li><details><summary><span>03</span><strong>Проверяем сайт, рекламу и аналитику</strong></summary><p>Смотрим структуру сайта, страницы услуг, мобильную версию, рекламные кампании, карты и данные аналитики.</p><p>Показываем, где клиника теряет потенциальных пациентов.</p></details></li>
+            <li><details><summary><span>04</span><strong>Определяем, какие услуги важно продвигать в первую очередь</strong></summary><p>Учитываем поисковый спрос, ценность направления для клиники, загрузку специалистов и доступный бюджет.</p><p>Не распределяем ресурсы равномерно между всеми услугами, если часть из них сейчас важнее.</p></details></li>
+            <li><details><summary><span>05</span><strong>Готовим страницы и рекламные материалы</strong></summary><p>Создаём или дорабатываем страницы, согласовываем медицинское содержание, настраиваем аналитику и готовим рекламные кампании.</p></details></li>
+            <li><details><summary><span>06</span><strong>Запускаем продвижение</strong></summary><p>Запускаем выбранные направления и проверяем, корректно ли фиксируются звонки, формы, сообщения и записи.</p></details></li>
+            <li><details><summary><span>07</span><strong>Анализируем качество обращений</strong></summary><p>Получаем обратную связь от администраторов и определяем, какие услуги и кампании приводят действительно заинтересованных пациентов.</p></details></li>
+            <li><details><summary><span>08</span><strong>Развиваем проект</strong></summary><p>Усиливаем работающие направления, добавляем новые страницы, услуги, филиалы и рекламные форматы.</p></details></li>
+          </ol>
+          <p class="medical-process__conclusion">На каждом этапе вы понимаете, какие работы выполняются, почему они выбраны и что команда планирует делать дальше.</p>
+        </div>
+      </section>
+
+      <section class="medical-section medical-section--cream medical-benefits" aria-labelledby="medical-benefits-title">
+        <div class="container">
+          <div class="medical-section__intro"><h2 id="medical-benefits-title">Что получает клиника при работе с A1</h2></div>
+          <div class="medical-benefits__grid">
+            <article class="medical-benefits__featured"><h3>Внедряем изменения самостоятельно</h3><p>Если для продвижения нужна новая страница, форма, интеграция или изменение мобильной версии, задачу выполняет наша команда разработки.</p><p>Вам не приходится передавать рекомендации стороннему подрядчику и контролировать их внедрение.</p></article>
+            <article><h3>Развиваем отдельные медицинские услуги</h3><p>Проектируем страницы не только для клиники в целом, но и для конкретных услуг, врачей, обследований и методов лечения.</p></article>
+            <article><h3>Не публикуем медицинские тексты без проверки</h3><p>Материалы согласовываются с врачом или другим профильным специалистом клиники.</p></article>
+            <article><h3>Учитываем, как пациент принимает решение</h3><p>Работаем не только над привлечением посетителей, но и над информацией, которая помогает выбрать клинику и записаться на приём.</p></article>
+            <article><h3>Связываем продвижение с записью</h3><p>При наличии данных оцениваем не только переходы и формы, но и подтверждённые записи по отдельным направлениям.</p></article>
+            <article><h3>Работаем с картами и отзывами</h3><p>Для локальной клиники карточки филиалов и отзывы пациентов могут влиять на решение не меньше, чем сайт и реклама.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="medical-section medical-pricing" aria-labelledby="medical-pricing-title">
+        <div class="container">
+          <div class="medical-section__intro">
+            <h2 id="medical-pricing-title">Стоимость продвижения медицинской клиники</h2>
+            <p class="medical-section__lead">Стоимость зависит от количества услуг, филиалов и состояния проекта</p>
+            <p>Продвижение одной стоматологической услуги требует меньше ресурсов, чем работа с многопрофильной клиникой, десятками врачей и несколькими филиалами.</p>
+            <p>На стоимость также влияет состояние сайта, объём медицинского контента, количество рекламных кампаний и глубина аналитики.</p>
+            <p>После обсуждения задачи мы определяем, какие работы нужны сейчас, а что можно подключить позднее.</p>
+          </div>
+          <!-- CONTENT NOTE: prices are working prototype values and require production fact-check. -->
+          <ul class="medical-pricing__list">
+            <li><div><h3>Аудит и стратегия продвижения</h3><p>Анализируем спрос, сайт, рекламу, карты и аналитику. Определяем основные проблемы и состав первого этапа.</p></div><strong>от 50 000 ₽</strong></li>
+            <li><div><h3>SEO-продвижение клиники</h3><p>Развиваем структуру, страницы услуг и врачей, медицинский контент и техническую основу сайта.</p></div><strong>от 90 000 ₽ в месяц</strong></li>
+            <li><div><h3>Яндекс Директ для медицинских услуг</h3><p>Настраиваем и ведём рекламные кампании. Рекламный бюджет оплачивается отдельно.</p></div><strong>от 60 000 ₽ в месяц</strong></li>
+            <li><div><h3>Комплексное продвижение клиники</h3><p>Объединяем сайт, SEO, рекламу, карты, контент и аналитику в общем плане.</p></div><strong>от 150 000 ₽ в месяц</strong></li>
+            <li><div><h3>Разработка медицинского сайта</h3><p>Проектируем структуру, страницы услуг и врачей, дизайн, формы записи и необходимые интеграции.</p></div><strong>от 250 000 ₽</strong></li>
+          </ul>
+          <a class="button button--primary button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">Рассчитать стоимость<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+        </div>
+      </section>
+
+      <!-- Pending: materials about medical marketing will be added when real articles exist. -->
+
+      <section class="medical-section medical-section--cream medical-faq" aria-labelledby="medical-faq-title">
+        <div class="container">
+          <div class="medical-section__intro"><h2 id="medical-faq-title">Частые вопросы</h2></div>
+          <div class="medical-faq__list">
+            <details><summary>Через сколько времени появятся результаты?<span aria-hidden="true"></span></summary><div><p>Яндекс Директ может начать приводить переходы вскоре после запуска. Чтобы оценить качество обращений и стоимость записи, потребуется накопить данные.</p><p>SEO требует больше времени, поскольку связано с развитием сайта и переоценкой страниц поисковыми системами.</p><p>До начала работы мы объясним, какие изменения можно проверить быстрее, а какие потребуют нескольких месяцев.</p></div></details>
+            <details><summary>Можно ли продвигать клинику без нового сайта?<span aria-hidden="true"></span></summary><div><p>Да, если текущий сайт позволяет создавать необходимые страницы, корректно работает на смартфонах и передаёт обращения в аналитику.</p><p>Если сайт ограничивает продвижение, предложим поэтапные доработки. Полностью менять его требуется не всегда.</p></div></details>
+            <details><summary>Кто готовит медицинские тексты?<span aria-hidden="true"></span></summary><div><p>Структуру и черновик готовит редактор A1. Фактическую информацию предоставляет клиника, а итоговый материал проверяет профильный специалист.</p><p>Мы не публикуем медицинские утверждения без согласования с врачом.</p></div></details>
+            <details><summary>Можно ли рекламировать медицинские услуги в Яндекс Директе?<span aria-hidden="true"></span></summary><div><p>Да, но необходимо учитывать требования законодательства, лицензирование и правила рекламной площадки.</p><p>До запуска проверяем документы, объявления и посадочные страницы.</p></div></details>
+            <details><summary>Обязательно ли подключать CRM?<span aria-hidden="true"></span></summary><div><p>Для запуска отдельных рекламных кампаний CRM требуется не всегда.</p><p>Но без информации о дальнейшей обработке сложно понять, какие обращения превращаются в записи и посещения. Поэтому при комплексной работе рекомендуем передавать источники и статусы заявок.</p></div></details>
+            <details><summary>Работаете ли вы с внутренним маркетологом клиники?<span aria-hidden="true"></span></summary><div><p>Да.</p><p>Можем взять на себя отдельные направления или работать совместно с внутренней командой. Перед началом проекта согласовываем зоны ответственности и порядок взаимодействия.</p></div></details>
+            <details><summary>Можно ли продвигать несколько филиалов?<span aria-hidden="true"></span></summary><div><p>Да.</p><p>Для каждого филиала учитываем адрес, зону спроса, врачей, расписание, услуги, карточки на картах и посадочные страницы. При необходимости разделяем рекламу и аналитику по подразделениям.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="medical-contact" aria-labelledby="medical-contact-title">
+        <div class="container medical-contact__grid">
+          <div><h2 id="medical-contact-title">Обсудим задачи вашей клиники</h2><p>Расскажите о приоритетных услугах, текущем сайте и продвижении.</p></div>
+          <div class="medical-contact__body">
+            <p>Мы посмотрим страницы клиники, рекламные кампании, карты и доступные данные. Покажем, что сейчас мешает получать обращения, какие услуги имеет смысл продвигать в первую очередь и какие изменения нужны на сайте или в рекламе.</p>
+            <p>Если для решения задачи достаточно одной услуги, не будем предлагать лишние направления.</p>
+            <div class="medical-contact__actions">
+              <a class="button button--contact button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">Обсудить продвижение клиники<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+              <a class="medical-contact__link" href="kontakty/">Получить предварительную оценку</a>
+            </div>
+          </div>
+          <ol class="medical-contact__steps">
+            <li>Уточним приоритетные услуги, филиалы и текущие задачи.</li>
+            <li>Посмотрим сайт, рекламу и данные аналитики.</li>
+            <li>Покажем основные проблемы и возможные направления работы.</li>
+            <li>Предложим план первого этапа и предварительную стоимость.</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand">
+            <a class="brand brand--footer" href="./" aria-label="A1-Интернет Эксперт, на главную">
+              <img src="logo.png" width="55" height="70" alt="">
+            </a>
+            <p>Диджитал-агентство полного цикла</p>
+            <a class="site-footer__email" href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a>
+          </div>
+
+          <nav aria-label="Услуги в подвале">
+            <h2>Услуги</h2>
+            <ul>
+              <li><a href="razrabotka-sajtov/">Разработка сайтов</a></li>
+              <li><a href="seo/">SEO-продвижение</a></li>
+              <li><a href="kontekstnaya-reklama/">Контекстная реклама</a></li>
+              <li><a href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+              <li><span class="site-footer__service-label">Внедрение CRM</span></li>
+              <li><span class="site-footer__service-label">Мобильные приложения</span></li>
+              <li><span class="site-footer__service-label">Веб-дизайн</span></li>
+              <li><span class="site-footer__service-label">Отраслевая экспертиза</span></li>
+              <li><span class="site-footer__service-label">Техподдержка сайтов</span></li>
+              <li><span class="site-footer__service-label">Геомаркетинг</span></li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Компания в подвале">
+            <h2>Компания</h2>
+            <ul>
+              <li><a href="company/about/">О компании</a></li>
+              <li><a href="cases/">Кейсы</a></li>
+              <li><a href="blog/">Блог</a></li>
+              <li><a href="company/reviews/">Отзывы</a></li>
+              <li><a href="company/careers/">Вакансии</a></li>
+              <li><a href="prices/">Цены</a></li>
+              <li><a href="kontakty/">Контакты</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__offices">
+            <h2>Офисы</h2>
+            <div>
+              <a class="office-title" href="kontakty/#map-surgut">Сургут</a>
+              <address>
+                <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
+                <span>улица Университетская, 25, офис 408</span>
+              </address>
+            </div>
+            <div>
+              <a class="office-title" href="kontakty/#map-tyumen">Тюмень</a>
+              <address>
+                <a href="tel:+73452000000">+7 (3452) 00-00-00</a>
+                <span>улица Республики, 61, офис 712</span>
+              </address>
+            </div>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <div>© 2026 A1-Интернет Эксперт. Все права защищены.</div>
+          <div>
+            <a href="privacy/">Политика конфиденциальности</a>
+            <a href="terms/">Пользовательское соглашение</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mobile-sticky-actions" data-mobile-sticky data-visible="false">
+      <a href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </a>
+      <a href="kontakty/">
+        Обсудить проект
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+      </a>
+    </div>
+  </body>
+</html>

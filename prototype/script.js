@@ -385,7 +385,7 @@ const mobileSticky = document.querySelector("[data-mobile-sticky]");
 const contactSection = document.querySelector(".contact-section");
 const footer = document.querySelector(".site-footer");
 const pageHero = document.querySelector(
-  ".service-hero, .hero, .about-hero, .blog-hero, .article-hero, .contacts-hero, .careers-hero",
+  ".service-hero, .hero, .about-hero, .blog-hero, .article-hero, .contacts-hero, .careers-hero, .medical-hero",
 );
 const inlinePrimaryActions = Array.from(
   document.querySelectorAll("main .button--primary"),
