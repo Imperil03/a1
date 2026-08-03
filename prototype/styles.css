@@ -417,9 +417,62 @@ address {
   transform: rotate(180deg);
 }
 
+.desktop-nav button.is-current {
+  color: var(--brand-600);
+}
+
+.desktop-nav button.is-current::after {
+  transform: scaleX(1);
+}
+
 .desktop-nav svg,
 .location-select__toggle .chevron {
   transition: transform 180ms ease;
+}
+
+.company-trigger-wrap {
+  position: relative;
+}
+
+.company-menu {
+  position: absolute;
+  z-index: 120;
+  top: calc(100% + 7px);
+  left: 0;
+  display: grid;
+  min-width: 248px;
+  gap: 2px;
+  padding: 8px;
+  border: 1px solid var(--cream-200);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  box-shadow: var(--shadow-elevated);
+}
+
+.company-menu::before {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  height: 8px;
+  content: "";
+}
+
+.company-menu a {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.company-menu a:hover,
+.company-menu a:focus-visible,
+.company-menu a[aria-current="page"] {
+  color: var(--brand-600);
+  background: var(--brand-50);
 }
 
 .header-actions {
@@ -560,45 +613,58 @@ address {
   gap: 2px;
 }
 
-.mega-menu__directions a {
+.mega-menu__directions button {
   position: relative;
   display: flex;
+  width: 100%;
   min-height: 44px;
   align-items: center;
   gap: 11px;
   padding: 8px 12px;
+  border: 0;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: inherit;
+  background: transparent;
+  font-family: inherit;
   font-size: 16px;
   font-weight: 650;
+  text-align: left;
+  cursor: default;
   transition:
     color 160ms ease,
     background-color 160ms ease;
 }
 
-.mega-menu__directions a::before {
+.mega-menu__directions button::before {
   position: absolute;
-  top: 8px;
-  bottom: 8px;
+  top: 10px;
+  bottom: 10px;
   left: 0;
   width: 2px;
+  border-radius: 2px;
   background: var(--accent-400);
   content: "";
   opacity: 0;
 }
 
-.mega-menu__directions a > span {
+.mega-menu__directions button > span {
   color: var(--ink-500);
   font-family: var(--font-mono);
   font-size: 12px;
 }
 
-.mega-menu__directions a:hover,
-.mega-menu__directions a.is-active {
+.mega-menu__directions button:hover,
+.mega-menu__directions button:focus-visible,
+.mega-menu__directions button[data-active-panel] {
   color: var(--brand-600);
-  background: var(--paper);
+  background: rgb(255 255 255 / 78%);
 }
 
-.mega-menu__directions a.is-active::before {
+.mega-menu__directions button[data-current-page-direction] {
+  color: var(--brand-600);
+}
+
+.mega-menu__directions button[data-current-page-direction]::before {
   opacity: 1;
 }
 
@@ -670,10 +736,35 @@ address {
     background-color 160ms ease;
 }
 
-.mega-panel__links a:hover {
-  border-color: var(--cream-200);
+.mega-panel__links a::after {
+  margin-left: auto;
   color: var(--brand-600);
-  background: var(--cream-50);
+  content: "→";
+  opacity: 0;
+  transform: translateX(-4px);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.mega-panel__links a:hover,
+.mega-panel__links a:focus-visible {
+  border-color: var(--brand-100);
+  color: var(--brand-600);
+  background: var(--brand-50);
+}
+
+.mega-panel__links a:hover::after,
+.mega-panel__links a:focus-visible::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mega-panel__links a[aria-current="page"] {
+  border-color: var(--brand-100);
+  color: var(--brand-600);
+  background: var(--brand-50);
+  font-weight: 750;
 }
 
 .mega-menu__consultation {
@@ -768,6 +859,7 @@ address {
 }
 
 .mobile-services > li > a,
+.mobile-services > li > .mobile-service-label,
 .mobile-services summary {
   display: flex;
   min-height: 52px;
@@ -816,6 +908,13 @@ address {
   font-weight: 650;
 }
 
+.mobile-services a[aria-current="page"] {
+  border-radius: var(--radius-sm);
+  color: var(--brand-600);
+  background: var(--brand-50);
+  font-weight: 750;
+}
+
 .mobile-services a:hover {
   color: var(--brand-600);
 }
@@ -832,6 +931,57 @@ address {
   min-height: 44px;
   align-items: center;
   font-weight: 650;
+}
+
+.mobile-company summary {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.mobile-services > li > .mobile-service-label {
+  color: var(--ink-500);
+  cursor: default;
+}
+
+.mobile-company summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-company summary::after {
+  width: 9px;
+  height: 9px;
+  margin-right: 5px;
+  border-right: 1.5px solid currentcolor;
+  border-bottom: 1.5px solid currentcolor;
+  content: "";
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 180ms ease;
+}
+
+.mobile-company[open] summary::after {
+  transform: rotate(225deg) translate(-2px, -2px);
+}
+
+.mobile-company ul {
+  display: grid;
+  padding: 0 0 10px 14px;
+  border-left: 1px solid var(--brand-100);
+}
+
+.mobile-company ul a {
+  padding-inline: 12px;
+  color: var(--ink-700);
+  font-size: 14px;
+}
+
+.mobile-company ul a:hover,
+.mobile-company ul a[aria-current="page"] {
+  color: var(--brand-600);
 }
 
 .mobile-menu__contacts {
@@ -2337,88 +2487,183 @@ address {
 /* Footer */
 
 .site-footer {
-  padding-block: 68px 30px;
+  padding-bottom: 30px;
   color: var(--cream-100);
   background: var(--ink-900);
 }
 
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 1.05fr 1fr 0.8fr 1fr;
-  gap: 52px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 36px 32px;
+  padding-block: 52px 44px;
+}
+
+.site-footer__brand {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 56px minmax(240px, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgb(255 255 255 / 14%);
 }
 
 .brand--footer {
-  width: 64px;
-  height: 62px;
-  padding: 4px;
+  width: 56px;
+  height: 56px;
+  padding: 3px;
   border-radius: var(--radius-md);
   background: rgb(255 255 255 / 95%);
 }
 
 .site-footer__brand p {
-  max-width: 260px;
-  margin-top: 20px;
-  color: #b3b1a8;
+  max-width: 360px;
+  color: #c4c2ba;
   font-size: 14px;
+  line-height: 1.6;
 }
 
-.site-footer h2 {
-  margin-bottom: 18px;
+.site-footer__email {
   color: var(--paper);
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: clamp(22px, 2.2vw, 30px);
   font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-color: rgb(255 255 255 / 28%);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
+}
+
+.site-footer__email:hover {
+  color: var(--brand-100);
+  text-decoration: none;
+}
+
+.site-footer nav[aria-label="Услуги в подвале"] {
+  grid-column: span 6;
+}
+
+.site-footer nav[aria-label="Компания в подвале"] {
+  grid-column: span 2;
+  padding-left: 32px;
+  border-left: 1px solid rgb(255 255 255 / 14%);
+}
+
+.site-footer__offices {
+  display: grid;
+  grid-column: span 4;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 18px;
+  padding-left: 32px;
+  border-left: 1px solid rgb(255 255 255 / 14%);
+}
+
+.site-footer.site-footer h2 {
+  margin-bottom: 16px;
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  line-height: 1.3;
+  text-transform: uppercase;
 }
 
 .site-footer nav ul {
   display: grid;
-  gap: 7px;
+  gap: 0 28px;
+}
+
+.site-footer nav[aria-label="Услуги в подвале"] ul,
+.site-footer nav[aria-label="Компания в подвале"] ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.site-footer nav[aria-label="Компания в подвале"] ul {
+  grid-template-columns: 1fr;
 }
 
 .site-footer nav a,
 .site-footer__offices address a {
   display: inline-flex;
-  min-height: 30px;
+  min-height: 36px;
   align-items: center;
-  color: #d0cec6;
-  font-size: 13px;
-  line-height: 1.4;
-  transition: color 160ms ease;
+  color: #d4d2ca;
+  font-size: 14px;
+  line-height: 1.45;
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.site-footer nav[aria-label="Услуги в подвале"] a {
+  min-height: 36px;
+  color: #d4d2ca;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 550;
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+.site-footer__service-label {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  color: #8f8d86;
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.45;
 }
 
 .site-footer nav a:hover,
 .site-footer__offices a:hover {
   color: var(--paper);
+  transform: translateX(3px);
 }
 
-.site-footer__offices {
-  display: grid;
-  align-content: start;
-  gap: 22px;
+.site-footer nav a[aria-current="page"] {
+  color: var(--brand-100);
 }
 
 .site-footer__offices h2 {
-  margin-bottom: -4px;
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+.site-footer__offices > div {
+  min-width: 0;
+  padding-top: 18px;
+  border-top: 1px solid rgb(255 255 255 / 14%);
 }
 
 .office-title {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
   color: var(--paper);
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
+  letter-spacing: -0.03em;
 }
 
 .site-footer__offices address {
   display: grid;
-  margin-top: 6px;
+  margin-top: 10px;
+  font-style: normal;
 }
 
 .site-footer__offices address span {
-  margin-top: 4px;
-  color: #a09e96;
-  font-size: 11px;
-  line-height: 1.5;
+  margin-top: 6px;
+  color: #aaa89f;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .site-footer__bottom {
@@ -2426,11 +2671,12 @@ address {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  margin-top: 54px;
+  margin-top: 0;
   padding-top: 24px;
   border-top: 1px solid rgb(255 255 255 / 12%);
-  color: #a09e96;
-  font-size: 11px;
+  color: #aaa89f;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .site-footer__bottom > div:last-child {
@@ -2616,8 +2862,26 @@ address {
   }
 
   .site-footer__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 42px;
+  }
+
+  .site-footer__brand,
+  .site-footer__offices {
+    grid-column: 1 / -1;
+  }
+
+  .site-footer nav[aria-label="Услуги в подвале"] {
+    grid-column: span 4;
+  }
+
+  .site-footer nav[aria-label="Компания в подвале"] {
+    grid-column: span 2;
+  }
+
+  .site-footer__offices {
+    padding-left: 0;
+    border-left: 0;
   }
 }
 
@@ -3021,7 +3285,32 @@ address {
 
   .site-footer__grid {
     grid-template-columns: 1fr;
-    gap: 38px;
+    gap: 32px;
+    padding-block: 44px 38px;
+  }
+
+  .site-footer__brand {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 16px;
+    padding-bottom: 28px;
+  }
+
+  .site-footer__email {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+    font-size: clamp(22px, 6vw, 28px);
+  }
+
+  .site-footer nav[aria-label="Услуги в подвале"],
+  .site-footer nav[aria-label="Компания в подвале"],
+  .site-footer__offices {
+    grid-column: 1;
+  }
+
+  .site-footer nav[aria-label="Компания в подвале"],
+  .site-footer__offices {
+    padding-left: 0;
+    border-left: 0;
   }
 
   .site-footer__bottom {
@@ -3052,13 +3341,30 @@ address {
   .mobile-menu {
     width: 100%;
   }
+
+  .site-footer nav[aria-label="Услуги в подвале"] ul,
+  .site-footer__offices {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer__offices h2 {
+    grid-column: 1;
+  }
 }
 
 @media (max-width: 767px) {
   .mobile-services details a,
   .site-footer nav a,
-  .site-footer__offices address a {
+  .site-footer__email,
+  .site-footer .office-title,
+  .site-footer__offices address a,
+  .site-footer__bottom a {
     min-height: 44px;
+  }
+
+  .site-footer__bottom a {
+    display: inline-flex;
+    align-items: center;
   }
 }
 

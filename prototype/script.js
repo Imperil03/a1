@@ -15,10 +15,13 @@ const popoverToggles = Array.from(
 );
 const servicesShell = document.querySelector("[data-services-shell]");
 const servicesMenu = document.querySelector("[data-services-menu]");
+const companyShell = document.querySelector("[data-company-shell]");
+const companyMenu = document.querySelector("[data-company-menu]");
 const servicesHover = window.matchMedia("(hover: hover) and (pointer: fine)");
 let openPopoverId = null;
 let popoverReturnFocus = null;
 let servicesCloseTimer = null;
+let companyCloseTimer = null;
 
 function getPopoverToggle(popoverId) {
   return popoverToggles.find(
@@ -62,6 +65,10 @@ function openPopover(popoverId, toggle) {
     cancelServicesClose();
   }
 
+  if (popoverId === companyMenu?.id) {
+    cancelCompanyClose();
+  }
+
   if (openPopoverId && openPopoverId !== popoverId) {
     closePopover();
   }
@@ -75,12 +82,12 @@ function openPopover(popoverId, toggle) {
 popoverToggles.forEach((toggle) => {
   toggle.addEventListener("click", (event) => {
     const popoverId = toggle.dataset.popoverToggle;
-    const isServicesMouseClick =
-      popoverId === servicesMenu?.id &&
+    const isHoverPopoverMouseClick =
+      (popoverId === servicesMenu?.id || popoverId === companyMenu?.id) &&
       servicesHover.matches &&
       event.detail > 0;
 
-    if (isServicesMouseClick) {
+    if (isHoverPopoverMouseClick) {
       if (openPopoverId !== popoverId) {
         openPopover(popoverId, toggle);
       }
@@ -165,16 +172,65 @@ servicesShell?.addEventListener("pointerenter", () => {
   element?.addEventListener("focusin", cancelServicesClose);
 });
 
+function cancelCompanyClose() {
+  window.clearTimeout(companyCloseTimer);
+}
+
+function scheduleCompanyClose() {
+  cancelCompanyClose();
+  companyCloseTimer = window.setTimeout(() => {
+    const focusIsInside = companyShell?.contains(document.activeElement);
+    const pointerIsInside = companyShell?.matches(":hover");
+
+    if (
+      openPopoverId === companyMenu?.id &&
+      !focusIsInside &&
+      !pointerIsInside
+    ) {
+      closePopover();
+    }
+  }, 180);
+}
+
+companyShell?.addEventListener("pointerenter", () => {
+  if (!servicesHover.matches || !companyMenu) {
+    return;
+  }
+
+  const toggle = getPopoverToggle(companyMenu.id);
+
+  if (toggle && openPopoverId !== companyMenu.id) {
+    openPopover(companyMenu.id, toggle);
+  }
+});
+
+companyShell?.addEventListener("pointerenter", cancelCompanyClose);
+companyShell?.addEventListener("pointerleave", scheduleCompanyClose);
+companyShell?.addEventListener("focusin", cancelCompanyClose);
+companyShell?.addEventListener("focusout", scheduleCompanyClose);
+
 const serviceTabs = Array.from(
   document.querySelectorAll("[data-service-tab]"),
 );
 const servicePanels = Array.from(
   document.querySelectorAll("[data-service-panel]"),
 );
+const currentServicePanelId = servicesMenu
+  ?.querySelector('[data-service-panel] a[aria-current="page"]')
+  ?.closest("[data-service-panel]")?.dataset.servicePanel;
+
+serviceTabs.forEach((tab) => {
+  tab.toggleAttribute(
+    "data-current-page-direction",
+    tab.dataset.serviceTab === currentServicePanelId,
+  );
+});
 
 function activateServicePanel(panelId) {
   serviceTabs.forEach((tab) => {
-    tab.classList.toggle("is-active", tab.dataset.serviceTab === panelId);
+    const isActive = tab.dataset.serviceTab === panelId;
+    tab.setAttribute("aria-pressed", String(isActive));
+    tab.toggleAttribute("data-active-panel", isActive);
   });
 
   servicePanels.forEach((panel) => {
@@ -182,10 +238,18 @@ function activateServicePanel(panelId) {
   });
 }
 
+const initialServicePanelId = servicePanels.find((panel) => !panel.hidden)
+  ?.dataset.servicePanel;
+
 serviceTabs.forEach((tab) => {
   const activate = () => activateServicePanel(tab.dataset.serviceTab);
+  tab.setAttribute(
+    "aria-pressed",
+    String(tab.dataset.serviceTab === initialServicePanelId),
+  );
   tab.addEventListener("pointerenter", activate);
   tab.addEventListener("focus", activate);
+  tab.addEventListener("click", activate);
 });
 
 const mobileMenu = document.querySelector("[data-mobile-menu]");
@@ -321,7 +385,7 @@ const mobileSticky = document.querySelector("[data-mobile-sticky]");
 const contactSection = document.querySelector(".contact-section");
 const footer = document.querySelector(".site-footer");
 const pageHero = document.querySelector(
-  ".service-hero, .hero, .about-hero, .blog-hero, .article-hero, .contacts-hero",
+  ".service-hero, .hero, .about-hero, .blog-hero, .article-hero, .contacts-hero, .careers-hero",
 );
 const inlinePrimaryActions = Array.from(
   document.querySelectorAll("main .button--primary"),
@@ -436,7 +500,7 @@ function scrollTeamSlider(direction) {
     return;
   }
 
-  const firstCard = teamTrack.querySelector("li");
+  const firstCard = teamTrack.firstElementChild;
   const gap = Number.parseFloat(getComputedStyle(teamTrack).columnGap) || 0;
   const step = (firstCard?.getBoundingClientRect().width || teamTrack.clientWidth) + gap;
 
@@ -459,6 +523,66 @@ teamTrack?.addEventListener("keydown", (event) => {
 teamTrack?.addEventListener("scroll", updateTeamSliderControls, { passive: true });
 window.addEventListener("resize", updateTeamSliderControls);
 updateTeamSliderControls();
+
+const careerRoleInput = document.querySelector("#career-role");
+const careerDialog = document.querySelector("[data-career-dialog]");
+const careerDialogClose = careerDialog?.querySelector(
+  "[data-career-dialog-close]",
+);
+const careerDialogOpeners = Array.from(
+  document.querySelectorAll(
+    "[data-career-dialog-open], [data-application-role]",
+  ),
+);
+let careerDialogReturnFocus = null;
+
+careerDialogOpeners.forEach((opener) => {
+  opener.addEventListener("click", (event) => {
+    if (careerRoleInput instanceof HTMLInputElement) {
+      careerRoleInput.value = opener.dataset.applicationRole ?? "";
+    }
+
+    if (
+      !(careerDialog instanceof HTMLDialogElement) ||
+      typeof careerDialog.showModal !== "function"
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    careerDialogReturnFocus = opener;
+    careerDialog.showModal();
+    careerDialog
+      .querySelector('input[name="name"]')
+      ?.focus({ preventScroll: true });
+  });
+});
+
+careerDialogClose?.addEventListener("click", () => {
+  careerDialog?.close();
+});
+
+careerDialog?.addEventListener("click", (event) => {
+  if (event.target === careerDialog) {
+    careerDialog.close();
+  }
+});
+
+careerDialog?.addEventListener("close", () => {
+  careerDialogReturnFocus?.focus();
+  careerDialogReturnFocus = null;
+});
+
+const careerFileInput = document.querySelector("[data-career-file]");
+const careerFileName = document.querySelector("[data-career-file-name]");
+
+careerFileInput?.addEventListener("change", () => {
+  if (!(careerFileInput instanceof HTMLInputElement) || !careerFileName) {
+    return;
+  }
+
+  careerFileName.textContent = careerFileInput.files?.[0]?.name ?? "";
+});
 
 const credentialsMarquee = document.querySelector("[data-credentials-marquee]");
 const credentialsToggle = credentialsMarquee?.querySelector(

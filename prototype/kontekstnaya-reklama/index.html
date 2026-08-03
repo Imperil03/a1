@@ -39,7 +39,17 @@
         </button>
 
         <nav class="desktop-nav" aria-label="Основная навигация">
-          <a href="company/about/">О нас</a>
+          <div class="company-trigger-wrap" data-company-shell>
+            <button type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu" data-popover-toggle="company-menu">
+              О компании
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div class="company-menu" id="company-menu" hidden data-popover data-company-menu>
+              <a href="company/about/">О компании</a>
+              <a href="company/reviews/">Отзывы</a>
+              <a href="company/careers/">Вакансии</a>
+            </div>
+          </div>
           <div class="services-trigger-wrap" data-services-shell>
             <button
               type="button"
@@ -106,16 +116,16 @@
           <div class="mega-menu__directions">
             <div class="mega-menu__label">Направления</div>
             <ul>
-              <li><a href="razrabotka-sajtov/" data-service-tab="web-development"><span>01</span>Разработка сайтов</a></li>
-              <li><a href="seo/" data-service-tab="seo"><span>02</span>SEO-продвижение</a></li>
-              <li><a class="is-active" href="kontekstnaya-reklama/" aria-current="page" data-service-tab="ads"><span>03</span>Контекстная реклама</a></li>
-              <li><a href="complex-marketing/" data-service-tab="complex"><span>04</span>Комплексный интернет-маркетинг</a></li>
-              <li><a href="vnedrenie-crm/" data-service-tab="crm"><span>05</span>Внедрение CRM</a></li>
-              <li><a href="mobilnye-prilozheniya/" data-service-tab="mobile"><span>06</span>Мобильные приложения</a></li>
-              <li><a href="veb-dizajn/" data-service-tab="design"><span>07</span>Веб-дизайн</a></li>
-              <li><a href="otraslevaya-ekspertiza/" data-service-tab="industries"><span>08</span>Отраслевая экспертиза</a></li>
-              <li><a href="tekhpodderzhka/" data-service-tab="support"><span>09</span>Техподдержка сайтов</a></li>
-              <li><a href="geomarketing/" data-service-tab="geomarketing"><span>10</span>Геомаркетинг</a></li>
+              <li><button type="button" data-service-tab="web-development"><span>01</span>Разработка сайтов</button></li>
+              <li><button type="button" data-service-tab="seo"><span>02</span>SEO-продвижение</button></li>
+              <li><button type="button" data-service-tab="ads"><span>03</span>Контекстная реклама</button></li>
+              <li><button type="button" data-service-tab="complex"><span>04</span>Комплексный интернет-маркетинг</button></li>
+              <li><button type="button" data-service-tab="crm"><span>05</span>Внедрение CRM</button></li>
+              <li><button type="button" data-service-tab="mobile"><span>06</span>Мобильные приложения</button></li>
+              <li><button type="button" data-service-tab="design"><span>07</span>Веб-дизайн</button></li>
+              <li><button type="button" data-service-tab="industries"><span>08</span>Отраслевая экспертиза</button></li>
+              <li><button type="button" data-service-tab="support"><span>09</span>Техподдержка сайтов</button></li>
+              <li><button type="button" data-service-tab="geomarketing"><span>10</span>Геомаркетинг</button></li>
             </ul>
           </div>
 
@@ -126,9 +136,9 @@
                   <strong>Разработка сайтов</strong>
                   <p>Разрабатываем корпоративные сайты, интернет-магазины, лендинги и личные кабинеты под задачи бизнеса: от структуры и прототипа до запуска, интеграций и дальнейшей поддержки. Работаем на 1С-Битрикс, WordPress, Tilda и Laravel.</p>
                 </div>
-                <a href="razrabotka-sajtov/">Все услуги →</a>
               </div>
               <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="razrabotka-sajtov/">Разработка сайтов</a></li>
                 <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
                 <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
                 <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
@@ -151,15 +161,14 @@
                   <strong>SEO-продвижение</strong>
                   <p>Комплексно продвигаем сайты в Яндексе и Google: собираем семантику, усиливаем техническую оптимизацию, контент, перелинковку и аналитику, чтобы сайт рос не только по позициям, но и по заявкам.</p>
                 </div>
-                <a href="seo/">Все услуги →</a>
               </div>
               <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="seo/">SEO-продвижение</a></li>
                 <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
                 <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
                 <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
                 <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
                 <li><a href="seo/audit/">SEO-аудит</a></li>
-                <li><a href="seo/tekhnicheskij-audit/">Технический аудит</a></li>
                 <li><a href="seo/1c-bitrix/">SEO для 1С-Битрикс</a></li>
                 <li><a href="seo/tilda/">SEO для Tilda</a></li>
                 <li><a href="seo/wordpress/">SEO для WordPress</a></li>
@@ -175,10 +184,11 @@
                   <strong>Контекстная реклама</strong>
                   <p>Настраиваем и ведём контекстную и таргетированную рекламу в Яндекс Директе, ВКонтакте и Telegram Ads: от запуска и тестов до ретаргетинга, оптимизации и сквозной аналитики. Работаем на заявки, продажи и понятную стоимость лида.</p>
                 </div>
-                <a href="kontekstnaya-reklama/" aria-current="page">Все услуги →</a>
               </div>
               <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="kontekstnaya-reklama/" aria-current="page">Контекстная реклама</a></li>
                 <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
+                <li><a href="kontekstnaya-reklama/audit-direct/">Аудит Яндекс Директа</a></li>
                 <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
                 <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
               </ul>
@@ -190,8 +200,10 @@
                   <strong>Комплексный интернет-маркетинг</strong>
                   <p>За стратегию продвижения, реализацию и аналитику отвечает одна команда A1. Все специалисты работают по общему плану, а инструменты дополняют друг друга и решают одну задачу — привлекать больше целевых обращений.</p>
                 </div>
-                <a href="complex-marketing/">Все услуги →</a>
               </div>
+              <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+              </ul>
             </div>
 
             <div class="mega-panel" data-service-panel="crm" hidden>
@@ -200,7 +212,6 @@
                   <strong>Внедрение CRM</strong>
                   <p>Внедряем amoCRM и Битрикс24: настраиваем воронки, автоматизации и интеграции с сайтом, телефонией и мессенджерами, обучаем команду — чтобы заявки не терялись, а работа отдела продаж была прозрачной и управляемой.</p>
                 </div>
-                <a href="vnedrenie-crm/">Все услуги →</a>
               </div>
               <ul class="mega-panel__links">
                 <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
@@ -215,7 +226,6 @@
                   <strong>Мобильные приложения</strong>
                   <p>Разрабатываем мобильные приложения для iOS и Android: от проектирования и дизайна до разработки, тестирования и публикации. Делаем нативные и кроссплатформенные решения под задачи бизнеса.</p>
                 </div>
-                <a href="mobilnye-prilozheniya/">Все услуги →</a>
               </div>
             </div>
 
@@ -225,11 +235,9 @@
                   <strong>Веб-дизайн</strong>
                   <p>Проектируем интерфейсы для сайтов, лендингов, личных кабинетов и приложений: продумываем структуру, сценарии, прототипы и дизайн, чтобы пользователю было удобно, понятно и легко совершить целевое действие.</p>
                 </div>
-                <a href="veb-dizajn/">Все услуги →</a>
               </div>
               <ul class="mega-panel__links">
                 <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
-                <li><a href="veb-dizajn/proektirovanie/">UX-проектирование</a></li>
                 <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
                 <li><a href="veb-dizajn/mobilnyh-prilozhenij/">Дизайн мобильных приложений</a></li>
               </ul>
@@ -241,7 +249,6 @@
                   <strong>Отраслевая экспертиза</strong>
                   <p>Маркетинг и разработка для конкретных ниш: стоматологии, автосалоны, медицинские и косметологические клиники, онлайн-курсы, новые ЖК.</p>
                 </div>
-                <a href="otraslevaya-ekspertiza/">Все услуги →</a>
               </div>
               <ul class="mega-panel__links">
                 <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
@@ -259,16 +266,10 @@
                   <strong>Техподдержка сайтов</strong>
                   <p>Берём сайты на сопровождение: дорабатываем функционал, обновляем CMS и контент, следим за стабильностью, безопасностью и резервным копированием, чтобы проект работал без сбоев и не терял заявки.</p>
                 </div>
-                <a href="tekhpodderzhka/">Все услуги →</a>
               </div>
               <ul class="mega-panel__links">
-                <li><a href="tekhpodderzhka/s-seo/">Поддержка с SEO</a></li>
-                <li><a href="tekhpodderzhka/internet-magazinov/">Поддержка интернет-магазинов</a></li>
-                <li><a href="tekhpodderzhka/kompleksnoe-soprovozhdenie/">Комплексное сопровождение</a></li>
                 <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
-                <li><a href="tekhpodderzhka/dostavka-i-oplata/">Доставка и оплата</a></li>
                 <li><a href="tekhpodderzhka/obnovlenie-cms/">Обновление CMS</a></li>
-                <li><a href="tekhpodderzhka/testirovanie/">Тестирование сайта</a></li>
                 <li><a href="tekhpodderzhka/perenos-na-bitrix/">Перенос на Битрикс</a></li>
                 <li><a href="tekhpodderzhka/licenziya-bitrix/">Лицензия Битрикс</a></li>
                 <li><a href="tekhpodderzhka/lechenie-ot-virusov/">Лечение от вирусов</a></li>
@@ -282,7 +283,6 @@
                   <strong>Геомаркетинг</strong>
                   <p>Усиливаем локальную видимость бизнеса в Яндекс Картах, 2ГИС и Google: оформляем и развиваем карточки, подключаем георекламу и следим за актуальностью информации.</p>
                 </div>
-                <a href="geomarketing/">Все услуги →</a>
               </div>
             </div>
 
@@ -316,7 +316,7 @@
               <details>
                 <summary>Разработка сайтов</summary>
                 <ul>
-                  <li><a href="razrabotka-sajtov/">Все услуги</a></li>
+                  <li><a class="mobile-service-hub" href="razrabotka-sajtov/">Разработка сайтов</a></li>
                   <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
                   <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
                   <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
@@ -330,13 +330,12 @@
               <details>
                 <summary>SEO-продвижение</summary>
                 <ul>
-                  <li><a href="seo/">Все услуги</a></li>
+                  <li><a class="mobile-service-hub" href="seo/">SEO-продвижение</a></li>
                   <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
                   <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
                   <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
                   <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
                   <li><a href="seo/audit/">SEO-аудит</a></li>
-                  <li><a href="seo/tekhnicheskij-audit/">Технический аудит</a></li>
                   <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
                   <li><a href="seo/google/">Продвижение в Google</a></li>
                 </ul>
@@ -346,14 +345,15 @@
               <details open>
                 <summary>Контекстная реклама</summary>
                 <ul>
-                  <li><a href="kontekstnaya-reklama/">Все услуги</a></li>
+                  <li><a class="mobile-service-hub" href="kontekstnaya-reklama/" aria-current="page">Контекстная реклама</a></li>
+                  <li><a href="kontekstnaya-reklama/audit-direct/">Аудит Яндекс Директа</a></li>
                   <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
                   <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
                   <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
                 </ul>
               </details>
             </li>
-            <li><a href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+            <li><a class="mobile-service-hub" href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
             <li>
               <details>
                 <summary>Внедрение CRM</summary>
@@ -364,13 +364,12 @@
                 </ul>
               </details>
             </li>
-            <li><a href="mobilnye-prilozheniya/">Мобильные приложения</a></li>
+            <li><span class="mobile-service-label">Мобильные приложения</span></li>
             <li>
               <details>
                 <summary>Веб-дизайн</summary>
                 <ul>
                   <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
-                  <li><a href="veb-dizajn/proektirovanie/">UX-проектирование</a></li>
                   <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
                 </ul>
               </details>
@@ -390,19 +389,23 @@
               <details>
                 <summary>Техподдержка сайтов</summary>
                 <ul>
-                  <li><a href="tekhpodderzhka/s-seo/">Поддержка с SEO</a></li>
-                  <li><a href="tekhpodderzhka/internet-magazinov/">Поддержка интернет-магазинов</a></li>
                   <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
-                  <li><a href="tekhpodderzhka/testirovanie/">Тестирование сайта</a></li>
                 </ul>
               </details>
             </li>
-            <li><a href="geomarketing/">Геомаркетинг</a></li>
+            <li><span class="mobile-service-label">Геомаркетинг</span></li>
           </ul>
         </nav>
 
         <nav class="mobile-menu__secondary" aria-label="Разделы сайта">
-          <a href="company/about/">О нас</a>
+          <details class="mobile-company">
+            <summary>О компании</summary>
+            <ul>
+              <li><a href="company/about/">О компании</a></li>
+              <li><a href="company/reviews/">Отзывы</a></li>
+              <li><a href="company/careers/">Вакансии</a></li>
+            </ul>
+          </details>
           <a href="cases/">Кейсы</a>
           <a href="blog/">Блог</a>
           <a href="prices/">Цены</a>
@@ -925,13 +928,13 @@
     <footer class="site-footer">
       <div class="container">
         <div class="site-footer__grid">
-          <div class="site-footer__brand"><a class="brand brand--footer" href="./" aria-label="A1-Интернет Эксперт, на главную"><img src="logo.png" width="55" height="70" alt=""></a><p>Диджитал-агентство полного цикла в Сургуте и Тюмени с 2015 года.</p></div>
-          <nav aria-label="Услуги в подвале"><h2>Услуги</h2><ul><li><a href="razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="seo/">SEO-продвижение</a></li><li><a href="kontekstnaya-reklama/">Реклама</a></li><li><a href="complex-marketing/">Комплексный интернет-маркетинг</a></li><li><a href="surgut/vnedrenie-crm/">Внедрение CRM</a></li><li><a href="surgut/mobilnye-prilozheniya/">Мобильные приложения</a></li><li><a href="surgut/veb-dizajn/">Веб-дизайн</a></li><li><a href="surgut/otraslevaya-ekspertiza/">Отраслевая экспертиза</a></li><li><a href="surgut/tekhpodderzhka/">Техподдержка сайтов</a></li><li><a href="surgut/geomarketing/">Геомаркетинг</a></li></ul></nav>
-          <nav aria-label="Компания в подвале"><h2>Компания</h2><ul><li><a href="company/about/">О нас</a></li><li><a href="cases/">Кейсы</a></li><li><a href="blog/">Блог</a></li><li><a href="company/reviews/">Отзывы</a></li><li><a href="company/careers/">Вакансии</a></li><li><a href="prices/">Цены</a></li><li><a href="akcii/">Акции</a></li></ul></nav>
+          <div class="site-footer__brand"><a class="brand brand--footer" href="./" aria-label="A1-Интернет Эксперт, на главную"><img src="logo.png" width="55" height="70" alt=""></a><p>Диджитал-агентство полного цикла</p><a class="site-footer__email" href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a></div>
+          <nav aria-label="Услуги в подвале"><h2>Услуги</h2><ul><li><a href="razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="seo/">SEO-продвижение</a></li><li><a href="kontekstnaya-reklama/" aria-current="page">Контекстная реклама</a></li><li><a href="complex-marketing/">Комплексный интернет-маркетинг</a></li><li><span class="site-footer__service-label">Внедрение CRM</span></li><li><span class="site-footer__service-label">Мобильные приложения</span></li><li><span class="site-footer__service-label">Веб-дизайн</span></li><li><span class="site-footer__service-label">Отраслевая экспертиза</span></li><li><span class="site-footer__service-label">Техподдержка сайтов</span></li><li><span class="site-footer__service-label">Геомаркетинг</span></li></ul></nav>
+          <nav aria-label="Компания в подвале"><h2>Компания</h2><ul><li><a href="company/about/">О компании</a></li><li><a href="cases/">Кейсы</a></li><li><a href="blog/">Блог</a></li><li><a href="company/reviews/">Отзывы</a></li><li><a href="company/careers/">Вакансии</a></li><li><a href="prices/">Цены</a></li><li><a href="kontakty/">Контакты</a></li></ul></nav>
           <div class="site-footer__offices">
             <h2>Офисы</h2>
-            <div><a class="office-title" href="surgut/">Сургут</a><address><a href="tel:+73462000000">+7 (3462) 00-00-00</a><a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a><span>улица Университетская, 25, офис 408</span></address></div>
-            <div><a class="office-title" href="tyumen/">Тюмень</a><address><a href="tel:+73452000000">+7 (3452) 00-00-00</a><a href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a><span>улица Республики, 61, офис 712</span></address></div>
+            <div><a class="office-title" href="kontakty/#map-surgut">Сургут</a><address><a href="tel:+73462000000">+7 (3462) 00-00-00</a><span>улица Университетская, 25, офис 408</span></address></div>
+            <div><a class="office-title" href="kontakty/#map-tyumen">Тюмень</a><address><a href="tel:+73452000000">+7 (3452) 00-00-00</a><span>улица Республики, 61, офис 712</span></address></div>
           </div>
         </div>
         <div class="site-footer__bottom"><div>© 2026 A1-Интернет Эксперт. Все права защищены.</div><div><a href="privacy/">Политика конфиденциальности</a><a href="terms/">Пользовательское соглашение</a></div></div>

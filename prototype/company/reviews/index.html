@@ -1,19 +1,21 @@
+
 <!doctype html>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="../../../">
+    <base href="../../">
     <meta name="theme-color" content="#ffffff">
     <meta name="color-scheme" content="light">
-    <title>Анна Иванова — SEO-специалист | Блог A1-Интернет Эксперт</title>
-    <meta name="description" content="Анна Иванова — SEO-специалист. Проектирует структуру сайта, анализирует поисковый спрос и отвечает за развитие органического трафика.">
+    <title>Отзывы клиентов — A1-Интернет Эксперт</title>
+    <meta name="description" content="Отзывы клиентов A1-Интернет Эксперт и благодарственные письма компаний, с которыми работала команда.">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="reviews.css">
     <script src="script.js" defer></script>
+    <script src="reviews.js" defer></script>
   </head>
-  <body class="article-page author-profile-page">
+  <body class="reviews-page">
     <header class="site-header" data-header>
       <div class="container header-grid">
         <a class="brand" href="./" aria-label="A1-Интернет Эксперт, на главную">
@@ -35,13 +37,13 @@
 
         <nav class="desktop-nav" aria-label="Основная навигация">
           <div class="company-trigger-wrap" data-company-shell>
-            <button type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu" data-popover-toggle="company-menu">
+            <button class="is-current" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu" data-popover-toggle="company-menu">
               О компании
               <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
             </button>
             <div class="company-menu" id="company-menu" hidden data-popover data-company-menu>
               <a href="company/about/">О компании</a>
-              <a href="company/reviews/">Отзывы</a>
+              <a href="company/reviews/" aria-current="page">Отзывы</a>
               <a href="company/careers/">Вакансии</a>
             </div>
           </div>
@@ -60,7 +62,7 @@
             </button>
           </div>
           <a href="cases/">Кейсы</a>
-          <a href="blog/" aria-current="page">Блог</a>
+          <a href="blog/">Блог</a>
           <a href="prices/">Цены</a>
           <a href="kontakty/">Контакты</a>
         </nav>
@@ -198,6 +200,7 @@
                 <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
                 <li><a href="seo/google/">Продвижение в Google</a></li>
                 <li><a href="seo/prodvizhenie-novyh-sajtov/">Продвижение новых сайтов</a></li>
+
               </ul>
             </div>
 
@@ -398,6 +401,7 @@
                   <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
                 </ul>
               </details>
+
             </li>
             <li><span class="mobile-service-label">Мобильные приложения</span></li>
             <li>
@@ -437,12 +441,12 @@
             <summary>О компании</summary>
             <ul>
               <li><a href="company/about/">О компании</a></li>
-              <li><a href="company/reviews/">Отзывы</a></li>
+              <li><a href="company/reviews/" aria-current="page">Отзывы</a></li>
               <li><a href="company/careers/">Вакансии</a></li>
             </ul>
           </details>
           <a href="cases/">Кейсы</a>
-          <a href="blog/" aria-current="page">Блог</a>
+          <a href="blog/">Блог</a>
           <a href="prices/">Цены</a>
           <a href="akcii/">Акции</a>
           <a href="kontakty/">Контакты</a>
@@ -456,73 +460,183 @@
     </aside>
 
     <main id="main-content" tabindex="-1">
-      <section class="author-profile-hero" aria-labelledby="author-profile-title">
+      <section class="reviews-hero">
         <div class="container">
           <nav class="site-breadcrumbs" aria-label="Хлебные крошки">
-            <ol>
-              <li><a href="./">Главная</a></li>
-              <li><a href="blog/">Блог</a></li>
-              <li aria-current="page">Анна Иванова</li>
-            </ol>
+            <ol><li><a href="./">Главная</a></li><li><a href="company/about/">О компании</a></li><li aria-current="page">Отзывы</li></ol>
           </nav>
+          <h1>Отзывы</h1>
+        </div>
+      </section>
 
-          <div class="author-profile-hero__content">
-            <span class="author-profile-avatar article-author-card__avatar" role="img" aria-label="Место для фотографии Анны Ивановой"></span>
-            <div class="author-profile-hero__copy">
-              <h1 id="author-profile-title">Анна Иванова</h1>
-              <p class="author-profile-role">SEO-специалист</p>
-              <dl class="author-profile-facts">
-                <div>
-                  <dt>Опыт</dt>
-                  <dd>В SEO с 2018 года</dd>
+      <section class="letters-section" aria-labelledby="letters-title">
+        <div class="container">
+          <h2 id="letters-title">Благодарственные письма</h2>
+          <div class="letter-grid">
+            <a class="letter-card" href="assets/reviews/letters/letter-01.jpg" data-letter-open data-letter-index="0" data-letter-title="KIA Центр Сургут">
+              <span class="letter-card__sheet"><img src="assets/reviews/letters/letter-01.jpg" alt="Благодарственное письмо от KIA Центр Сургут" loading="lazy" decoding="async"></span>
+              <span class="letter-card__caption">KIA Центр Сургут</span>
+            </a>
+
+            <a class="letter-card" href="assets/reviews/letters/letter-02.jpg" data-letter-open data-letter-index="1" data-letter-title="Сургутмебель">
+              <span class="letter-card__sheet"><img src="assets/reviews/letters/letter-02.jpg" alt="Благодарственное письмо от компании «Сургутмебель»" loading="lazy" decoding="async"></span>
+              <span class="letter-card__caption">Сургутмебель</span>
+            </a>
+
+            <a class="letter-card" href="assets/reviews/letters/letter-03.jpg" data-letter-open data-letter-index="2" data-letter-title="Сургутская торгово-промышленная палата">
+              <span class="letter-card__sheet"><img src="assets/reviews/letters/letter-03.jpg" alt="Благодарственное письмо от Сургутской торгово-промышленной палаты" loading="lazy" decoding="async"></span>
+              <span class="letter-card__caption">Сургутская торгово-промышленная палата</span>
+            </a>
+
+            <a class="letter-card" href="assets/reviews/letters/letter-04.jpg" data-letter-open data-letter-index="3" data-letter-title="Торговый комплекс «Сибирь»">
+              <span class="letter-card__sheet"><img src="assets/reviews/letters/letter-04.jpg" alt="Благодарственное письмо от торгового комплекса «Сибирь»" loading="lazy" decoding="async"></span>
+              <span class="letter-card__caption">Торговый комплекс «Сибирь»</span>
+            </a>
+
+            <a class="letter-card" href="assets/reviews/letters/letter-05.jpg" data-letter-open data-letter-index="4" data-letter-title="Академия красоты «Бьюти М»">
+              <span class="letter-card__sheet"><img src="assets/reviews/letters/letter-05.jpg" alt="Благодарственное письмо от академии красоты «Бьюти М»" loading="lazy" decoding="async"></span>
+              <span class="letter-card__caption">Академия красоты «Бьюти М»</span>
+            </a>
+
+            <a class="letter-card" href="assets/reviews/letters/letter-06.jpg" data-letter-open data-letter-index="5" data-letter-title="2ГИС">
+              <span class="letter-card__sheet"><img src="assets/reviews/letters/letter-06.jpg" alt="Благодарственное письмо от 2ГИС" loading="lazy" decoding="async"></span>
+              <span class="letter-card__caption">2ГИС</span>
+            </a>
+
+            <a class="letter-card" href="assets/reviews/letters/letter-07.jpg" data-letter-open data-letter-index="6" data-letter-title="Фаворит-С">
+              <span class="letter-card__sheet"><img src="assets/reviews/letters/letter-07.jpg" alt="Благодарственное письмо от компании «Фаворит-С»" loading="lazy" decoding="async"></span>
+              <span class="letter-card__caption">Фаворит-С</span>
+            </a>
+
+            <a class="letter-card" href="assets/reviews/letters/letter-08.jpg" data-letter-open data-letter-index="7" data-letter-title="СпецЭнергоСтандарт">
+              <span class="letter-card__sheet"><img src="assets/reviews/letters/letter-08.jpg" alt="Благодарственное письмо от компании «СпецЭнергоСтандарт»" loading="lazy" decoding="async"></span>
+              <span class="letter-card__caption">СпецЭнергоСтандарт</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews-widget-section" aria-labelledby="client-reviews-title">
+        <div class="container">
+          <div class="reviews-widget">
+            <div class="reviews-widget__header">
+              <div>
+                <h2 id="client-reviews-title">Отзывы клиентов</h2>
+                <div class="reviews-rating" aria-label="Рейтинг 5 из 5 по 47 отзывам на Яндекс Картах и 2ГИС">
+                  <strong>5,0</strong>
+                  <span class="reviews-rating__stars" aria-hidden="true">★★★★★</span>
+                  <span>по 47 отзывам на Яндекс Картах и 2ГИС</span>
                 </div>
-                <div>
-                  <dt>Специализация деятельности</dt>
-                  <dd>Проектирует структуру сайта, анализирует поисковый спрос и отвечает за развитие органического трафика.</dd>
+              </div>
+              <a class="button button--secondary reviews-widget__action" href="https://2gis.ru/surgut/firm/5489290327035063/tab/reviews" target="_blank" rel="noopener noreferrer">Оставить отзыв</a>
+            </div>
+
+            <div class="review-filters" aria-label="Фильтр отзывов" data-review-filters>
+              <button type="button" aria-pressed="true" data-review-filter="all">Все отзывы</button>
+              <button type="button" aria-pressed="false" data-review-filter="yandex">Яндекс Карты</button>
+              <button type="button" aria-pressed="false" data-review-filter="2gis">2ГИС</button>
+            </div>
+
+            <div class="review-grid" data-review-grid>
+              <article class="review-card" data-review-card="yandex">
+                <div class="review-card__meta">
+                  <span class="review-card__source">Яндекс Карты</span>
+                  <span class="review-card__stars" aria-label="Оценка 5 из 5">★★★★★</span>
                 </div>
-              </dl>
+                <blockquote>«Заказывали SEO-продвижение и контекстную рекламу. За 4 месяца поток пациентов вырос в 2 раза. Команда всегда на связи, отчёты понятные, без воды.»</blockquote>
+                <footer class="review-card__author">
+                  <span aria-hidden="true">АП</span>
+                  <div><strong>Алексей Петров</strong><small>Директор · Стоматология «Улыбка»</small></div>
+                </footer>
+              </article>
+
+              <article class="review-card" data-review-card="2gis">
+                <div class="review-card__meta">
+                  <span class="review-card__source">2ГИС</span>
+                  <span class="review-card__stars" aria-label="Оценка 5 из 5">★★★★★</span>
+                </div>
+                <blockquote>«Ребята сделали нам сайт и настроили CRM. Наконец-то видим, откуда приходят заявки и сколько стоит каждый лид. Рекомендуем.»</blockquote>
+                <footer class="review-card__author">
+                  <span aria-hidden="true">МК</span>
+                  <div><strong>Марина Козлова</strong><small>Маркетолог · Автосалон «Север-Моторс»</small></div>
+                </footer>
+              </article>
+
+              <article class="review-card" data-review-card="yandex">
+                <div class="review-card__meta">
+                  <span class="review-card__source">Яндекс Карты</span>
+                  <span class="review-card__stars" aria-label="Оценка 5 из 5">★★★★★</span>
+                </div>
+                <blockquote>«Работаем с A1 уже третий год. Сайт, SEO, реклама — всё в одних руках. Удобно, что не нужно объяснять задачу разным подрядчикам.»</blockquote>
+                <footer class="review-card__author">
+                  <span aria-hidden="true">ИС</span>
+                  <div><strong>Игорь Сидоренко</strong><small>Собственник · ООО «СтройХМАО»</small></div>
+                </footer>
+              </article>
+
+              <article class="review-card" data-review-card="2gis">
+                <div class="review-card__meta">
+                  <span class="review-card__source">2ГИС</span>
+                  <span class="review-card__stars" aria-label="Оценка 5 из 5">★★★★★</span>
+                </div>
+                <blockquote>«Запустили таргет в ВК и лендинг на процедуры. Записи выросли на 60%, а стоимость заявки снизилась вдвое. Очень довольна результатом.»</blockquote>
+                <footer class="review-card__author">
+                  <span aria-hidden="true">ЕФ</span>
+                  <div><strong>Елена Фролова</strong><small>Управляющая · Клиника косметологии «ArtMed»</small></div>
+                </footer>
+              </article>
+
+              <article class="review-card" data-review-card="yandex">
+                <div class="review-card__meta">
+                  <span class="review-card__source">Яндекс Карты</span>
+                  <span class="review-card__stars" aria-label="Оценка 5 из 5">★★★★★</span>
+                </div>
+                <blockquote>«Сделали сайт ЖК с шахматкой и 3D-туром. Настроили сквозную аналитику до брони. Теперь точно знаем, какой канал приносит покупателей.»</blockquote>
+                <footer class="review-card__author">
+                  <span aria-hidden="true">ДВ</span>
+                  <div><strong>Дмитрий Волков</strong><small>Руководитель отдела продаж · ЖК «Новый квартал»</small></div>
+                </footer>
+              </article>
+
+              <article class="review-card" data-review-card="yandex">
+                <div class="review-card__meta">
+                  <span class="review-card__source">Яндекс Карты</span>
+                  <span class="review-card__stars" aria-label="Оценка 5 из 5">★★★★★</span>
+                </div>
+                <blockquote>«Перенесли курсы на новую платформу, сделали автоворонку и интеграцию с amoCRM. Продажи курсов выросли на 40% уже в первый месяц.»</blockquote>
+                <footer class="review-card__author">
+                  <span aria-hidden="true">ОН</span>
+                  <div><strong>Ольга Назарова</strong><small>Основатель · Онлайн-школа «ПроЗнание»</small></div>
+                </footer>
+              </article>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="author-profile-articles blog-library" aria-labelledby="author-articles-title">
-        <div class="container">
-          <div class="author-profile-articles__header blog-library__header">
-            <h2 id="author-articles-title">Статьи автора</h2>
+      <dialog class="letter-dialog" data-letter-dialog aria-labelledby="letter-dialog-title">
+        <div class="letter-dialog__panel">
+          <header class="letter-dialog__header">
+            <div><h2 id="letter-dialog-title" data-letter-dialog-title>KIA Центр Сургут</h2><span data-letter-dialog-count aria-live="polite">1 из 8</span></div>
+            <form method="dialog">
+              <button type="submit" class="letter-dialog__close" aria-label="Закрыть документ">
+                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+              </button>
+            </form>
+          </header>
+          <div class="letter-dialog__body">
+            <button type="button" class="letter-dialog__nav letter-dialog__nav--prev" aria-label="Предыдущее письмо" data-letter-prev>
+              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+            </button>
+            <div class="letter-dialog__document"><img src="assets/reviews/letters/letter-01.jpg" alt="" data-letter-dialog-image></div>
+            <button type="button" class="letter-dialog__nav letter-dialog__nav--next" aria-label="Следующее письмо" data-letter-next>
+              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+            </button>
           </div>
-
-          <div class="author-profile-articles__grid blog-grid">
-            <article class="author-profile-article blog-card">
-              <a
-                class="blog-card__media blog-card__media--seo"
-                href="blog/neyroseti-v-seo/"
-                aria-label="Читать статью «Нейросети в SEO: как ускорить работу и не потерять качество»"
-              ></a>
-              <div class="blog-card__body">
-                <a class="blog-category" href="blog/?category=seo#materials">SEO</a>
-                <h3>
-                  <a href="blog/neyroseti-v-seo/">Нейросети в SEO: как ускорить работу и не потерять качество</a>
-                </h3>
-                <p class="blog-card__description">Разбираем, какие SEO-задачи можно передать нейросети, где нужен контроль специалиста и как выстроить процесс от исходных данных до публикации.</p>
-                <div class="blog-meta" aria-label="Информация о материале">
-                  <span>Анна Иванова</span>
-                  <time datetime="2026-08-02">2 августа 2026</time>
-                  <span>13 минут</span>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <a class="author-profile-back section-link" href="blog/">
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M19 12H5m6 6-6-6 6-6"></path>
-            </svg>
-            Все материалы блога
-          </a>
         </div>
-      </section>
+      </dialog>
     </main>
+
     <footer class="site-footer">
       <div class="container">
         <div class="site-footer__grid">
@@ -555,8 +669,8 @@
             <ul>
               <li><a href="company/about/">О компании</a></li>
               <li><a href="cases/">Кейсы</a></li>
-              <li><a href="blog/" aria-current="page">Блог</a></li>
-              <li><a href="company/reviews/">Отзывы</a></li>
+              <li><a href="blog/">Блог</a></li>
+              <li><a href="company/reviews/" aria-current="page">Отзывы</a></li>
               <li><a href="company/careers/">Вакансии</a></li>
               <li><a href="prices/">Цены</a></li>
               <li><a href="kontakty/">Контакты</a></li>

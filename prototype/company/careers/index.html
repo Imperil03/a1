@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="../../">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <title>Вакансии — A1-Интернет Эксперт</title>
+    <meta name="description" content="Работа и вакансии в A1-Интернет Эксперт: открытые позиции, задачи, условия, проекты, команда и профессиональное развитие.">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="careers.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="careers-page">
+    <header class="site-header" data-header>
+      <div class="container header-grid">
+        <a class="brand" href="./" aria-label="A1-Интернет Эксперт, на главную">
+          <img src="logo.png" width="55" height="70" alt="">
+        </a>
+
+        <button
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Открыть меню"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          data-mobile-menu-toggle
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <nav class="desktop-nav" aria-label="Основная навигация">
+          <div class="company-trigger-wrap" data-company-shell>
+            <button class="is-current" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu" data-popover-toggle="company-menu">
+              О компании
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div class="company-menu" id="company-menu" hidden data-popover data-company-menu>
+              <a href="company/about/">О компании</a>
+              <a href="company/reviews/">Отзывы</a>
+              <a href="company/careers/" aria-current="page">Вакансии</a>
+            </div>
+          </div>
+          <div class="services-trigger-wrap" data-services-shell>
+            <button
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="services-menu"
+              data-popover-toggle="services-menu"
+            >
+              Услуги
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+          </div>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="kontakty/">Контакты</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="location-select">
+            <button
+              class="location-select__toggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="city-menu"
+              data-popover-toggle="city-menu"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Выбрать город</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="city-menu" id="city-menu" hidden data-popover>
+              <a href="surgut/">Сургут</a>
+              <a href="tyumen/">Тюмень</a>
+            </div>
+          </div>
+
+          <a class="header-phone" href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+7 (3462) 00-00-00</span>
+          </a>
+
+          <a class="button button--header" href="kontakty/">
+            Обсудить проект
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m-6-6 6 6-6 6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="mega-menu"
+        id="services-menu"
+        hidden
+        data-popover
+        data-services-menu
+      >
+        <div class="mega-menu__grid">
+          <div class="mega-menu__directions">
+            <div class="mega-menu__label">Направления</div>
+            <ul>
+              <li>
+                <button type="button" data-service-tab="web-development">
+                  <span>01</span>Разработка сайтов
+                </button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="seo"><span>02</span>SEO-продвижение</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="ads"><span>03</span>Контекстная реклама</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="complex"><span>04</span>Комплексный интернет-маркетинг</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="crm"><span>05</span>Внедрение CRM</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="mobile"><span>06</span>Мобильные приложения</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="design"><span>07</span>Веб-дизайн</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="industries"><span>08</span>Отраслевая экспертиза</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="support"><span>09</span>Техподдержка сайтов</button>
+              </li>
+              <li>
+                <button type="button" data-service-tab="geomarketing"><span>10</span>Геомаркетинг</button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mega-menu__content">
+            <div class="mega-panel" data-service-panel="web-development">
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Разработка сайтов</strong>
+                  <p>Разрабатываем корпоративные сайты, интернет-магазины, лендинги и личные кабинеты под задачи бизнеса: от структуры и прототипа до запуска, интеграций и дальнейшей поддержки. Работаем на 1С-Битрикс, WordPress, Tilda и Laravel.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="razrabotka-sajtov/">Разработка сайтов</a></li>
+                <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                <li><a href="razrabotka-sajtov/laravel/">Разработка на Laravel</a></li>
+                <li><a href="razrabotka-sajtov/joomla/">Сайты на Joomla</a></li>
+                <li><a href="razrabotka-sajtov/modx/">Сайты на MODX</a></li>
+                <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                <li><a href="razrabotka-sajtov/sajty-pod-seo/">Сайты под SEO</a></li>
+                <li><a href="razrabotka-sajtov/sajty-vizitki/">Сайты-визитки</a></li>
+                <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                <li><a href="razrabotka-sajtov/lichnye-kabinety/">Личные кабинеты</a></li>
+                <li><a href="razrabotka-sajtov/integratsiya-s-1c/">Интеграция с 1С</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="seo" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>SEO-продвижение</strong>
+                  <p>Комплексно продвигаем сайты в Яндексе и Google: собираем семантику, усиливаем техническую оптимизацию, контент, перелинковку и аналитику, чтобы сайт рос не только по позициям, но и по заявкам.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="seo/">SEO-продвижение</a></li>
+                <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                <li><a href="seo/audit/">SEO-аудит</a></li>
+                <li><a href="seo/1c-bitrix/">SEO для 1С-Битрикс</a></li>
+                <li><a href="seo/tilda/">SEO для Tilda</a></li>
+                <li><a href="seo/wordpress/">SEO для WordPress</a></li>
+                <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                <li><a href="seo/google/">Продвижение в Google</a></li>
+                <li><a href="seo/prodvizhenie-novyh-sajtov/">Продвижение новых сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="ads" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Контекстная реклама</strong>
+                  <p>Настраиваем и ведём контекстную и таргетированную рекламу в Яндекс Директе, ВКонтакте и Telegram Ads: от запуска и тестов до ретаргетинга, оптимизации и сквозной аналитики. Работаем на заявки, продажи и понятную стоимость лида.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="kontekstnaya-reklama/">Контекстная реклама</a></li>
+                <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
+                <li><a href="kontekstnaya-reklama/audit-direct/">Аудит Яндекс Директа</a></li>
+                <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
+                <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="complex" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Комплексный интернет-маркетинг</strong>
+                  <p>За стратегию продвижения, реализацию и аналитику отвечает одна команда A1. Все специалисты работают по общему плану, а инструменты дополняют друг друга и решают одну задачу — привлекать больше целевых обращений.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a class="mega-panel__hub-link" href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="crm" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Внедрение CRM</strong>
+                  <p>Внедряем amoCRM и Битрикс24: настраиваем воронки, автоматизации и интеграции с сайтом, телефонией и мессенджерами, обучаем команду — чтобы заявки не терялись, а работа отдела продаж была прозрачной и управляемой.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="mobile" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Мобильные приложения</strong>
+                  <p>Разрабатываем мобильные приложения для iOS и Android: от проектирования и дизайна до разработки, тестирования и публикации. Делаем нативные и кроссплатформенные решения под задачи бизнеса.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mega-panel" data-service-panel="design" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Веб-дизайн</strong>
+                  <p>Проектируем интерфейсы для сайтов, лендингов, личных кабинетов и приложений: продумываем структуру, сценарии, прототипы и дизайн, чтобы пользователю было удобно, понятно и легко совершить целевое действие.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                <li><a href="veb-dizajn/mobilnyh-prilozhenij/">Дизайн мобильных приложений</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="industries" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Отраслевая экспертиза</strong>
+                  <p>Маркетинг и разработка для конкретных ниш: стоматологии, автосалоны, медицинские и косметологические клиники, онлайн-курсы, новые ЖК.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/">Для медицинских клиник</a></li>
+                <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                <li><a href="otraslevaya-ekspertiza/onlajn-kursy/">Для онлайн-курсов</a></li>
+                <li><a href="otraslevaya-ekspertiza/novye-zhk/">Для новых ЖК</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="support" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Техподдержка сайтов</strong>
+                  <p>Берём сайты на сопровождение: дорабатываем функционал, обновляем CMS и контент, следим за стабильностью, безопасностью и резервным копированием, чтобы проект работал без сбоев и не терял заявки.</p>
+                </div>
+              </div>
+              <ul class="mega-panel__links">
+                <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                <li><a href="tekhpodderzhka/obnovlenie-cms/">Обновление CMS</a></li>
+                <li><a href="tekhpodderzhka/perenos-na-bitrix/">Перенос на Битрикс</a></li>
+                <li><a href="tekhpodderzhka/licenziya-bitrix/">Лицензия Битрикс</a></li>
+                <li><a href="tekhpodderzhka/lechenie-ot-virusov/">Лечение от вирусов</a></li>
+                <li><a href="tekhpodderzhka/napolnenie-sajtov/">Наполнение сайтов</a></li>
+              </ul>
+            </div>
+
+            <div class="mega-panel" data-service-panel="geomarketing" hidden>
+              <div class="mega-panel__header">
+                <div>
+                  <strong>Геомаркетинг</strong>
+                  <p>Усиливаем локальную видимость бизнеса в Яндекс Картах, 2ГИС и Google: оформляем и развиваем карточки, подключаем георекламу и следим за актуальностью информации.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mega-menu__consultation">
+              <div>
+                <strong>Не знаете, с чего начать?</strong>
+                <p>Бесплатная консультация — подберём подходящие услуги под вашу задачу.</p>
+              </div>
+              <a class="button button--primary" href="kontakty/">
+                Получить консультацию
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu-overlay" hidden data-mobile-menu-overlay></div>
+    <aside
+      class="mobile-menu"
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Главное меню"
+      hidden
+      data-mobile-menu
+    >
+      <div class="mobile-menu__header">
+        <div class="mobile-menu__title">Меню</div>
+        <button type="button" aria-label="Закрыть меню" data-mobile-menu-close>
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m5 5 14 14M19 5 5 19"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-menu__body">
+        <nav aria-label="Услуги">
+          <ul class="mobile-services">
+            <li>
+              <details>
+                <summary>Разработка сайтов</summary>
+                <ul>
+                  <li><a class="mobile-service-hub" href="razrabotka-sajtov/">Разработка сайтов</a></li>
+                  <li><a href="razrabotka-sajtov/1c-bitrix/">Сайты на 1С-Битрикс</a></li>
+                  <li><a href="razrabotka-sajtov/wordpress/">Сайты на WordPress</a></li>
+                  <li><a href="razrabotka-sajtov/tilda/">Сайты на Tilda</a></li>
+                  <li><a href="razrabotka-sajtov/internet-magaziny/">Интернет-магазины</a></li>
+                  <li><a href="razrabotka-sajtov/korporativnye-sajty/">Корпоративные сайты</a></li>
+                  <li><a href="razrabotka-sajtov/landing-page/">Лендинги</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>SEO-продвижение</summary>
+                <ul>
+                  <li><a class="mobile-service-hub" href="seo/">SEO-продвижение</a></li>
+                  <li><a href="seo/prodvizhenie-po-poziciyam/">Продвижение по позициям</a></li>
+                  <li><a href="seo/prodvizhenie-po-trafiku/">Продвижение по трафику</a></li>
+                  <li><a href="seo/prodvizhenie-po-lidam/">Продвижение по лидам</a></li>
+                  <li><a href="seo/geo/">Продвижение в нейропоиске и ИИ-ответах — GEO</a></li>
+                  <li><a href="seo/audit/">SEO-аудит</a></li>
+                  <li><a href="seo/yandex/">Продвижение в Яндексе</a></li>
+                  <li><a href="seo/google/">Продвижение в Google</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Контекстная реклама</summary>
+                <ul>
+                  <li><a class="mobile-service-hub" href="kontekstnaya-reklama/">Контекстная реклама</a></li>
+                  <li><a href="kontekstnaya-reklama/audit-direct/">Аудит Яндекс Директа</a></li>
+                  <li><a href="kontekstnaya-reklama/reklama-v-rsya/">Реклама в РСЯ</a></li>
+                  <li><a href="kontekstnaya-reklama/retargeting/">Ретаргетинг</a></li>
+                  <li><a href="kontekstnaya-reklama/tovarnaya-reklama/">Товарная реклама</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a class="mobile-service-hub" href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+            <li>
+              <details>
+                <summary>Внедрение CRM</summary>
+                <ul>
+                  <li><a href="vnedrenie-crm/amo-crm/">amoCRM</a></li>
+                  <li><a href="vnedrenie-crm/bitrix-24/">Битрикс24</a></li>
+                  <li><a href="vnedrenie-crm/tekhpodderzhka/">Техподдержка CRM</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><span class="mobile-service-label">Мобильные приложения</span></li>
+            <li>
+              <details>
+                <summary>Веб-дизайн</summary>
+                <ul>
+                  <li><a href="veb-dizajn/sajtov/">Дизайн сайтов</a></li>
+                  <li><a href="veb-dizajn/redizajn/">Редизайн сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Отраслевая экспертиза</summary>
+                <ul>
+                  <li><a href="otraslevaya-ekspertiza/stomatologii/">Для стоматологий</a></li>
+                  <li><a href="otraslevaya-ekspertiza/avtosalony/">Для автосалонов</a></li>
+                  <li><a href="otraslevaya-ekspertiza/medicinskie-kliniki/">Для медицинских клиник</a></li>
+                  <li><a href="otraslevaya-ekspertiza/kosmetologiya/">Для косметологии</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Техподдержка сайтов</summary>
+                <ul>
+                  <li><a href="tekhpodderzhka/dorabotka/">Доработка сайта</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><span class="mobile-service-label">Геомаркетинг</span></li>
+          </ul>
+        </nav>
+
+        <nav class="mobile-menu__secondary" aria-label="Разделы сайта">
+          <details class="mobile-company">
+            <summary>О компании</summary>
+            <ul>
+              <li><a href="company/about/">О компании</a></li>
+              <li><a href="company/reviews/">Отзывы</a></li>
+              <li><a href="company/careers/" aria-current="page">Вакансии</a></li>
+            </ul>
+          </details>
+          <a href="cases/">Кейсы</a>
+          <a href="blog/">Блог</a>
+          <a href="prices/">Цены</a>
+          <a href="akcii/">Акции</a>
+          <a href="kontakty/">Контакты</a>
+        </nav>
+
+        <div class="mobile-menu__contacts">
+          <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
+          <a class="button button--primary" href="kontakty/">Обсудить проект</a>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main-content" tabindex="-1">
+      <section class="careers-hero" aria-labelledby="careers-title">
+        <div class="container careers-hero__inner">
+          <nav class="site-breadcrumbs" aria-label="Хлебные крошки">
+            <ol>
+              <li><a href="./">Главная</a></li>
+              <li><a href="company/about/">О компании</a></li>
+              <li aria-current="page">Вакансии</li>
+            </ol>
+          </nav>
+          <h1 id="careers-title">Работа в A1-Интернет Эксперт</h1>
+          <p class="careers-hero__lead">Развивайтесь в digital на интересных проектах</p>
+          <p class="careers-hero__intro">Мы создаём и развиваем сайты, занимаемся SEO и интернет-рекламой для компаний из разных отраслей. В A1 специалисты участвуют в обсуждении проектов, предлагают свои решения и влияют на то, как они будут реализованы. К работе над проектами этих и других компаний можешь присоединиться и ты.</p>
+
+          <dl class="careers-hero-benefits">
+            <div><dt>Влияние на решения</dt><dd>Вы участвуете в обсуждении проектов, предлагаете свои решения и видите, как они реализуются.</dd></div>
+            <div><dt>Профессиональный рост</dt><dd>Получаете регулярную обратную связь, понимаете, какие навыки развивать и что нужно для перехода на следующий профессиональный уровень.</dd></div>
+            <div><dt>Разные задачи и проекты</dt><dd>Работаете с сайтами, SEO, рекламой и аналитикой для компаний из разных отраслей и постепенно расширяете свою экспертизу.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section careers-vacancies" id="vacancies" aria-labelledby="vacancies-title">
+        <div class="container">
+          <div class="careers-reading-column">
+            <h2 id="vacancies-title">Актуальные вакансии</h2>
+            <p class="careers-section-lead">Кого мы ищем сейчас</p>
+            <p>Сейчас мы расширяем команду и ищем специалистов, которым интересно глубоко разбираться в проектах, предлагать собственные решения и брать на себя ответственность за их реализацию.</p>
+          </div>
+          <div class="vacancy-list">
+            <details class="vacancy-card" open>
+              <summary>
+                <h3>SEO-специалист</h3>
+                <span class="vacancy-card__summary-meta"><span>полная занятость</span><span>офисный, гибридный или удалённый формат</span><span class="vacancy-card__salary">зарплата от 80 000 ₽ на руки</span></span>
+                <span class="vacancy-card__indicator" aria-hidden="true"></span>
+              </summary>
+              <div class="vacancy-card__body">
+                <p class="vacancy-card__intro">Ищем SEO-специалиста, который умеет системно развивать коммерческие сайты и привлекать клиентов из поисковых систем. Вам предстоит анализировать спрос, проектировать структуру и посадочные страницы, ставить задачи редакторам и разработчикам, отслеживать динамику позиций, трафика и обращений, а также готовить отчёты с выводами и предложениями по дальнейшей работе..</p>
+                <div class="vacancy-card__columns">
+                  <section><h4>Чем предстоит заниматься</h4><ul>
+                    <li>анализировать сайты, поисковый спрос и конкурентов;</li><li>собирать и кластеризовать семантику;</li><li>проектировать новые разделы и посадочные страницы;</li><li>проводить технические аудиты;</li><li>готовить задачи на доработку сайта;</li><li>контролировать подготовку и размещение контента;</li><li>анализировать позиции, трафик и обращения;</li><li>готовить понятные отчёты для клиентов.</li>
+                  </ul></section>
+                  <section><h4>Что для нас важно</h4><ul>
+                    <li>опыт работы в SEO от двух лет;</li><li>понимание технической оптимизации;</li><li>опыт продвижения коммерческих сайтов;</li><li>грамотный русский язык;</li><li>умение понятно объяснять свои решения;</li><li>самостоятельность и внимание к деталям.</li>
+                  </ul></section>
+                </div>
+                <section class="vacancy-card__conditions"><h4>Условия</h4><ul>
+                  <li class="vacancy-card__condition-salary">зарплата от 80 000 ₽ на руки;</li><li>график с 9:00 до 18:00;</li><li>официальное оформление;</li><li>оплачиваемое профессиональное обучение;</li><li>возможность подключать к задачам дизайнера, аналитика и разработчика;</li>
+                </ul></section>
+                <a class="button button--primary vacancy-card__apply" href="company/careers/#application" data-application-role="SEO-специалист">откликнуться</a>
+              </div>
+            </details>
+
+            <details class="vacancy-card">
+              <summary>
+                <h3>Специалист по Яндекс Директу</h3>
+                <span class="vacancy-card__summary-meta"><span>полная занятость</span><span>офисный, гибридный или удалённый формат</span><span class="vacancy-card__salary">зарплата от 80 000 ₽ на руки</span></span>
+                <span class="vacancy-card__indicator" aria-hidden="true"></span>
+              </summary>
+              <div class="vacancy-card__body">
+                <p class="vacancy-card__intro">Ищем специалиста по Яндекс Директу, который умеет выстраивать и развивать рекламные кампании на основе данных. Вам предстоит анализировать спрос, готовить и тестировать объявления, работать с аналитикой и следить за стоимостью и качеством обращений.</p>
+                <div class="vacancy-card__columns">
+                  <section><h4>Основные задачи</h4><ul>
+                    <li>изучать продукты, целевую аудиторию, спрос и конкурентов;</li><li>запускать и развивать рекламные кампании в поиске, РСЯ и ретаргетинг;</li><li>готовить объявления и тестировать разные предложения;</li><li>настраивать и корректировать стратегии;</li><li>анализировать поисковые запросы, аудитории и рекламные площадки;</li><li>отслеживать стоимость и качество обращений;</li><li>ставить задачи дизайнеру и разработчику по рекламным материалам и посадочным страницам;</li><li>готовить понятные отчёты с выводами и предложениями по дальнейшей работе.</li>
+                  </ul></section>
+                  <section><h4>Что для нас важно</h4><ul>
+                    <li>опыт работы с Яндекс Директом от двух лет;</li><li>уверенное владение Яндекс Метрикой;</li><li>умение анализировать показатели и принимать решения на основе данных;</li><li>понимание того, как структура, содержание и удобство посадочной страницы влияют на конверсию;</li><li>умение планировать и контролировать рекламный бюджет;</li><li>способность сопоставлять данные рекламы с обратной связью клиента и находить причины изменения качества обращений.</li>
+                  </ul></section>
+                </div>
+                <section class="vacancy-card__conditions"><h4>Условия</h4><ul>
+                  <li class="vacancy-card__condition-salary">зарплата от 80 000 ₽ на руки;</li><li>график с 9:00 до 18:00;</li><li>официальное оформление;</li><li>работа с проектами из разных отраслей;</li><li>возможность подключать к задачам дизайнера, аналитика и разработчика;</li>
+                </ul></section>
+                <a class="button button--primary vacancy-card__apply" href="company/careers/#application" data-application-role="Специалист по Яндекс Директу">откликнуться</a>
+              </div>
+            </details>
+
+            <details class="vacancy-card">
+              <summary>
+                <h3>Руководитель проектов</h3>
+                <span class="vacancy-card__summary-meta"><span>полная занятость</span><span>работа в офисе</span><span class="vacancy-card__salary">зарплата от 100 000 ₽ на руки</span></span>
+                <span class="vacancy-card__indicator" aria-hidden="true"></span>
+              </summary>
+              <div class="vacancy-card__body">
+                <div class="vacancy-card__intro"><p>Ищем руководителя проектов, который умеет выстраивать работу между клиентом и командой: разбираться в задаче, формировать понятный план, расставлять приоритеты и контролировать его выполнение.</p><p>Для этой роли важно ориентироваться в разработке сайтов и интернет-маркетинге, чтобы грамотно ставить задачи специалистам, понимать взаимосвязи между направлениями и объяснять решения клиенту.</p></div>
+                <div class="vacancy-card__columns">
+                  <section><h4>Основные задачи</h4><ul>
+                    <li>общаться с клиентами, уточнять цели, задачи и приоритеты;</li><li>вместе со специалистами формировать план и объём работ;</li><li>ставить задачи и координировать работу команды;</li><li>контролировать сроки и текущий статус проектов;</li><li>собирать предложения специалистов и объяснять решения клиенту;</li><li>следить за согласованным объёмом работ и бюджетом;</li><li>готовить отчёты и планы на следующий этап;</li><li>заранее замечать риски и обсуждать возможные изменения.</li>
+                  </ul></section>
+                  <section><h4>Что для нас важно</h4><ul>
+                    <li>опыт управления digital-проектами от двух лет;</li><li>понимание основных этапов разработки и интернет-маркетинга;</li><li>умение превращать запрос клиента в понятные задачи для команды;</li><li>грамотная устная и письменная речь;</li><li>умение расставлять приоритеты и вести несколько проектов одновременно;</li><li>способность спокойно обсуждать сложные ситуации и находить рабочие решения;</li><li>ответственное отношение к договорённостям и срокам.</li>
+                  </ul></section>
+                </div>
+                <section class="vacancy-card__conditions"><h4>Условия</h4><ul>
+                  <li class="vacancy-card__condition-salary">зарплата от 100 000 ₽ на руки;</li><li>официальное оформление;</li><li>понятная система мотивации;</li><li>помощь руководителя и команды;</li><li>график с 9:00 до 18:00;.</li>
+                </ul></section>
+                <a class="button button--primary vacancy-card__apply" href="company/careers/#application" data-application-role="Руководитель проектов">откликнуться</a>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--cream careers-benefits" aria-labelledby="benefits-title">
+        <div class="container">
+          <h2 id="benefits-title">Почему стоит работать в A1</h2>
+          <div class="careers-benefits__list">
+            <article><span aria-hidden="true">01</span><div><h3>Условия работы – мечта!</h3><p>Официальное трудоустройство, 8-часовой рабочий день, зарплата неплохая и вовремя. Коллектив дружелюбный, начальство адекватное.</p><p>Чай-кофе-печеньки – само собой. Что еще нужно для работы твоей мечты? Да, обязательно хороший компьютер и шустрый интернет – это тоже все есть. И не только…</p></div></article>
+            <article><span aria-hidden="true">02</span><div><h3>Все для крутого профессионального роста!</h3><p>Представь себя в команде профи. Множество интересных задач решаются сообща буквально на твоих глазах – от продвижения сети прачечных до разработки сайта для «Сургутнефтегаза». Просто держи открытыми глаза, уши и блокнот – в таких условиях профессиональный рост происходит буквально со спринтерской скоростью. Проверено.</p></div></article>
+            <article><span aria-hidden="true">03</span><div><h3>Следишь за здоровьем? Поддержим!</h3><p>«Не сиди подолгу за компьютером, встань, подвигайся», - помнится, так говаривали наши мамы? Полностью согласны, поэтому если ты ходишь в спортзал, на фитнес, плаваешь или гоняешь в керлинг–мы тебя всячески поддержим и возместим 2000 руб. в месяц за абонемент.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section careers-projects" aria-labelledby="projects-title">
+        <div class="container">
+          <div class="careers-reading-column">
+            <h2 id="projects-title">Проекты, над которыми мы работаем</h2>
+            <p>Среди наших клиентов — медицинские клиники, производственные и строительные компании, интернет-магазины, образовательные проекты, автомобильный бизнес и компании сферы услуг.</p>
+            <p>Мы создаём новые сайты и развиваем уже работающие проекты: расширяем структуру, улучшаем рекламу, настраиваем аналитику и работаем над качеством обращений. Это даёт специалистам возможность решать разные задачи и получать опыт работы с проектами из разных отраслей.</p>
+          </div>
+          <div class="career-project-grid">
+            <a class="career-project-card" href="razrabotka-sajtov/"><h3>Разработка сайтов</h3><p>Работаем над проектом от структуры и прототипа до дизайна, программирования и дальнейшего развития сайта.</p><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+            <a class="career-project-card" href="seo/"><h3>SEO-продвижение</h3><p>Продвигаем сайт в поиске: изучаем спрос, развиваем структуру сайта, создаём новые страницы и улучшаем существующие разделы.</p><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+            <a class="career-project-card" href="kontekstnaya-reklama/"><h3>Контекстная реклама</h3><p>Запускаем и развиваем рекламные кампании, анализируем результаты и работаем над стоимостью и качеством обращений.</p><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+            <a class="career-project-card" href="complex-marketing/"><h3>Комплексный маркетинг</h3><p>Для комплексных проектов мы составляем общий план работы и объединяем усилия специалистов разных направлений. Решения согласовываются между собой и работают на общие цели проекта.</p><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--cream careers-workflow" aria-labelledby="workflow-title">
+        <div class="container">
+          <h2 id="workflow-title">Как устроена работа в команде</h2>
+          <div class="careers-workflow__grid">
+            <article><span aria-hidden="true">01</span><h3>Обсуждаем решения вместе</h3><p>Если задача неоднозначная, её можно обсудить с коллегами и руководителем. Мы спокойно относимся к вопросам и аргументированным разногласиям: важно найти подходящее решение, а не отстоять первоначальную точку зрения.</p></article>
+            <article><span aria-hidden="true">02</span><h3>Отвечаем за договорённости</h3><p>У каждой задачи есть ответственный, срок и ожидаемый результат. Если появляются сложности или риск не уложиться в срок, мы обсуждаем это заранее и вместе корректируем план. Ошибки разбираем спокойно, чтобы понять их причины и не допускать повторения.</p></article>
+            <article><span aria-hidden="true">03</span><h3>Процессы помогают работать</h3><p>Мы фиксируем договорённости, приоритеты и сроки, но не перегружаем команду лишними отчётами и согласованиями. Процессы должны делать работу понятнее и проще, а не отнимать время у специалистов.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section careers-growth" aria-labelledby="growth-title">
+        <div class="container careers-growth__panel">
+          <article>
+            <h2 id="growth-title">Профессиональное развитие</h2>
+            <p class="careers-section-lead">Новые знания сразу применяются в работе</p>
+            <p>В digital постоянно меняются инструменты, технологии и подходы. Поэтому профессиональное развитие встроено в повседневную работу: мы обсуждаем выполненные задачи, делимся опытом и получаем обратную связь от коллег и руководителей.</p>
+            <p>При необходимости компания оплачивает профильные курсы и участие в профессиональных мероприятиях. Обучение выбираем с учётом задач специалиста, чтобы новые знания можно было применять в текущих и будущих проектах.</p>
+          </article>
+          <article>
+            <h3>Понятные ориентиры для роста</h3>
+            <p>На старте обсуждаем ваш опыт, сильные стороны и навыки, которые стоит развивать. По мере роста специалист получает более сложные задачи, больше самостоятельности и может переходить к следующей роли внутри команды.</p>
+            <p>Профессиональный рост и пересмотр дохода зависят от качества работы, уровня компетенций, самостоятельности и ответственности, а не только от времени, проведённого в компании. При необходимости вместе с руководителем вы составите план профессионального развития: определите, какие навыки нужно усилить, какие задачи освоить и что потребуется для перехода на следующий уровень и повышения дохода.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--cream careers-team" aria-labelledby="team-title">
+        <div class="container" data-team-slider>
+          <div class="careers-team__heading">
+            <div><h2 id="team-title">Команда A1</h2><p>Давайте знакомиться!</p></div>
+            <div class="slider-controls" aria-label="Управление слайдером команды">
+              <button type="button" data-team-prev aria-label="Предыдущие сотрудники"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6 6-6-6 6-6"></path></svg></button>
+              <button type="button" data-team-next aria-label="Следующие сотрудники"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></button>
+            </div>
+          </div>
+          <div class="careers-team__track" data-team-track tabindex="0" aria-label="Сотрудники A1-Интернет Эксперт">
+            <article class="career-person"><img src="team/about/butorin.jpg" width="1707" height="2560" loading="lazy" decoding="async" alt="Эдуард Буторин"><div><h3>Эдуард Буторин</h3><p class="career-person__role">Директор A1-Интернет Эксперт</p><p>Определяет направление развития компании, участвует в ключевых проектах и помогает команде принимать сложные решения.</p></div></article>
+            <article class="career-person"><img src="team/about/avdonenkova.jpg" width="686" height="906" loading="lazy" decoding="async" alt="Анна Соколова"><div><h3>Анна Соколова</h3><p class="career-person__role">Руководитель проектов</p><p>Координирует работу специалистов, общается с клиентами и помогает команде соблюдать сроки и приоритеты.</p></div></article>
+            <article class="career-person"><img src="team/about/davidov.jpg" width="649" height="965" loading="lazy" decoding="async" alt="Илья Кириллов"><div><h3>Илья Кириллов</h3><p class="career-person__role">Специалист по контекстной рекламе</p><p>Настраивает Яндекс Директ, анализирует качество обращений и помогает улучшать рекламные воронки.</p></div></article>
+            <article class="career-person"><img src="team/about/ivachev.jpg" width="618" height="683" loading="lazy" decoding="async" alt="Константин Ивачев"><div><h3>Константин Ивачев</h3><p class="career-person__role">Разработчик</p><p>Создаёт сайты, внедряет новые функции и выполняет технические доработки действующих проектов.</p></div></article>
+            <article class="career-person"><img src="team/about/kostetskaya.jpg" width="1706" height="2560" loading="lazy" decoding="async" alt="Екатерина Белова"><div><h3>Екатерина Белова</h3><p class="career-person__role">Дизайнер</p><p>Проектирует интерфейсы, оформляет посадочные страницы и готовит рекламные материалы.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section careers-fit" aria-labelledby="fit-title">
+        <div class="container">
+          <div class="careers-reading-column"><h2 id="fit-title">Кому будет комфортно в A1</h2><p class="careers-section-lead">Мы хорошо сработаемся, если вы:</p></div>
+          <ul class="careers-fit__list">
+            <li>стараетесь понять смысл задачи;</li><li>задаёте вопросы, когда информации недостаточно;</li><li>соблюдаете договорённости;</li><li>заранее предупреждаете о сложностях;</li><li>спокойно относитесь к обратной связи;</li><li>умеете аргументировать свои решения;</li><li>хотите развиваться в профессии;</li><li>уважительно общаетесь с коллегами и клиентами;</li><li>готовы отвечать за результат своей работы.</li>
+          </ul>
+          <p class="careers-fit__counterpoint">Нам будет сложно работать вместе, если вы регулярно пропадаете, скрываете ошибки, воспринимаете любую обратную связь как личную критику или не готовы вникать в проекты и задачи.</p>
+        </div>
+      </section>
+
+      <section class="section careers-application" id="application" aria-labelledby="application-title">
+        <div class="container careers-application__grid">
+          <div class="careers-application__copy">
+            <h2 id="application-title">Не нашли подходящую вакансию?</h2>
+            <p class="careers-section-lead">Всё равно расскажите о себе</p>
+            <p>Даже если сейчас нет открытой позиции по вашему направлению, вы можете отправить резюме и написать, чем хотели бы заниматься.</p>
+            <p>Мы сохраним контакт и вернёмся к нему, когда появится подходящая вакансия или проект.</p>
+          </div>
+          <a class="button button--contact button--large careers-application__action" href="mailto:hr@a1-reklama.ru" data-career-dialog-open>Отправить резюме</a>
+        </div>
+      </section>
+
+      <dialog class="career-dialog" data-career-dialog aria-labelledby="career-dialog-title">
+        <div class="career-dialog__surface">
+          <button class="career-dialog__close" type="button" aria-label="Закрыть форму" data-career-dialog-close>
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+          </button>
+          <form class="career-form" action="mailto:hr@a1-reklama.ru" method="post" enctype="text/plain">
+            <h2 id="career-dialog-title">Форма отклика</h2>
+            <div class="career-form__grid">
+              <label><span>Имя</span><input type="text" name="name" autocomplete="name" required></label>
+              <label><span>Желаемая должность</span><input id="career-role" type="text" name="role" autocomplete="organization-title"></label>
+              <label><span>Телефон или Telegram</span><input type="text" name="contact" autocomplete="tel" required></label>
+              <label><span>Электронная почта</span><input type="email" name="email" autocomplete="email" required></label>
+            </div>
+            <label><span>Ссылка на резюме или портфолио</span><input type="url" name="portfolio"></label>
+            <label><span>Коротко о себе</span><textarea name="message" rows="5"></textarea></label>
+            <label class="career-form__file">
+              <span class="career-form__file-action">Прикрепить файл</span>
+              <input type="file" name="resume" accept=".pdf,.doc,.docx" data-career-file>
+              <span class="career-form__file-name" aria-live="polite" data-career-file-name></span>
+            </label>
+            <button class="button button--primary" type="submit">Отправить резюме</button>
+          </form>
+        </div>
+      </dialog>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand">
+            <a class="brand brand--footer" href="./" aria-label="A1-Интернет Эксперт, на главную">
+              <img src="logo.png" width="55" height="70" alt="">
+            </a>
+            <p>Диджитал-агентство полного цикла</p>
+            <a class="site-footer__email" href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a>
+          </div>
+
+          <nav aria-label="Услуги в подвале">
+            <h2>Услуги</h2>
+            <ul>
+              <li><a href="razrabotka-sajtov/">Разработка сайтов</a></li>
+              <li><a href="seo/">SEO-продвижение</a></li>
+              <li><a href="kontekstnaya-reklama/">Контекстная реклама</a></li>
+              <li><a href="complex-marketing/">Комплексный интернет-маркетинг</a></li>
+              <li><span class="site-footer__service-label">Внедрение CRM</span></li>
+              <li><span class="site-footer__service-label">Мобильные приложения</span></li>
+              <li><span class="site-footer__service-label">Веб-дизайн</span></li>
+              <li><span class="site-footer__service-label">Отраслевая экспертиза</span></li>
+              <li><span class="site-footer__service-label">Техподдержка сайтов</span></li>
+              <li><span class="site-footer__service-label">Геомаркетинг</span></li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Компания в подвале">
+            <h2>Компания</h2>
+            <ul>
+              <li><a href="company/about/">О компании</a></li>
+              <li><a href="cases/">Кейсы</a></li>
+              <li><a href="blog/">Блог</a></li>
+              <li><a href="company/reviews/">Отзывы</a></li>
+              <li><a href="company/careers/" aria-current="page">Вакансии</a></li>
+              <li><a href="prices/">Цены</a></li>
+              <li><a href="kontakty/">Контакты</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__offices">
+            <h2>Офисы</h2>
+            <div>
+              <a class="office-title" href="kontakty/#map-surgut">Сургут</a>
+              <address>
+                <a href="tel:+73462000000">+7 (3462) 00-00-00</a>
+                <span>улица Университетская, 25, офис 408</span>
+              </address>
+            </div>
+            <div>
+              <a class="office-title" href="kontakty/#map-tyumen">Тюмень</a>
+              <address>
+                <a href="tel:+73452000000">+7 (3452) 00-00-00</a>
+                <span>улица Республики, 61, офис 712</span>
+              </address>
+            </div>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <div>© 2026 A1-Интернет Эксперт. Все права защищены.</div>
+          <div>
+            <a href="privacy/">Политика конфиденциальности</a>
+            <a href="terms/">Пользовательское соглашение</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mobile-sticky-actions" data-mobile-sticky data-visible="false">
+      <a href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </a>
+      <a href="company/careers/#application" data-career-dialog-open>
+        Отправить резюме
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+      </a>
+    </div>
+  </body>
+</html>
