@@ -197,6 +197,61 @@ address {
   padding-inline: var(--page-gutter);
 }
 
+/* Shared breadcrumbs for every current internal page. */
+.site-breadcrumbs {
+  color: var(--ink-500);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.site-breadcrumbs ol {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+}
+
+.site-breadcrumbs li {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.site-breadcrumbs li + li::before {
+  color: var(--brand-400);
+  content: "/";
+  flex: none;
+}
+
+.site-breadcrumbs a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  text-decoration: underline;
+  text-decoration-color: var(--brand-300);
+  text-underline-offset: 4px;
+}
+
+.site-breadcrumbs a:hover {
+  color: var(--brand-600);
+}
+
+.site-breadcrumbs li[aria-current="page"] {
+  max-width: min(70vw, 680px);
+  color: var(--ink-700);
+  overflow-wrap: anywhere;
+}
+
+.service-hero .site-breadcrumbs,
+.about-hero .site-breadcrumbs,
+.blog-hero .site-breadcrumbs,
+.contacts-hero .site-breadcrumbs {
+  margin-bottom: 24px;
+}
+
 .button {
   display: inline-flex;
   min-height: 44px;

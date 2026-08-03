@@ -963,3 +963,60 @@ if (articleToc) {
   });
   window.addEventListener("resize", requestArticleNavigationUpdate);
 }
+
+const contactMapLinks = [
+  ...document.querySelectorAll("[data-contact-map-link]"),
+];
+const contactMapPanels = [
+  ...document.querySelectorAll("[data-contact-map-panel]"),
+];
+const contactMapsRoot = document.querySelector("[data-contact-maps]");
+
+function getContactMapCity() {
+  const cityFromHash = window.location.hash.replace(/^#map-/, "");
+  const availableCities = new Set(
+    contactMapPanels.map((panel) => panel.dataset.contactMapPanel),
+  );
+
+  return availableCities.has(cityFromHash) ? cityFromHash : "surgut";
+}
+
+function showContactMap(city) {
+  contactMapPanels.forEach((panel) => {
+    panel.hidden = panel.dataset.contactMapPanel !== city;
+  });
+
+  contactMapLinks.forEach((link) => {
+    const isCurrent = link.dataset.contactMapLink === city;
+    link.toggleAttribute("aria-current", isCurrent);
+
+    if (isCurrent) {
+      link.setAttribute("aria-current", "location");
+    }
+  });
+}
+
+if (contactMapsRoot && contactMapLinks.length > 0 && contactMapPanels.length > 0) {
+  contactMapsRoot.dataset.enhanced = "true";
+  showContactMap(getContactMapCity());
+
+  contactMapLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const city = link.dataset.contactMapLink;
+      const nextHash = `#map-${city}`;
+
+      if (window.location.hash === nextHash) {
+        window.history.replaceState({}, "", nextHash);
+      } else {
+        window.history.pushState({}, "", nextHash);
+      }
+
+      showContactMap(city);
+    });
+  });
+
+  window.addEventListener("popstate", () => {
+    showContactMap(getContactMapCity());
+  });
+}

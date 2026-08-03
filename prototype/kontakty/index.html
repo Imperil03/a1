@@ -455,8 +455,13 @@
     <main id="main-content" tabindex="-1">
       <section class="contacts-hero" aria-labelledby="contacts-title">
         <div class="container">
-          <p class="contacts-eyebrow">Контакты</p>
-          <h1 id="contacts-title">Приехать в офис, позвонить или написать</h1>
+          <nav class="site-breadcrumbs" aria-label="Хлебные крошки">
+            <ol>
+              <li><a href="./">Главная</a></li>
+              <li aria-current="page">Контакты</li>
+            </ol>
+          </nav>
+          <h1 id="contacts-title">Контакты</h1>
 
           <div class="contacts-directory">
             <div class="office-grid" aria-label="Офисы A1-Интернет Эксперт">
@@ -468,10 +473,6 @@
                   <span class="office-card__note">На связи по будням, 9:00–18:00</span>
                   <a class="office-card__email" href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a>
                 </address>
-                <a class="office-card__map-link" href="https://yandex.ru/maps/?text=Сургут%2C%20улица%20Университетская%2C%2025" target="_blank" rel="noopener noreferrer" aria-label="Открыть адрес офиса в Сургуте в Яндекс Картах, новая вкладка">
-                  Открыть на карте
-                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v6H5V5h6"></path></svg>
-                </a>
               </article>
 
               <article class="office-card" id="tyumen">
@@ -482,10 +483,6 @@
                   <span class="office-card__note">На связи по будням, 9:00–18:00</span>
                   <a class="office-card__email" href="mailto:hello@a1-reklama.ru">hello@a1-reklama.ru</a>
                 </address>
-                <a class="office-card__map-link" href="https://yandex.ru/maps/?text=Тюмень%2C%20улица%20Республики%2C%2061" target="_blank" rel="noopener noreferrer" aria-label="Открыть адрес офиса в Тюмени в Яндекс Картах, новая вкладка">
-                  Открыть на карте
-                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 13v6H5V5h6"></path></svg>
-                </a>
               </article>
             </div>
 
@@ -494,10 +491,33 @@
                 <strong>hello@a1-reklama.ru</strong>
                 <span>Новые проекты и общие вопросы</span>
               </a>
-              <a class="department-card" href="mailto:hello@a1-reklama.ru?subject=%D0%9F%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D1%81%D1%82%D0%B2%D0%BE%20%D0%B8%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B">
-                <strong>Партнёрство и документы</strong>
-                <span>Написать на общую почту с темой обращения</span>
+              <a class="department-card" href="assets/a1-rekvizity.txt" download="rekvizity-a1-internet-ekspert.txt">
+                <strong>Скачать реквизиты</strong>
               </a>
+            </div>
+
+            <div class="route-utility-grid">
+              <article class="route-utility">
+                <span class="route-utility__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6M8 13h8M8 17h6"></path></svg>
+                </span>
+                <div>
+                  <strong class="route-utility__title">Документы и оплата</strong>
+                  <p>По закрывающим документам и бухгалтерии:</p>
+                  <a href="mailto:hello@a1-reklama.ru?subject=%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B0">hello@a1-reklama.ru</a>
+                </div>
+              </article>
+
+              <article class="route-utility">
+                <span class="route-utility__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24"><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"></path><path d="M2 12h20M10 12v2h4v-2"></path></svg>
+                </span>
+                <div>
+                  <strong class="route-utility__title">Хотите работать с нами?</strong>
+                  <p>Расскажите о себе и приложите резюме к письму.</p>
+                  <a href="mailto:hr@a1-reklama.ru?subject=%D0%A0%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5">Отправить резюме на почту hr@a1-reklama.ru</a>
+                </div>
+              </article>
             </div>
 
             <div class="contact-link-row" id="channels" aria-label="Быстрые способы связи">
@@ -527,41 +547,37 @@
       <section class="contact-route" aria-labelledby="route-title">
         <div class="container">
           <div class="contact-route__heading">
-            <h2 id="route-title">Как нас найти в Сургуте</h2>
-            <p>Офис находится на улице Университетской. Перед визитом договоритесь о времени — подскажем, где удобнее припарковаться, и встретим вас.</p>
+            <h2 id="route-title">Как нас найти</h2>
+            <nav class="contact-city-switch" aria-label="Выберите город для просмотра карты" data-contact-map-nav>
+              <a href="#map-surgut" data-contact-map-link="surgut" aria-controls="map-surgut">Сургут</a>
+              <a href="#map-tyumen" data-contact-map-link="tyumen" aria-controls="map-tyumen">Тюмень</a>
+            </nav>
           </div>
 
-          <div class="contact-map">
-            <iframe
-              src="https://yandex.ru/map-widget/v1/?ll=73.432157%2C61.251983&amp;mode=search&amp;text=%D0%A1%D1%83%D1%80%D0%B3%D1%83%D1%82%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82%D1%81%D0%BA%D0%B0%D1%8F%2C%2025&amp;z=16"
-              title="Карта проезда к офису A1-Интернет Эксперт в Сургуте"
-              loading="lazy"
-              allowfullscreen
-            ></iframe>
-          </div>
-
-          <div class="route-utility-grid">
-            <article class="route-utility">
-              <span class="route-utility__icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6M8 13h8M8 17h6"></path></svg>
-              </span>
-              <div>
-                <h3>Документы и оплата</h3>
-                <p>По закрывающим документам и реквизитам:</p>
-                <a href="mailto:hello@a1-reklama.ru?subject=%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B0">hello@a1-reklama.ru</a>
+          <div class="contact-map-panels" data-contact-maps>
+            <section class="contact-map-panel" id="map-surgut" data-contact-map-panel="surgut" aria-labelledby="map-surgut-title">
+              <h3 class="contact-map-panel__title" id="map-surgut-title">Сургут</h3>
+              <div class="contact-map">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?ll=73.432157%2C61.251983&amp;mode=search&amp;text=%D0%A1%D1%83%D1%80%D0%B3%D1%83%D1%82%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82%D1%81%D0%BA%D0%B0%D1%8F%2C%2025&amp;z=16"
+                  title="Карта проезда к офису A1-Интернет Эксперт в Сургуте"
+                  loading="lazy"
+                  allowfullscreen
+                ></iframe>
               </div>
-            </article>
+            </section>
 
-            <article class="route-utility">
-              <span class="route-utility__icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24"><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"></path><path d="M2 12h20M10 12v2h4v-2"></path></svg>
-              </span>
-              <div>
-                <h3>Хотите работать с нами?</h3>
-                <p>Расскажите о себе и приложите резюме к письму.</p>
-                <a href="mailto:hello@a1-reklama.ru?subject=%D0%92%D0%B0%D0%BA%D0%B0%D0%BD%D1%81%D0%B8%D1%8F%20%D0%B2%20A1">Отправить резюме</a>
+            <section class="contact-map-panel" id="map-tyumen" data-contact-map-panel="tyumen" aria-labelledby="map-tyumen-title">
+              <h3 class="contact-map-panel__title" id="map-tyumen-title">Тюмень</h3>
+              <div class="contact-map">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?mode=search&amp;text=%D0%A2%D1%8E%D0%BC%D0%B5%D0%BD%D1%8C%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B8%2C%2061&amp;z=16"
+                  title="Карта проезда к офису A1-Интернет Эксперт в Тюмени"
+                  loading="lazy"
+                  allowfullscreen
+                ></iframe>
               </div>
-            </article>
+            </section>
           </div>
         </div>
       </section>

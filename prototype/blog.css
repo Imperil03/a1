@@ -340,31 +340,6 @@ a.blog-category:hover {
   max-width: 1080px;
 }
 
-.article-breadcrumbs ol {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px 10px;
-  color: var(--ink-500);
-  font-size: 13px;
-}
-
-.article-breadcrumbs li {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.article-breadcrumbs li + li::before {
-  color: var(--brand-400);
-  content: "/";
-}
-
-.article-breadcrumbs a {
-  text-decoration: underline;
-  text-decoration-color: var(--brand-300);
-  text-underline-offset: 4px;
-}
-
 .article-hero h1 {
   max-width: 18ch;
   margin-top: 24px;
@@ -1295,14 +1270,6 @@ a.blog-category:hover {
 
   .article-hero {
     padding-top: 34px;
-  }
-
-  .article-breadcrumbs li:last-child {
-    width: 100%;
-  }
-
-  .article-breadcrumbs li:last-child::before {
-    display: none;
   }
 
   .article-hero h1 {
