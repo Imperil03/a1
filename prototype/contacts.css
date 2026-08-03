@@ -107,8 +107,7 @@
 .department-card,
 .contact-link-row > a,
 .route-utility a,
-.contacts-closing__action,
-.contacts-closing__call {
+.contacts-closing__action {
   transition:
     color 180ms ease,
     border-color 180ms ease,
@@ -433,26 +432,6 @@
 .contacts-closing__action--primary:hover {
   color: var(--brand-700);
   background: var(--brand-50);
-}
-
-.contacts-closing__call {
-  display: inline-flex;
-  min-height: 56px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  justify-self: center;
-  margin-top: 8px;
-  color: #dad8d0;
-  font-size: 17px;
-  font-weight: 750;
-  text-decoration: underline;
-  text-decoration-color: var(--brand-400);
-  text-underline-offset: 6px;
-}
-
-.contacts-closing__call:hover {
-  color: var(--paper);
 }
 
 .contacts-page .site-footer {
