@@ -464,7 +464,7 @@
           <h1 id="contacts-title">Контакты</h1>
 
           <div class="contacts-directory">
-            <div class="office-grid" aria-label="Офисы A1-Интернет Эксперт">
+            <div class="office-grid" role="group" aria-label="Офисы A1-Интернет Эксперт">
               <article class="office-card" id="surgut">
                 <h2>Сургут</h2>
                 <address>
@@ -486,41 +486,7 @@
               </article>
             </div>
 
-            <div class="department-grid" aria-label="Контакты по типу обращения">
-              <a class="department-card" href="mailto:hello@a1-reklama.ru?subject=%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82">
-                <strong>hello@a1-reklama.ru</strong>
-                <span>Новые проекты и общие вопросы</span>
-              </a>
-              <a class="department-card" href="assets/a1-rekvizity.txt" download="rekvizity-a1-internet-ekspert.txt">
-                <strong>Скачать реквизиты</strong>
-              </a>
-            </div>
-
-            <div class="route-utility-grid">
-              <article class="route-utility">
-                <span class="route-utility__icon" aria-hidden="true">
-                  <svg width="28" height="28" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6M8 13h8M8 17h6"></path></svg>
-                </span>
-                <div>
-                  <strong class="route-utility__title">Документы и оплата</strong>
-                  <p>По закрывающим документам и бухгалтерии:</p>
-                  <a href="mailto:hello@a1-reklama.ru?subject=%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B0">hello@a1-reklama.ru</a>
-                </div>
-              </article>
-
-              <article class="route-utility">
-                <span class="route-utility__icon" aria-hidden="true">
-                  <svg width="28" height="28" viewBox="0 0 24 24"><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"></path><path d="M2 12h20M10 12v2h4v-2"></path></svg>
-                </span>
-                <div>
-                  <strong class="route-utility__title">Хотите работать с нами?</strong>
-                  <p>Расскажите о себе и приложите резюме к письму.</p>
-                  <a href="mailto:hr@a1-reklama.ru?subject=%D0%A0%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5">Отправить резюме на почту hr@a1-reklama.ru</a>
-                </div>
-              </article>
-            </div>
-
-            <div class="contact-link-row" id="channels" aria-label="Быстрые способы связи">
+            <div class="contact-link-row" id="channels" role="group" aria-label="Быстрые способы связи">
               <a href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram, откроется в новой вкладке">
                 <span class="contact-link-row__icon" aria-hidden="true">
                   <svg width="24" height="24" viewBox="0 0 24 24"><path d="m21 3-7.5 18-4.2-7.2L3 10.5 21 3Z"></path><path d="m9.3 13.8 4.1-3.8"></path></svg>
@@ -539,6 +505,47 @@
                 </span>
                 <strong>Позвонить</strong>
               </a>
+            </div>
+
+            <div class="route-utility-grid" role="group" aria-label="Контакты по типу обращения">
+              <article class="route-utility">
+                <span class="route-utility__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
+                </span>
+                <div>
+                  <strong class="route-utility__title">Новые проекты и общие вопросы</strong>
+                  <div class="route-utility__actions">
+                    <a href="mailto:hello@a1-reklama.ru?subject=%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82">hello@a1-reklama.ru</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="route-utility">
+                <span class="route-utility__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6M8 13h8M8 17h6"></path></svg>
+                </span>
+                <div>
+                  <strong class="route-utility__title">Документы и оплата</strong>
+                  <p>По закрывающим документам и бухгалтерии:</p>
+                  <div class="route-utility__actions">
+                    <a href="mailto:hello@a1-reklama.ru?subject=%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B8%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B0">hello@a1-reklama.ru</a>
+                    <a href="assets/a1-rekvizity.txt" download="rekvizity-a1-internet-ekspert.txt">Скачать реквизиты</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="route-utility">
+                <span class="route-utility__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24"><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"></path><path d="M2 12h20M10 12v2h4v-2"></path></svg>
+                </span>
+                <div>
+                  <strong class="route-utility__title">Хотите работать с нами?</strong>
+                  <p>Расскажите о себе и приложите резюме к письму.</p>
+                  <div class="route-utility__actions">
+                    <a href="mailto:hr@a1-reklama.ru?subject=%D0%A0%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5">Отправить резюме на почту hr@a1-reklama.ru</a>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </div>

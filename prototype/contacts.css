@@ -16,7 +16,7 @@
 }
 
 .contacts-hero {
-  padding-block: clamp(64px, 8vw, 112px) clamp(88px, 10vw, 144px);
+  padding-block: clamp(64px, 8vw, 112px) clamp(64px, 6vw, 80px);
 }
 
 .contacts-hero h1 {
@@ -30,12 +30,10 @@
 }
 
 .contacts-directory {
-  margin-top: clamp(64px, 8vw, 108px);
+  margin-top: clamp(52px, 6vw, 80px);
 }
 
-.office-grid,
-.department-grid,
-.route-utility-grid {
+.office-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
@@ -75,7 +73,6 @@
 
 .office-card__phone,
 .office-card__email,
-.department-card strong,
 .route-utility a,
 .contacts-closing__details a {
   text-decoration: underline;
@@ -104,7 +101,6 @@
   font-weight: 700;
 }
 
-.department-card,
 .contact-link-row > a,
 .route-utility a,
 .contacts-closing__action {
@@ -115,36 +111,6 @@
     transform 180ms var(--ease-out);
 }
 
-.department-grid {
-  margin-top: 18px;
-}
-
-.department-card {
-  display: flex;
-  min-height: 126px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 26px clamp(24px, 3vw, 38px);
-  border: 1px solid transparent;
-  border-radius: var(--radius-lg);
-  background: var(--cream-100);
-}
-
-.department-card strong {
-  font-size: clamp(18px, 1.8vw, 24px);
-  font-weight: 750;
-  line-height: 1.3;
-}
-
-.department-card span {
-  margin-top: 7px;
-  color: var(--ink-600);
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.department-card:hover,
 .contact-link-row > a:hover {
   color: var(--brand-600);
   border-color: var(--brand-300);
@@ -165,9 +131,10 @@
   align-items: center;
   gap: 18px;
   padding: 14px;
-  border: 1px solid transparent;
+  border: 1px solid var(--cream-200);
   border-radius: var(--radius-lg);
-  background: var(--cream-100);
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
 }
 
 .contact-link-row__icon {
@@ -190,7 +157,7 @@
 }
 
 .contact-route {
-  padding-block: clamp(88px, 10vw, 144px);
+  padding-block: clamp(72px, 8vw, 104px);
   border-top: 1px solid var(--cream-200);
 }
 
@@ -297,24 +264,34 @@
 }
 
 .route-utility-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
   margin-top: 18px;
 }
 
 .route-utility {
   display: grid;
-  min-height: 168px;
-  grid-template-columns: 48px minmax(0, 1fr);
+  min-height: 220px;
+  grid-template-columns: 44px minmax(0, 1fr);
   align-items: start;
-  gap: 22px;
-  padding: clamp(26px, 3vw, 38px);
+  gap: 18px;
+  padding: clamp(24px, 2.5vw, 32px);
   border-radius: var(--radius-lg);
   background: var(--cream-100);
 }
 
+.route-utility > div {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+}
+
 .route-utility__icon {
   display: inline-flex;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   align-items: center;
   justify-content: center;
   color: var(--brand-600);
@@ -340,16 +317,23 @@
   display: inline-flex;
   min-height: 34px;
   align-items: center;
-  margin-top: 12px;
   color: var(--brand-700);
   font-size: 15px;
   font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.route-utility__actions {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 18px;
 }
 
 .route-utility a:hover,
 .office-card__phone:hover,
 .office-card__email:hover,
-.department-card:hover strong,
 .contacts-closing__details a:hover {
   color: var(--brand-600);
 }
@@ -457,6 +441,16 @@
   }
 }
 
+@media (max-width: 899px) {
+  .route-utility-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .route-utility {
+    min-height: 0;
+  }
+}
+
 @media (max-width: 767px) {
   .contacts-hero {
     padding-block: 46px 72px;
@@ -472,7 +466,6 @@
   }
 
   .office-grid,
-  .department-grid,
   .route-utility-grid {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -491,19 +484,10 @@
     margin-top: 22px;
   }
 
-  .department-grid,
-  .contact-link-row {
-    margin-top: 12px;
-  }
-
-  .department-card {
-    min-height: 112px;
-    padding: 22px 24px;
-  }
-
   .contact-link-row {
     grid-template-columns: 1fr;
     gap: 12px;
+    margin-top: 12px;
   }
 
   .contact-link-row > a {
@@ -594,8 +578,7 @@
     white-space: nowrap;
   }
 
-  .office-card__email,
-  .department-card strong {
+  .office-card__email {
     overflow-wrap: anywhere;
   }
 
@@ -609,7 +592,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .department-card,
   .contact-link-row > a,
   .contacts-closing__action,
   .contact-city-switch a,
