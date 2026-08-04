@@ -642,21 +642,21 @@ a.cases-catalog-card:hover .cases-catalog-card__arrow {
 .case-project-summary {
   display: grid;
   grid-template-columns: minmax(240px, 0.9fr) minmax(170px, 0.55fr) minmax(320px, 1.35fr);
-  align-items: stretch;
+  gap: clamp(24px, 3vw, 48px);
+  align-items: center;
   margin: 0;
-  padding: 0;
+  padding: 24px 0 28px;
   border-top: 1px solid var(--cream-200);
-  border-bottom: 1px solid var(--cream-200);
 }
 
 .case-project-summary > * {
   min-width: 0;
-  padding: 24px;
-  border-left: 1px solid var(--cream-200);
+  margin: 0;
 }
 
-.case-project-summary > :first-child {
-  border-left: 0;
+.case-project-summary dt,
+.case-project-summary dd {
+  margin: 0;
 }
 
 .case-project-summary > div {
@@ -703,6 +703,7 @@ a.cases-catalog-card:hover .cases-catalog-card__arrow {
 
 .case-quick-result {
   padding: 72px 0 80px;
+  border-block: 1px solid var(--cream-200);
   background: var(--cream-100);
 }
 
@@ -722,7 +723,7 @@ a.cases-catalog-card:hover .cases-catalog-card__arrow {
 
 .case-metrics {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(0, 1fr));
   margin-top: 34px;
   border-top: 1px solid var(--cream-300);
   border-bottom: 1px solid var(--cream-300);
@@ -2510,13 +2511,8 @@ a.cases-catalog-card:hover .cases-catalog-card__arrow {
   }
 
   .case-project-summary {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .case-project-summary__scope {
-    grid-column: 1 / -1;
-    border-top: 1px solid var(--cream-200);
-    border-left: 0;
+    grid-template-columns: minmax(220px, 1fr) minmax(140px, 0.55fr) minmax(0, 1.25fr);
+    gap: 24px;
   }
 
   .case-page-evolution__reference {
@@ -2773,12 +2769,13 @@ a.cases-catalog-card:hover .cases-catalog-card__arrow {
 
   .case-project-summary {
     grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
   }
 
   .case-project-summary > * {
     padding: 18px 0;
     border-top: 1px solid var(--cream-200);
-    border-left: 0;
   }
 
   .case-project-summary > :first-child {
@@ -2798,19 +2795,19 @@ a.cases-catalog-card:hover .cases-catalog-card__arrow {
 
   .case-metrics {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
     margin-top: 28px;
   }
 
   .case-metrics > div {
-    min-height: 136px;
-    padding: 24px;
+    min-height: 104px;
+    padding: 24px 0;
     border-top: 1px solid var(--cream-300);
     border-left: 0;
   }
 
   .case-metrics > div:first-child {
-    padding-left: 24px;
+    min-height: 132px;
+    padding-left: 0;
     border-top: 0;
   }
 

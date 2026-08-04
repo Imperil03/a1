@@ -11,8 +11,53 @@ prototype/
   index.html
   styles.css
   script.js
+  service.css
+  seo.css
+  context.css
+  complex.css
+  about.css
+  careers.css
+  reviews.css
+  cases.css
+  blog.css
+  contacts.css
+  prices.css
+  prices.js
+  reviews.js
+  cases.js
+  razrabotka-sajtov/
+    index.html
+  seo/
+    index.html
+  kontekstnaya-reklama/
+    index.html
+  complex-marketing/
+    index.html
+  company/
+    about/
+      index.html
+    careers/
+      index.html
+    reviews/
+      index.html
+  cases/
+    index.html
+    niko-m/
+      index.html
+  blog/
+    index.html
+    neyroseti-v-seo/
+      index.html
+    authors/
+      anna-ivanova/
+        index.html
+  kontakty/
+    index.html
+  prices/
+    index.html
   assets/
     fonts/
+    reviews/
   test/
     index.html
   _next/
