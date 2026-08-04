@@ -2,9 +2,9 @@
 
 .medical-page {
   --medical-section-heading-max: 960px;
-  --medical-section-copy-max: 800px;
+  --medical-section-copy-max: 72ch;
   --medical-section-heading-size: clamp(30px, 3.5vw, 46px);
-  --medical-section-intro-gap: 52px;
+  --medical-section-intro-gap: 44px;
   background: var(--paper);
 }
 
@@ -24,11 +24,11 @@
 
 .medical-page h2 {
   max-width: var(--medical-section-heading-max);
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   font-size: var(--medical-section-heading-size);
   font-weight: 650;
-  letter-spacing: -0.05em;
-  line-height: 1.06;
+  letter-spacing: -0.035em;
+  line-height: 1.11;
   text-wrap: balance;
 }
 
@@ -36,12 +36,12 @@
   margin-bottom: 16px;
   font-size: clamp(20px, 2vw, 28px);
   font-weight: 650;
-  letter-spacing: -0.035em;
-  line-height: 1.22;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
 }
 
 .medical-section {
-  padding: 104px 0;
+  padding: 88px 0;
 }
 
 .medical-section--cream {
@@ -62,6 +62,7 @@
   max-width: var(--medical-section-copy-max);
   margin-bottom: 16px;
   color: var(--ink-600);
+  font-size: 17px;
   line-height: 1.66;
 }
 
@@ -102,17 +103,17 @@
 }
 
 .medical-hero__inner {
-  padding-top: 52px;
+  padding-top: 44px;
 }
 
 .medical-hero .site-breadcrumbs {
-  margin-bottom: 62px;
+  margin-bottom: 48px;
 }
 
 .medical-hero__copy {
   min-width: 0;
   max-width: 980px;
-  padding-bottom: 72px;
+  padding-bottom: 56px;
 }
 
 .medical-hero__label {
@@ -141,7 +142,7 @@
   flex-wrap: wrap;
   gap: 14px 28px;
   align-items: center;
-  margin-top: 36px;
+  margin-top: 30px;
 }
 
 .medical-hero__facts {
@@ -155,9 +156,9 @@
 
 .medical-hero__facts > li {
   display: flex;
-  min-height: 122px;
+  min-height: 106px;
   align-items: center;
-  padding: 24px 30px 26px;
+  padding: 20px 28px 22px;
   border-left: 1px solid var(--cream-200);
 }
 
@@ -202,7 +203,7 @@
 
 .medical-specifics__list article {
   min-width: 0;
-  padding: 40px 42px 44px;
+  padding: 34px 36px 38px;
 }
 
 .medical-specifics__list article:nth-child(odd) {
@@ -221,7 +222,8 @@
 
 .medical-specifics__list h3 {
   max-width: 520px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  font-size: clamp(20px, 1.75vw, 25px);
 }
 
 .medical-specifics__list p {
@@ -229,6 +231,16 @@
   color: var(--ink-600);
   font-size: 16px;
   line-height: 1.68;
+}
+
+.medical-cases {
+  padding-bottom: 64px;
+}
+
+.medical-cases + .medical-site,
+.medical-pricing + .medical-stack {
+  padding-top: 72px;
+  border-top: 1px solid var(--cream-100);
 }
 
 .medical-specifics__list p strong {
@@ -240,7 +252,7 @@
 .medical-stack__grid article > span {
   color: var(--brand-600);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 750;
 }
 
@@ -289,16 +301,16 @@
 
 .medical-site__requirements article {
   display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
-  gap: 20px;
-  padding: 28px 0 30px;
+  grid-template-columns: 50px minmax(0, 1fr);
+  gap: 18px;
+  padding: 24px 0 26px;
   border-bottom: 1px solid var(--cream-200);
 }
 
 .medical-site__requirements article > span {
   color: var(--brand-600);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .medical-site__requirements h3,
@@ -308,8 +320,10 @@
 
 .medical-site__requirements p {
   margin-top: 9px;
+  max-width: 72ch;
   color: var(--ink-600);
-  font-size: 15px;
+  font-size: 16px;
+  line-height: 1.62;
 }
 
 /* Types */
@@ -324,8 +338,7 @@
 }
 
 .medical-types__grid article {
-  min-height: 250px;
-  padding: 36px;
+  padding: 32px;
   border-right: 1px solid var(--cream-300);
   border-bottom: 1px solid var(--cream-300);
 }
@@ -341,7 +354,8 @@
 .medical-types__grid p {
   margin-bottom: 0;
   color: var(--ink-600);
-  font-size: 15px;
+  font-size: 16px;
+  line-height: 1.62;
 }
 
 /* Marketing stack */
@@ -354,10 +368,10 @@
 
 .medical-stack__grid article {
   display: grid;
-  grid-template-columns: 48px minmax(210px, 0.7fr) minmax(0, 1.8fr);
-  gap: 28px;
+  grid-template-columns: 44px minmax(210px, 0.7fr) minmax(0, 1.8fr);
+  gap: 24px;
   align-items: start;
-  padding: 32px;
+  padding: 28px;
   border-bottom: 1px solid var(--cream-200);
 }
 
@@ -367,9 +381,13 @@
 
 .medical-stack__grid h3 {
   margin: 0;
+  font-size: clamp(20px, 1.75vw, 25px);
 }
 
 .medical-stack__grid h3 a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
   text-decoration: underline;
   text-decoration-color: var(--brand-300);
   text-decoration-thickness: 1px;
@@ -385,7 +403,8 @@
 .medical-stack__grid p {
   margin: 0;
   color: var(--ink-600);
-  font-size: 15px;
+  font-size: 16px;
+  line-height: 1.62;
 }
 
 .medical-analytics__details ul {
@@ -427,17 +446,18 @@
 
 .medical-analytics > .container > h2 {
   max-width: 740px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .medical-analytics__copy {
-  max-width: 780px;
-  margin-bottom: 48px;
+  max-width: 72ch;
+  margin-bottom: 40px;
 }
 
 .medical-analytics__copy p {
   margin-bottom: 16px;
-  color: rgb(255 255 255 / 65%);
+  color: rgb(255 255 255 / 72%);
+  font-size: 17px;
   line-height: 1.66;
 }
 
@@ -533,7 +553,13 @@
 
 .medical-analytics__details > p {
   margin-bottom: 0;
-  color: rgb(255 255 255 / 76%);
+  color: rgb(255 255 255 / 84%);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.medical-analytics__details > .medical-analytics__list-intro {
+  font-weight: 700;
 }
 
 .medical-analytics__details ul {
@@ -541,8 +567,9 @@
 }
 
 .medical-analytics__details li {
-  color: rgb(255 255 255 / 72%);
-  font-size: 14px;
+  color: rgb(255 255 255 / 78%);
+  font-size: 16px;
+  line-height: 1.55;
 }
 
 .medical-analytics__note {
@@ -557,6 +584,13 @@
 .medical-analytics__note p {
   margin: 0;
   color: rgb(255 255 255 / 69%);
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+.medical-analytics__note p:last-child {
+  color: rgb(255 255 255 / 88%);
+  font-weight: 650;
 }
 
 /* Process */
@@ -585,11 +619,11 @@
 .medical-process__list summary {
   position: relative;
   display: grid;
-  min-height: 92px;
+  min-height: 88px;
   grid-template-columns: 52px minmax(0, 1fr) 34px;
   gap: 18px;
   align-items: center;
-  padding: 20px 28px;
+  padding: 18px 26px;
   cursor: pointer;
   list-style: none;
   transition: background-color 160ms ease;
@@ -637,7 +671,7 @@
   border: 1px solid var(--cream-300);
   color: var(--brand-600);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   background: var(--paper);
   border-radius: 50%;
 }
@@ -650,11 +684,11 @@
 }
 
 .medical-process__list details > p {
-  max-width: 940px;
+  max-width: 72ch;
   margin: 0;
   padding: 0 36px 16px 98px;
   color: var(--ink-600);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -682,12 +716,16 @@
   border-top: 1px solid var(--cream-200);
 }
 
+.medical-pricing {
+  padding-bottom: 64px;
+}
+
 .medical-pricing__list > li {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(230px, 0.35fr);
-  gap: 44px;
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 0.4fr);
+  gap: 40px;
   align-items: start;
-  padding: 30px 0 34px;
+  padding: 26px 0 28px;
   border-bottom: 1px solid var(--cream-200);
 }
 
@@ -697,10 +735,11 @@
 }
 
 .medical-pricing__list p {
-  max-width: 720px;
+  max-width: 68ch;
   margin-top: 8px;
   color: var(--ink-600);
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.58;
 }
 
 .medical-pricing__list > li > strong {
@@ -710,6 +749,7 @@
   font-weight: 650;
   letter-spacing: -0.035em;
   text-align: right;
+  white-space: nowrap;
 }
 
 /* FAQ */
@@ -724,7 +764,7 @@
 
 .medical-faq__list summary {
   display: grid;
-  min-height: 92px;
+  min-height: 88px;
   grid-template-columns: minmax(0, 1fr) 40px;
   gap: 24px;
   align-items: center;
@@ -772,18 +812,25 @@
 }
 
 .medical-faq__list details > div {
-  max-width: 850px;
+  max-width: 72ch;
   padding: 0 0 32px;
 }
 
 .medical-faq__list details p {
+  margin: 0;
   color: var(--ink-600);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.medical-faq__list details p + p {
+  margin-top: 14px;
 }
 
 /* Final CTA */
 
 .medical-contact {
-  padding: 104px 0;
+  padding: 88px 0;
   color: var(--paper);
   background: var(--ink-900);
 }
@@ -791,7 +838,7 @@
 .medical-contact__grid {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
-  gap: 56px 100px;
+  gap: 48px 88px;
 }
 
 .medical-contact h2 {
@@ -805,6 +852,8 @@
 
 .medical-contact p {
   color: rgb(255 255 255 / 69%);
+  font-size: 17px;
+  line-height: 1.62;
 }
 
 .medical-contact__actions {
@@ -813,39 +862,6 @@
   gap: 16px 26px;
   align-items: center;
   margin-top: 30px;
-}
-
-.medical-contact__steps {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 0;
-  padding: 0;
-  counter-reset: medical-contact-step;
-  list-style: none;
-  border-top: 1px solid rgb(255 255 255 / 18%);
-}
-
-.medical-contact__steps li {
-  min-height: 150px;
-  padding: 26px;
-  color: rgb(255 255 255 / 69%);
-  font-size: 13px;
-  border-left: 1px solid rgb(255 255 255 / 18%);
-  counter-increment: medical-contact-step;
-}
-
-.medical-contact__steps li:first-child {
-  padding-left: 0;
-  border-left: 0;
-}
-
-.medical-contact__steps li::before {
-  display: block;
-  margin-bottom: 24px;
-  color: var(--brand-300);
-  font-family: var(--font-mono);
-  content: "0" counter(medical-contact-step);
 }
 
 @media (max-width: 1099px) {
@@ -904,13 +920,6 @@
     max-width: 760px;
   }
 
-  .medical-contact__steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .medical-contact__steps li:nth-child(3) {
-    border-left: 0;
-  }
 }
 
 @media (max-width: 899px) {
@@ -933,21 +942,24 @@
 @media (max-width: 767px) {
   .medical-section,
   .medical-contact {
-    padding: 72px 0;
+    padding: 64px 0;
   }
 
   .medical-page h2 {
     margin-bottom: 20px;
-    font-size: clamp(31px, 8.8vw, 42px);
+    font-size: clamp(30px, 8.2vw, 36px);
+    letter-spacing: -0.035em;
+    line-height: 1.13;
     overflow-wrap: break-word;
   }
 
   .medical-page h3 {
     font-size: 20px;
+    line-height: 1.28;
   }
 
   .medical-section__intro {
-    margin-bottom: 36px;
+    margin-bottom: 32px;
   }
 
   .medical-section__lead {
@@ -955,16 +967,24 @@
   }
 
   .medical-hero__inner {
-    padding-top: 28px;
+    padding-top: 24px;
   }
 
   .medical-hero .site-breadcrumbs {
-    margin-bottom: 52px;
+    margin-bottom: 40px;
+  }
+
+  .medical-hero__label {
+    max-width: 100%;
+    font-size: 11px;
+    line-height: 1.3;
+    white-space: normal;
   }
 
   .medical-hero__headline {
     margin-bottom: 24px;
     font-size: clamp(34px, 9.6vw, 44px);
+    line-height: 1.08;
     overflow-wrap: break-word;
   }
 
@@ -974,12 +994,24 @@
 
   .medical-hero__actions {
     align-items: stretch;
+    margin-top: 28px;
   }
 
   .medical-hero__actions .button,
   .medical-hero__actions .medical-text-link {
     width: 100%;
     justify-content: center;
+  }
+
+  .medical-hero__actions .button,
+  .medical-contact__actions .button {
+    text-align: center;
+    white-space: normal;
+  }
+
+  .medical-hero__actions .button svg,
+  .medical-contact__actions .button svg {
+    flex: none;
   }
 
   .medical-hero__facts {
@@ -989,7 +1021,7 @@
   .medical-hero__facts > li,
   .medical-hero__facts > li:first-child {
     min-height: 0;
-    padding: 20px 0;
+    padding: 18px 0;
     border-top: 1px solid var(--cream-200);
     border-left: 0;
   }
@@ -999,7 +1031,7 @@
   }
 
   .medical-specifics__list article {
-    padding: 28px 24px 30px;
+    padding: 24px 22px 26px;
   }
 
   .medical-specifics__list h3 {
@@ -1008,7 +1040,49 @@
 
   .medical-specifics__list p {
     margin-bottom: 0;
-    font-size: 15px;
+    font-size: 16px;
+  }
+
+  .medical-cases {
+    padding-bottom: 48px;
+  }
+
+  .medical-cases + .medical-site,
+  .medical-pricing + .medical-stack {
+    padding-top: 56px;
+  }
+
+  .medical-cases .case-card--small {
+    min-height: 0;
+    padding: 20px 22px;
+  }
+
+  .medical-cases .case-card--small .case-card__content {
+    align-items: flex-end;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+
+  .medical-cases .case-card--small h3 {
+    min-width: 0;
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .medical-cases .case-card--small .case-card__result {
+    flex: none;
+  }
+
+  .medical-cases .case-card--small .case-card__result strong {
+    font-size: 30px;
+  }
+
+  .medical-cases .case-card--small .case-card__result span {
+    max-width: 92px;
+    font-size: 11px;
+    line-height: 1.25;
   }
 
   .medical-types__grid {
@@ -1027,26 +1101,53 @@
   }
 
   .medical-site__requirements article {
-    grid-template-columns: 42px minmax(0, 1fr);
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 10px 14px;
+    padding: 22px 0 24px;
+  }
+
+  .medical-site__requirements article > div {
+    display: contents;
+  }
+
+  .medical-site__requirements article > span {
+    grid-column: 1;
+    align-self: start;
+    margin-top: 6px;
+  }
+
+  .medical-site__requirements h3 {
+    grid-column: 2;
+  }
+
+  .medical-site__requirements p {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    font-size: 16px;
   }
 
   .medical-types__grid article {
-    min-height: 0;
-    padding: 26px;
+    padding: 24px;
   }
 
   .medical-stack__grid article {
     grid-template-columns: 36px minmax(0, 1fr);
     gap: 16px;
-    padding: 26px;
+    padding: 24px;
   }
 
   .medical-stack__grid article > div {
-    grid-column: 2;
+    grid-column: 1 / -1;
+    gap: 10px;
+    margin-top: 2px;
+  }
+
+  .medical-stack__grid p {
+    font-size: 16px;
   }
 
   .medical-analytics__details {
-    padding: 26px;
+    padding: 24px;
   }
 
   .medical-analytics__copy {
@@ -1102,7 +1203,7 @@
 
   .medical-process__list details > p {
     padding: 0 18px 14px;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .medical-process__list details > p:last-child {
@@ -1111,12 +1212,14 @@
 
   .medical-pricing__list > li {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
+    padding: 24px 0 26px;
   }
 
   .medical-pricing__list > li > strong {
     justify-self: start;
     text-align: left;
+    white-space: nowrap;
   }
 
   .medical-faq__list summary {
@@ -1143,25 +1246,11 @@
     justify-content: center;
   }
 
-  .medical-contact__steps {
-    grid-template-columns: 1fr;
-  }
-
-  .medical-contact__steps li,
-  .medical-contact__steps li:first-child,
-  .medical-contact__steps li:nth-child(3) {
-    min-height: 0;
-    padding: 22px 0;
-    border-top: 1px solid rgb(255 255 255 / 18%);
-    border-left: 0;
-  }
-
-  .medical-contact__steps li:first-child {
-    border-top: 0;
-  }
-
-  .medical-contact__steps li::before {
-    margin-bottom: 12px;
+  .medical-page .mobile-sticky-actions > a:last-child {
+    padding-inline: 12px;
+    font-size: 14px;
+    line-height: 1.25;
+    text-align: center;
   }
 }
 
