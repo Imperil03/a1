@@ -629,26 +629,7 @@
   font-size: 18px;
 }
 
-/* Benefits and pricing */
-
-.medical-benefits__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.medical-benefits__grid article {
-  min-height: 270px;
-  padding: 32px;
-  border: 1px solid var(--cream-300);
-  background: rgb(255 255 255 / 40%);
-  border-radius: var(--radius-xl);
-}
-
-.medical-benefits__grid p {
-  color: var(--ink-600);
-  font-size: 15px;
-}
+/* Pricing */
 
 .medical-pricing__list {
   margin: 0 0 38px;
@@ -995,7 +976,6 @@
   }
 
   .medical-types__grid,
-  .medical-benefits__grid,
   .medical-process__list {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1015,8 +995,7 @@
     grid-template-columns: 42px minmax(0, 1fr);
   }
 
-  .medical-types__grid article,
-  .medical-benefits__grid article {
+  .medical-types__grid article {
     min-height: 0;
     padding: 26px;
   }
