@@ -574,6 +574,18 @@
   border-top: 1px solid var(--cream-200);
 }
 
+.medical-pricing .medical-section__intro {
+  max-width: none;
+}
+
+.medical-pricing .medical-section__intro > h2 {
+  max-width: 1180px;
+}
+
+.medical-pricing .medical-section__intro > p {
+  max-width: 920px;
+}
+
 .medical-pricing__list > li {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(230px, 0.35fr);
