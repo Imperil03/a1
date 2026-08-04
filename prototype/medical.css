@@ -1,6 +1,10 @@
 /* Отраслевая страница: продвижение медицинских клиник и центров. */
 
 .medical-page {
+  --medical-section-heading-max: 960px;
+  --medical-section-copy-max: 800px;
+  --medical-section-heading-size: clamp(30px, 3.5vw, 46px);
+  --medical-section-intro-gap: 52px;
   background: var(--paper);
 }
 
@@ -19,12 +23,13 @@
 }
 
 .medical-page h2 {
-  max-width: 980px;
+  max-width: var(--medical-section-heading-max);
   margin-bottom: 24px;
-  font-size: clamp(38px, 5.4vw, 70px);
+  font-size: var(--medical-section-heading-size);
   font-weight: 650;
   letter-spacing: -0.05em;
   line-height: 1.06;
+  text-wrap: balance;
 }
 
 .medical-page h3 {
@@ -49,14 +54,15 @@
 }
 
 .medical-section__intro {
-  max-width: 920px;
-  margin-bottom: 56px;
+  max-width: var(--medical-section-heading-max);
+  margin-bottom: var(--medical-section-intro-gap);
 }
 
 .medical-section__intro > p {
-  max-width: 790px;
+  max-width: var(--medical-section-copy-max);
   margin-bottom: 16px;
   color: var(--ink-600);
+  line-height: 1.66;
 }
 
 .medical-section__intro > p:last-child {
@@ -178,14 +184,13 @@
 }
 
 .medical-specifics__heading {
-  max-width: 900px;
-  margin-bottom: 52px;
+  max-width: var(--medical-section-heading-max);
+  margin-bottom: var(--medical-section-intro-gap);
 }
 
 .medical-specifics h2 {
-  max-width: 900px;
+  max-width: var(--medical-section-heading-max);
   margin: 0;
-  font-size: clamp(38px, 5vw, 64px);
 }
 
 .medical-specifics__list {
@@ -249,8 +254,13 @@
 }
 
 .medical-cases .section-heading h2 {
-  max-width: 980px;
-  font-size: clamp(38px, 5vw, 64px);
+  max-width: var(--medical-section-heading-max);
+  font-size: var(--medical-section-heading-size);
+}
+
+.medical-cases .section-heading {
+  max-width: var(--medical-section-heading-max);
+  margin-bottom: var(--medical-section-intro-gap);
 }
 
 /* Clinic website anatomy */
@@ -268,7 +278,7 @@
 }
 
 .medical-site__sticky h2 {
-  font-size: clamp(38px, 4.2vw, 58px);
+  font-size: clamp(30px, 3.2vw, 42px);
 }
 
 .medical-site__sticky p {
@@ -572,18 +582,6 @@
   padding: 0;
   list-style: none;
   border-top: 1px solid var(--cream-200);
-}
-
-.medical-pricing .medical-section__intro {
-  max-width: none;
-}
-
-.medical-pricing .medical-section__intro > h2 {
-  max-width: 1180px;
-}
-
-.medical-pricing .medical-section__intro > p {
-  max-width: 920px;
 }
 
 .medical-pricing__list > li {
