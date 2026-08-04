@@ -7,7 +7,7 @@
 .medical-page h2,
 .medical-page h3,
 .medical-hero__headline,
-.medical-hero__facts dt,
+.medical-hero__facts strong,
 .medical-case-card__results strong,
 .medical-pricing__list > li > strong {
   font-family: var(--font-display);
@@ -147,34 +147,29 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0;
+  padding: 0;
+  list-style: none;
   border-top: 1px solid var(--cream-200);
 }
 
-.medical-hero__facts > div {
+.medical-hero__facts > li {
   min-height: 158px;
   padding: 30px 36px 32px;
   border-left: 1px solid var(--cream-200);
 }
 
-.medical-hero__facts > div:first-child {
+.medical-hero__facts > li:first-child {
   padding-left: 0;
   border-left: 0;
 }
 
-.medical-hero__facts dt {
-  margin-bottom: 9px;
+.medical-hero__facts strong {
+  display: block;
   color: var(--brand-600);
   font-size: clamp(20px, 2vw, 28px);
   font-weight: 650;
   letter-spacing: -0.035em;
   line-height: 1.22;
-}
-
-.medical-hero__facts dd {
-  margin: 0;
-  color: var(--ink-500);
-  font-size: 13px;
-  line-height: 1.5;
 }
 
 /* Project marks */
@@ -1065,15 +1060,15 @@
     grid-template-columns: 1fr;
   }
 
-  .medical-hero__facts > div,
-  .medical-hero__facts > div:first-child {
+  .medical-hero__facts > li,
+  .medical-hero__facts > li:first-child {
     min-height: 0;
     padding: 24px 0;
     border-top: 1px solid var(--cream-200);
     border-left: 0;
   }
 
-  .medical-hero__facts > div:first-child {
+  .medical-hero__facts > li:first-child {
     border-top: 0;
   }
 
