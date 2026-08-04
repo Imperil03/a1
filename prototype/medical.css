@@ -380,70 +380,6 @@
   font-size: 15px;
 }
 
-/* Medical content and advertising compliance */
-
-.medical-compliance {
-  background: var(--paper);
-}
-
-.medical-compliance__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.medical-compliance__item {
-  min-width: 0;
-  padding: 36px;
-  border: 1px solid var(--cream-200);
-  background: var(--cream-50);
-  border-radius: var(--radius-xl);
-}
-
-.medical-compliance__item h3 {
-  margin-bottom: 24px;
-}
-
-.medical-compliance__item .medical-section__lead {
-  font-size: 19px;
-}
-
-.medical-compliance__item > p:not(.medical-section__lead) {
-  color: var(--ink-600);
-  font-size: 15px;
-}
-
-.medical-compliance__roles {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin: 28px 0 0;
-  border-top: 1px solid var(--cream-200);
-}
-
-.medical-compliance__roles > div {
-  min-width: 0;
-  padding: 22px 20px 0 0;
-}
-
-.medical-compliance__roles > div + div {
-  padding-left: 20px;
-  border-left: 1px solid var(--cream-200);
-}
-
-.medical-compliance__roles dt {
-  margin-bottom: 8px;
-  color: var(--ink-900);
-  font-weight: 800;
-}
-
-.medical-compliance__roles dd {
-  margin: 0;
-  color: var(--ink-500);
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-.medical-compliance__item ul,
 .medical-analytics__details ul {
   display: grid;
   gap: 10px;
@@ -452,13 +388,11 @@
   list-style: none;
 }
 
-.medical-compliance__item li,
 .medical-analytics__details li {
   position: relative;
   padding-left: 26px;
 }
 
-.medical-compliance__item li::before,
 .medical-analytics__details li::before {
   position: absolute;
   top: 0.66em;
@@ -468,17 +402,6 @@
   background: var(--brand-500);
   border-radius: 50%;
   content: "";
-}
-
-.medical-compliance__outcome {
-  max-width: 980px;
-  margin: 16px 0 0;
-  padding: 24px 28px;
-  color: var(--brand-800);
-  border: 1px solid var(--brand-200);
-  background: var(--brand-50);
-  font-weight: 700;
-  border-radius: var(--radius-lg);
 }
 
 /* Analytics */
@@ -826,7 +749,6 @@
 }
 
 @media (max-width: 1099px) {
-  .medical-compliance__grid,
   .medical-analytics__layout,
   .medical-contact__grid {
     grid-template-columns: minmax(0, 1fr);
@@ -1017,23 +939,6 @@
     grid-column: 2;
   }
 
-  .medical-compliance__roles {
-    grid-template-columns: 1fr;
-  }
-
-  .medical-compliance__roles > div,
-  .medical-compliance__roles > div + div {
-    padding: 20px 0 0;
-    border-top: 1px solid var(--cream-200);
-    border-left: 0;
-  }
-
-  .medical-compliance__roles > div:first-child {
-    border-top: 0;
-  }
-
-  .medical-compliance__item,
-  .medical-compliance__outcome,
   .medical-analytics__details {
     padding: 26px;
   }
