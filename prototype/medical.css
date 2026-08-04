@@ -416,57 +416,87 @@
 
 /* Analytics */
 
-.medical-analytics .medical-section__intro > p {
-  color: rgb(255 255 255 / 65%);
-}
-
-.medical-analytics .medical-section__lead {
-  color: var(--paper) !important;
-}
-
 .medical-analytics__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.65fr);
-  gap: clamp(50px, 9vw, 130px);
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1.12fr) minmax(400px, 0.78fr);
+  gap: clamp(44px, 5vw, 72px);
+  align-items: start;
+}
+
+.medical-analytics__primary {
+  min-width: 0;
+}
+
+.medical-analytics > .container > h2 {
+  max-width: 960px;
+  margin-bottom: 24px;
+}
+
+.medical-analytics__copy {
+  max-width: 780px;
+  margin-bottom: 48px;
+}
+
+.medical-analytics__copy p {
+  margin-bottom: 16px;
+  color: rgb(255 255 255 / 65%);
+  line-height: 1.66;
+}
+
+.medical-analytics__copy p:last-child {
+  margin-bottom: 0;
 }
 
 .medical-analytics__funnel-block h3,
 .medical-analytics__details h3 {
-  margin-bottom: 24px;
   color: var(--paper);
+}
+
+.medical-analytics__funnel-block h3 {
+  margin-bottom: 20px;
 }
 
 .medical-analytics__funnel {
   display: grid;
-  gap: 10px;
+  max-width: 680px;
+  gap: 4px;
   align-content: center;
 }
 
 .medical-analytics__funnel span {
   display: flex;
-  min-height: 70px;
+  width: 100%;
+  min-height: 62px;
   align-items: center;
   justify-content: center;
   padding: 16px 24px;
   color: var(--ink-900);
   font-weight: 800;
   text-align: center;
-  background: var(--paper);
-  clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%);
+  background: rgb(255 255 255 / 96%);
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
 }
 
 .medical-analytics__funnel span:nth-child(2) {
-  margin-inline: 8%;
+  width: 88%;
+  margin-inline: auto;
+  background: rgb(255 255 255 / 88%);
 }
 
 .medical-analytics__funnel span:nth-child(3) {
-  margin-inline: 16%;
+  width: 76%;
+  margin-inline: auto;
+  background: rgb(255 255 255 / 80%);
 }
 
 .medical-analytics__funnel-block > .medical-analytics__outcome {
-  margin: 14px 16% 0;
-  padding: 20px 24px;
+  display: flex;
+  width: 76%;
+  min-height: 62px;
+  align-items: center;
+  justify-content: center;
+  margin: 22px auto 0;
+  padding: 16px 24px;
   color: var(--paper);
   font-family: var(--font-display);
   font-weight: 650;
@@ -477,15 +507,27 @@
 }
 
 .medical-analytics__details {
-  padding: 32px;
+  align-self: start;
+  padding: clamp(28px, 3vw, 38px);
   border: 1px solid rgb(255 255 255 / 18%);
   background: rgb(255 255 255 / 4%);
   border-radius: var(--radius-xl);
 }
 
+.medical-analytics__details h3 {
+  max-width: 20ch;
+  margin-bottom: 22px;
+  font-size: clamp(23px, 2vw, 28px);
+  line-height: 1.14;
+}
+
 .medical-analytics__details > p {
   margin-bottom: 0;
   color: rgb(255 255 255 / 76%);
+}
+
+.medical-analytics__details ul {
+  margin-bottom: 0;
 }
 
 .medical-analytics__details li {
@@ -783,6 +825,10 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .medical-analytics__layout {
+    gap: 42px;
+  }
+
   .medical-hero__copy {
     padding-bottom: 48px;
   }
@@ -821,6 +867,11 @@
   }
 
   .medical-analytics__funnel {
+    max-width: 760px;
+  }
+
+  .medical-analytics__details {
+    width: 100%;
     max-width: 760px;
   }
 
@@ -972,16 +1023,29 @@
     padding: 26px;
   }
 
-  .medical-analytics__funnel span,
-  .medical-analytics__funnel span:nth-child(n) {
+  .medical-analytics__copy {
+    margin-bottom: 36px;
+  }
+
+  .medical-analytics__funnel span {
+    width: 100%;
     min-height: 62px;
-    margin-inline: 0;
+    margin-inline: auto;
     clip-path: none;
     border-radius: var(--radius-sm);
   }
 
+  .medical-analytics__funnel span:nth-child(2) {
+    width: 92%;
+  }
+
+  .medical-analytics__funnel span:nth-child(3) {
+    width: 84%;
+  }
+
   .medical-analytics__funnel-block > .medical-analytics__outcome {
-    margin-inline: 0;
+    width: 84%;
+    margin: 18px auto 0;
   }
 
   .medical-analytics__note {
