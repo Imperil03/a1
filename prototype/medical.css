@@ -339,28 +339,26 @@
 /* Marketing stack */
 
 .medical-stack__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  overflow: hidden;
+  border: 1px solid var(--cream-200);
+  border-radius: var(--radius-xl);
 }
 
 .medical-stack__grid article {
-  display: flex;
-  min-height: 360px;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 48px minmax(210px, 0.7fr) minmax(0, 1.8fr);
+  gap: 28px;
+  align-items: start;
   padding: 32px;
-  border: 1px solid var(--cream-200);
-  border-radius: var(--radius-xl);
-  transition: border-color 180ms ease, transform 180ms ease;
+  border-bottom: 1px solid var(--cream-200);
 }
 
-.medical-stack__grid article:hover {
-  border-color: var(--brand-300);
-  transform: translateY(-3px);
+.medical-stack__grid article:last-child {
+  border-bottom: 0;
 }
 
 .medical-stack__grid h3 {
-  margin-top: auto;
+  margin: 0;
 }
 
 .medical-stack__grid h3 a {
@@ -370,14 +368,16 @@
   text-underline-offset: 6px;
 }
 
-.medical-stack__grid p {
-  color: var(--ink-600);
-  font-size: 14px;
+.medical-stack__grid article > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
 }
 
-.medical-stack__wide {
-  grid-column: span 3;
-  min-height: 240px !important;
+.medical-stack__grid p {
+  margin: 0;
+  color: var(--ink-600);
+  font-size: 15px;
 }
 
 /* Medical content and advertising compliance */
@@ -855,16 +855,18 @@
     max-width: 780px;
   }
 
-  .medical-stack__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .medical-types__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .medical-stack__wide {
-    grid-column: span 2;
+  .medical-stack__grid article {
+    grid-template-columns: 42px minmax(190px, 0.75fr) minmax(0, 1.25fr);
+    gap: 22px;
+  }
+
+  .medical-stack__grid article > div {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .medical-analytics__funnel {
@@ -1005,15 +1007,14 @@
     padding: 26px;
   }
 
-  .medical-stack__grid {
-    grid-template-columns: 1fr;
+  .medical-stack__grid article {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 16px;
+    padding: 26px;
   }
 
-  .medical-stack__grid article,
-  .medical-stack__wide {
-    grid-column: auto;
-    min-height: 290px !important;
-    padding: 26px;
+  .medical-stack__grid article > div {
+    grid-column: 2;
   }
 
   .medical-compliance__roles {
@@ -1118,12 +1119,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .medical-stack__grid article,
   .medical-faq__list summary span::after {
     transition: none;
-  }
-
-  .medical-stack__grid article:hover {
-    transform: none;
   }
 }
