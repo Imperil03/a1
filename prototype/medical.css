@@ -153,8 +153,10 @@
 }
 
 .medical-hero__facts > li {
-  min-height: 158px;
-  padding: 30px 36px 32px;
+  display: flex;
+  min-height: 122px;
+  align-items: center;
+  padding: 24px 30px 26px;
   border-left: 1px solid var(--cream-200);
 }
 
@@ -166,10 +168,10 @@
 .medical-hero__facts strong {
   display: block;
   color: var(--brand-600);
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: clamp(19px, 1.65vw, 23px);
   font-weight: 650;
   letter-spacing: -0.035em;
-  line-height: 1.22;
+  line-height: 1.28;
 }
 
 /* Project marks */
@@ -1063,7 +1065,7 @@
   .medical-hero__facts > li,
   .medical-hero__facts > li:first-child {
     min-height: 0;
-    padding: 24px 0;
+    padding: 20px 0;
     border-top: 1px solid var(--cream-200);
     border-left: 0;
   }
