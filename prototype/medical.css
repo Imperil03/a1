@@ -564,62 +564,115 @@
 /* Process */
 
 .medical-process__list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  display: block;
+  max-width: 1120px;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--cream-300);
+  background: var(--paper);
+  border-radius: var(--radius-xl);
   list-style: none;
+}
+
+.medical-process__list > li + li {
+  border-top: 1px solid var(--cream-300);
 }
 
 .medical-process__list details {
-  height: 100%;
-  border: 1px solid var(--cream-200);
-  border-radius: var(--radius-lg);
+  border: 0;
+  background: transparent;
 }
 
 .medical-process__list summary {
+  position: relative;
   display: grid;
-  min-height: 100px;
-  grid-template-columns: 48px minmax(0, 1fr);
-  gap: 16px;
+  min-height: 92px;
+  grid-template-columns: 52px minmax(0, 1fr) 34px;
+  gap: 18px;
   align-items: center;
-  padding: 24px;
+  padding: 20px 28px;
   cursor: pointer;
   list-style: none;
+  transition: background-color 160ms ease;
 }
 
 .medical-process__list summary::-webkit-details-marker {
   display: none;
 }
 
+.medical-process__list details:not([open]) summary:hover {
+  background: var(--cream-100);
+}
+
+.medical-process__list summary:focus-visible {
+  z-index: 1;
+  outline: 2px solid var(--brand-600);
+  outline-offset: -3px;
+}
+
+.medical-process__list summary::after {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid var(--cream-300);
+  color: var(--ink-900);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 50%;
+  content: "+";
+}
+
+.medical-process__list details[open] summary::after {
+  border-color: var(--brand-300);
+  color: var(--brand-600);
+  content: "−";
+}
+
 .medical-process__list summary span {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--cream-300);
   color: var(--brand-600);
   font-family: var(--font-mono);
   font-size: 11px;
+  background: var(--paper);
+  border-radius: 50%;
 }
 
 .medical-process__list summary strong {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: clamp(17px, 1.7vw, 21px);
   letter-spacing: -0.025em;
   line-height: 1.35;
 }
 
 .medical-process__list details > p {
+  max-width: 940px;
   margin: 0;
-  padding: 0 24px 18px 88px;
+  padding: 0 36px 16px 98px;
   color: var(--ink-600);
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 1.65;
 }
 
 .medical-process__list details > p:last-child {
-  padding-bottom: 28px;
+  padding-bottom: 32px;
 }
 
 .medical-process__list details[open] {
-  border-color: var(--brand-300);
   background: var(--brand-50);
+  box-shadow: inset 3px 0 0 var(--brand-600);
+}
+
+.medical-process__list details[open] summary span {
+  border-color: var(--brand-600);
+  color: var(--paper);
+  background: var(--brand-600);
 }
 
 /* Pricing */
@@ -968,8 +1021,7 @@
     font-size: 15px;
   }
 
-  .medical-types__grid,
-  .medical-process__list {
+  .medical-types__grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -1038,13 +1090,33 @@
   }
 
   .medical-process__list summary {
-    grid-template-columns: 38px minmax(0, 1fr);
-    padding: 20px;
+    min-height: 80px;
+    grid-template-columns: 40px minmax(0, 1fr) 30px;
+    gap: 12px;
+    padding: 16px 18px;
+  }
+
+  .medical-process__list summary span {
+    width: 38px;
+    height: 38px;
+  }
+
+  .medical-process__list summary strong {
+    font-size: 16px;
+  }
+
+  .medical-process__list summary::after {
+    width: 30px;
+    height: 30px;
   }
 
   .medical-process__list details > p {
-    padding-right: 20px;
-    padding-left: 74px;
+    padding: 0 18px 14px;
+    font-size: 14px;
+  }
+
+  .medical-process__list details > p:last-child {
+    padding-bottom: 24px;
   }
 
   .medical-pricing__list > li {
