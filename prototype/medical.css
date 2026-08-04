@@ -308,16 +308,26 @@
 
 .medical-types__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--cream-300);
+  border-radius: var(--radius-xl);
+  background: rgb(255 255 255 / 40%);
 }
 
 .medical-types__grid article {
-  min-height: 230px;
-  padding: 28px;
-  border: 1px solid var(--cream-300);
-  background: rgb(255 255 255 / 40%);
-  border-radius: var(--radius-xl);
+  min-height: 250px;
+  padding: 36px;
+  border-right: 1px solid var(--cream-300);
+  border-bottom: 1px solid var(--cream-300);
+}
+
+.medical-types__grid article:nth-child(2n) {
+  border-right: 0;
+}
+
+.medical-types__grid article:nth-last-child(-n + 2) {
+  border-bottom: 0;
 }
 
 .medical-types__grid p {
@@ -972,6 +982,17 @@
   .medical-benefits__grid,
   .medical-process__list {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .medical-types__grid article,
+  .medical-types__grid article:nth-child(2n),
+  .medical-types__grid article:nth-last-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--cream-300);
+  }
+
+  .medical-types__grid article:last-child {
+    border-bottom: 0;
   }
 
   .medical-site__requirements article {
