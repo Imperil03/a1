@@ -428,7 +428,7 @@
 }
 
 .medical-analytics > .container > h2 {
-  max-width: 960px;
+  max-width: 740px;
   margin-bottom: 24px;
 }
 
@@ -453,14 +453,18 @@
 }
 
 .medical-analytics__funnel-block h3 {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+  font-size: clamp(21px, 1.8vw, 24px);
 }
 
 .medical-analytics__funnel {
   display: grid;
   max-width: 680px;
-  gap: 4px;
+  gap: 0;
   align-content: center;
+  overflow: hidden;
+  background: rgb(255 255 255 / 96%);
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
 }
 
 .medical-analytics__funnel span {
@@ -474,24 +478,22 @@
   font-weight: 800;
   text-align: center;
   background: rgb(255 255 255 / 96%);
-  clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
+  border-bottom: 3px solid var(--ink-900);
 }
 
 .medical-analytics__funnel span:nth-child(2) {
-  width: 88%;
-  margin-inline: auto;
-  background: rgb(255 255 255 / 88%);
+  background: rgb(255 255 255 / 90%);
 }
 
 .medical-analytics__funnel span:nth-child(3) {
-  width: 76%;
-  margin-inline: auto;
-  background: rgb(255 255 255 / 80%);
+  background: rgb(255 255 255 / 84%);
+  border-bottom: 0;
 }
 
 .medical-analytics__funnel-block > .medical-analytics__outcome {
+  position: relative;
   display: flex;
-  width: 76%;
+  width: 70%;
   min-height: 62px;
   align-items: center;
   justify-content: center;
@@ -503,7 +505,17 @@
   line-height: 1.35;
   text-align: center;
   background: var(--brand-600);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
+}
+
+.medical-analytics__funnel-block > .medical-analytics__outcome::before {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 1px;
+  height: 22px;
+  background: rgb(255 255 255 / 32%);
+  content: "";
 }
 
 .medical-analytics__details {
@@ -1031,21 +1043,21 @@
     width: 100%;
     min-height: 62px;
     margin-inline: auto;
-    clip-path: none;
-    border-radius: var(--radius-sm);
+    border-radius: 0;
   }
 
-  .medical-analytics__funnel span:nth-child(2) {
-    width: 92%;
+  .medical-analytics__funnel {
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
   }
 
+  .medical-analytics__funnel span:nth-child(2),
   .medical-analytics__funnel span:nth-child(3) {
-    width: 84%;
+    width: 100%;
   }
 
   .medical-analytics__funnel-block > .medical-analytics__outcome {
-    width: 84%;
-    margin: 18px auto 0;
+    width: 80%;
+    margin: 22px auto 0;
   }
 
   .medical-analytics__note {
