@@ -108,16 +108,9 @@
   margin-bottom: 62px;
 }
 
-.medical-hero__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.55fr);
-  gap: clamp(52px, 8vw, 112px);
-  align-items: end;
-}
-
 .medical-hero__copy {
   min-width: 0;
-  max-width: 920px;
+  max-width: 980px;
   padding-bottom: 72px;
 }
 
@@ -148,25 +141,6 @@
   gap: 14px 28px;
   align-items: center;
   margin-top: 36px;
-}
-
-.medical-hero__thesis {
-  min-height: 380px;
-  padding: 36px;
-  color: var(--paper);
-  background: var(--ink-900);
-  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
-}
-
-.medical-hero__thesis svg {
-  color: var(--brand-300);
-}
-
-.medical-hero__thesis p {
-  margin: 150px 0 0;
-  font-size: 19px;
-  font-weight: 650;
-  line-height: 1.55;
 }
 
 .medical-hero__facts {
@@ -203,11 +177,7 @@
   line-height: 1.5;
 }
 
-/* Experience and project marks */
-
-.medical-experience .medical-section__intro {
-  margin-bottom: 64px;
-}
+/* Project marks */
 
 .medical-logo-rail {
   display: grid;
@@ -245,6 +215,10 @@
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.medical-cases .medical-logo-rail {
+  margin-bottom: 48px;
 }
 
 /* Industry specifics */
@@ -419,55 +393,6 @@
   margin-top: 30px;
 }
 
-/* Decision path */
-
-.medical-decision {
-  color: var(--paper);
-  background: var(--ink-900);
-}
-
-.medical-decision h2 {
-  color: var(--paper);
-}
-
-.medical-decision__steps {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid rgb(255 255 255 / 18%);
-}
-
-.medical-decision__steps li {
-  position: relative;
-  min-height: 410px;
-  padding: 34px 28px 36px;
-  border-left: 1px solid rgb(255 255 255 / 18%);
-}
-
-.medical-decision__steps li:first-child {
-  padding-left: 0;
-  border-left: 0;
-}
-
-.medical-decision__steps li > span {
-  display: block;
-  margin-bottom: 88px;
-  color: var(--brand-300);
-  font-family: var(--font-mono);
-  font-size: 12px;
-}
-
-.medical-decision__steps h3 {
-  min-height: 102px;
-}
-
-.medical-decision__steps p {
-  color: rgb(255 255 255 / 67%);
-  font-size: 14px;
-}
-
 /* Clinic website anatomy */
 
 .medical-site__layout {
@@ -521,38 +446,24 @@
 
 /* Types */
 
-.medical-types__grid,
-.medical-benefits__grid {
+.medical-types__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
-.medical-types__grid article,
-.medical-benefits__grid article {
-  min-height: 310px;
-  padding: 34px;
+.medical-types__grid article {
+  min-height: 230px;
+  padding: 28px;
   border: 1px solid var(--cream-300);
   background: rgb(255 255 255 / 40%);
   border-radius: var(--radius-xl);
 }
 
-.medical-types__grid p,
-.medical-benefits__grid p {
+.medical-types__grid p {
+  margin-bottom: 0;
   color: var(--ink-600);
   font-size: 15px;
-}
-
-.medical-types__wide,
-.medical-benefits__featured {
-  grid-column: 1 / -1;
-}
-
-.medical-types__wide {
-  display: grid;
-  grid-template-columns: minmax(250px, 0.7fr) repeat(2, minmax(0, 1fr));
-  gap: 36px;
-  min-height: 220px !important;
 }
 
 /* Marketing stack */
@@ -599,59 +510,70 @@
   min-height: 240px !important;
 }
 
-/* Medical content */
+/* Medical content and advertising compliance */
 
-.medical-content__proof {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(330px, 0.8fr);
-  gap: 18px;
+.medical-compliance {
+  background: var(--paper);
 }
 
-.medical-content__roles {
+.medical-compliance__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  border: 1px solid var(--cream-200);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
+  gap: 16px;
 }
 
-.medical-content__roles article {
-  min-height: 310px;
-  padding: 34px;
+.medical-compliance__item {
+  min-width: 0;
+  padding: 36px;
+  border: 1px solid var(--cream-200);
+  background: var(--cream-50);
+  border-radius: var(--radius-xl);
+}
+
+.medical-compliance__item h3 {
+  margin-bottom: 24px;
+}
+
+.medical-compliance__item .medical-section__lead {
+  font-size: 19px;
+}
+
+.medical-compliance__item > p:not(.medical-section__lead) {
+  color: var(--ink-600);
+  font-size: 15px;
+}
+
+.medical-compliance__roles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 28px 0 0;
+  border-top: 1px solid var(--cream-200);
+}
+
+.medical-compliance__roles > div {
+  min-width: 0;
+  padding: 22px 20px 0 0;
+}
+
+.medical-compliance__roles > div + div {
+  padding-left: 20px;
   border-left: 1px solid var(--cream-200);
 }
 
-.medical-content__roles article:first-child {
-  border-left: 0;
-}
-
-.medical-content__roles article > span {
-  display: grid;
-  width: 48px;
-  height: 48px;
-  place-items: center;
-  margin-bottom: 90px;
-  color: var(--brand-600);
-  font-family: var(--font-mono);
-  font-size: 12px;
+.medical-compliance__roles dt {
+  margin-bottom: 8px;
+  color: var(--ink-900);
   font-weight: 800;
-  border: 1px solid var(--brand-200);
-  border-radius: 50%;
 }
 
-.medical-content__roles p {
-  color: var(--ink-600);
-  font-size: 14px;
+.medical-compliance__roles dd {
+  margin: 0;
+  color: var(--ink-500);
+  font-size: 13px;
+  line-height: 1.55;
 }
 
-.medical-content__byline {
-  padding: 34px;
-  background: var(--cream-100);
-  border-radius: var(--radius-xl);
-}
-
-.medical-content__byline ul,
-.medical-direct__copy ul,
+.medical-compliance__item ul,
 .medical-analytics__details ul {
   display: grid;
   gap: 10px;
@@ -660,15 +582,13 @@
   list-style: none;
 }
 
-.medical-content__byline li,
-.medical-direct__copy li,
+.medical-compliance__item li,
 .medical-analytics__details li {
   position: relative;
   padding-left: 26px;
 }
 
-.medical-content__byline li::before,
-.medical-direct__copy li::before,
+.medical-compliance__item li::before,
 .medical-analytics__details li::before {
   position: absolute;
   top: 0.66em;
@@ -680,51 +600,15 @@
   content: "";
 }
 
-/* Direct compliance */
-
-.medical-direct {
-  padding-top: 0;
-}
-
-.medical-direct__panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.65fr);
-  gap: clamp(48px, 8vw, 110px);
-  padding: 64px;
+.medical-compliance__outcome {
+  max-width: 980px;
+  margin: 16px 0 0;
+  padding: 24px 28px;
+  color: var(--brand-800);
   border: 1px solid var(--brand-200);
   background: var(--brand-50);
-  border-radius: var(--radius-2xl);
-}
-
-.medical-direct__copy h2 {
-  font-size: clamp(36px, 4.5vw, 58px);
-}
-
-.medical-direct__copy li {
-  font-size: 15px;
-}
-
-.medical-direct__outcome {
-  align-self: end;
-  padding: 30px;
-  color: var(--paper);
-  background: var(--brand-700);
-  border-radius: var(--radius-xl);
-}
-
-.medical-direct__outcome p {
-  color: rgb(255 255 255 / 76%);
-  font-size: 15px;
-}
-
-.medical-direct__outcome p:first-child {
-  color: var(--paper);
-  font-size: 18px;
   font-weight: 700;
-}
-
-.medical-direct__outcome p:last-child {
-  margin-bottom: 0;
+  border-radius: var(--radius-lg);
 }
 
 /* Analytics */
@@ -871,16 +755,23 @@
 
 /* Benefits and pricing */
 
-.medical-benefits__featured {
-  min-height: 250px !important;
-  color: var(--paper);
-  border-color: var(--brand-700) !important;
-  background: var(--brand-700) !important;
+.medical-benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
 
-.medical-benefits__featured p {
-  max-width: 750px;
-  color: rgb(255 255 255 / 72%) !important;
+.medical-benefits__grid article {
+  min-height: 270px;
+  padding: 32px;
+  border: 1px solid var(--cream-300);
+  background: rgb(255 255 255 / 40%);
+  border-radius: var(--radius-xl);
+}
+
+.medical-benefits__grid p {
+  color: var(--ink-600);
+  font-size: 15px;
 }
 
 .medical-pricing__list {
@@ -1065,9 +956,7 @@
 }
 
 @media (max-width: 1099px) {
-  .medical-hero__grid,
-  .medical-content__proof,
-  .medical-direct__panel,
+  .medical-compliance__grid,
   .medical-analytics__layout,
   .medical-contact__grid {
     grid-template-columns: minmax(0, 1fr);
@@ -1077,38 +966,12 @@
     padding-bottom: 48px;
   }
 
-  .medical-hero__thesis {
-    min-height: 0;
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  }
-
-  .medical-hero__thesis p {
-    max-width: 740px;
-    margin-top: 72px;
-  }
-
   .medical-specifics__list article > div {
     grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1fr);
   }
 
   .medical-specifics__list article > div p:last-child {
     grid-column: 2;
-  }
-
-  .medical-decision__steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .medical-decision__steps li:nth-child(3) {
-    border-left: 0;
-  }
-
-  .medical-decision__steps li > span {
-    margin-bottom: 54px;
-  }
-
-  .medical-decision__steps h3 {
-    min-height: auto;
   }
 
   .medical-site__layout {
@@ -1125,12 +988,12 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .medical-stack__wide {
-    grid-column: span 2;
+  .medical-types__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .medical-direct__outcome {
-    max-width: 760px;
+  .medical-stack__wide {
+    grid-column: span 2;
   }
 
   .medical-analytics__funnel {
@@ -1178,10 +1041,6 @@
     margin-bottom: 52px;
   }
 
-  .medical-hero__grid {
-    gap: 0;
-  }
-
   .medical-hero__headline {
     margin-bottom: 24px;
     font-size: clamp(34px, 9.6vw, 44px);
@@ -1200,15 +1059,6 @@
   .medical-hero__actions .medical-text-link {
     width: 100%;
     justify-content: center;
-  }
-
-  .medical-hero__thesis {
-    padding: 28px;
-  }
-
-  .medical-hero__thesis p {
-    margin-top: 52px;
-    font-size: 17px;
   }
 
   .medical-hero__facts {
@@ -1303,35 +1153,8 @@
     border-top: 0;
   }
 
-  .medical-decision__steps {
-    grid-template-columns: 1fr;
-  }
-
-  .medical-decision__steps li,
-  .medical-decision__steps li:first-child,
-  .medical-decision__steps li:nth-child(3) {
-    min-height: 0;
-    padding: 28px 0 32px;
-    border-top: 1px solid rgb(255 255 255 / 18%);
-    border-left: 0;
-  }
-
-  .medical-decision__steps li:first-child {
-    border-top: 0;
-  }
-
-  .medical-decision__steps li > span {
-    margin-bottom: 34px;
-  }
-
   .medical-site__requirements article {
     grid-template-columns: 42px minmax(0, 1fr);
-  }
-
-  .medical-types__wide,
-  .medical-benefits__featured {
-    display: block;
-    grid-column: auto;
   }
 
   .medical-types__grid article,
@@ -1351,28 +1174,23 @@
     padding: 26px;
   }
 
-  .medical-content__roles {
+  .medical-compliance__roles {
     grid-template-columns: 1fr;
   }
 
-  .medical-content__roles article {
-    min-height: 0;
-    padding: 26px;
+  .medical-compliance__roles > div,
+  .medical-compliance__roles > div + div {
+    padding: 20px 0 0;
     border-top: 1px solid var(--cream-200);
     border-left: 0;
   }
 
-  .medical-content__roles article:first-child {
+  .medical-compliance__roles > div:first-child {
     border-top: 0;
   }
 
-  .medical-content__roles article > span {
-    margin-bottom: 54px;
-  }
-
-  .medical-content__byline,
-  .medical-direct__panel,
-  .medical-direct__outcome,
+  .medical-compliance__item,
+  .medical-compliance__outcome,
   .medical-analytics__details {
     padding: 26px;
   }
