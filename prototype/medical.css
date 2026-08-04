@@ -8,7 +8,6 @@
 .medical-page h3,
 .medical-hero__headline,
 .medical-hero__facts strong,
-.medical-case-card__results strong,
 .medical-pricing__list > li > strong {
   font-family: var(--font-display);
 }
@@ -73,7 +72,6 @@
 }
 
 .medical-text-link,
-.medical-case-card__link,
 .medical-contact__link {
   display: inline-flex;
   min-height: 44px;
@@ -87,7 +85,6 @@
 }
 
 .medical-text-link:hover,
-.medical-case-card__link:hover,
 .medical-contact__link:hover {
   color: var(--ink-900);
 }
@@ -174,50 +171,6 @@
   line-height: 1.28;
 }
 
-/* Project marks */
-
-.medical-logo-rail {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--cream-200);
-  border-bottom: 1px solid var(--cream-200);
-}
-
-.medical-logo-rail li {
-  display: grid;
-  min-height: 150px;
-  place-content: center;
-  gap: 7px;
-  padding: 24px;
-  text-align: center;
-  border-left: 1px solid var(--cream-200);
-}
-
-.medical-logo-rail li:first-child {
-  border-left: 0;
-}
-
-.medical-logo-rail span {
-  font-family: var(--font-display);
-  font-size: clamp(20px, 2.2vw, 30px);
-  font-weight: 650;
-  letter-spacing: -0.04em;
-}
-
-.medical-logo-rail small {
-  color: var(--ink-400);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.medical-cases .medical-logo-rail {
-  margin-bottom: 48px;
-}
-
 /* Industry specifics */
 
 .medical-specifics__layout {
@@ -290,137 +243,14 @@
 
 /* Cases */
 
-.medical-case-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.medical-case-card {
-  display: flex;
-  min-height: 490px;
-  flex-direction: column;
-  padding: 36px;
-  border: 1px solid var(--cream-200);
-  background: var(--cream-50);
-  border-radius: var(--radius-xl);
-}
-
-.medical-case-card--featured {
-  grid-column: 1 / -1;
-  min-height: 560px;
-  color: var(--paper);
-  border-color: var(--ink-900);
-  background: var(--ink-900);
-}
-
-.medical-case-card__header {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  padding-bottom: 28px;
-  border-bottom: 1px solid var(--cream-200);
-}
-
-.medical-case-card--featured .medical-case-card__header {
-  border-color: rgb(255 255 255 / 18%);
-}
-
-.medical-case-card__header h3,
-.medical-case-card__header p {
+.medical-cases .section-heading h2,
+.medical-cases .case-card h3 {
   margin: 0;
 }
 
-.medical-case-card__header p,
-.medical-case-card__header > span {
-  color: var(--ink-500);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.medical-case-card--featured .medical-case-card__header p,
-.medical-case-card--featured .medical-case-card__header > span {
-  color: rgb(255 255 255 / 62%);
-}
-
-.medical-case-card__story {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 38px;
-  padding: 32px 0;
-}
-
-.medical-case-card:not(.medical-case-card--featured) .medical-case-card__story {
-  grid-template-columns: 1fr;
-}
-
-.medical-case-card__story strong {
-  display: block;
-  margin-bottom: 9px;
-  color: var(--brand-400);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.medical-case-card__story p {
-  margin: 0;
-  color: var(--ink-600);
-  font-size: 15px;
-}
-
-.medical-case-card--featured .medical-case-card__story p {
-  color: rgb(255 255 255 / 74%);
-}
-
-.medical-case-card__results {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: auto;
-  border-top: 1px solid rgb(255 255 255 / 18%);
-  border-bottom: 1px solid rgb(255 255 255 / 18%);
-}
-
-.medical-case-card__results > div {
-  min-height: 132px;
-  padding: 24px;
-  border-left: 1px solid rgb(255 255 255 / 18%);
-}
-
-.medical-case-card__results > div:first-child {
-  padding-left: 0;
-  border-left: 0;
-}
-
-.medical-case-card__results strong {
-  display: block;
-  margin-bottom: 9px;
-  color: var(--brand-300);
-  font-size: clamp(28px, 3vw, 42px);
-  letter-spacing: -0.05em;
-  line-height: 1.1;
-  white-space: nowrap;
-}
-
-.medical-case-card__results span {
-  color: rgb(255 255 255 / 66%);
-  font-size: 12px;
-}
-
-.medical-case-card__link {
-  gap: 10px;
-  margin-top: 26px;
-  color: var(--paper);
-}
-
-.medical-case-card__link:hover {
-  color: var(--brand-300);
-}
-
-.medical-cases__all {
-  margin-top: 30px;
+.medical-cases .section-heading h2 {
+  max-width: 980px;
+  font-size: clamp(38px, 5vw, 64px);
 }
 
 /* Clinic website anatomy */
@@ -1125,24 +955,6 @@
     border-top: 0;
   }
 
-  .medical-logo-rail {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .medical-logo-rail li {
-    min-height: 112px;
-    padding: 16px;
-    border-top: 1px solid var(--cream-200);
-  }
-
-  .medical-logo-rail li:nth-child(odd) {
-    border-left: 0;
-  }
-
-  .medical-logo-rail li:nth-child(-n + 2) {
-    border-top: 0;
-  }
-
   .medical-specifics__list article {
     padding: 28px 24px 30px;
   }
@@ -1156,43 +968,10 @@
     font-size: 15px;
   }
 
-  .medical-case-grid,
   .medical-types__grid,
   .medical-benefits__grid,
   .medical-process__list {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .medical-case-card,
-  .medical-case-card--featured {
-    grid-column: auto;
-    min-height: 0;
-    padding: 26px;
-  }
-
-  .medical-case-card__header,
-  .medical-case-card__story {
-    grid-template-columns: 1fr;
-  }
-
-  .medical-case-card__header {
-    display: grid;
-  }
-
-  .medical-case-card__results {
-    grid-template-columns: 1fr;
-  }
-
-  .medical-case-card__results > div,
-  .medical-case-card__results > div:first-child {
-    min-height: 0;
-    padding: 20px 0;
-    border-top: 1px solid rgb(255 255 255 / 18%);
-    border-left: 0;
-  }
-
-  .medical-case-card__results > div:first-child {
-    border-top: 0;
   }
 
   .medical-site__requirements article {
