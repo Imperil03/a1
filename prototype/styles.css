@@ -306,6 +306,7 @@ address {
 .button--contact {
   min-height: 48px;
   border-color: var(--brand-100);
+  color: var(--ink-900);
   background: var(--paper);
 }
 
