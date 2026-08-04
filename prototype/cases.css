@@ -699,6 +699,24 @@ a.cases-catalog-card:hover .cases-catalog-card__arrow {
   letter-spacing: -0.01em;
 }
 
+.case-project-summary__scope a {
+  color: var(--brand-700);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-300);
+  text-underline-offset: 4px;
+}
+
+.case-project-summary__scope a:hover {
+  color: var(--brand-600);
+  text-decoration: none;
+}
+
+.case-project-summary__scope a:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid var(--brand-600);
+  outline-offset: 4px;
+}
+
 /* Quick result */
 
 .case-quick-result {
