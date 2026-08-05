@@ -72,10 +72,10 @@
             <button
               class="location-select__toggle"
               type="button"
-              aria-expanded="false"
-              aria-haspopup="true"
-              aria-controls="city-menu"
-              data-popover-toggle="city-menu"
+              aria-label="Выбрать город"
+              aria-haspopup="dialog"
+              aria-controls="city-model-dialog"
+              data-city-dialog-open
             >
               <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -83,13 +83,9 @@
               </svg>
               <span>Выбрать город</span>
               <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m6 9 6 6 6-6"></path>
+                <path d="M5 12h14m-6-6 6 6-6 6"></path>
               </svg>
             </button>
-            <div class="city-menu" id="city-menu" hidden data-popover>
-              <a href="surgut/">Сургут</a>
-              <a href="tyumen/">Тюмень</a>
-            </div>
           </div>
 
           <a class="header-phone" href="tel:+73462000000" aria-label="Позвонить: +7 (3462) 00-00-00">
@@ -346,6 +342,23 @@
         </button>
       </div>
       <div class="mobile-menu__body">
+        <button
+          class="mobile-menu__city"
+          type="button"
+          aria-haspopup="dialog"
+          aria-controls="city-model-dialog"
+          data-city-dialog-open
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Выбрать город</span>
+          <svg class="mobile-menu__city-arrow" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14m-6-6 6 6-6 6"></path>
+          </svg>
+        </button>
+
         <nav aria-label="Услуги">
           <ul class="mobile-services">
             <li>

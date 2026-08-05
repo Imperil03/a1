@@ -9,7 +9,6 @@ const focusableSelector = [
 ].join(",");
 
 const header = document.querySelector("[data-header]");
-const popovers = Array.from(document.querySelectorAll("[data-popover]"));
 const popoverToggles = Array.from(
   document.querySelectorAll("[data-popover-toggle]"),
 );
@@ -340,6 +339,191 @@ mobileServiceDetails.forEach((details) => {
   });
 });
 
+function createCityModelDialog() {
+  const dialog = document.createElement("dialog");
+  dialog.className = "city-model-dialog";
+  dialog.id = "city-model-dialog";
+  dialog.dataset.cityDialog = "";
+  dialog.setAttribute("aria-labelledby", "city-model-dialog-title");
+  dialog.innerHTML = `
+    <div class="city-model-dialog__surface">
+      <header class="city-model-dialog__header">
+        <div>
+          <p class="city-model-dialog__eyebrow">Схема для production</p>
+          <h2 id="city-model-dialog-title">Как будет работать выбор города</h2>
+        </div>
+        <button class="city-model-dialog__close" type="button" aria-label="Закрыть окно" data-city-dialog-close>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m5 5 14 14M19 5 5 19"></path>
+          </svg>
+        </button>
+      </header>
+
+      <div class="city-model-dialog__body">
+        <section class="city-model-dialog__section" aria-labelledby="city-model-heading">
+          <h3 id="city-model-heading">Итоговая модель</h3>
+          <div class="city-model-dialog__model">
+            <pre class="city-model-dialog__tree" aria-hidden="true"><code>/
+├── surgut/
+│   ├── razrabotka-sajtov/
+│   ├── seo/
+│   ├── kontekstnaya-reklama/
+│   └── complex-marketing/
+├── tyumen/
+│   ├── razrabotka-sajtov/
+│   ├── seo/
+│   ├── kontekstnaya-reklama/
+│   └── complex-marketing/
+└── {new-city}/
+    └── ...</code></pre>
+
+            <div class="visually-hidden">
+              <p>Полная схема городских страниц услуг:</p>
+              <ul>
+                <li>/surgut/razrabotka-sajtov/</li>
+                <li>/surgut/seo/</li>
+                <li>/surgut/kontekstnaya-reklama/</li>
+                <li>/surgut/complex-marketing/</li>
+                <li>/tyumen/razrabotka-sajtov/</li>
+                <li>/tyumen/seo/</li>
+                <li>/tyumen/kontekstnaya-reklama/</li>
+                <li>/tyumen/complex-marketing/</li>
+                <li>Для каждого нового города создаётся такая же отдельная ветка.</li>
+              </ul>
+            </div>
+
+            <dl class="city-model-dialog__roles">
+              <div>
+                <dt><code>/</code></dt>
+                <dd>Общая брендовая главная без закрепления за городом.</dd>
+              </div>
+              <div>
+                <dt><code>/surgut/</code> и <code>/tyumen/</code></dt>
+                <dd>Локальные главные.</dd>
+              </div>
+              <div>
+                <dt><code>/{city}/{service}/</code></dt>
+                <dd>Все коммерческие страницы услуг находятся внутри города.</dd>
+              </div>
+              <div>
+                <dt><code>/{new-city}/</code></dt>
+                <dd>Каждый новый город получает такую же самостоятельную ветку.</dd>
+              </div>
+              <div>
+                <dt>Общие страницы услуг</dt>
+                <dd><code>/seo/</code>, <code>/razrabotka-sajtov/</code> и другие общие страницы услуг в production не создаются.</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="city-model-dialog__section" aria-labelledby="city-navigation-heading">
+          <h3 id="city-navigation-heading">Навигация</h3>
+          <ol class="city-model-dialog__rules">
+            <li>
+              <span class="city-model-dialog__rule-number" aria-hidden="true">01</span>
+              <p>В шапке всегда доступен явный выбор города. Выбранный город задаёт контекст ссылок на услуги: на <code>/surgut/</code> они ведут в <code>/surgut/.../</code>, на <code>/tyumen/</code> — в <code>/tyumen/.../</code>.</p>
+            </li>
+            <li>
+              <span class="city-model-dialog__rule-number" aria-hidden="true">02</span>
+              <p>При переключении города сохраняется текущая услуга.</p>
+            </li>
+            <li>
+              <span class="city-model-dialog__rule-number" aria-hidden="true">03</span>
+              <p>Если у выбранного города нужной услуги ещё нет, переход ведёт на городской хаб.</p>
+            </li>
+            <li>
+              <span class="city-model-dialog__rule-number" aria-hidden="true">04</span>
+              <p>Выбор пользователя можно запомнить локально, но нельзя автоматически перенаправлять его по IP.</p>
+            </li>
+            <li>
+              <span class="city-model-dialog__rule-number" aria-hidden="true">05</span>
+              <p>Все городские ссылки должны присутствовать в HTML и быть доступны поисковому роботу.</p>
+            </li>
+          </ol>
+
+          <div class="city-model-dialog__switch-example">
+            <strong>Переключение города сохраняет услугу</strong>
+            <div>
+              <code>/surgut/seo/</code>
+              <span aria-label="и обратно">↔</span>
+              <code>/tyumen/seo/</code>
+            </div>
+          </div>
+
+          <p class="city-model-dialog__breadcrumbs"><strong>Хлебные крошки:</strong> <code>Главная → Тюмень → SEO-продвижение</code></p>
+        </section>
+
+        <section class="city-model-dialog__common" aria-labelledby="city-common-heading">
+          <h3 id="city-common-heading">Общие страницы</h3>
+          <p>Статьи, кейсы, о компании, контакты, цены и другие общие разделы работают без указания города в URL.</p>
+        </section>
+
+        <p class="city-model-dialog__prototype-note">Текущие страницы прототипа используются как содержательная основа будущих городских версий. Их технические адреса сейчас не изменяются.</p>
+      </div>
+    </div>
+  `;
+  document.body.append(dialog);
+  return dialog;
+}
+
+const cityDialogOpeners = Array.from(
+  document.querySelectorAll("[data-city-dialog-open]"),
+);
+const cityDialog = cityDialogOpeners.length > 0 ? createCityModelDialog() : null;
+const cityDialogClose = cityDialog?.querySelector("[data-city-dialog-close]");
+let cityDialogReturnFocus = null;
+
+cityDialogOpeners.forEach((opener) => {
+  opener.addEventListener("click", () => {
+    if (
+      !(cityDialog instanceof HTMLDialogElement) ||
+      typeof cityDialog.showModal !== "function" ||
+      cityDialog.open
+    ) {
+      return;
+    }
+
+    const openerIsInsideMobileMenu = mobileMenu?.contains(opener) ?? false;
+    closePopover();
+
+    if (openerIsInsideMobileMenu) {
+      closeMobileMenu({ restoreFocus: false });
+      cityDialogReturnFocus = mobileMenuToggle;
+    } else {
+      cityDialogReturnFocus = opener;
+    }
+
+    document.body.classList.add("city-dialog-open");
+    cityDialog.showModal();
+    window.requestAnimationFrame(() => {
+      cityDialogClose?.focus({ preventScroll: true });
+    });
+    updatePageState();
+  });
+});
+
+cityDialogClose?.addEventListener("click", () => cityDialog?.close());
+
+cityDialog?.addEventListener("click", (event) => {
+  if (event.target === cityDialog) {
+    cityDialog.close();
+  }
+});
+
+cityDialog?.addEventListener("close", () => {
+  document.body.classList.remove("city-dialog-open");
+  const visibleReturnTarget =
+    cityDialogReturnFocus instanceof HTMLElement &&
+    cityDialogReturnFocus.getClientRects().length > 0
+      ? cityDialogReturnFocus
+      : cityDialogOpeners.find((opener) => opener.getClientRects().length > 0);
+
+  visibleReturnTarget?.focus();
+  cityDialogReturnFocus = null;
+  updatePageState();
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     if (mobileMenu && !mobileMenu.hidden) {
@@ -427,7 +611,8 @@ function updatePageState() {
     !inlineActionIsVisible &&
     !elementTouchesViewport(contactSection) &&
     !elementTouchesViewport(footer) &&
-    document.body.classList.contains("menu-open") === false;
+    document.body.classList.contains("menu-open") === false &&
+    document.body.classList.contains("city-dialog-open") === false;
 
   mobileSticky.dataset.visible = shouldShow ? "true" : "false";
 }
