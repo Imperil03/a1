@@ -1392,6 +1392,35 @@ address {
   background: var(--accent-400);
 }
 
+.home-review-badge {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 5px 12px;
+  border: 1px solid var(--brand-200);
+  border-radius: 999px;
+  color: var(--brand-700);
+  background: var(--brand-50);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.section-heading > .home-review-badge {
+  margin-bottom: 16px;
+}
+
+.hero__copy > .home-review-badge {
+  margin-top: 24px;
+}
+
+.hero__copy > .home-review-badge + h1 {
+  margin-top: 16px;
+}
+
 .hero h1 {
   max-width: 1160px;
   margin-top: 38px;
@@ -1828,9 +1857,8 @@ address {
 }
 
 .system-result {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+  display: grid;
+  gap: 12px;
   margin-top: 20px;
   padding: 28px 32px;
   border-radius: var(--radius-xl);
@@ -1838,10 +1866,13 @@ address {
   background: var(--ink-900);
 }
 
-.system-result > span {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 700;
+.system-result__label {
+  color: rgb(255 255 255 / 68%);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .system-result p {
@@ -1903,6 +1934,11 @@ address {
   margin-top: 18px;
   color: var(--ink-700);
   font-size: 15px;
+}
+
+.benefit-card:last-child:nth-child(odd) {
+  min-height: 210px;
+  grid-column: 1 / -1;
 }
 
 .benefit-card--lead p {
