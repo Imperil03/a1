@@ -681,6 +681,12 @@
     min-width: 104px;
     padding-inline: 15px;
   }
+
+  .price-closing__action {
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
