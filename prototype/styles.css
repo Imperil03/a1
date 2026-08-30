@@ -1453,6 +1453,10 @@ address {
   white-space: nowrap;
 }
 
+.hero-facts > div:first-child dt {
+  font-size: clamp(23px, 2.25vw, 32px);
+}
+
 .hero-facts dd {
   margin-top: 8px;
   color: var(--ink-500);
@@ -3250,6 +3254,10 @@ address {
     width: 150px;
     flex: none;
     font-size: 24px;
+  }
+
+  .hero-facts > div:first-child dt {
+    font-size: 19px;
   }
 
   .hero-facts dd {
