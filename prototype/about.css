@@ -320,7 +320,7 @@
 /* Team is a clear, static roster. */
 
 .about-team .about-reading-column {
-  margin-bottom: 48px;
+  margin-bottom: 0;
 }
 
 .about-team__grid {
@@ -800,7 +800,7 @@
   }
 
   .about-team .about-reading-column {
-    margin-bottom: 34px;
+    margin-bottom: 0;
   }
 
   .about-team__grid {
