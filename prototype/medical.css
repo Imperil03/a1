@@ -94,6 +94,38 @@
   color: var(--ink-900);
 }
 
+/* Temporary review markers: remove after the content iteration is approved. */
+
+.medical-review-badge {
+  display: inline-flex;
+  width: max-content;
+  min-height: 24px;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 4px 8px 3px;
+  border: 1px solid var(--brand-300);
+  border-radius: 999px;
+  color: var(--brand-700);
+  background: var(--brand-100);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.medical-review-badge--dark {
+  border-color: rgb(255 255 255 / 24%);
+  color: var(--paper);
+  background: rgb(255 255 255 / 10%);
+}
+
+.medical-review-change {
+  background: linear-gradient(110deg, var(--brand-50), rgb(241 243 246 / 38%));
+  box-shadow: inset 3px 0 0 var(--brand-500);
+}
+
 /* Hero */
 
 .medical-hero {
@@ -210,7 +242,7 @@
   border-right: 1px solid var(--cream-300);
 }
 
-.medical-specifics__list article:nth-child(-n + 2) {
+.medical-specifics__list article:nth-child(-n + 4) {
   border-bottom: 1px solid var(--cream-300);
 }
 
@@ -307,6 +339,10 @@
   border-bottom: 1px solid var(--cream-200);
 }
 
+.medical-site__requirements article.medical-review-change {
+  padding-inline: 18px;
+}
+
 .medical-site__requirements article > span {
   color: var(--brand-600);
   font-family: var(--font-mono);
@@ -322,6 +358,80 @@
   margin-top: 9px;
   max-width: 72ch;
   color: var(--ink-600);
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+/* Medical aggregators */
+
+.medical-aggregators {
+  padding-top: 48px;
+}
+
+.medical-aggregators__panel {
+  overflow: hidden;
+  padding: clamp(32px, 5vw, 64px);
+  border-radius: var(--radius-2xl);
+  color: var(--paper);
+  background:
+    radial-gradient(circle at 92% 8%, rgb(102 118 141 / 38%), transparent 34%),
+    var(--ink-900);
+}
+
+.medical-aggregators__intro {
+  max-width: 1000px;
+}
+
+.medical-aggregators__intro h2 {
+  max-width: 900px;
+  margin-bottom: 28px;
+  color: var(--paper);
+  font-size: clamp(30px, 3.6vw, 48px);
+}
+
+.medical-aggregators__intro p {
+  max-width: 74ch;
+  margin: 0 0 14px;
+  color: var(--cream-200);
+  font-size: 17px;
+  line-height: 1.66;
+}
+
+.medical-aggregators__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 46px;
+  border-top: 1px solid rgb(255 255 255 / 20%);
+}
+
+.medical-aggregators__grid article {
+  min-width: 0;
+  padding: 28px 28px 0 0;
+  border-right: 1px solid rgb(255 255 255 / 20%);
+}
+
+.medical-aggregators__grid article + article {
+  padding-left: 28px;
+}
+
+.medical-aggregators__grid article:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.medical-aggregators__grid h3,
+.medical-aggregators__grid p {
+  margin: 0;
+}
+
+.medical-aggregators__grid h3 {
+  margin-bottom: 12px;
+  color: var(--paper);
+  font-size: clamp(19px, 1.7vw, 23px);
+}
+
+.medical-aggregators__grid p {
+  color: var(--cream-300);
   font-size: 16px;
   line-height: 1.62;
 }
@@ -377,6 +487,16 @@
 
 .medical-stack__grid article:last-child {
   border-bottom: 0;
+}
+
+.medical-stack__grid article.medical-review-change {
+  background: linear-gradient(110deg, var(--brand-50), rgb(241 243 246 / 32%));
+}
+
+.medical-stack__review-title {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .medical-stack__grid h3 {
@@ -729,6 +849,10 @@
   border-bottom: 1px solid var(--cream-200);
 }
 
+.medical-pricing__list > li.medical-review-change {
+  padding-inline: 24px;
+}
+
 .medical-pricing__list h3,
 .medical-pricing__list p {
   margin: 0;
@@ -937,6 +1061,23 @@
   .medical-specifics__list article:last-child {
     border-bottom: 0;
   }
+
+  .medical-aggregators__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .medical-aggregators__grid article,
+  .medical-aggregators__grid article + article,
+  .medical-aggregators__grid article:last-child {
+    padding: 22px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgb(255 255 255 / 20%);
+  }
+
+  .medical-aggregators__grid article:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1043,6 +1184,36 @@
     font-size: 16px;
   }
 
+  .medical-site__requirements article.medical-review-change {
+    padding-inline: 14px;
+  }
+
+  .medical-site__requirements .medical-review-badge {
+    grid-column: 2;
+    margin-bottom: 0;
+  }
+
+  .medical-aggregators {
+    padding-top: 24px;
+  }
+
+  .medical-aggregators__panel {
+    padding: 26px 22px 30px;
+    border-radius: var(--radius-xl);
+  }
+
+  .medical-aggregators__intro h2 {
+    font-size: clamp(28px, 8vw, 34px);
+  }
+
+  .medical-aggregators__intro p {
+    font-size: 16px;
+  }
+
+  .medical-aggregators__grid {
+    margin-top: 32px;
+  }
+
   .medical-cases {
     padding-bottom: 48px;
   }
@@ -1144,6 +1315,10 @@
 
   .medical-stack__grid p {
     font-size: 16px;
+  }
+
+  .medical-pricing__list > li.medical-review-change {
+    padding-inline: 18px;
   }
 
   .medical-analytics__details {
