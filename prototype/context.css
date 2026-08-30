@@ -61,15 +61,12 @@
 }
 
 .ads-evolution__copy {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px clamp(34px, 5vw, 72px);
+  max-width: 72ch;
   padding-top: 34px;
   border-top: 1px solid rgba(70, 90, 118, 0.2);
 }
 
 .ads-evolution__copy p {
-  max-width: 66ch;
   color: var(--ink-700);
   font-size: 17px;
   line-height: 1.7;
@@ -672,10 +669,6 @@
 }
 
 @media (max-width: 1023px) {
-  .ads-evolution__copy {
-    grid-template-columns: 1fr;
-  }
-
   .ads-evolution__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -731,11 +724,9 @@
   }
 
   .ads-evolution__copy {
-    gap: 0;
     padding-top: 26px;
   }
 
-  .ads-evolution__copy > div + div,
   .ads-evolution__work {
     margin-top: 30px;
     padding-top: 26px;
