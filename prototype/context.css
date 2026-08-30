@@ -57,23 +57,28 @@
 /* Yandex Direct evolution: editorial explanation followed by three actions. */
 
 .ads-evolution__panel .service-section-intro {
-  margin-bottom: 34px;
+  max-width: none;
+  margin-bottom: 24px;
+}
+
+.ads-evolution__panel .service-section-lead {
+  max-width: none;
 }
 
 .ads-evolution__copy {
-  max-width: 72ch;
-  padding-top: 34px;
+  max-width: 88ch;
+  padding-top: 26px;
   border-top: 1px solid rgba(70, 90, 118, 0.2);
 }
 
 .ads-evolution__copy p {
   color: var(--ink-700);
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.64;
 }
 
 .ads-evolution__copy p + p {
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .ads-evolution__copy strong {
@@ -82,8 +87,8 @@
 }
 
 .ads-evolution__work {
-  margin-top: 42px;
-  padding-top: 34px;
+  margin-top: 32px;
+  padding-top: 28px;
   border-top: 1px solid rgba(70, 90, 118, 0.2);
 }
 
@@ -724,12 +729,12 @@
   }
 
   .ads-evolution__copy {
-    padding-top: 26px;
+    padding-top: 22px;
   }
 
   .ads-evolution__work {
-    margin-top: 30px;
-    padding-top: 26px;
+    margin-top: 28px;
+    padding-top: 24px;
     border-top: 1px solid rgba(70, 90, 118, 0.2);
   }
 
