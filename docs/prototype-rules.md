@@ -12,6 +12,7 @@ prototype/
   styles.css
   script.js
   service.css
+  web-development.css
   seo.css
   context.css
   complex.css

@@ -14,9 +14,10 @@
     <link rel="icon" href="icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="service.css">
+    <link rel="stylesheet" href="web-development.css?v=20260830-1">
     <script src="script.js" defer></script>
   </head>
-  <body class="service-page">
+  <body class="service-page web-development-page">
     <!-- Источник: первая опубликованная версия главной. -->
     <header class="site-header" data-header>
       <div class="container header-grid">
@@ -478,9 +479,10 @@
             <ol><li><a href="./">Главная</a></li><li aria-current="page">Разработка сайтов</li></ol>
           </nav>
           <div class="service-hero__copy">
+            <span class="web-review-badge" aria-hidden="true">Изменено</span>
             <h1 class="eyebrow service-hero__label" id="service-hero-title"><span aria-hidden="true"></span>Создание и разработка сайта</h1>
             <p class="service-hero__headline"><span class="service-hero__accent">Разрабатываем сайты</span> с продуманной структурой под SEO и рекламу</p>
-            <p class="service-hero__description">Изучаем спрос, проектируем структуру и страницы, продумываем путь пользователя, подключаем аналитику и только после этого переходим к дизайну и разработке. После запуска можно сразу переходить к SEO и рекламе, не тратя время и бюджет на исправление базовых ошибок и подготовку сайта к продвижению.</p>
+            <p class="service-hero__description">Перед проектированием изучаем бизнес, спрос, аудиторию и конкурентов. На этой основе определяем структуру сайта, состав страниц и пользовательские сценарии, затем переходим к прототипам, дизайну и разработке. Требования SEO и рекламы учитываем ещё при проектировании, поэтому после запуска сайт можно продвигать без переделки структуры и ключевых страниц.</p>
             <a class="button button--primary button--large" href="https://t.me/a1reklama" target="_blank" rel="noopener noreferrer">
               Обсудить проект
               <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
@@ -736,9 +738,10 @@
       </section>
 
       <!-- Источник: утверждённый текст страницы разработки. -->
-      <section class="section service-process" aria-labelledby="service-process-title">
+      <section class="section service-process web-process-section" aria-labelledby="service-process-title">
         <div class="container">
-          <div class="service-section-intro">
+          <div class="service-section-intro web-process-intro">
+            <span class="web-review-badge" aria-hidden="true">Изменено</span>
             <h2 id="service-process-title">Что входит в создание сайта</h2>
             <p class="service-section-lead">Берём на себя весь путь — от идеи до запуска</p>
             <p>Состав работ зависит от масштаба проекта. Для небольшого лендинга не нужен такой же объём исследования, как для интернет-магазина или корпоративного сайта с десятками услуг.</p>
@@ -747,8 +750,15 @@
 
           <ol class="service-process__list">
             <li>
-              <details open>
-                <summary><span aria-hidden="true">1. </span><strong>Погружаемся в задачу</strong></summary>
+              <details>
+                <summary>
+                  <span aria-hidden="true">01</span>
+                  <strong>Погружаемся в задачу</strong>
+                  <small>Для начала не требуется готовое техническое задание. Мы поможем собрать и структурировать требования.</small>
+                  <span class="web-process-visual web-process-visual--brief" aria-hidden="true">
+                    <span class="web-brief-sheet"><b>Бриф проекта</b><i></i><i></i><i></i><span>Цели</span><span>Аудитория</span></span>
+                  </span>
+                </summary>
                 <div class="service-process__body">
                   <p class="service-list-intro">На первой встрече обсуждаем:</p>
                   <ul>
@@ -760,7 +770,6 @@
                     <li>какие рекламные каналы планируется использовать;</li>
                     <li>какой результат должен давать новый сайт.</li>
                   </ul>
-                  <p>Для начала не требуется готовое техническое задание. Мы поможем собрать и структурировать требования.</p>
                 </div>
               </details>
               <p class="service-process__result">Результат этапа: общее понимание задачи, целей и границ проекта.</p>
@@ -768,9 +777,18 @@
 
             <li>
               <details>
-                <summary><span aria-hidden="true">2. </span><strong>Изучаем спрос и конкурентов</strong></summary>
+                <summary>
+                  <span aria-hidden="true">02</span>
+                  <strong>Исследуем рынок, спрос и конкурентов</strong>
+                  <small>Изучаем, как устроен рынок, что важно клиентам при выборе, как они ищут ваши товары или услуги и какие предложения уже есть у конкурентов.</small>
+                  <span class="web-process-visual web-process-visual--semantic" aria-hidden="true">
+                    <span class="web-semantic-head"><span>Запрос</span><span>Спрос</span><span>Кластер</span></span>
+                    <span class="web-semantic-row"><span>разработка сайта</span><b>2 480</b><i>Услуга</i></span>
+                    <span class="web-semantic-row"><span>корпоративный сайт</span><b>1 240</b><i>Формат</i></span>
+                    <span class="web-semantic-row"><span>сайт под SEO</span><b>890</b><i>Спрос</i></span>
+                  </span>
+                </summary>
                 <div class="service-process__body">
-                  <p>Смотрим, как клиенты ищут ваши услуги, какие вопросы задают и на что обращают внимание при выборе.</p>
                   <p class="service-list-intro">Анализируем сайты конкурентов:</p>
                   <ul>
                     <li>какие услуги они предлагают;</li>
@@ -788,9 +806,15 @@
 
             <li>
               <details>
-                <summary><span aria-hidden="true">3. </span><strong>Проектируем структуру</strong></summary>
+                <summary>
+                  <span aria-hidden="true">03</span>
+                  <strong>Проектируем структуру</strong>
+                  <small>Определяем, какие разделы и страницы понадобятся.</small>
+                  <span class="web-process-visual web-process-visual--sitemap" aria-hidden="true">
+                    <b>Главная</b><span><span>О компании</span><span>Услуги</span><span>Кейсы</span></span><span><i>Услуга 1</i><i>Услуга 2</i><i>Услуга 3</i></span>
+                  </span>
+                </summary>
                 <div class="service-process__body">
-                  <p>Определяем, какие разделы и страницы понадобятся.</p>
                   <p class="service-list-intro">Для каждой страницы фиксируем:</p>
                   <ul>
                     <li>её задачу;</li>
@@ -808,7 +832,14 @@
 
             <li>
               <details>
-                <summary><span aria-hidden="true">4. </span><strong>Создаём прототипы</strong></summary>
+                <summary>
+                  <span aria-hidden="true">04</span>
+                  <strong>Создаём прототипы</strong>
+                  <small>Клиент заранее понимает, из чего будет состоять страница, ещё до начала дизайна и программирования.</small>
+                  <span class="web-process-visual web-process-visual--wireframe" aria-hidden="true">
+                    <span class="web-wireframe-top"></span><span class="web-wireframe-hero"><i></i><span></span></span><span class="web-wireframe-cards"><i></i><i></i><i></i></span>
+                  </span>
+                </summary>
                 <div class="service-process__body">
                   <p class="service-list-intro">Прототип показывает не внешний вид, а логику страницы:</p>
                   <ul>
@@ -819,7 +850,7 @@
                     <li>сценарий движения пользователя;</li>
                     <li>переходы между разделами.</li>
                   </ul>
-                  <p>На этом этапе проще изменить структуру или дополнить содержание. Клиент заранее понимает, из чего будет состоять страница, ещё до начала дизайна и программирования.</p>
+                  <p>На этом этапе проще изменить структуру или дополнить содержание.</p>
                 </div>
               </details>
               <p class="service-process__result">Результат этапа: интерактивный или схематичный прототип ключевых страниц.</p>
@@ -827,7 +858,14 @@
 
             <li>
               <details>
-                <summary><span aria-hidden="true">5. </span><strong>Готовим содержание</strong></summary>
+                <summary>
+                  <span aria-hidden="true">05</span>
+                  <strong>Готовим содержание</strong>
+                  <small>Мы можем подготовить тексты полностью или отредактировать материалы, предоставленные вашей компанией.</small>
+                  <span class="web-process-visual web-process-visual--content" aria-hidden="true">
+                    <span class="web-content-toolbar"><i></i><i></i><i></i><i></i></span><b>Страница услуги</b><span></span><span></span><span></span><span class="web-content-media"></span>
+                  </span>
+                </summary>
                 <div class="service-process__body">
                   <p class="service-list-intro">Хороший сайт должен понятно отвечать на вопросы клиента:</p>
                   <ul>
@@ -840,7 +878,6 @@
                     <li>почему вам можно доверять;</li>
                     <li>что нужно сделать, чтобы начать сотрудничество.</li>
                   </ul>
-                  <p>Мы можем подготовить тексты полностью или отредактировать материалы, предоставленные вашей компанией.</p>
                   <p class="service-list-intro">При необходимости помогаем собрать:</p>
                   <ul>
                     <li>фотографии;</li>
@@ -858,9 +895,15 @@
 
             <li>
               <details>
-                <summary><span aria-hidden="true">6. </span><strong>Разрабатываем дизайн</strong></summary>
+                <summary>
+                  <span aria-hidden="true">06</span>
+                  <strong>Разрабатываем дизайн</strong>
+                  <small>Создаём индивидуальный визуальный стиль на основе фирменного оформления компании или помогаем сформировать его для сайта.</small>
+                  <span class="web-process-visual web-process-visual--design" aria-hidden="true">
+                    <span class="web-design-frame"><em>Прототип</em><i></i><span></span><span></span></span><b>→</b><span class="web-design-frame"><em>Дизайн</em><i></i><span></span><span></span></span>
+                  </span>
+                </summary>
                 <div class="service-process__body">
-                  <p>Создаём индивидуальный визуальный стиль на основе фирменного оформления компании или помогаем сформировать его для сайта.</p>
                   <p class="service-list-intro">Дизайн должен не только выглядеть современно. Его задача — помочь посетителю:</p>
                   <ul>
                     <li>быстро понять предложение;</li>
@@ -877,9 +920,15 @@
 
             <li>
               <details>
-                <summary><span aria-hidden="true">7. </span><strong>Программируем сайт</strong></summary>
+                <summary>
+                  <span aria-hidden="true">07</span>
+                  <strong>Программируем сайт</strong>
+                  <small>Переносим утверждённый дизайн в рабочий сайт.</small>
+                  <span class="web-process-visual web-process-visual--code" aria-hidden="true">
+                    <code><span>&lt;main&gt;</span><i>&lt;section class="hero"&gt;</i><b>&lt;h1&gt;Ваш проект&lt;/h1&gt;</b><i>&lt;/section&gt;</i><span>&lt;/main&gt;</span></code>
+                  </span>
+                </summary>
                 <div class="service-process__body">
-                  <p>Переносим утверждённый дизайн в рабочий сайт.</p>
                   <p class="service-list-intro">Настраиваем:</p>
                   <ul>
                     <li>систему управления;</li>
@@ -901,9 +950,15 @@
 
             <li>
               <details>
-                <summary><span aria-hidden="true">8. </span><strong>Подключаем аналитику и готовим к продвижению</strong></summary>
+                <summary>
+                  <span aria-hidden="true">08</span>
+                  <strong>Подключаем аналитику и готовим к продвижению</strong>
+                  <small>До запуска проверяем, можно ли отследить основные действия посетителей:</small>
+                  <span class="web-process-visual web-process-visual--analytics" aria-hidden="true">
+                    <span class="web-analytics-metric"><span>Конверсия</span><b>3,8%</b></span><span class="web-analytics-chart"><i></i><i></i><i></i><i></i><i></i></span><span class="web-analytics-goals"><span>Форма</span><span>Звонок</span><span>Заказ</span></span>
+                  </span>
+                </summary>
                 <div class="service-process__body">
-                  <p class="service-list-intro">До запуска проверяем, можно ли отследить основные действия посетителей:</p>
                   <ul>
                     <li>отправку формы;</li>
                     <li>звонок;</li>
@@ -930,9 +985,15 @@
 
             <li>
               <details>
-                <summary><span aria-hidden="true">9. </span><strong>Тестируем и запускаем</strong></summary>
+                <summary>
+                  <span aria-hidden="true">09</span>
+                  <strong>Тестируем и запускаем</strong>
+                  <small>Проверяем сайт перед публикацией:</small>
+                  <span class="web-process-visual web-process-visual--launch" aria-hidden="true">
+                    <span class="web-launch-browser"><span class="web-launch-browser__dots"><i></i><i></i><i></i></span><b>Сайт готов к запуску</b><span></span><span></span><span></span></span><em>✓</em>
+                  </span>
+                </summary>
                 <div class="service-process__body">
-                  <p class="service-list-intro">Проверяем сайт перед публикацией:</p>
                   <ul>
                     <li>на компьютерах, планшетах и смартфонах;</li>
                     <li>в современных браузерах;</li>
