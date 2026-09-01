@@ -2204,49 +2204,6 @@ address {
   font-size: 15px;
 }
 
-/* Industries */
-
-.industries-section {
-  border-block: 1px solid var(--cream-200);
-  background: var(--brand-50);
-}
-
-.industries-list {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.industries-list li {
-  display: flex;
-  min-height: 104px;
-  align-items: center;
-  padding: 20px;
-  border: 1px solid var(--brand-100);
-  border-radius: var(--radius-xl);
-  background: rgb(255 255 255 / 72%);
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.industries-list a {
-  display: flex;
-  width: calc(100% + 40px);
-  min-height: 104px;
-  align-items: center;
-  margin: -20px;
-  padding: 20px;
-  border-radius: inherit;
-  transition: color 180ms ease, background-color 180ms ease;
-}
-
-.industries-list a:hover {
-  color: var(--brand-700);
-  background: var(--brand-100);
-}
-
 /* Credentials and clients */
 
 .credentials-section {
@@ -2254,6 +2211,11 @@ address {
   overflow: clip;
   border-block: 1px solid var(--cream-200);
   background: var(--cream-100);
+}
+
+.credentials-section--after-system {
+  border-top: 0;
+  background: var(--brand-50);
 }
 
 .credentials-section h2 {
@@ -3153,10 +3115,6 @@ address {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .industries-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .team-members > li {
     flex-basis: calc((100% - 32px) / 3);
   }
@@ -3490,18 +3448,6 @@ address {
 
   .process-grid h3 span {
     margin-bottom: 18px;
-  }
-
-  .industries-list {
-    grid-template-columns: 1fr;
-  }
-
-  .industries-list li {
-    min-height: 78px;
-  }
-
-  .industries-list a {
-    min-height: 78px;
   }
 
   .credentials-section {
