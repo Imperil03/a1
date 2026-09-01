@@ -94,38 +94,6 @@
   color: var(--ink-900);
 }
 
-/* Temporary review markers: remove after the content iteration is approved. */
-
-.medical-review-badge {
-  display: inline-flex;
-  width: max-content;
-  min-height: 24px;
-  align-items: center;
-  margin-bottom: 12px;
-  padding: 4px 8px 3px;
-  border: 1px solid var(--brand-300);
-  border-radius: 999px;
-  color: var(--brand-700);
-  background: var(--brand-100);
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 750;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.medical-review-badge--dark {
-  border-color: rgb(255 255 255 / 24%);
-  color: var(--paper);
-  background: rgb(255 255 255 / 10%);
-}
-
-.medical-review-change {
-  background: linear-gradient(110deg, var(--brand-50), rgb(241 243 246 / 38%));
-  box-shadow: inset 3px 0 0 var(--brand-500);
-}
-
 /* Hero */
 
 .medical-hero {
@@ -339,10 +307,6 @@
   border-bottom: 1px solid var(--cream-200);
 }
 
-.medical-site__requirements article.medical-review-change {
-  padding-inline: 18px;
-}
-
 .medical-site__requirements article > span {
   color: var(--brand-600);
   font-family: var(--font-mono);
@@ -487,16 +451,6 @@
 
 .medical-stack__grid article:last-child {
   border-bottom: 0;
-}
-
-.medical-stack__grid article.medical-review-change {
-  background: linear-gradient(110deg, var(--brand-50), rgb(241 243 246 / 32%));
-}
-
-.medical-stack__review-title {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
 }
 
 .medical-stack__grid h3 {
@@ -849,10 +803,6 @@
   border-bottom: 1px solid var(--cream-200);
 }
 
-.medical-pricing__list > li.medical-review-change {
-  padding-inline: 24px;
-}
-
 .medical-pricing__list h3,
 .medical-pricing__list p {
   margin: 0;
@@ -1184,15 +1134,6 @@
     font-size: 16px;
   }
 
-  .medical-site__requirements article.medical-review-change {
-    padding-inline: 14px;
-  }
-
-  .medical-site__requirements .medical-review-badge {
-    grid-column: 2;
-    margin-bottom: 0;
-  }
-
   .medical-aggregators {
     padding-top: 24px;
   }
@@ -1315,10 +1256,6 @@
 
   .medical-stack__grid p {
     font-size: 16px;
-  }
-
-  .medical-pricing__list > li.medical-review-change {
-    padding-inline: 18px;
   }
 
   .medical-analytics__details {

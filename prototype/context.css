@@ -14,46 +14,6 @@
   display: block;
 }
 
-/* Temporary review markers: remove after this content iteration is approved. */
-
-.ads-review-panel {
-  position: relative;
-  padding: clamp(28px, 4vw, 48px);
-  border: 1px solid rgba(70, 90, 118, 0.28);
-  border-radius: 24px;
-  background: rgba(70, 90, 118, 0.055);
-  box-shadow: inset 4px 0 0 var(--brand-500);
-}
-
-.ads-review-badge,
-.ads-review-inline-badge {
-  display: inline-flex;
-  min-height: 28px;
-  align-items: center;
-  padding: 5px 11px;
-  border: 1px solid rgba(70, 90, 118, 0.34);
-  border-radius: 999px;
-  color: var(--brand-700);
-  background: rgba(255, 255, 255, 0.76);
-  font-size: 11px;
-  font-weight: 750;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.ads-review-badge {
-  margin-bottom: 22px;
-}
-
-.ads-review-inline-badge {
-  width: max-content;
-  min-height: 24px;
-  margin-bottom: 8px;
-  padding: 4px 9px;
-  font-size: 10px;
-}
-
 /* Yandex Direct evolution: editorial explanation followed by three actions. */
 
 .ads-evolution__panel .service-section-intro {
@@ -287,7 +247,7 @@
 
 /* Four advertising formats */
 
-.ads-formats__review .service-section-intro {
+.ads-formats__body .service-section-intro {
   margin-bottom: 38px;
 }
 
@@ -545,15 +505,6 @@
   line-height: 1.48;
 }
 
-.ads-scope .service-process__list > .ads-review-change {
-  border-color: rgba(70, 90, 118, 0.42);
-  box-shadow: inset 4px 0 0 var(--brand-500);
-}
-
-.ads-scope .ads-review-change summary {
-  background: rgba(70, 90, 118, 0.055);
-}
-
 .ads-process__guardrail {
   max-width: 78ch;
   margin-top: 24px !important;
@@ -578,12 +529,6 @@
   border-radius: 20px;
   background: var(--brand-50);
   box-shadow: inset 4px 0 0 var(--brand-500);
-}
-
-.ads-team-certification > .ads-review-badge {
-  grid-column: 1 / -1;
-  justify-self: start;
-  margin-bottom: 12px;
 }
 
 .ads-team-certification__marks {
@@ -719,15 +664,6 @@
 }
 
 @media (max-width: 767px) {
-  .ads-review-panel {
-    padding: 24px 20px;
-    border-radius: 18px;
-  }
-
-  .ads-review-badge {
-    margin-bottom: 18px;
-  }
-
   .ads-evolution__copy {
     padding-top: 22px;
   }
@@ -754,11 +690,6 @@
     grid-template-columns: 1fr;
     gap: 18px;
     padding: 24px 20px;
-  }
-
-  .ads-team-certification > .ads-review-badge {
-    grid-column: auto;
-    margin-bottom: 0;
   }
 
   .ads-team-certification__marks {

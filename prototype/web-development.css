@@ -1,25 +1,7 @@
-/* Web development service page: review markers and visual process cards. */
+/* Web development service page: process accordion and stage visuals. */
 
 .web-development-page .service-hero__copy {
   position: relative;
-}
-
-.web-review-badge {
-  display: inline-flex;
-  min-height: 26px;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 5px 11px;
-  border: 1px solid rgba(70, 90, 118, 0.3);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  color: var(--brand-700);
-  font-family: var(--font-display);
-  font-size: 10px;
-  font-weight: 650;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  text-transform: uppercase;
 }
 
 .web-process-section {
@@ -199,10 +181,6 @@
 }
 
 @media (max-width: 700px) {
-  .web-review-badge {
-    margin-bottom: 16px;
-  }
-
   .web-process-section .service-process__list {
     border-radius: 18px;
   }
