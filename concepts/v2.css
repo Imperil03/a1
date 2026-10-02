@@ -1,0 +1,25 @@
+.v2-intro{padding-bottom:38px}.v2-intro p{max-width:54ch}
+.gallery-section{margin:0 0 64px}
+.section-intro{margin-bottom:26px}
+.section-intro h2{font-size:clamp(24px,2.2vw,32px);font-weight:550;letter-spacing:-.025em;margin-bottom:10px}
+.section-intro p{max-width:80ch;color:var(--muted);font-size:15px}
+.v2-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 28px}
+.v2-grid .concept h2{font-size:24px;line-height:1.2;letter-spacing:-.025em;font-weight:600;margin-bottom:12px}
+.v2-grid .concept>p{min-height:0;margin-bottom:18px}
+.v2-grid .concept-meta{margin-top:18px}
+.v2-grid .open-link{min-height:48px}
+.v2-viewer[open]{display:flex;flex-direction:column}
+.v2-viewer .viewer-toolbar{flex:0 0 auto;flex-wrap:wrap}
+.v2-viewer .viewer-actions{flex-wrap:wrap}
+.v2-viewer .viewer-content{min-height:0;max-height:none;overflow:auto;flex:1 1 auto}
+.v2-viewer .viewer-content img{width:100%;max-width:none;height:auto;margin-inline:auto}
+.v2-viewer .viewer-content[data-zoom="true"] img{width:var(--image-width,1536px);margin:0}
+.v2-viewer .icon-button{width:44px;height:44px}
+.zoom-button{min-height:44px;padding:10px 14px;border:1px solid var(--line);background:#fff;color:var(--blue);font:inherit;font-size:13px;cursor:pointer}
+.zoom-button:hover{background:#edf2ff}
+.viewer-caption{flex:0 0 auto;padding:10px 20px;background:#fff;color:var(--muted);font-size:13px;line-height:1.5;border-top:1px solid var(--line)}
+.viewer-error{padding:32px;font-size:16px}
+[hidden]{display:none!important}
+@media(max-width:1050px){.v2-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.v2-viewer .viewer-toolbar>div:first-child{display:flex;max-width:100%}.v2-viewer .viewer-count{margin:0}.v2-viewer .viewer-actions{margin-left:auto}}
+@media(max-width:740px){.v2-grid{grid-template-columns:1fr;gap:36px}.gallery-section{margin-bottom:46px}.v2-intro{padding-bottom:32px}.section-intro{margin-bottom:22px}.v2-viewer{max-height:calc(100dvh - 16px)}.v2-viewer .viewer-toolbar{gap:12px}.v2-viewer .viewer-toolbar>div:first-child{max-width:100%;width:100%;gap:12px}.v2-viewer .viewer-actions{width:100%;margin-left:0;justify-content:flex-end;gap:6px}.v2-viewer .original-link{flex-basis:auto;text-align:left;margin:0 auto 0 0;min-height:44px;display:flex;align-items:center}.viewer-caption{padding:10px 12px;font-size:12px}.v2-viewer .viewer-content{max-height:none}.v2-grid .concept h2{font-size:25px}}
+

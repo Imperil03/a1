@@ -1,0 +1,37 @@
+{
+  "assets": [
+    {
+      "file": "concepts/assets/v2/connected-directions-v2.png",
+      "source": ".impeccable/mocks/decision/connected-directions-v2.png",
+      "type": "comp",
+      "sha256": "2ea57be61575065efff543182faa6de6eb5d87e13edd291331436ccb56cf9513",
+      "bytes": 1570748,
+      "width": 1536,
+      "height": 1024,
+      "idatSha256": "01a71e88bc68cba61986535ea1d85728cedbac6d22336d27bf341f88f241d4db",
+      "removedTextChunks": 1
+    },
+    {
+      "file": "concepts/assets/v2/project-album-v2.png",
+      "source": ".impeccable/mocks/decision/project-album-v2.png",
+      "type": "comp",
+      "sha256": "3a82109106d276e845957b4f65d3d85e2b1f60ce9ae3194219cee109a8acc3ac",
+      "bytes": 1380877,
+      "width": 1536,
+      "height": 1024,
+      "idatSha256": "816a8e71c3a4a9aafb2bbdcb1c159473f25d202a6b8e13cc5faa25393b1a2856",
+      "removedTextChunks": 1
+    },
+    {
+      "file": "concepts/assets/v2/spacious-studio-v2.png",
+      "source": ".impeccable/mocks/decision/spacious-studio-v2.png",
+      "type": "comp",
+      "sha256": "bee3346aa5732c96a3501e9b650eee9dcab1f903c14fa01b59d822b17f6a4139",
+      "bytes": 1144930,
+      "width": 1536,
+      "height": 1024,
+      "idatSha256": "7dbe49edaf7cf805056a9bb03e7f1bb00094c796b55ea8fd3f6809948abed4ad",
+      "removedTextChunks": 1
+    }
+  ]
+}
