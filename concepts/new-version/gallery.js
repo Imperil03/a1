@@ -147,7 +147,7 @@
   });
   dialog.addEventListener('close', () => {
     document.body.classList.remove('viewer-open');
-    if (/^#variant-0[4-9]$/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search);
+    if (variants.some(variant => location.hash === `#variant-${variant.number}`)) history.replaceState(null, '', location.pathname + location.search);
     returnFocus?.focus({ preventScroll: true });
   });
   dialog.addEventListener('keydown', event => {
