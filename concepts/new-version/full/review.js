@@ -22,7 +22,7 @@
     const url = new URL(location.href);
     if (phone) url.searchParams.set('view', 'mobile');
     else url.searchParams.delete('view');
-    if (phone) url.hash = '';
+    if (phone && !['#mobile-view', '#mobile-services', '#services-phone'].includes(url.hash)) url.hash = '';
     history.replaceState(null, '', url.pathname + url.search + url.hash);
     if (scroll) window.scrollTo({ top: 0, behavior: 'auto' });
   }
