@@ -1,0 +1,177 @@
+/* A separate study: fluid canvas, display typography, bounded reading measures. */
+.type-study {
+  --type-gutter: clamp(22px, 3.4vw, 96px);
+  --type-section-gap: clamp(80px, 8.5vw, 192px);
+  --type-display: clamp(40px, 8.8vw, 192px);
+  --type-heading: clamp(38px, 5.5vw, 112px);
+  --type-copy: clamp(19px, 1.4vw, 27px);
+}
+.type-study .site-header-inner,
+.type-study .hero-inner,
+.type-study .home-section > .section-inner,
+.type-study main > .services-lab > .svc-root,
+.type-study main > .system-demo > .system-inner,
+.type-study .footer-inner,
+.type-study .palette-bar-inner {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: var(--type-gutter);
+}
+.type-study .home-section > .section-inner,
+.type-study main > .services-lab > .svc-root,
+.type-study main > .system-demo > .system-inner { padding-block: var(--type-section-gap); }
+.type-study .study-toolbar { padding-inline: var(--type-gutter); }
+.type-study .home-hero--flow .hero-inner { padding-top: clamp(32px, 3.4vw, 64px); }
+.type-study .home-hero--flow .hero-layout { grid-template-columns: minmax(0, 1fr); padding-bottom: 56px; }
+.type-study .hero-title { grid-column: 1; grid-row: 1; }
+.type-study .hero-title h1 {
+  max-width: none;
+  font-size: var(--type-display);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -.04em;
+  text-wrap: initial;
+}
+.type-study .hero-title h1 .type-line { display: block; color: var(--ink); }
+.type-study .hero-title h1 .type-line--accent { color: var(--action); }
+.type-study .hero-visual { grid-column: 1; grid-row: 2; height: 300px; margin: 32px 0 40px; min-height: 0; }
+.type-study .home-hero--flow .hero-copy { grid-column: 1; grid-row: 3; max-width: 62ch; margin: 0; }
+.type-study .home-hero--flow .hero-category { font-size: 15px; margin-bottom: 20px; }
+.type-study .home-hero--flow .hero-description { font-size: var(--type-copy); max-width: 58ch; line-height: 1.5; }
+.type-study .home-hero--flow .hero-actions { margin-top: 36px; gap: 16px; }
+.type-study .home-hero--flow .hero-actions .button { font-size: 18px; min-height: 60px; padding-inline: 28px; }
+.type-study .home-hero--flow .hero-facts { grid-column: 1; grid-row: 4; margin: 64px 0 0; }
+.type-study .home-hero--flow .hero-facts dt { font-size: clamp(30px, 2.8vw, 58px); font-weight: 500; }
+.type-study .home-hero--flow .hero-facts dd { font-size: clamp(15px, 1.05vw, 21px); }
+.type-study .home-hero--flow .hero-direction { font-size: clamp(19px, 1.5vw, 30px); font-weight: 500; min-height: 110px; }
+.type-study .section-heading,
+.type-study .svc-heading { grid-template-columns: 1.14fr 1fr; gap: clamp(40px, 6vw, 128px); margin-bottom: clamp(56px, 5vw, 112px); align-items: start; }
+.type-study .home-section h2,
+.type-study .svc-root .svc-heading h2 {
+  font-size: var(--type-heading);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.type-study .section-heading p,
+.type-study .svc-heading p { max-width: 53ch; font-size: var(--type-copy); line-height: 1.55; }
+.type-study .case-grid { gap: clamp(20px, 1.7vw, 44px); }
+.type-study .case-tile { min-height: clamp(420px, 32vw, 700px); padding: clamp(28px, 2.8vw, 60px); }
+.type-study .case-tile h3 { font-size: clamp(27px, 2.05vw, 44px); font-weight: 500; line-height: 1.2; letter-spacing: -.025em; }
+.type-study .case-result { margin-top: clamp(40px, 4vw, 88px); }
+.type-study .case-result strong { font-size: clamp(54px, 4.8vw, 106px); font-weight: 550; }
+.type-study .case-result > span { font-size: clamp(17px, 1.25vw, 26px); }
+.type-study .case-tags span { font-size: clamp(13px, .95vw, 19px); }
+.type-study .case-art { width: min(49%, 470px); }
+.type-study .case-0 .case-art,
+.type-study .case-5 .case-art { width: min(43%, 620px); }
+.type-study .case-more { font-size: clamp(28px, 2.7vw, 60px); }
+.type-study .svc-item summary { padding: clamp(30px, 3vw, 64px) 24px; }
+.type-study .svc-title { font-size: clamp(28px, 3.4vw, 72px); font-weight: 500; line-height: 1.12; letter-spacing: -.035em; }
+.type-study .svc-price strong { font-size: clamp(20px, 1.7vw, 34px); }
+.type-study .svc-price > span { font-size: 14px; }
+.type-study .svc-description { font-size: var(--type-copy); max-width: 58ch; line-height: 1.6; }
+.type-study .svc-tags { font-size: clamp(16px, 1.2vw, 23px); }
+.type-study .svc-body { padding-bottom: clamp(44px, 4vw, 88px); }
+.type-study .svc-additional { margin-top: clamp(64px, 7vw, 140px); }
+.type-study .svc-root .svc-additional > h3 { font-size: clamp(28px, 2.5vw, 50px); font-weight: 500; margin-bottom: 36px; }
+.type-study .svc-additional li { font-size: clamp(20px, 1.7vw, 32px); min-height: 104px; }
+.type-study .system-heading { display: block; margin-bottom: clamp(72px, 6vw, 128px); }
+.type-study .system-heading h2 { font-size: clamp(38px, 5.2vw, 112px); font-weight: 500; line-height: 1.07; letter-spacing: -.035em; max-width: 28ch; text-wrap: balance; }
+.type-study .system-heading > p { margin: 48px 0 0 auto; max-width: 54ch; font-size: var(--type-copy); line-height: 1.55; }
+.type-study .system-flow { gap: clamp(40px, 4vw, 88px); }
+.type-study .system-step h3 { font-size: clamp(25px, 2.2vw, 46px); font-weight: 500; line-height: 1.2; letter-spacing: -.02em; }
+.type-study .system-step p { font-size: clamp(19px, 1.35vw, 26px); max-width: 40ch; }
+.type-study .system-outcome { padding: clamp(36px, 4vw, 88px) clamp(96px, 10vw, 200px) clamp(40px, 4vw, 88px) clamp(36px, 4vw, 88px); }
+.type-study .system-outcome h3 { font-size: clamp(34px, 3.9vw, 82px); max-width: 30ch; line-height: 1.1; font-weight: 500; letter-spacing: -.03em; }
+.type-study .system-outcome p { font-size: var(--type-copy); max-width: 58ch; margin-top: 32px; }
+.type-study .benefit-layout { gap: clamp(40px, 5vw, 112px); }
+.type-study .benefit-proof { padding: clamp(32px, 3vw, 68px); }
+.type-study .benefit-proof h3 { font-size: clamp(36px, 3.5vw, 72px); font-weight: 500; }
+.type-study .benefit-proof p,
+.type-study .benefit-reason p,
+.type-study .process-grid p { font-size: clamp(19px, 1.35vw, 26px); line-height: 1.6; }
+.type-study .benefit-reasons { gap: clamp(44px, 4vw, 88px); }
+.type-study .benefit-reason h3,
+.type-study .process-grid h3 { font-size: clamp(27px, 2.4vw, 48px); font-weight: 500; line-height: 1.2; letter-spacing: -.025em; }
+.type-study .process-grid { gap: clamp(44px, 5vw, 104px); }
+.type-study .people-grid strong { font-size: clamp(22px, 1.8vw, 36px); font-weight: 550; }
+.type-study .people-grid figcaption span { font-size: clamp(16px, 1.15vw, 23px); }
+.type-study .director-quote { padding: clamp(32px, 4vw, 80px); gap: clamp(36px, 6vw, 128px); grid-template-columns: minmax(220px, .55fr) minmax(0, 1.45fr); margin-top: clamp(64px, 8vw, 160px); }
+.type-study .director-quote > img { width: 100%; }
+.type-study .director-quote blockquote { font-size: clamp(30px, 3.15vw, 66px); line-height: 1.25; letter-spacing: -.025em; font-weight: 400; }
+.type-study .director-quote figcaption { margin-top: 40px; }
+.type-study .credentials-section h3 { font-size: clamp(25px, 2vw, 42px); font-weight: 500; }
+.type-study .credential-grid li { min-height: 230px; }
+.type-study .credential-grid strong { font-size: clamp(18px, 1.35vw, 27px); }
+.type-study .credential-grid span { font-size: clamp(16px, 1.1vw, 22px); }
+.type-study .review-card { padding: clamp(28px, 3vw, 64px); }
+.type-study .review-card blockquote { font-size: clamp(21px, 1.7vw, 34px); line-height: 1.5; }
+.type-study .review-card footer strong { font-size: clamp(17px, 1.25vw, 25px); }
+.type-study .review-card footer small { font-size: clamp(15px, 1vw, 20px); }
+.type-study .faq-section > .section-inner { grid-template-columns: .75fr 1.25fr; gap: clamp(44px, 7vw, 144px); }
+.type-study .faq-list summary { font-size: clamp(24px, 2vw, 42px); line-height: 1.3; padding-block: 30px; font-weight: 500; }
+.type-study .faq-answer { font-size: var(--type-copy); max-width: 60ch; }
+.type-study .contact-panel h2 { font-size: clamp(64px, 8vw, 168px); font-weight: 500; letter-spacing: -.04em; line-height: 1.02; }
+.type-study .contact-copy { font-size: var(--type-copy); line-height: 1.5; max-width: 48ch; margin-top: 40px; }
+.type-study .contact-actions { margin-top: 36px; }
+.type-study .footer-inner { padding-top: clamp(64px, 6vw, 128px); }
+.type-study .footer-email { font-size: clamp(32px, 4.1vw, 88px); letter-spacing: -.035em; }
+.type-study .footer-columns { font-size: clamp(17px, 1.2vw, 24px); }
+.type-study .footer-columns h2 { font-size: clamp(21px, 1.8vw, 34px); }
+@media (min-width: 1000px) {
+  .type-study .home-hero--flow .hero-layout { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 6%; padding-bottom: clamp(64px, 5vw, 128px); }
+  .type-study .hero-title { grid-column: 1 / -1; grid-row: 1; }
+  .type-study .hero-title h1 .type-line { white-space: nowrap; }
+  .type-study .home-hero--flow .hero-copy { grid-column: 1; grid-row: 2; margin-top: clamp(48px, 4vw, 96px); }
+  .type-study .hero-visual { grid-column: 2; grid-row: 2 / 4; height: 100%; min-height: 0; margin: clamp(-96px, -5vw, -48px) calc(-1 * var(--type-gutter)) -36px 0; }
+  .type-study .hero-visual-motion { inset: 0; }
+  .type-study .hero-sculpture { max-width: 680px; margin-inline: auto; }
+  .type-study .home-hero--flow .hero-facts { grid-column: 1; grid-row: 3; margin-top: clamp(48px, 4vw, 88px); }
+  .type-study .home-hero--flow .hero-direction { padding-block: 32px; }
+}
+@media (min-width: 1700px) {
+  .type-study .site-navigation { font-size: 16px; gap: 32px; }
+  .type-study .header-cta { font-size: 17px; }
+}
+@media (max-width: 999px) {
+  .type-study .section-heading,
+  .type-study .svc-heading { grid-template-columns: 1fr; gap: 32px; }
+  .type-study .section-heading p,
+  .type-study .svc-heading p { max-width: 62ch; }
+  .type-study .system-heading > p { margin: 32px 0 0; }
+  .type-study .director-quote { grid-template-columns: 190px minmax(0, 1fr); }
+  .type-study .faq-section > .section-inner { grid-template-columns: 1fr; gap: 40px; }
+  .type-study .case-tile { min-height: 400px; }
+}
+@media (max-width: 700px) {
+  .type-study { --type-heading: clamp(38px, 8vw, 52px); --type-copy: 19px; }
+  .type-study .hero-title h1 { font-size: clamp(39px, 9.8vw, 62px); line-height: 1.06; }
+  .type-study .home-hero--flow .hero-actions { display: grid; grid-template-columns: 1fr; }
+  .type-study .home-hero--flow .hero-direction { min-height: 88px; font-size: 20px; }
+  .type-study .case-tile h3 { font-size: 27px; }
+  .type-study .case-result strong { font-size: 56px; }
+  .type-study .svc-item summary { padding: 28px 8px; }
+  .type-study .svc-title { font-size: 28px; line-height: 1.2; }
+  .type-study .svc-price strong { font-size: 19px; }
+  .type-study .svc-body { padding-inline: 8px; }
+  .type-study .svc-additional li { min-height: 90px; }
+  .type-study .system-heading h2 { font-size: 40px; line-height: 1.1; }
+  .type-study .system-step h3 { font-size: 26px; }
+  .type-study .system-outcome { padding: 32px 26px; }
+  .type-study .system-outcome h3 { font-size: 34px; }
+  .type-study .system-outcome p { font-size: 19px; }
+  .type-study .benefit-proof { display: block; }
+  .type-study .benefit-proof h3 { margin-bottom: 24px; }
+  .type-study .director-quote { grid-template-columns: 1fr; padding: 28px; }
+  .type-study .director-quote > img { width: 160px; }
+  .type-study .director-quote blockquote { font-size: 30px; }
+  .type-study .credential-grid { grid-template-columns: 1fr; }
+  .type-study .credential-grid li { min-height: 140px; }
+  .type-study .review-card blockquote { font-size: 22px; }
+  .type-study .faq-list summary { font-size: 24px; }
+  .type-study .contact-panel h2 { font-size: clamp(55px, 12vw, 80px); }
+  .type-study .footer-email { font-size: clamp(28px, 7.6vw, 46px); }
+}
