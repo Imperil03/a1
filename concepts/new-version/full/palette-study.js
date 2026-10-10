@@ -2,9 +2,10 @@
   'use strict';
   const bar = document.querySelector('.palette-bar');
   if (!bar) return;
-  const choices = new Set(['neutral', 'warm', 'mint', 'original']);
+  const choices = new Set(['neutral', 'warm', 'original']);
   const url = new URL(location.href);
-  const initial = url.searchParams.get('surface');
+  const requested = url.searchParams.get('surface');
+  const initial = requested === 'mint' ? 'original' : requested;
   if (!choices.has(initial)) return;
   const root = document.documentElement;
   root.dataset.palettePreview = '';
