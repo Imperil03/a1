@@ -38,6 +38,7 @@
     player.style.setProperty('--reel-radius', `${(20 * (1 - eased)).toFixed(2)}px`);
     stage.dataset.reelProgress = p.toFixed(3);
     stage.style.setProperty('--reel-proof-opacity', String(Math.max(0, 1 - Math.max(0, p - .12) / .32)));
+    stage.toggleAttribute('data-expanded', p >= .44);
     stage.toggleAttribute('data-settled', p === 0 || p === 1 || reduced.matches);
   }
   function queue() { if (!frame) frame = requestAnimationFrame(paint); }
