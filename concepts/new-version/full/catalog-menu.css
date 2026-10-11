@@ -36,10 +36,10 @@
 .catalog-menu:not([data-enhanced]) .catalog-feature { display: none; }
 .catalog-menu:not([data-enhanced]) .catalog-panel + .catalog-panel { margin-top: 48px; }
 @media (min-width: 760px) {
-  .type-study .services-drop.catalog-menu { display: grid; grid-template-columns: clamp(250px, 23vw, 320px) minmax(0, 1fr); width: min(1480px, 88vw); left: 50%; right: auto; top: calc(100% - 4px); transform: translateX(-50%); min-height: 0; max-height: var(--catalog-available, calc(100svh - 250px)); overflow: auto; overscroll-behavior: contain; border: 0; border-radius: 18px; box-shadow: 0 22px 56px rgb(41 21 55 / .14); }
+  .type-study .services-drop.catalog-menu { --catalog-inset: clamp(24px, 2.2vw, 36px); display: grid; grid-template-columns: clamp(280px, 23vw, 340px) minmax(0, 1fr); width: min(1480px, 88vw); left: 50%; right: auto; top: calc(100% - 4px); transform: translateX(-50%); min-height: 0; max-height: var(--catalog-available, calc(100svh - 250px)); overflow: auto; overscroll-behavior: contain; border: 0; border-radius: 18px; box-shadow: 0 22px 56px rgb(41 21 55 / .14); }
   .catalog-menu .catalog-rail { padding: 24px 0; background: #f7f7f6; }
-  .catalog-menu .catalog-label { padding-inline: 26px; }
-  .catalog-menu .catalog-tab { padding: 8px 12px 8px 16px; min-height: 48px; grid-template-columns: 16px minmax(0, 1fr) 16px; gap: 6px; }
+  .catalog-menu .catalog-label { padding-inline: var(--catalog-inset); }
+  .catalog-menu .catalog-tab { padding: 8px 24px 8px var(--catalog-inset); min-height: 48px; grid-template-columns: 18px minmax(0, 1fr) 18px; gap: 10px; }
   .catalog-menu .catalog-content { min-width: 0; padding: 32px; }
   .catalog-menu .catalog-links { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(var(--catalog-link-rows, 1), minmax(48px, auto)); grid-auto-flow: column; gap: 2px 40px; margin-top: 32px; }
   .catalog-menu .catalog-links::after { content: ''; position: absolute; width: 1px; left: 50%; top: 7px; bottom: 7px; background: #e7e5e7; }
@@ -54,11 +54,10 @@
 }
 @media (min-width: 1100px) and (min-height: 851px) { .catalog-menu .catalog-title { font-size: 44px; } }
 @media (min-width: 1536px) and (min-height: 851px) {
-  .type-study .services-drop.catalog-menu { grid-template-columns: 300px minmax(0, 1fr) 380px; }
+  .type-study .services-drop.catalog-menu { grid-template-columns: 340px minmax(0, 1fr) 380px; }
   .catalog-menu .catalog-title { font-size: 44px; }
   .catalog-feature { display: block; align-self: start; margin: 32px 28px 32px 0; overflow: hidden; border-radius: 16px; background: #f2f2f1; }
-  .catalog-feature-title { display: block; box-sizing: content-box; min-height: 3.45em; padding: 24px 24px 16px; font-size: 30px; font-weight: 600; line-height: 1.15; letter-spacing: -.025em; text-wrap: balance; }
-  .catalog-feature img { display: block; width: 100%; height: auto; aspect-ratio: 1.15; object-fit: cover; object-position: 50% 48%; mask-image: linear-gradient(to bottom, transparent, #000 24px); }
+  .catalog-feature img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; }
   .catalog-case-link { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; min-height: 62px; font-size: 17px; color: #b83a08; background: #f8f8f7; }
   .catalog-case-link:hover { color: #842b08; text-decoration: underline; text-underline-offset: 5px; }
   .catalog-case-link svg { width: 20px; height: 20px; }
@@ -69,8 +68,8 @@
 }
 @media (min-width: 760px) and (max-height: 850px) {
   .catalog-menu .catalog-rail { padding: 16px 0; }
-  .catalog-menu .catalog-tab { min-height: 48px; padding: 7px 18px; font-size: 18px; }
-  .catalog-menu .catalog-label { margin-bottom: 8px; font-size: 14px; padding-inline: 18px; }
+  .catalog-menu .catalog-tab { min-height: 48px; padding-block: 7px; font-size: 18px; }
+  .catalog-menu .catalog-label { margin-bottom: 8px; font-size: 14px; }
   .catalog-menu .catalog-content { padding: 24px; }
   .catalog-menu .catalog-title { font-size: 34px; }
   .catalog-menu .catalog-description { font-size: 16px; }
