@@ -97,6 +97,7 @@
   const panels = [...catalog.querySelectorAll('[data-catalog-panel]')];
   const tabList = catalog.querySelector('.catalog-tabs');
   const panelList = catalog.querySelector('.catalog-panels');
+  const featureImage = catalog.querySelector('[data-catalog-art]');
   let selected = tabs[0].dataset.catalogTab;
   let mobileOpen = null;
   let switchTimer;
@@ -121,6 +122,7 @@
         panel.removeAttribute('tabindex');
       }
       panel.hidden = !active;
+      if (active && featureImage && featureImage.getAttribute('src') !== panel.dataset.menuArt) featureImage.src = panel.dataset.menuArt;
     });
   }
   function select(tab) {
@@ -169,6 +171,11 @@
   });
   panels.forEach((panel, index) => panel.addEventListener('keydown', event => {
     if (desktop.matches && event.key === 'ArrowLeft') { event.preventDefault(); tabs[index].focus(); }
+  }));
+  document.querySelectorAll('.site-header a[href]').forEach(link => link.addEventListener('click', () => {
+    pops.forEach(pop => { cancelClose(pop); pop.open = false; });
+    document.querySelector('#site-nav').classList.remove('is-open');
+    document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
   }));
   desktop.addEventListener('change', adapt);
   hover.addEventListener('change', fitMenu);

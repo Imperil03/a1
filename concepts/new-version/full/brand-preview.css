@@ -1,44 +1,10 @@
-/* The supplied PNG is unchanged. These windows remove only its transparent margins. */
+/* The source art has intrinsic boundaries; rendered images stay at 100%. */
 .type-study .brand-preview { position: relative; gap: 8px; }
-.type-study .brand-preview .brand-art {
-  display: block;
-  position: relative;
-  width: clamp(200px, 12.5vw, 240px);
-  aspect-ratio: 1823 / 430;
-  overflow: hidden;
-  flex: 0 0 auto;
-}
-.type-study .brand-preview .brand-art img {
-  position: absolute;
-  display: block;
-  width: 119.1443%;
-  max-width: none;
-  height: auto;
-  left: -11.4098%;
-  top: -34.6512%;
-}
-.type-study .brand-preview .brand-wordmark-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
+.type-study .brand-preview .brand-art { display: block; width: clamp(160px, 10vw, 190px); flex: 0 0 auto; }
+.type-study .brand-preview .brand-art img { display: block; position: static; width: 100%; max-width: 100%; height: auto; }
+.type-study .brand-preview .brand-wordmark-text { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (max-width: 759px) {
-  .type-study .site-header .brand-preview .brand-art { width: 54px; aspect-ratio: 696 / 430; }
-  .type-study .site-header .brand-preview .brand-art img { width: 312.069%; left: -29.8851%; }
-  .type-study .site-header .brand-preview .brand-wordmark-text {
-    position: static;
-    width: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    clip-path: none;
-    font: 650 15px/1.08 Onest, sans-serif;
-    letter-spacing: -.025em;
-  }
+  .type-study .site-header .brand-preview .brand-art { width: 48px; }
+  .type-study .site-header .brand-preview .brand-wordmark-text { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip-path: none; font: 650 14px/1.08 Onest, sans-serif; letter-spacing: -.025em; }
   .type-study .site-header .brand-wordmark-text > strong { display: none; }
 }
