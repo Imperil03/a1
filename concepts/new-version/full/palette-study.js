@@ -4,7 +4,7 @@
   if (!bar) return;
   const choices = new Set(['neutral', 'warm', 'original']);
   const url = new URL(location.href);
-  const requested = url.searchParams.get('surface');
+  const requested = url.searchParams.get('surface') || document.documentElement.dataset.defaultSurface;
   const initial = requested === 'mint' ? 'original' : requested;
   if (!choices.has(initial)) return;
   const root = document.documentElement;

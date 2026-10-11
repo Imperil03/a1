@@ -1,0 +1,35 @@
+/* The selected typography study uses warm stone as its default surface palette. */
+:root[data-surface=warm] {
+  --hero-surface: linear-gradient(90deg, #fcfbf9 18%, #e8e5e0 100%);
+  --paper: #fcfbf9;
+  --surface-panel: #f0eeea;
+  --surface-canvas: #f8f7f5;
+  --surface-strong: #e8e5e0;
+  --surface-line: #dad6cf;
+  --surface-muted: #625e58;
+  --surface-icon: #756b5f;
+  --surface-control: #91897f;
+  background: var(--paper);
+}
+:root[data-surface=neutral] {
+  --hero-surface: linear-gradient(90deg, #fafaf9 18%, #e6e7e9 100%);
+  --paper: #fafaf9;
+}
+:root[data-surface] .home-hero--flow { --hero-border: var(--surface-line); }
+:root[data-surface] .type-study .home-hero--flow .hero-title .hero-category,
+:root[data-surface] .home-hero--flow .hero-description,
+:root[data-surface] .home-hero--flow .hero-facts dd,
+:root[data-surface] .benefit-proof p { color: var(--surface-muted); }
+:root[data-surface] .hero-direction:hover,
+:root[data-surface] .button-outline:hover,
+:root[data-surface] .company-drop a:hover,
+:root[data-surface] .city-choice button:hover,
+:root[data-surface] .svc-item summary:hover { background: var(--surface-panel); }
+:root[data-surface] .benefit-proof { background: var(--surface-panel); }
+:root[data-surface] .credentials-section { background: var(--paper); }
+:root[data-surface] .svc-item[open] { background: var(--surface-canvas); }
+:root[data-surface] .svc-destination:hover,
+:root[data-surface] .showreel-control:hover { background: var(--surface-strong); }
+:root[data-surface] .showreel-control { border-color: var(--surface-line); background: var(--paper); }
+:root[data-surface] .type-study .menu-toggle { border-color: var(--surface-line); background: var(--paper); }
+.type-study .swatch-warm { background: #e8e5e0; }
