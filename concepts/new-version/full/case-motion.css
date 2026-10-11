@@ -1,0 +1,17 @@
+/* One moving cover; the case copy and the rest of the gallery stay still. */
+.case-motion-card { position: relative; min-width: 0; grid-column: span 2; }
+.case-motion-card > .case-tile { height: 100%; }
+.type-study .case-motion-card .case-art { background-image: url('assets/case-growth-poster.webp'); background-size: 100% 100%; background-position: center; }
+.case-growth-video { display: block; width: 100%; height: 100%; position: absolute; inset: 0; object-fit: contain; opacity: 0; transition: opacity 180ms ease-out; mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent), linear-gradient(to bottom, transparent, #000 12px, #000 calc(100% - 12px), transparent); mask-composite: intersect; }
+.case-motion-card.is-ready .case-art { background-image: none; }
+.case-motion-card.is-ready .case-growth-video { opacity: 1; }
+.case-motion-control { position: absolute; z-index: 4; right: 24px; bottom: 24px; display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; color: #291537; background: rgb(255 255 255 / .82); border: 1px solid rgb(41 21 55 / .16); border-radius: 50%; cursor: pointer; }
+.case-motion-control[hidden] { display: none; }
+.case-motion-control:hover { background: #fff; }
+.case-motion-control:focus-visible { outline: 2px solid #9c370b; outline-offset: 4px; }
+.case-motion-control svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.case-motion-control .case-motion-pause { display: none; }
+.case-motion-card.is-playing .case-motion-pause { display: block; }
+.case-motion-card.is-playing .case-motion-play { display: none; }
+@media (max-width: 520px) { .case-motion-card { grid-column: auto; } .case-motion-control { right: 16px; bottom: 16px; } }
+@media (prefers-reduced-motion: reduce) { .case-growth-video { transition: none; } }
