@@ -1,0 +1,54 @@
+.showreel-stage { position: relative; width: 100%; isolation: isolate; overflow: clip; background: var(--hero-surface); }
+.type-study .hero-reel-slot { grid-column: 1; grid-row: 3; width: 100%; aspect-ratio: 16 / 9; align-self: start; margin: 40px 0 16px; }
+.showreel-player { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: #f45b16; transform-origin: 0 0; }
+.showreel-player video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.showreel-player video:focus-visible { outline: 3px solid #291537; outline-offset: -4px; }
+.showreel-runway { display: none; flex: 0 0 auto; }
+.showreel-stage[data-enhanced] .hero-facts { opacity: var(--reel-proof-opacity, 1); }
+.showreel-stage[data-enhanced] .showreel-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: var(--reel-width);
+  height: var(--reel-height);
+  aspect-ratio: auto;
+  border-radius: calc(var(--reel-radius, 20px) * var(--reel-inverse, 1));
+  transform: translate3d(var(--reel-x), var(--reel-y), 0) scale(var(--reel-scale, 1));
+  will-change: transform;
+}
+.showreel-stage[data-enhanced] .showreel-runway { display: block; height: calc(var(--reel-height) + 80px); }
+.showreel-stage[data-reduced] .showreel-runway { display: none; }
+.showreel-stage[data-settled] .showreel-player { will-change: auto; }
+.showreel-control {
+  position: absolute;
+  right: calc(16px * var(--reel-inverse, 1));
+  bottom: calc(16px * var(--reel-inverse, 1));
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid #e9d8c9;
+  border-radius: 50%;
+  background: #fffdf9;
+  color: #291537;
+  transform: scale(var(--reel-inverse, 1));
+  transform-origin: right bottom;
+}
+.showreel-control[hidden] { display: none; }
+.showreel-control:hover { background: #ffe5cb; }
+.showreel-control:focus-visible { outline: 3px solid #291537; outline-offset: 4px; }
+.showreel-control svg { width: 22px; height: 22px; stroke-width: 2.2; }
+.showreel-control .reel-pause { display: none; }
+.showreel-player[data-playing] .showreel-control .reel-play { display: none; }
+.showreel-player[data-playing] .showreel-control .reel-pause { display: block; }
+@media(min-width: 1000px) {
+  .type-study .hero-reel-slot { grid-column: 2; grid-row: 2 / 4; margin: clamp(-104px, -6vw, -64px) 0 0; max-width: 640px; justify-self: end; }
+}
+@media(max-width: 700px) {
+  .showreel-control { width: 44px; height: 44px; right: calc(12px * var(--reel-inverse, 1)); bottom: calc(12px * var(--reel-inverse, 1)); }
+}
+@media(prefers-reduced-motion: reduce) {
+  .showreel-stage .showreel-player { will-change: auto; }
+}
