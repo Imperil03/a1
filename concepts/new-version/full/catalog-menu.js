@@ -98,6 +98,7 @@
   const tabList = catalog.querySelector('.catalog-tabs');
   const panelList = catalog.querySelector('.catalog-panels');
   const featureImage = catalog.querySelector('[data-catalog-art]');
+  const featureHeadline = catalog.querySelector('[data-catalog-headline]');
   let selected = tabs[0].dataset.catalogTab;
   let mobileOpen = null;
   let switchTimer;
@@ -122,7 +123,10 @@
         panel.removeAttribute('tabindex');
       }
       panel.hidden = !active;
-      if (active && featureImage && featureImage.getAttribute('src') !== panel.dataset.menuArt) featureImage.src = panel.dataset.menuArt;
+      if (active) {
+        if (featureImage && featureImage.getAttribute('src') !== panel.dataset.menuArt) featureImage.src = panel.dataset.menuArt;
+        if (featureHeadline && featureHeadline.textContent !== panel.dataset.menuHeadline) featureHeadline.textContent = panel.dataset.menuHeadline;
+      }
     });
   }
   function select(tab) {
