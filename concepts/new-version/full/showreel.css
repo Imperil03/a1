@@ -1,6 +1,7 @@
 .showreel-stage { position: relative; width: 100%; isolation: isolate; overflow: clip; background: var(--hero-surface); }
 .type-study .hero-reel-slot { grid-column: 1; grid-row: 3; width: 100%; aspect-ratio: 16 / 9; align-self: start; margin: 40px 0 16px; }
-.showreel-player { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: #f45b16; transform-origin: 0 0; }
+.showreel-player { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: #e8e8e5; transform-origin: 0 0; }
+.type-study .showreel-stage .hero-title .hero-statement { font-weight: 700; }
 .showreel-player video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .showreel-player video:focus-visible { outline: 3px solid #291537; outline-offset: -4px; }
 .showreel-runway { display: none; flex: 0 0 auto; }
