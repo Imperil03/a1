@@ -1,6 +1,6 @@
 /* The selected typography study uses warm stone as its default surface palette. */
 :root[data-surface=warm] {
-  --hero-surface: linear-gradient(90deg, #fcfbf9 18%, #e8e5e0 100%);
+  --hero-surface: linear-gradient(90deg, #fff 0%, #fff 40%, #f1eeea 70%, #e3dfd9 100%);
   --paper: #fcfbf9;
   --surface-panel: #f0eeea;
   --surface-canvas: #f8f7f5;
