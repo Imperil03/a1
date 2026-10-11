@@ -2,6 +2,7 @@
 .type-study .hero-reel-slot { grid-column: 1; grid-row: 3; width: 100%; aspect-ratio: 16 / 9; align-self: start; margin: 40px 0 16px; }
 .showreel-player { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: #e8e8e5; transform-origin: 0 0; }
 .type-study .showreel-stage .hero-title .hero-statement { font-weight: 700; }
+.type-study .home-hero--flow .hero-facts { margin-top: clamp(64px, 8svh, 96px); }
 .showreel-player video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .showreel-player video:focus-visible { outline: 3px solid #291537; outline-offset: -4px; }
 .showreel-runway { display: none; flex: 0 0 auto; }
@@ -46,6 +47,7 @@
 .showreel-player[data-playing] .showreel-control .reel-pause { display: block; }
 @media(min-width: 1000px) {
   .type-study .hero-reel-slot { grid-column: 2; grid-row: 2 / 4; margin: clamp(-104px, -6vw, -64px) 0 0; max-width: 640px; justify-self: end; }
+  .type-study .home-hero--flow .hero-facts { margin-top: clamp(120px, 13svh, 192px); }
 }
 @media(min-width: 1200px) {
   .type-study .showreel-stage .hero-layout { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); column-gap: 5%; }

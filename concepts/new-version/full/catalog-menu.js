@@ -1,0 +1,146 @@
+(() => {
+  'use strict';
+  const catalog = document.querySelector('.catalog-menu');
+  if (!catalog) return;
+  const desktop = matchMedia('(min-width: 760px)');
+  const hover = matchMedia('(min-width: 760px) and (hover: hover) and (pointer: fine)');
+  const pops = [...document.querySelectorAll('.site-header .nav-pop')];
+  const states = new Map(pops.map(pop => [pop, { timer: 0, suppressed: false }]));
+
+  function fitMenu() {
+    if (desktop.matches && catalog.closest('details').open) {
+      catalog.style.setProperty('--catalog-available', `${Math.max(180, innerHeight - catalog.getBoundingClientRect().top - 16)}px`);
+    }
+  }
+  function cancelClose(pop) { clearTimeout(states.get(pop).timer); }
+  function open(pop) {
+    cancelClose(pop);
+    pops.forEach(other => { if (other !== pop) { cancelClose(other); other.open = false; } });
+    pop.open = true;
+    fitMenu();
+  }
+  function scheduleClose(pop) {
+    cancelClose(pop);
+    states.get(pop).timer = setTimeout(() => {
+      if (!pop.matches(':hover') && !pop.contains(document.activeElement)) pop.open = false;
+    }, 220);
+  }
+  pops.forEach(pop => {
+    const summary = pop.querySelector(':scope > summary');
+    pop.addEventListener('pointerenter', () => {
+      if (hover.matches && !states.get(pop).suppressed) open(pop);
+    });
+    pop.addEventListener('pointerleave', () => {
+      states.get(pop).suppressed = false;
+      if (hover.matches) scheduleClose(pop);
+    });
+    pop.addEventListener('focusin', () => cancelClose(pop));
+    pop.addEventListener('focusout', () => scheduleClose(pop));
+    pop.addEventListener('toggle', () => { if (pop.open) fitMenu(); });
+    summary.addEventListener('click', event => {
+      if (hover.matches && event.detail > 0) { event.preventDefault(); open(pop); }
+    });
+    summary.addEventListener('keydown', event => {
+      if (event.key !== 'ArrowDown') return;
+      event.preventDefault();
+      open(pop);
+      const first = pop.querySelector('.catalog-tab[aria-selected=true], .catalog-tab, .company-drop a');
+      first?.focus();
+    });
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const pop = pops.find(item => item.open);
+    if (!pop) return;
+    cancelClose(pop);
+    states.get(pop).suppressed = true;
+    const restore = pop.contains(document.activeElement);
+    pop.open = false;
+    if (restore) {
+      event.preventDefault();
+      event.stopPropagation();
+      pop.querySelector(':scope > summary').focus();
+    }
+  }, true);
+
+  const tabs = [...catalog.querySelectorAll('[data-catalog-tab]')];
+  const panels = [...catalog.querySelectorAll('[data-catalog-panel]')];
+  const tabList = catalog.querySelector('.catalog-tabs');
+  const panelList = catalog.querySelector('.catalog-panels');
+  let selected = tabs[0].dataset.catalogTab;
+  let mobileOpen = null;
+  let switchTimer;
+
+  function render() {
+    tabs.forEach((tab, i) => {
+      const active = tab.dataset.catalogTab === (desktop.matches ? selected : mobileOpen);
+      const panel = panels[i];
+      if (desktop.matches) {
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-selected', String(active));
+        tab.removeAttribute('aria-expanded');
+        tab.tabIndex = active ? 0 : -1;
+        panel.setAttribute('role', 'tabpanel');
+        panel.tabIndex = 0;
+      } else {
+        tab.removeAttribute('role');
+        tab.removeAttribute('aria-selected');
+        tab.removeAttribute('tabindex');
+        tab.setAttribute('aria-expanded', String(active));
+        panel.setAttribute('role', 'region');
+        panel.removeAttribute('tabindex');
+      }
+      panel.hidden = !active;
+    });
+  }
+  function select(tab) {
+    selected = tab.dataset.catalogTab;
+    render();
+  }
+  function adapt() {
+    clearTimeout(switchTimer);
+    if (desktop.matches) {
+      tabList.setAttribute('role', 'tablist');
+      tabList.setAttribute('aria-orientation', 'vertical');
+      panels.forEach(panel => panelList.append(panel));
+    } else {
+      tabList.removeAttribute('role');
+      tabList.removeAttribute('aria-orientation');
+      tabs.forEach((tab, i) => tab.after(panels[i]));
+    }
+    catalog.dataset.enhanced = '';
+    render();
+    fitMenu();
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('pointerenter', () => {
+      if (!hover.matches || panels.some(panel => panel.contains(document.activeElement))) return;
+      clearTimeout(switchTimer);
+      switchTimer = setTimeout(() => select(tab), 100);
+    });
+    tab.addEventListener('pointerleave', () => clearTimeout(switchTimer));
+    tab.addEventListener('focus', () => { if (desktop.matches) select(tab); });
+    tab.addEventListener('click', () => {
+      if (desktop.matches) select(tab);
+      else { mobileOpen = mobileOpen === tab.dataset.catalogTab ? null : tab.dataset.catalogTab; render(); }
+    });
+    tab.addEventListener('keydown', event => {
+      if (!desktop.matches) return;
+      let next;
+      if (event.key === 'ArrowDown') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowUp') next = (index - 1 + tabs.length) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else if (event.key === 'ArrowRight') { event.preventDefault(); panels[index].focus(); return; }
+      else return;
+      event.preventDefault();
+      tabs[next].focus();
+    });
+  });
+  panels.forEach((panel, index) => panel.addEventListener('keydown', event => {
+    if (desktop.matches && event.key === 'ArrowLeft') { event.preventDefault(); tabs[index].focus(); }
+  }));
+  desktop.addEventListener('change', adapt);
+  window.addEventListener('resize', fitMenu, { passive: true });
+  adapt();
+})();
