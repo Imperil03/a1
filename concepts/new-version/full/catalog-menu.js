@@ -5,12 +5,41 @@
   const desktop = matchMedia('(min-width: 760px)');
   const hover = matchMedia('(min-width: 760px) and (hover: hover) and (pointer: fine)');
   const pops = [...document.querySelectorAll('.site-header .nav-pop')];
-  const states = new Map(pops.map(pop => [pop, { timer: 0, suppressed: false }]));
+  const states = new Map(pops.map(pop => {
+    const summary = pop.querySelector(':scope > summary');
+    const panel = pop.querySelector('.catalog-menu, .company-drop');
+    const bridge = document.createElement('span');
+    bridge.className = 'nav-pointer-bridge';
+    bridge.setAttribute('aria-hidden', 'true');
+    bridge.hidden = true;
+    pop.insertBefore(bridge, panel);
+    return [pop, { timer: 0, suppressed: false, summary, panel, bridge }];
+  }));
 
   function fitMenu() {
     if (desktop.matches && catalog.closest('details').open) {
       catalog.style.setProperty('--catalog-available', `${Math.max(180, innerHeight - catalog.getBoundingClientRect().top - 16)}px`);
     }
+    pops.forEach(pop => {
+      const { summary, panel, bridge } = states.get(pop);
+      if (!pop.open || !hover.matches) { bridge.hidden = true; return; }
+      const triggerRect = summary.getBoundingClientRect();
+      const panelRect = panel.getBoundingClientRect();
+      const top = triggerRect.bottom - 2;
+      const bottom = panelRect.top + 2;
+      if (bottom <= top) { bridge.hidden = true; return; }
+      bridge.hidden = false;
+      const parentRect = bridge.offsetParent.getBoundingClientRect();
+      const left = Math.min(triggerRect.left, panelRect.left);
+      const right = Math.max(triggerRect.right, panelRect.right);
+      // A sibling avoids clipping by the dropdown's scroll container.
+      Object.assign(bridge.style, {
+        left: `${left - parentRect.left}px`,
+        top: `${top - parentRect.top}px`,
+        width: `${right - left}px`,
+        height: `${bottom - top}px`
+      });
+    });
   }
   function cancelClose(pop) { clearTimeout(states.get(pop).timer); }
   function open(pop) {
@@ -26,7 +55,7 @@
     }, 220);
   }
   pops.forEach(pop => {
-    const summary = pop.querySelector(':scope > summary');
+    const { summary, panel, bridge } = states.get(pop);
     pop.addEventListener('pointerenter', () => {
       if (hover.matches && !states.get(pop).suppressed) open(pop);
     });
@@ -36,7 +65,8 @@
     });
     pop.addEventListener('focusin', () => cancelClose(pop));
     pop.addEventListener('focusout', () => scheduleClose(pop));
-    pop.addEventListener('toggle', () => { if (pop.open) fitMenu(); });
+    pop.addEventListener('toggle', fitMenu);
+    [panel, bridge].forEach(region => region.addEventListener('pointerenter', () => cancelClose(pop)));
     summary.addEventListener('click', event => {
       if (hover.matches && event.detail > 0) { event.preventDefault(); open(pop); }
     });
@@ -141,6 +171,8 @@
     if (desktop.matches && event.key === 'ArrowLeft') { event.preventDefault(); tabs[index].focus(); }
   }));
   desktop.addEventListener('change', adapt);
+  hover.addEventListener('change', fitMenu);
   window.addEventListener('resize', fitMenu, { passive: true });
+  document.fonts?.ready.then(fitMenu);
   adapt();
 })();

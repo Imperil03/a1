@@ -1,4 +1,5 @@
 /* Navigation follows the prototype's category rail and detail panel. */
+.nav-pointer-bridge { display: none; }
 .type-study:has(.services-pop[open])::before { content: ''; position: fixed; inset: 0; z-index: 15; background: rgb(25 23 28 / .045); pointer-events: none; }
 .type-study .services-drop.catalog-menu {
   padding: 0;
@@ -78,7 +79,10 @@
   .catalog-menu .catalog-consult { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 16px 28px; }
   .catalog-consult .button { margin: 0; flex-shrink: 0; }
   .catalog-menu:not([data-enhanced]) { display: block; }
-  .type-study .company-drop::before { content: ''; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }
+  .type-study .company-drop, .type-study .catalog-menu { z-index: 2; }
+}
+@media (min-width: 760px) and (hover: hover) and (pointer: fine) {
+  .nav-pointer-bridge:not([hidden]) { display: block; position: absolute; z-index: 1; background: transparent; }
 }
 @media (min-width: 1200px) {
   .catalog-menu .catalog-links { grid-template-columns: repeat(3, minmax(0, 1fr)); }

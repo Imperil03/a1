@@ -3,7 +3,7 @@
 .type-study .brand-preview .brand-art {
   display: block;
   position: relative;
-  width: clamp(224px, 16vw, 300px);
+  width: clamp(200px, 12.5vw, 240px);
   aspect-ratio: 1823 / 430;
   overflow: hidden;
   flex: 0 0 auto;
