@@ -105,9 +105,9 @@
 .type-study .svc-title { font-size: clamp(28px, 3.4vw, 72px); font-weight: 500; line-height: 1.12; letter-spacing: -.035em; }
 .type-study .svc-price strong { font-size: clamp(20px, 1.7vw, 34px); }
 .type-study .svc-price > span { font-size: 14px; }
-.type-study .svc-description { font-size: var(--type-copy); max-width: 58ch; line-height: 1.6; }
-.type-study .svc-tags { font-size: clamp(16px, 1.2vw, 23px); }
-.type-study .svc-body { padding-bottom: clamp(44px, 4vw, 88px); }
+.type-study .svc-description { grid-column: 1; grid-row: 1; font-size: var(--type-copy); max-width: none; line-height: 1.6; }
+.type-study .svc-body { display: grid; grid-template-columns: minmax(0, min(54ch, 920px)) 44px; justify-content: start; align-items: start; gap: 24px; padding: 12px 24px clamp(44px, 4vw, 88px) 80px; font-size: var(--type-copy); }
+.type-study .svc-destination { grid-column: 2; grid-row: 1; justify-self: start; align-self: start; }
 .type-study .svc-additional { margin-top: clamp(64px, 7vw, 140px); }
 .type-study .svc-root .svc-additional > h3 { font-size: clamp(28px, 2.5vw, 50px); font-weight: 500; margin-bottom: 36px; }
 .type-study .svc-additional li { font-size: clamp(20px, 1.7vw, 32px); min-height: 104px; }
@@ -226,7 +226,6 @@
   .type-study .svc-item summary { padding: 28px 8px; }
   .type-study .svc-title { font-size: 28px; line-height: 1.2; }
   .type-study .svc-price strong { font-size: 19px; }
-  .type-study .svc-body { padding-inline: 8px; }
   .type-study .svc-additional li { min-height: 90px; }
   .type-study .system-heading h2 { font-size: 40px; line-height: 1.1; }
   .type-study .system-step h3 { font-size: 26px; }
@@ -244,4 +243,9 @@
   .type-study .faq-list summary { font-size: 24px; }
   .type-study .contact-panel h2 { font-size: clamp(55px, 12vw, 80px); }
   .type-study .footer-email { font-size: clamp(28px, 7.6vw, 46px); }
+}
+@container services (max-width: 700px) {
+  .type-study .svc-item summary { padding: 28px 8px; }
+  .type-study .svc-body { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-inline: 40px 8px; }
+  .type-study .svc-destination { grid-column: 1; grid-row: 2; justify-self: end; align-self: start; order: 0; }
 }
