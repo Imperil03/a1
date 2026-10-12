@@ -103,6 +103,11 @@
 .type-study .case-more { font-size: clamp(28px, 2.7vw, 60px); }
 .type-study .svc-heading { display: block; }
 .type-study .svc-row { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto 48px; gap: 24px; align-items: center; padding: clamp(30px, 3vw, 64px) 24px; }
+.type-study [data-row-disclosure] .svc-row { cursor: pointer; }
+@media (hover: hover) and (pointer: fine) {
+  .type-study [data-row-disclosure] .svc-row:hover:not(:has(.svc-link:hover)) { background: var(--surface-panel, #f5f2ee); }
+  .type-study [data-row-disclosure] .svc-row:hover:not(:has(.svc-link:hover)) .svc-toggle { border-color: var(--surface-control, #91897f); color: var(--svc-accent); }
+}
 .type-study .svc-service-heading { min-width: 0; font: inherit; }
 .type-study .svc-link { font-size: clamp(28px, 3.4vw, 72px); font-weight: 500; line-height: 1.12; letter-spacing: -.035em; }
 .type-study .svc-link > svg { display: inline-block; width: clamp(24px, 2vw, 36px); height: clamp(24px, 2vw, 36px); color: var(--svc-accent); vertical-align: .06em; }
