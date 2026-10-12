@@ -19,8 +19,6 @@
       entry.toggle.hidden = false;
       entry.row.addEventListener('click', event => {
         if (event.target.closest('a')) return;
-        const selection = window.getSelection();
-        if (!event.target.closest('button') && selection && !selection.isCollapsed && entry.row.contains(selection.anchorNode)) return;
         const expand = entry.toggle.getAttribute('aria-expanded') !== 'true';
         items.forEach(other => setExpanded(other, other === entry && expand));
       });
