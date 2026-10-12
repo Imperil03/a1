@@ -188,6 +188,7 @@
 @media (prefers-reduced-motion: reduce) {
   .type-study #advantages .benefit-reason::before { transition: none; }
 }
+.type-study #process .section-heading { display: block; }
 .type-study #process .process-grid {
   --process-marker-size: clamp(44px, 3.5vw, 80px);
   --process-marker-width: clamp(72px, 5.6vw, 144px);
