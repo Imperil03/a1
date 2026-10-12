@@ -1,0 +1,25 @@
+(() => {
+  'use strict';
+  document.querySelectorAll('.type-study .services-lab').forEach(root => {
+    const items = [...root.querySelectorAll('.svc-item')].map(item => ({
+      item,
+      toggle: item.querySelector('.svc-toggle'),
+      panel: item.querySelector('.svc-body'),
+    }));
+
+    const setExpanded = (entry, expanded) => {
+      entry.item.dataset.expanded = String(expanded);
+      entry.toggle.setAttribute('aria-expanded', String(expanded));
+      entry.panel.hidden = !expanded;
+    };
+
+    items.forEach(entry => {
+      setExpanded(entry, entry.item.hasAttribute('data-initial-open'));
+      entry.toggle.hidden = false;
+      entry.toggle.addEventListener('click', () => {
+        const expand = entry.toggle.getAttribute('aria-expanded') !== 'true';
+        items.forEach(other => setExpanded(other, other === entry && expand));
+      });
+    });
+  });
+})();

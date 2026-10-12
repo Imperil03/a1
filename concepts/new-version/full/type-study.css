@@ -101,13 +101,25 @@
 .type-study .case-0 .case-art,
 .type-study .case-5 .case-art { width: min(43%, 620px); }
 .type-study .case-more { font-size: clamp(28px, 2.7vw, 60px); }
-.type-study .svc-item summary { padding: clamp(30px, 3vw, 64px) 24px; }
+.type-study .svc-heading { display: block; }
+.type-study .svc-row { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto 48px; gap: 24px; align-items: center; padding: clamp(30px, 3vw, 64px) 24px; }
+.type-study .svc-service-heading { min-width: 0; font: inherit; }
+.type-study .svc-link { font-size: clamp(28px, 3.4vw, 72px); font-weight: 500; line-height: 1.12; letter-spacing: -.035em; }
+.type-study .svc-link > svg { display: inline-block; width: clamp(24px, 2vw, 36px); height: clamp(24px, 2vw, 36px); color: var(--svc-accent); vertical-align: .06em; }
+.type-study .svc-link:hover .svc-title,
+.type-study .svc-link:focus-visible .svc-title { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .14em; }
+.type-study .svc-toggle { display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 1px solid var(--surface-line, var(--svc-line)); border-radius: 50%; background: transparent; color: var(--svc-ink); cursor: pointer; }
+.type-study .svc-toggle:hover { background: var(--surface-strong, #ffe7d7); color: var(--svc-accent); }
+.type-study .svc-toggle[aria-expanded="true"] .svc-plus-line { display: none; }
+.type-study .svc-toggle[hidden],
+.type-study .svc-body[hidden] { display: none; }
+.type-study .svc-item[data-expanded="true"] { background: var(--surface-canvas, #fff8f2); }
+.type-study .svc-item[data-expanded="true"] .svc-title { color: var(--svc-accent); }
 .type-study .svc-title { font-size: clamp(28px, 3.4vw, 72px); font-weight: 500; line-height: 1.12; letter-spacing: -.035em; }
 .type-study .svc-price strong { font-size: clamp(20px, 1.7vw, 34px); }
 .type-study .svc-price > span { font-size: 14px; }
 .type-study .svc-description { grid-column: 1; grid-row: 1; font-size: var(--type-copy); max-width: none; line-height: 1.6; }
-.type-study .svc-body { display: grid; grid-template-columns: minmax(0, min(54ch, 920px)) 44px; justify-content: start; align-items: start; gap: 24px; padding: 12px 24px clamp(44px, 4vw, 88px) 80px; font-size: var(--type-copy); }
-.type-study .svc-destination { grid-column: 2; grid-row: 1; justify-self: start; align-self: start; }
+.type-study .svc-body { display: grid; grid-template-columns: minmax(0, min(54ch, 920px)); justify-content: start; align-items: start; padding: 12px 24px clamp(44px, 4vw, 88px) 80px; font-size: var(--type-copy); }
 .type-study .svc-additional { margin-top: clamp(64px, 7vw, 140px); }
 .type-study .svc-root .svc-additional > h3 { font-size: clamp(28px, 2.5vw, 50px); font-weight: 500; margin-bottom: 36px; }
 .type-study .svc-additional li { font-size: clamp(20px, 1.7vw, 32px); min-height: 104px; }
@@ -223,7 +235,8 @@
   .type-study .home-hero--flow .hero-direction { min-height: 88px; font-size: 20px; }
   .type-study .case-tile h3 { font-size: 27px; }
   .type-study .case-result strong { font-size: 56px; }
-  .type-study .svc-item summary { padding: 28px 8px; }
+  .type-study .svc-row { padding: 28px 8px; }
+  .type-study .svc-link,
   .type-study .svc-title { font-size: 28px; line-height: 1.2; }
   .type-study .svc-price strong { font-size: 19px; }
   .type-study .svc-additional li { min-height: 90px; }
@@ -245,10 +258,16 @@
   .type-study .footer-email { font-size: clamp(28px, 7.6vw, 46px); }
 }
 @container services (min-width: 1480px) {
-  .type-study .svc-body { grid-template-columns: minmax(0, clamp(920px, 60%, 1400px)) 44px; }
+  .type-study .svc-body { grid-template-columns: minmax(0, clamp(920px, 60%, 1400px)); }
 }
 @container services (max-width: 700px) {
-  .type-study .svc-item summary { padding: 28px 8px; }
-  .type-study .svc-body { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-inline: 40px 8px; }
-  .type-study .svc-destination { grid-column: 1; grid-row: 2; justify-self: end; align-self: start; order: 0; }
+  .type-study .svc-row { grid-template-columns: 20px minmax(0, 1fr) 48px; gap: 16px 12px; padding: 28px 8px; }
+  .type-study .svc-service-heading { grid-column: 2; }
+  .type-study .svc-toggle { grid-column: 3; grid-row: 1; align-self: start; }
+  .type-study .svc-body { grid-template-columns: minmax(0, 1fr); padding-inline: 40px 8px; }
+}
+@container services (max-width: 360px) {
+  .type-study .svc-service-heading { grid-column: 2 / -1; }
+  .type-study .svc-toggle { grid-row: 2; }
+  .type-study .svc-price strong { font-size: 16px; }
 }
