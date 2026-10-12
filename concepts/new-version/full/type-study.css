@@ -244,6 +244,9 @@
   .type-study .contact-panel h2 { font-size: clamp(55px, 12vw, 80px); }
   .type-study .footer-email { font-size: clamp(28px, 7.6vw, 46px); }
 }
+@container services (min-width: 1480px) {
+  .type-study .svc-body { grid-template-columns: minmax(0, clamp(920px, 60%, 1400px)) 44px; }
+}
 @container services (max-width: 700px) {
   .type-study .svc-item summary { padding: 28px 8px; }
   .type-study .svc-body { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-inline: 40px 8px; }
