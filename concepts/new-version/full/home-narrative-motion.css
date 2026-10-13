@@ -1,0 +1,87 @@
+/* Motion follows the existing diagram and the visitor's reading position. */
+.type-study #system .home-system-trace {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.type-study #system .home-system-trace path {
+  stroke: var(--action, #d34309);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.type-study #system .home-system-bridge {
+  position: absolute;
+  top: 39px;
+  left: 104px;
+  width: calc(100% - 80px);
+  height: 1.5px;
+  background: var(--action, #d34309);
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.type-study #system[data-home-system-motion="running"] .home-system-trace,
+.type-study #system[data-home-system-motion="complete"] .home-system-trace {
+  opacity: 1;
+}
+
+.type-study #system[data-home-system-motion="complete"] .home-system-trace path {
+  stroke-dashoffset: 0;
+}
+
+.type-study #system[data-home-system-motion="complete"] .home-system-bridge {
+  transform: scaleX(1);
+}
+
+.type-study #process .process-grid[data-process-motion="ready"] .process-number {
+  color: var(--surface-muted, #675c50);
+  transition: color 180ms ease-out;
+}
+
+.type-study #process .process-grid[data-process-motion="ready"] > li::after {
+  transition: background-color 180ms ease-out;
+}
+
+.type-study #process .process-grid[data-process-motion="ready"] > li[data-process-state="current"] .process-number {
+  color: var(--action, #d34309);
+}
+
+.type-study #process .process-grid[data-process-motion="ready"] > li[data-process-state="current"]::after {
+  background: var(--action, #d34309);
+}
+
+@container system (max-width: 760px) {
+  .type-study #system .home-system-bridge {
+    top: 76px;
+    left: 27.25px;
+    width: 1.5px;
+    height: calc(100% - 50px);
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  .type-study #system[data-home-system-motion="complete"] .home-system-bridge {
+    transform: scaleY(1);
+  }
+
+  /* The middle path is the existing mobile connection to the result. */
+  .type-study #system .home-system-trace path:not(:nth-child(2)) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .type-study #system .home-system-trace,
+  .type-study #system .home-system-bridge {
+    display: none;
+  }
+
+  .type-study #process .process-grid[data-process-motion="ready"] .process-number,
+  .type-study #process .process-grid[data-process-motion="ready"] > li::after {
+    transition-duration: 80ms;
+  }
+}
