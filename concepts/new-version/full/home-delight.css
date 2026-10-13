@@ -1,0 +1,98 @@
+/* A1's diagonal arrow is the common response across the portfolio and links. */
+.type-study[data-a1-delight] {
+  --delight-ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+.type-study[data-a1-delight] ::selection {
+  color: #291537;
+  background: #ffd3b5;
+}
+
+.type-study[data-a1-delight] [data-a1-launch] > svg {
+  overflow: hidden;
+}
+
+.type-study[data-a1-delight] [data-a1-launch] > svg > path {
+  transform-box: view-box;
+  transform-origin: center;
+}
+
+/* The icon keeps its exact centre and 24px drawing; only its feedback area grows. */
+.type-study[data-a1-delight] .case-tile[data-a1-launch] > svg {
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  top: 14px;
+  right: 14px;
+  border-radius: 50%;
+  transform: none;
+  transition: background-color 180ms ease-out, color 180ms ease-out;
+}
+
+.type-study[data-a1-delight] .case-tile[data-a1-launch]:focus-visible > svg {
+  background: var(--ink, #291537);
+  color: #fff;
+}
+
+/* Only the existing 3D illustration responds. Text and click targets stay still. */
+.type-study[data-a1-delight] .case-tile[data-a1-depth] .case-art {
+  transform: perspective(900px)
+    translate3d(var(--delight-x, 0px), var(--delight-y, 0px), 0)
+    rotateX(var(--delight-rx, 0deg)) rotateY(var(--delight-ry, 0deg))
+    scale(var(--delight-scale, 1));
+  transform-origin: 52% 62%;
+  transition: transform 440ms var(--delight-ease);
+}
+
+.type-study[data-a1-delight] .case-tile[data-a1-depth]:focus-visible {
+  --delight-y: -6px;
+  --delight-scale: 1.035;
+}
+
+/* A brief landing mark confirms a same-page navigation without hiding content. */
+.type-study[data-a1-delight] .a1-arrival-heading {
+  position: relative;
+}
+
+.type-study[data-a1-delight] .a1-arrival-rule {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -.16em;
+  width: clamp(64px, 7vw, 124px);
+  height: 2px;
+  background: var(--action, #d34309);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+@media (min-width: 760px) and (hover: hover) and (pointer: fine) {
+  .type-study[data-a1-delight] .case-tile[data-a1-launch]:hover > svg {
+    background: var(--ink, #291537);
+    color: #fff;
+  }
+
+  .type-study[data-a1-delight] .case-tile[data-a1-depth][data-a1-tracking] .case-art {
+    transition-duration: 160ms;
+  }
+}
+
+.type-study[data-a1-delight][data-a1-delight-motion="reduced"] .case-tile[data-a1-depth] .case-art {
+  transform: none;
+  transition: none;
+}
+
+@media (max-width: 759px) {
+  .type-study[data-a1-delight] .case-tile[data-a1-depth] .case-art {
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .type-study[data-a1-delight] .case-tile[data-a1-depth] .case-art {
+    transform: none;
+    transition: none;
+  }
+}
