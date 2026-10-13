@@ -83,6 +83,9 @@
   previous.addEventListener('click', () => move(-1));
   next.addEventListener('click', () => move(1));
   track.addEventListener('keydown', event => {
+    if (['Tab', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'Escape'].includes(event.key)) {
+      track.removeAttribute('data-review-pointer-focus');
+    }
     if (event.key === 'Escape' && drag) {
       event.preventDefault();
       finishDrag(true);
@@ -122,6 +125,7 @@
     };
     track.setPointerCapture(event.pointerId);
     track.classList.add('is-dragging');
+    track.setAttribute('data-review-pointer-focus', '');
     track.focus({ preventScroll: true });
   }
 
@@ -169,6 +173,7 @@
   });
   track.addEventListener('pointercancel', () => finishDrag(true));
   track.addEventListener('lostpointercapture', () => finishDrag(true));
+  track.addEventListener('blur', () => track.removeAttribute('data-review-pointer-focus'));
   window.addEventListener('blur', () => finishDrag(true));
   track.addEventListener('click', event => {
     if (suppressDragClick && event.detail > 0) {

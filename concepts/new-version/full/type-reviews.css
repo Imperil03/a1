@@ -8,6 +8,7 @@
 .type-study #reviews[data-reviews-ready] .review-track::-webkit-scrollbar { display: none; }
 .type-study #reviews .review-track.review-drag-snap { scroll-snap-type: none; }
 .type-study #reviews .review-track.is-dragging { cursor: grabbing; user-select: none; -webkit-user-select: none; }
+.type-study #reviews .review-track[data-review-pointer-focus] { outline: none; }
 @media (hover: hover) and (pointer: fine) {
   .type-study #reviews[data-reviews-ready] .review-track { cursor: grab; }
   .type-study #reviews[data-reviews-ready] .review-track.is-dragging { cursor: grabbing; }

@@ -1,0 +1,46 @@
+.type-study #contact > .section-inner { padding-block: clamp(88px, 8vw, 176px); }
+.type-study #contact .contact-panel--personal {
+  --contact-portrait-size: clamp(180px, 16vw, 320px);
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  gap: clamp(48px, 4.5vw, 112px);
+  align-items: start;
+  padding: 0;
+}
+.type-study #contact .contact-panel h2 { max-width: 13ch; margin: 0; font-size: clamp(64px, 6vw, 136px); line-height: 1.04; letter-spacing: -.035em; text-wrap: balance; }
+.type-study #contact .contact-conversation { min-width: 0; container: personal-contact / inline-size; }
+.type-study #contact .contact-director { display: grid; grid-template-columns: var(--contact-portrait-size) minmax(0, 1fr); gap: clamp(24px, 2.4vw, 48px); align-items: center; text-align: left; }
+.type-study #contact .contact-portrait { width: 100%; aspect-ratio: 1; overflow: hidden; border-radius: 16px; background: #e8e1d8; }
+.type-study #contact .contact-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transform: scale(1.35); transform-origin: 50% 25%; }
+.type-study #contact .contact-director figcaption { min-width: 0; }
+.type-study #contact .contact-director strong { font-size: clamp(24px, 1.3vw, 28px); line-height: 1.3; font-weight: 550; }
+.type-study #contact .contact-director figcaption span { margin-top: 10px; font-size: clamp(18px, 1vw, 20px); line-height: 1.45; }
+.type-study #contact .contact-copy { max-width: 48ch; margin-top: 36px; font-size: clamp(20px, 1.1vw, 26px); line-height: 1.5; }
+.type-study #contact .response-time { margin-top: 24px; font-size: clamp(16px, 1vw, 18px); line-height: 1.5; }
+.type-study #contact .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.type-study #contact .contact-actions .button { min-height: 64px; padding: 18px 28px; gap: 16px; font-size: clamp(20px, 1.1vw, 22px); }
+.type-study #contact .contact-actions .button-light { border: 1px solid #8a7896; background: transparent; color: #fff9f3; }
+.type-study #contact .contact-actions .button-light:hover { background: #fff9f3; color: #2c163c; }
+@container personal-contact (max-width: 620px) {
+  .type-study #contact .contact-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .type-study #contact .contact-actions .button-primary { grid-column: 1 / -1; }
+}
+@media (max-width: 999px) {
+  .type-study #contact .contact-panel--personal { --contact-portrait-size: clamp(112px, 14vw, 144px); grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .type-study #contact .contact-panel h2 { max-width: 18ch; font-size: clamp(55px, 8vw, 80px); }
+}
+@media (max-width: 700px) {
+  .type-study #contact > .section-inner { padding-block: 80px; }
+  .type-study #contact .contact-panel--personal { --contact-portrait-size: clamp(96px, 28vw, 112px); gap: 36px; }
+  .type-study #contact .contact-panel h2 { font-size: clamp(48px, 13.5vw, 64px); }
+  .type-study #contact .contact-director { gap: 20px; }
+  .type-study #contact .contact-director strong { font-size: 20px; }
+  .type-study #contact .contact-director figcaption span { margin-top: 6px; font-size: 16px; }
+  .type-study #contact .contact-copy { margin-top: 28px; font-size: 19px; }
+  .type-study #contact .response-time { font-size: 16px; }
+  .type-study #contact .contact-actions { margin-top: 28px; }
+  .type-study #contact .contact-actions .button { min-height: 60px; padding: 16px 12px; gap: 12px; font-size: 18px; }
+  .type-study #contact .contact-actions .button-light svg { display: none; }
+}
+@media (max-width: 359px) {
+  .type-study #contact .contact-panel h2 { font-size: 42px; }
+}
