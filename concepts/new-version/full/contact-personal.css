@@ -3,10 +3,11 @@
   --contact-portrait-size: clamp(180px, 16vw, 320px);
   grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
   gap: clamp(48px, 4.5vw, 112px);
-  align-items: start;
+  align-items: center;
   padding: 0;
 }
 .type-study #contact .contact-panel h2 { max-width: 13ch; margin: 0; font-size: clamp(64px, 6vw, 136px); line-height: 1.04; letter-spacing: -.035em; text-wrap: balance; }
+.type-study #contact .contact-intro { min-width: 0; }
 .type-study #contact .contact-conversation { min-width: 0; container: personal-contact / inline-size; }
 .type-study #contact .contact-director { display: grid; grid-template-columns: var(--contact-portrait-size) minmax(0, 1fr); gap: clamp(24px, 2.4vw, 48px); align-items: center; text-align: left; }
 .type-study #contact .contact-portrait { width: 100%; aspect-ratio: 1; overflow: hidden; border-radius: 16px; background: #e8e1d8; }
