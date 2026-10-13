@@ -1,0 +1,119 @@
+/* Progressive enhancement: the original eight-client grid is the fallback. */
+.type-study .clients-marquee {
+  --clients-slot: clamp(190px, 15.5vw, 270px);
+  --clients-gap: clamp(36px, 4.5vw, 104px);
+  --clients-height: clamp(132px, 10.5vw, 188px);
+  position: relative;
+  min-width: 0;
+}
+.type-study .clients-marquee__viewport,
+.type-study .clients-marquee__track { min-width: 0; }
+.type-study .clients-marquee__list[data-marquee-clone] { display: none; }
+.type-study .clients-marquee__control {
+  position: absolute;
+  top: -72px;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line, #e8e0e8);
+  border-radius: 50%;
+  background: var(--paper, #fcfbf9);
+  color: var(--ink, #291537);
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+.type-study .clients-marquee__control[hidden] { display: none; }
+.type-study .clients-marquee__control:hover {
+  border-color: var(--ink, #291537);
+  background: var(--surface-panel, #f0eeea);
+}
+.type-study .clients-marquee__control:focus-visible {
+  outline: 2px solid var(--ink, #291537);
+  outline-offset: 4px;
+}
+.type-study .clients-marquee__control[aria-pressed="true"] {
+  border-color: var(--ink, #291537);
+  background: var(--ink, #291537);
+  color: var(--paper, #fcfbf9);
+}
+.type-study .clients-marquee__control svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.type-study .clients-marquee__control [data-marquee-play],
+.type-study .clients-marquee__control[aria-pressed="true"] [data-marquee-pause] { display: none; }
+.type-study .clients-marquee__control[aria-pressed="true"] [data-marquee-play] { display: block; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .type-study .clients-marquee[data-clients-enhanced] .clients-marquee__viewport {
+    overflow: hidden;
+    border-block: 1px solid var(--line, #e8e0e8);
+  }
+  .type-study .clients-marquee[data-clients-enhanced] .clients-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: clients-marquee-loop var(--clients-duration, 80s) linear infinite;
+  }
+  .type-study .clients-marquee[data-motion-paused="false"] .clients-marquee__track { will-change: transform; }
+  .type-study .clients-marquee[data-motion-paused="true"] .clients-marquee__track { animation-play-state: paused; }
+  .type-study .clients-marquee[data-clients-enhanced] .clients-marquee__list {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: var(--clients-gap);
+    width: max-content;
+    margin: 0;
+    padding: 0 var(--clients-gap) 0 0;
+  }
+  .type-study .clients-marquee[data-clients-enhanced] .clients-marquee__list > li {
+    flex: 0 0 var(--clients-slot);
+    width: var(--clients-slot);
+    min-height: var(--clients-height);
+    padding: 24px 0;
+    border: 0;
+    cursor: default;
+  }
+  .type-study .clients-marquee[data-clients-enhanced] .clients-marquee__list img {
+    display: block;
+    width: clamp(164px, 12vw, 224px);
+    max-width: 100%;
+    height: clamp(54px, 4.8vw, 84px);
+    object-fit: contain;
+    object-position: center;
+  }
+  /* Match optical weight rather than forcing dissimilar shapes into one size. */
+  .type-study .clients-marquee[data-clients-enhanced] img[src$="/surgutneftegaz.svg"] {
+    width: clamp(128px, 10vw, 172px);
+    height: clamp(72px, 5.6vw, 96px);
+  }
+  .type-study .clients-marquee[data-clients-enhanced] img[src$="/helix.svg"] { width: clamp(152px, 11.4vw, 204px); }
+  .type-study .clients-marquee[data-clients-enhanced] img[src$="/kia.png"] { width: clamp(158px, 11.4vw, 204px); }
+  .type-study .clients-marquee[data-clients-enhanced] img[src$="/webasto.svg"],
+  .type-study .clients-marquee[data-clients-enhanced] img[src$="/renault.svg"] { width: clamp(178px, 12.8vw, 236px); }
+  .type-study .clients-marquee[data-clients-enhanced] img[src$="/nadzha.png"] { width: clamp(174px, 12.6vw, 232px); }
+}
+
+@keyframes clients-marquee-loop {
+  to { transform: translate3d(calc(-1 * var(--clients-distance, 0px)), 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .type-study .clients-marquee__control { display: none; }
+  .type-study .clients-marquee__track { animation: none; transform: none; }
+}
+
+@media (max-width: 700px) {
+  .type-study .clients-marquee {
+    --clients-slot: 180px;
+    --clients-gap: 32px;
+    --clients-height: 132px;
+  }
+}
