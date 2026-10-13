@@ -27,7 +27,7 @@
     const objects = [...scene.querySelectorAll('.footer-system__object')];
     const lines = [...scene.querySelectorAll('.footer-system__connections path')];
     const control = scene.querySelector('.footer-system__control');
-    const images = [...scene.querySelectorAll('.footer-system__object img')];
+    const images = [...scene.querySelectorAll('.footer-system__art img')];
     if (!art || !word || !control || objects.length !== 3 || !Element.prototype.animate) return;
 
     let ready = false;

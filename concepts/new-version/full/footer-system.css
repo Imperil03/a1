@@ -23,18 +23,16 @@
 #footer .footer-system__word {
   position: absolute;
   z-index: 2;
-  top: -12px;
+  top: 0;
   left: 50%;
-  display: flex;
-  align-items: baseline;
-  font: 800 clamp(340px, 37vw, 510px)/.85 Onest, sans-serif;
-  letter-spacing: -.04em;
-  white-space: nowrap;
+  width: min(90%, 680px);
   transform: translateX(-50%) translate3d(calc(var(--footer-pointer-x) * .18), calc(var(--footer-pointer-y) * .18), 0);
 }
 
-#footer .footer-system__word > span:last-child {
-  margin-left: .015em;
+#footer .footer-system__word img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 #footer .footer-system__connections {
@@ -197,7 +195,7 @@
 
   #footer .footer-system__word {
     top: 0;
-    font-size: clamp(270px, 43vw, 350px);
+    width: min(80%, 500px);
   }
 
   #footer .footer-system__object {
@@ -217,7 +215,7 @@
 
   #footer .footer-system__word {
     top: 0;
-    font-size: clamp(184px, 61vw, 270px);
+    width: min(90%, 320px);
   }
 
   #footer .footer-system__object,
