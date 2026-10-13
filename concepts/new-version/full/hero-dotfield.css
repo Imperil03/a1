@@ -1,13 +1,13 @@
 /* The alternate hero keeps its original layout and player; only its surface responds. */
 body[data-hero-variant="dotfield"] .hero-dotfield-canvas {
-  --dotfield-base: 124, 117, 109;
+  --dotfield-base: 148, 163, 184;
   position: absolute;
   inset: 0;
   z-index: 0;
   display: block;
   width: 100%;
   height: 100%;
-  color: var(--action, #d34309);
+  color: #ff5500;
   pointer-events: none;
   user-select: none;
   contain: strict;
@@ -22,8 +22,137 @@ body[data-hero-variant="dotfield"] .showreel-stage .hero-layout {
   z-index: 1;
 }
 
+/* Quordix Hero by Muhammad Saad (MIT): the original two 7 s slice bursts.
+   The real Russian text remains in HTML; only the empty aria-hidden layer
+   supplies the visual copies, with the site's existing font and line breaks. */
+body[data-hero-variant="dotfield"] #hero .hero-statement .type-line--accent {
+  position: relative;
+}
+
+body[data-hero-variant="dotfield"] #hero .hero-dotfield-glitch {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: clip;
+  pointer-events: none;
+  user-select: none;
+  font: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+  text-wrap: inherit;
+  white-space: inherit;
+}
+
+body[data-hero-variant="dotfield"] #hero .hero-dotfield-glitch::before,
+body[data-hero-variant="dotfield"] #hero .hero-dotfield-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: #fff;
+}
+
+body[data-hero-variant="dotfield"] .showreel-stage[data-dotfield-motion="running"] #hero .hero-statement .type-line--accent {
+  animation: a1-dotfield-color-toggle 7s infinite step-end;
+}
+
+body[data-hero-variant="dotfield"] .showreel-stage[data-dotfield-motion="running"] #hero .hero-dotfield-glitch::before {
+  animation: a1-dotfield-glitch-1 7s infinite linear;
+  z-index: 2;
+}
+
+body[data-hero-variant="dotfield"] .showreel-stage[data-dotfield-motion="running"] #hero .hero-dotfield-glitch::after {
+  animation: a1-dotfield-glitch-2 7s infinite linear;
+  z-index: 3;
+}
+
+@keyframes a1-dotfield-color-toggle {
+  0%, 44% { color: #0f172a; text-shadow: none; }
+  42.1%, 44.9% { text-shadow: -2px 0 #00ffff, 2px 0 #ff00ff; }
+  45%, 94% { color: #ff5500; text-shadow: none; }
+  92.1%, 94.9% { text-shadow: -2px 0 #a3e635, 2px 0 #ef4444; }
+  95%, 100% { color: #0f172a; text-shadow: none; }
+}
+
+@keyframes a1-dotfield-glitch-1 {
+  0%, 42% { opacity: 0; transform: translate(0); }
+  42.1% {
+    opacity: 1;
+    color: #00ffff;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-10px, -5px) skew(20deg);
+  }
+  43% {
+    color: #ff00ff;
+    transform: translate(10px, 5px) skew(-20deg);
+    clip-path: polygon(0 10%, 100% 0, 100% 30%, 0 35%);
+  }
+  44% {
+    color: #ff5500;
+    transform: translate(-10px, 5px);
+    clip-path: polygon(0 40%, 100% 50%, 100% 80%, 0 90%);
+  }
+  44.9% { opacity: 1; }
+  45% { opacity: 0; }
+  45.1%, 92% { opacity: 0; transform: translate(0); }
+  92.1% {
+    opacity: 1;
+    color: #00ffff;
+    clip-path: polygon(0 60%, 100% 55%, 100% 100%, 0 100%);
+    transform: translate(10px, -5px) skew(10deg);
+  }
+  93% {
+    color: #ff00ff;
+    transform: translate(-5px, 5px) skew(-10deg);
+    clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0 80%);
+  }
+  94.9% { opacity: 1; }
+  95% { opacity: 0; }
+}
+
+@keyframes a1-dotfield-glitch-2 {
+  0%, 42% { opacity: 0; transform: translate(0); }
+  42.1% {
+    opacity: 1;
+    color: #a3e635;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    transform: translate(10px, 5px);
+  }
+  43% {
+    color: #ef4444;
+    transform: translate(-10px, -5px) skew(10deg);
+    clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0 80%);
+  }
+  45% { opacity: 0; }
+  45.1%, 92% { opacity: 0; transform: translate(0); }
+  92.1% {
+    opacity: 1;
+    color: #a3e635;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-10px, -5px);
+  }
+  93% {
+    color: #ef4444;
+    transform: translate(10px, 5px) skew(-20deg);
+    clip-path: polygon(0 10%, 100% 0, 100% 30%, 0 35%);
+  }
+  95% { opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   body[data-hero-variant="dotfield"] .hero-dotfield-canvas {
     animation: none;
+  }
+  body[data-hero-variant="dotfield"] .showreel-stage[data-dotfield-motion="running"] #hero .hero-statement .type-line--accent {
+    animation: none;
+    text-shadow: none;
+  }
+  body[data-hero-variant="dotfield"] .showreel-stage[data-dotfield-motion="running"] #hero .hero-dotfield-glitch::before,
+  body[data-hero-variant="dotfield"] .showreel-stage[data-dotfield-motion="running"] #hero .hero-dotfield-glitch::after {
+    animation: none;
+    opacity: 0;
   }
 }

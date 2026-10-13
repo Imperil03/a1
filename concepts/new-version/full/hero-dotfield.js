@@ -4,6 +4,7 @@
   const stage = document.querySelector('.showreel-stage');
   const hero = stage?.querySelector('#hero');
   const title = hero?.querySelector('.hero-title');
+  const video = stage?.querySelector('.showreel-player video');
   if (!stage || !hero || !title || hero.querySelector('.hero-dotfield-canvas')) return;
 
   const canvas = document.createElement('canvas');
@@ -13,144 +14,195 @@
   canvas.setAttribute('aria-hidden', 'true');
   hero.prepend(canvas);
 
+  // Match the supplied Quordix mechanics. The established A1 surface stays underneath.
+  const SPACING = 30;
+  const BASE_R = 1.5;
+  const HOVER_R = 100;
+  const SCAN_DUR = 2500;
+  const SCAN_PAUSE = 4000;
+  const DEFAULT_COLOR = 'rgba(148,163,184,0.4)';
+  const ACTIVE_COLOR = '#ff5500';
+  const PARTICLE_COLOR = 'rgba(249,115,22,0.15)';
+  const maxPoints = 4096;
+  const maxPixels = 4000000;
+  const frameInterval = 1000 / 60;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const compact = matchMedia('(max-width: 999px), (hover: none), (pointer: coarse)');
+  const mobile = matchMedia('(max-width: 767px)');
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   const lifetime = new AbortController();
   const passive = { passive: true, signal: lifetime.signal };
-  const maxPoints = 2000;
-  const maxPixels = 4000000;
-  const scanDuration = 780;
   let bounds = { width: 0, height: 0, pageX: 0, pageY: 0 };
+  let view = { top: -1, width: 0, height: 0, dpr: 1 };
   let points = [];
-  let baseColor = [124, 117, 109];
-  let actionColor = [211, 67, 9];
+  let particles = [];
   let frame = 0;
   let frameCount = 0;
   let inView = false;
   let titleInView = false;
   let measurePending = false;
-  let scanStart = null;
-  let scanDone = false;
-  let lastTime = 0;
-  let scanY = 0;
-  const pointer = { x: 0, y: 0, targetX: 0, targetY: 0, strength: 0, targetStrength: 0 };
+  let viewPending = false;
+  let pagePaused = false;
+  // The existing reel control also stops the decorative motion, without a second button.
+  // Start ungated while the muted reel is loading; its real pause/play events take over.
+  let videoPaused = false;
+  let lastPaint = 0;
+  let lastUpdate = 0;
+  let activeTime = 0;
+  let spacing = SPACING;
+  const pointer = { x: -1000, y: -1000 };
+
+  function canRun() {
+    return !lifetime.signal.aborted && !pagePaused && !videoPaused && inView && !document.hidden && !reduced.matches && !connection?.saveData;
+  }
 
   function diagnose(reason) {
-    const state = document.hidden ? 'hidden' : !inView ? 'offscreen' : reduced.matches ? 'reduced' : frame ? (scanStart !== null ? 'scan' : 'responding') : 'static';
+    const state = pagePaused ? 'paused' : document.hidden ? 'hidden' : !inView ? 'offscreen' : reduced.matches ? 'reduced' : connection?.saveData ? 'data-saving' : videoPaused ? 'video-paused' : frame ? 'running' : 'static';
+    // The text glitch follows title visibility; the field can remain active behind the reel.
+    stage.dataset.dotfieldMotion = canRun() && titleInView && Boolean(frame) ? 'running' : 'paused';
     stage.dataset.dotfieldState = state;
-    stage.dataset.dotfieldDiagnostics = JSON.stringify({ activeRAF: Boolean(frame), inView, pointCount: points.length, frameCount, reason });
+    stage.dataset.dotfieldDiagnostics = JSON.stringify({ activeRAF: Boolean(frame), inView, titleInView, videoPaused, pointCount: points.length, particleCount: particles.length, frameCount, mobile: mobile.matches, spacing, baseRadius: BASE_R, hoverRadius: HOVER_R, activeTime: Math.round(activeTime), reason });
   }
 
   function cancelFrame() {
     if (frame) cancelAnimationFrame(frame);
     frame = 0;
-    lastTime = 0;
+    lastPaint = 0;
+    lastUpdate = 0;
   }
 
-  function paint() {
-    if (!bounds.width || !bounds.height) return;
-    context.clearRect(0, 0, bounds.width, bounds.height);
-    const radius = compact.matches ? 108 : 124;
-    for (const point of points) {
-      const dx = point.x - pointer.x;
-      const dy = point.y - pointer.y;
-      const distance = dx * dx + dy * dy;
-      const influence = pointer.strength && distance < radius * radius ? Math.pow(1 - Math.sqrt(distance) / radius, 2) * pointer.strength : 0;
-      const mix = Math.min(1, influence * 1.55);
-      const alpha = point.alpha * (.32 + influence * .48);
-      context.fillStyle = `rgba(${Math.round(baseColor[0] + (actionColor[0] - baseColor[0]) * mix)},${Math.round(baseColor[1] + (actionColor[1] - baseColor[1]) * mix)},${Math.round(baseColor[2] + (actionColor[2] - baseColor[2]) * mix)},${alpha.toFixed(3)})`;
+  function resizeParticles(previous) {
+    const count = mobile.matches ? 12 : 40;
+    if (particles.length !== count || !previous.width || !previous.height) {
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * view.width,
+        y: Math.random() * view.height,
+        vx: (Math.random() - .5) * .5,
+        vy: (Math.random() - .5) * .5,
+        size: Math.random() * 2
+      }));
+    } else if (previous.width !== view.width || previous.height !== view.height) {
+      for (const particle of particles) {
+        particle.x *= view.width / previous.width;
+        particle.y *= view.height / previous.height;
+      }
+    }
+  }
+
+  function updateView() {
+    if (!bounds.width || !bounds.height) return false;
+    // Keep only the visible slice in the bitmap; the grid is still anchored to the hero.
+    const top = Math.max(0, Math.min(bounds.height, scrollY - bounds.pageY));
+    const bottom = Math.min(bounds.height, scrollY + innerHeight - bounds.pageY);
+    const visibleHeight = bottom > top ? bottom - top : Math.min(bounds.height, innerHeight);
+    const width = bounds.width;
+    const height = Math.max(1, visibleHeight);
+    const dpr = Math.min(1.5, devicePixelRatio || 1, Math.sqrt(maxPixels / (width * height)));
+    if (top === view.top && width === view.width && height === view.height && dpr === view.dpr) {
+      if (particles.length !== (mobile.matches ? 12 : 40)) resizeParticles(view);
+      return false;
+    }
+    const previous = view;
+    view = { top, width, height, dpr };
+    canvas.style.top = `${top}px`;
+    canvas.style.height = `${height}px`;
+    canvas.width = Math.max(1, Math.floor(width * dpr));
+    canvas.height = Math.max(1, Math.floor(height * dpr));
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    spacing = Math.max(SPACING, Math.sqrt(width * height / (maxPoints - 200)));
+    points = [];
+    const firstY = Math.ceil(top / spacing) * spacing - top;
+    for (let x = 0; x < width && points.length < maxPoints; x += spacing) {
+      for (let y = firstY; y < height && points.length < maxPoints; y += spacing) points.push({ x, y });
+    }
+    resizeParticles(previous);
+    return true;
+  }
+
+  function paint(staticOnly = false, delta = 0) {
+    if (!view.width || !view.height) return;
+    context.clearRect(0, 0, view.width, view.height);
+    context.shadowBlur = 0;
+    context.shadowColor = 'transparent';
+    context.fillStyle = PARTICLE_COLOR;
+    for (const particle of particles) {
+      if (!staticOnly) {
+        particle.x += particle.vx * delta * 60 / 1000;
+        particle.y += particle.vy * delta * 60 / 1000;
+        if (particle.x < 0 || particle.x > view.width) particle.vx *= -1;
+        if (particle.y < 0 || particle.y > view.height) particle.vy *= -1;
+        particle.x = Math.max(0, Math.min(view.width, particle.x));
+        particle.y = Math.max(0, Math.min(view.height, particle.y));
+      }
       context.beginPath();
-      context.arc(point.x, point.y, 1.15 + influence * 2, 0, Math.PI * 2);
+      context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
       context.fill();
+    }
+    // Draw the unchanged grid in one path, then cover active dots with opaque orange.
+    context.fillStyle = DEFAULT_COLOR;
+    context.beginPath();
+    for (const point of points) {
+      context.moveTo(point.x + BASE_R, point.y);
+      context.arc(point.x, point.y, BASE_R, 0, Math.PI * 2);
+    }
+    context.fill();
+    if (!staticOnly) {
+      const loopTime = activeTime % (SCAN_DUR + SCAN_PAUSE);
+      const scanY = Math.min(loopTime / SCAN_DUR, 1) * (view.height + HOVER_R * 2) - HOVER_R;
+      const mouseY = pointer.y - view.top;
+      context.fillStyle = ACTIVE_COLOR;
+      context.shadowBlur = mobile.matches ? 0 : 15;
+      context.shadowColor = mobile.matches ? 'transparent' : 'rgba(255,85,0,0.4)';
+      for (const point of points) {
+        const dx = point.x - pointer.x;
+        const dy = point.y - mouseY;
+        const distance = mobile.matches ? Math.abs(point.y - scanY) : Math.sqrt(dx * dx + dy * dy);
+        if (distance >= HOVER_R) continue;
+        const strength = 1 - distance / HOVER_R;
+        context.beginPath();
+        context.arc(point.x, point.y, BASE_R + strength * (mobile.matches ? 2 : 3), 0, Math.PI * 2);
+        context.fill();
+      }
+      context.shadowBlur = 0;
+      context.shadowColor = 'transparent';
     }
     frameCount += 1;
   }
 
   function stop(reason, repaint = true) {
     cancelFrame();
-    scanStart = null;
-    pointer.strength = 0;
-    pointer.targetStrength = 0;
-    if (repaint) paint();
+    pointer.x = pointer.y = -1000;
+    if (repaint) { updateView(); paint(true); }
     diagnose(reason);
   }
 
   function queue(reason) {
-    if (frame || !inView || document.hidden || reduced.matches || !points.length) return;
+    if (frame || !canRun() || !points.length) { diagnose(reason); return; }
     frame = requestAnimationFrame(tick);
     diagnose(reason);
   }
 
   function tick(time) {
     frame = 0;
-    if (!inView || document.hidden || reduced.matches) { stop('inactive'); return; }
-    const delta = lastTime ? Math.min(50, time - lastTime) : 16;
-    lastTime = time;
-    if (scanStart !== null) {
-      const progress = Math.min(1, (time - scanStart) / scanDuration);
-      pointer.x = -124 + (bounds.width + 248) * progress;
-      pointer.y = scanY;
-      pointer.strength = .58 * Math.sin(progress * Math.PI);
-      paint();
-      if (progress < 1) queue('scan');
-      else stop('scan-complete');
-      return;
+    if (!canRun()) { stop('inactive'); return; }
+    if (!lastPaint) lastPaint = time - frameInterval;
+    const elapsed = time - lastPaint;
+    if (elapsed + .01 >= frameInterval) {
+      const delta = lastUpdate ? Math.min(50, time - lastUpdate) : frameInterval;
+      lastPaint = time - elapsed % frameInterval;
+      lastUpdate = time;
+      activeTime += delta;
+      updateView();
+      paint(false, delta);
     }
-    const ease = 1 - Math.exp(-delta / 66);
-    pointer.x += (pointer.targetX - pointer.x) * ease;
-    pointer.y += (pointer.targetY - pointer.y) * ease;
-    pointer.strength += (pointer.targetStrength - pointer.strength) * ease;
-    const unsettled = Math.abs(pointer.targetX - pointer.x) + Math.abs(pointer.targetY - pointer.y) > .12 || Math.abs(pointer.targetStrength - pointer.strength) > .002;
-    if (!unsettled) {
-      pointer.x = pointer.targetX;
-      pointer.y = pointer.targetY;
-      pointer.strength = pointer.targetStrength;
-      lastTime = 0;
-    }
-    paint();
-    if (unsettled) queue('pointer-settling');
-    else diagnose('pointer-settled');
-  }
-
-  function maybeScan() {
-    if (scanDone || !compact.matches || reduced.matches || !inView || !titleInView || document.hidden || !points.length) return;
-    scanDone = true;
-    scanStart = performance.now();
-    queue('scan-start');
+    queue('animation');
   }
 
   function measure() {
     const rect = hero.getBoundingClientRect();
     bounds = { width: rect.width, height: rect.height, pageX: rect.left + scrollX, pageY: rect.top + scrollY };
-    if (!bounds.width || !bounds.height) return;
-    const dpr = Math.min(1.5, devicePixelRatio || 1, Math.sqrt(maxPixels / (bounds.width * bounds.height)));
-    canvas.width = Math.max(1, Math.round(bounds.width * dpr));
-    canvas.height = Math.max(1, Math.round(bounds.height * dpr));
-    context.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const styles = getComputedStyle(canvas);
-    const color = styles.color.match(/[\d.]+/g)?.slice(0, 3).map(Number);
-    if (color?.length === 3) actionColor = color;
-    const base = styles.getPropertyValue('--dotfield-base').split(',').map(Number);
-    if (base.length === 3 && base.every(Number.isFinite)) baseColor = base;
-    const masks = [...hero.querySelectorAll('.hero-title, .hero-copy, .hero-facts')].map(element => {
-      const box = element.getBoundingClientRect();
-      return { left: box.left - rect.left - 18, right: box.right - rect.left + 18, top: box.top - rect.top - 14, bottom: box.bottom - rect.top + 14 };
-    });
-    const heading = title.getBoundingClientRect();
-    scanY = Math.min(bounds.height, heading.top - rect.top + heading.height * .7);
-    // Increase spacing on unusually large canvases instead of spending more frames.
-    const spacing = Math.max(34, Math.sqrt(bounds.width * bounds.height / (maxPoints - 160)));
-    points = [];
-    for (let y = spacing / 2; y < bounds.height && points.length < maxPoints; y += spacing) {
-      for (let x = spacing / 2; x < bounds.width && points.length < maxPoints; x += spacing) {
-        const underText = masks.some(mask => x >= mask.left && x <= mask.right && y >= mask.top && y <= mask.bottom);
-        const edge = Math.min(1, x / 40, (bounds.width - x) / 40, (bounds.height - y) / 90);
-        points.push({ x, y, alpha: Math.max(0, edge) * (underText ? .17 : 1) });
-      }
-    }
-    paint();
-    diagnose('measured');
-    maybeScan();
+    updateView();
+    paint(!canRun());
+    queue('measured');
   }
 
   function scheduleMeasure() {
@@ -162,38 +214,64 @@
     });
   }
 
+  function onScroll() {
+    if (!('IntersectionObserver' in window)) {
+      inView = bounds.pageY + bounds.height > scrollY && bounds.pageY < scrollY + innerHeight;
+      const rect = title.getBoundingClientRect();
+      titleInView = rect.bottom > 0 && rect.top < innerHeight;
+    }
+    if (canRun()) { queue('scroll'); return; }
+    if (viewPending || !inView) { diagnose('scroll-paused'); return; }
+    viewPending = true;
+    queueMicrotask(() => {
+      viewPending = false;
+      if (!lifetime.signal.aborted && inView) { updateView(); paint(true); diagnose('scroll-static'); }
+    });
+  }
+
   function onPointerMove(event) {
-    if (event.pointerType === 'touch' || compact.matches || reduced.matches || document.hidden || !inView) return;
-    pointer.targetX = event.clientX + scrollX - bounds.pageX;
-    pointer.targetY = event.clientY + scrollY - bounds.pageY;
-    if (!pointer.strength) { pointer.x = pointer.targetX; pointer.y = pointer.targetY; }
-    pointer.targetStrength = 1;
+    if (event.pointerType === 'touch' || mobile.matches || !canRun()) return;
+    pointer.x = event.clientX + scrollX - bounds.pageX;
+    pointer.y = event.clientY + scrollY - bounds.pageY;
     queue('pointer-move');
   }
 
   function onPointerLeave() {
-    if (compact.matches || reduced.matches) return;
-    pointer.targetStrength = 0;
-    queue('pointer-leave');
+    pointer.x = pointer.y = -1000;
   }
 
   function onPreference() {
     stop('preference-change');
+    activeTime = 0;
+    particles = [];
     measure();
-    maybeScan();
   }
 
   function onVisibility() {
     if (document.hidden) stop('hidden');
-    else { measure(); maybeScan(); }
+    else measure();
+  }
+
+  function onVideoPause() {
+    videoPaused = true;
+    stop('video-pause');
+  }
+
+  function onVideoPlay() {
+    videoPaused = false;
+    measure();
   }
 
   hero.addEventListener('pointermove', onPointerMove, passive);
   hero.addEventListener('pointerleave', onPointerLeave, passive);
   document.addEventListener('visibilitychange', onVisibility, { signal: lifetime.signal });
   window.addEventListener('resize', scheduleMeasure, passive);
+  window.addEventListener('scroll', onScroll, passive);
   reduced.addEventListener('change', onPreference, { signal: lifetime.signal });
-  compact.addEventListener('change', onPreference, { signal: lifetime.signal });
+  mobile.addEventListener('change', onPreference, { signal: lifetime.signal });
+  connection?.addEventListener?.('change', onPreference, { signal: lifetime.signal });
+  video?.addEventListener('pause', onVideoPause, { signal: lifetime.signal });
+  video?.addEventListener('play', onVideoPlay, { signal: lifetime.signal });
 
   let resizeObserver;
   let heroObserver;
@@ -207,25 +285,23 @@
     heroObserver = new IntersectionObserver(entries => {
       inView = entries[0].isIntersecting;
       if (!inView) stop('offscreen');
-      else { diagnose('visible'); maybeScan(); }
+      else queue('visible');
     }, { threshold: 0 });
     titleObserver = new IntersectionObserver(entries => {
       titleInView = entries[0].isIntersecting;
-      maybeScan();
+      diagnose('title-visibility');
     }, { threshold: .15 });
     heroObserver.observe(hero);
     titleObserver.observe(title);
   } else {
     const rect = title.getBoundingClientRect();
-    inView = titleInView = rect.bottom > 0 && rect.top < innerHeight;
-    window.addEventListener('scroll', () => {
-      const box = hero.getBoundingClientRect();
-      inView = box.bottom > 0 && box.top < innerHeight;
-      if (!inView) stop('offscreen-fallback');
-    }, passive);
+    const heroRect = hero.getBoundingClientRect();
+    inView = heroRect.bottom > 0 && heroRect.top < innerHeight;
+    titleInView = rect.bottom > 0 && rect.top < innerHeight;
   }
 
   window.addEventListener('pagehide', event => {
+    pagePaused = true;
     stop('pagehide', false);
     if (event.persisted) return;
     lifetime.abort();
@@ -233,7 +309,11 @@
     heroObserver?.disconnect();
     titleObserver?.disconnect();
   }, { signal: lifetime.signal });
-  window.addEventListener('pageshow', event => { if (event.persisted) { measure(); maybeScan(); } }, { signal: lifetime.signal });
+  window.addEventListener('pageshow', event => {
+    if (!event.persisted) return;
+    pagePaused = false;
+    measure();
+  }, { signal: lifetime.signal });
   document.fonts?.ready.then(() => { if (!lifetime.signal.aborted) scheduleMeasure(); });
   measure();
 })();
