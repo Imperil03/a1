@@ -1,0 +1,29 @@
+/* The alternate hero keeps its original layout and player; only its surface responds. */
+body[data-hero-variant="dotfield"] .hero-dotfield-canvas {
+  --dotfield-base: 124, 117, 109;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: var(--action, #d34309);
+  pointer-events: none;
+  user-select: none;
+  contain: strict;
+}
+
+body[data-hero-variant="dotfield"] .showreel-stage .hero-inner {
+  z-index: 1;
+}
+
+body[data-hero-variant="dotfield"] .showreel-stage .hero-layout {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-hero-variant="dotfield"] .hero-dotfield-canvas {
+    animation: none;
+  }
+}

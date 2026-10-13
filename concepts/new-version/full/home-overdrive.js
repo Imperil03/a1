@@ -3,6 +3,8 @@
   const root = document.querySelector('.type-study');
   const body = document.body;
   if (!root || !body) return;
+  // The separate dotfield hero keeps panel masks, with its own focal background.
+  const heroAssemblyEnabled = body.dataset.heroVariant !== 'dotfield';
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const connection = navigator.connection;
@@ -41,6 +43,7 @@
       requested, active, reason, queryOff,
       preferences: { reducedMotion: reduced.matches, saveData: Boolean(connection?.saveData) },
       showreel: {
+        heroAssemblyEnabled,
         visibleRatio, initialAttempted, assemblyCount,
         renderer: renderer?.diagnostics() || rendererFacts
       },
@@ -147,7 +150,7 @@
   }
 
   async function assemble(cause) {
-    if (!active || blocked() || document.hidden || visibleRatio < .5) return false;
+    if (!heroAssemblyEnabled || !active || blocked() || document.hidden || visibleRatio < .5) return false;
     const localGeneration = generation;
     try {
       const scene = makeRenderer();
@@ -270,7 +273,7 @@
     body.dataset.a1Overdrive = 'ready';
     installPanels();
 
-    if (player && video) {
+    if (heroAssemblyEnabled && player && video) {
       // Source playback remains the sole authority. Only a captured user intent
       // followed by a real play event may repeat the assembly after the first.
       const rememberIntent = () => {
