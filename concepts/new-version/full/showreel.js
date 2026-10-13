@@ -6,7 +6,6 @@
   const runway = stage.querySelector('.showreel-runway');
   const player = stage.querySelector('.showreel-player');
   const video = player.querySelector('video');
-  const button = player.querySelector('.showreel-control');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   // Matches the breakpoint where the hero gains its second column.
   const desktopLayout = matchMedia('(min-width: 1000px)');
@@ -18,7 +17,8 @@
 
   // The same player stays in normal flow on compact screens and expands on desktop.
   video.controls = false;
-  button.hidden = false;
+  video.tabIndex = 0;
+  video.setAttribute('role', 'button');
 
   function paint() {
     frame = 0;
@@ -89,23 +89,35 @@
     paint();
     playback();
   }
-  function syncButton() {
+  function syncPlaybackState() {
     const playing = !video.paused && !video.ended;
     player.toggleAttribute('data-playing', playing);
-    button.setAttribute('aria-label', playing ? 'Приостановить шоурил' : 'Воспроизвести шоурил');
+    video.setAttribute('aria-label', playing ? 'Приостановить шоурил' : 'Воспроизвести шоурил');
+    video.setAttribute('aria-pressed', String(playing));
   }
   function playback() {
-    if (inView && !document.hidden && !userPaused && !reduced.matches) video.play().catch(syncButton);
+    if (inView && !document.hidden && !userPaused && !reduced.matches) video.play().catch(syncPlaybackState);
     else video.pause();
   }
-  button.addEventListener('click', () => {
-    if (video.paused) { userPaused = false; video.play().catch(syncButton); }
+  function togglePlayback() {
+    if (video.controls) return;
+    if (video.paused) { userPaused = false; video.play().catch(syncPlaybackState); }
     else { userPaused = true; video.pause(); }
+  }
+  video.addEventListener('click', togglePlayback);
+  video.addEventListener('keydown', event => {
+    if (video.controls || ![' ', 'Enter'].includes(event.key)) return;
+    event.preventDefault();
+    togglePlayback();
   });
-  video.addEventListener('play', syncButton);
-  video.addEventListener('pause', syncButton);
-  video.addEventListener('ended', syncButton);
-  video.addEventListener('error', () => { video.controls = true; button.hidden = true; });
+  video.addEventListener('play', syncPlaybackState);
+  video.addEventListener('pause', syncPlaybackState);
+  video.addEventListener('ended', syncPlaybackState);
+  video.addEventListener('error', () => {
+    video.controls = true;
+    video.removeAttribute('role');
+    video.removeAttribute('aria-pressed');
+  });
   window.addEventListener('scroll', queue, { passive: true });
   window.addEventListener('resize', measure, { passive: true });
   document.addEventListener('visibilitychange', playback);
@@ -117,5 +129,5 @@
   } else { inView = true; playback(); }
   document.fonts?.ready.then(measure);
   measure();
-  syncButton();
+  syncPlaybackState();
 })();
