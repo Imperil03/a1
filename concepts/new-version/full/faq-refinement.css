@@ -1,0 +1,7 @@
+/* Keep narrow-phone questions readable while reducing excess scrolling. */
+@media (max-width: 360px) {
+  .type-study #faq .faq-list summary {
+    font-size: 22px;
+    padding-block: 24px;
+  }
+}
