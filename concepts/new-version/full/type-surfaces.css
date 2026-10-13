@@ -33,3 +33,7 @@
 :root[data-surface] .showreel-control { border-color: var(--surface-line); background: var(--paper); }
 :root[data-surface] .type-study .menu-toggle { border-color: var(--surface-line); background: var(--paper); }
 .type-study .swatch-warm { background: #e8e5e0; }
+/* Portfolio surfaces share the warm-stone palette; warm feature cards stay vivid. */
+.type-study #cases .case-1 { background: var(--surface-strong, #e8e5e0); }
+.type-study #cases .case-2 { background: #f3dcaf; }
+.type-study #cases .case-3 { background: #d7e2e8; }
