@@ -27,6 +27,43 @@
   background: #a53005;
 }
 
+/* Video covers stay free of playback icons; keyboard users retain a text control. */
+.type-study .showreel-control,
+.type-study .case-motion-control {
+  width: max-content;
+  height: auto;
+  max-width: calc(100% - 32px);
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--ink, #291537);
+  background: var(--paper, #fcfbf9);
+  opacity: 0;
+  clip-path: inset(50%);
+  pointer-events: none;
+}
+
+.type-study .showreel-control > svg,
+.type-study .case-motion-control > svg {
+  display: none;
+}
+
+.type-study .showreel-control::after,
+.type-study .case-motion-control::after {
+  content: attr(aria-label);
+}
+
+.type-study .showreel-control:focus-visible,
+.type-study .case-motion-control:focus-visible {
+  opacity: 1;
+  clip-path: none;
+  pointer-events: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .type-study .catalog-tab > svg,
   .type-study .nav-pop > summary::after,
