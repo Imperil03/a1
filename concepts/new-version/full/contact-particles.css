@@ -1,0 +1,40 @@
+/* Real HTML remains the source, selection and reduced-motion fallback. */
+.type-study #contact .contact-intro {
+  position: relative;
+}
+
+.type-study #contact .contact-intro[data-particle-text="ready"] #contact-title {
+  opacity: 0;
+}
+
+.type-study #contact .contact-particle-canvas {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  pointer-events: none;
+}
+
+.type-study #contact .contact-particle-canvas[hidden] {
+  display: none;
+}
+
+@media (max-width: 759px) {
+  .type-study #contact .contact-particle-canvas {
+    visibility: hidden;
+  }
+  .type-study #contact .contact-intro[data-particle-state="active"] .contact-particle-canvas {
+    visibility: visible;
+  }
+  .type-study #contact .contact-intro[data-particle-text="ready"]:not([data-particle-state="active"]) #contact-title {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  .type-study #contact .contact-intro[data-particle-text="ready"] #contact-title {
+    opacity: 1;
+  }
+  .type-study #contact .contact-particle-canvas {
+    display: none;
+  }
+}

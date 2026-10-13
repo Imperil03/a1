@@ -57,7 +57,7 @@
       art.style.removeProperty('--footer-pointer-y');
     };
 
-    const canFollowPointer = () => phase === 'finished' && inView && !document.hidden &&
+    const canFollowPointer = () => !scene.hasAttribute('data-footer-physics') && phase === 'finished' && inView && !document.hidden &&
       !pageSuspended && !reducedMotion.matches && finePointer.matches;
 
     const pointerTick = () => {
@@ -166,6 +166,7 @@
     };
 
     control.addEventListener('click', () => {
+      if (scene.hasAttribute('data-footer-physics')) return;
       if (animations.length && !userPaused) {
         userPaused = true;
         syncPlayback();

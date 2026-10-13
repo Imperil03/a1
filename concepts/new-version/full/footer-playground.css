@@ -1,0 +1,40 @@
+/* The existing A1 mark anchors a small, bounded playground. */
+#footer .footer-system[data-footer-physics] .footer-system__word {
+  transform: translateX(-50%);
+}
+
+#footer .footer-system[data-footer-physics] .footer-system__object {
+  pointer-events: auto;
+  touch-action: pan-y;
+  cursor: grab;
+  border-radius: 20px;
+  transform: translate3d(var(--play-x, 0px), var(--play-y, 0px), 0) rotate(var(--play-angle, 0deg));
+}
+
+#footer .footer-system[data-footer-physics] .footer-system__object img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+  transition: scale 180ms cubic-bezier(.16, 1, .3, 1);
+}
+
+#footer .footer-system[data-footer-physics] .footer-system__object[data-dragging] {
+  cursor: grabbing;
+  z-index: 4;
+}
+
+#footer .footer-system[data-footer-physics] .footer-system__object:focus-visible {
+  outline: 2px solid #a33b0b;
+  outline-offset: -5px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #footer .footer-system[data-footer-physics] .footer-system__object:is(:hover, :focus-visible) img {
+    scale: 1.025;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #footer .footer-system[data-footer-physics] .footer-system__object {
+    transform: none;
+  }
+}
