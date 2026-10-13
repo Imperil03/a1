@@ -30,6 +30,8 @@
     root.querySelector('summary').focus();
   }));
   const track = document.querySelector('.review-track');
+  // Only the current typography study uses the enhanced review controller.
+  if (!track || track.dataset.reviewsController === 'enhanced') return;
   const previous = document.querySelector('[data-track-prev]');
   const next = document.querySelector('[data-track-next]');
   function update() { previous.disabled = track.scrollLeft <= 2; next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2; }
