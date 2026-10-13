@@ -6,6 +6,12 @@
 .type-study #reviews .review-track--enhanced { padding: 6px 0; scroll-padding-inline: 0; scroll-behavior: auto; overscroll-behavior-x: contain; }
 .type-study #reviews[data-reviews-ready] .review-track { scrollbar-width: none; }
 .type-study #reviews[data-reviews-ready] .review-track::-webkit-scrollbar { display: none; }
+.type-study #reviews .review-track.review-drag-snap { scroll-snap-type: none; }
+.type-study #reviews .review-track.is-dragging { cursor: grabbing; user-select: none; -webkit-user-select: none; }
+@media (hover: hover) and (pointer: fine) {
+  .type-study #reviews[data-reviews-ready] .review-track { cursor: grab; }
+  .type-study #reviews[data-reviews-ready] .review-track.is-dragging { cursor: grabbing; }
+}
 .type-study #reviews .review-navigation { display: flex; justify-content: flex-end; align-items: center; gap: 28px; margin-top: 24px; }
 .type-study #reviews .review-navigation[hidden] { display: none; }
 .type-study #reviews .track-controls { margin: 0; }

@@ -17,6 +17,8 @@
   let scrollFrame = 0;
   let settleTimer = 0;
   let lastRange = '';
+  let drag = null;
+  let suppressDragClick = false;
 
   function measure() {
     const left = track.getBoundingClientRect().left;
@@ -57,8 +59,10 @@
   }
 
   function settle() {
+    if (drag) return;
     clearTimeout(settleTimer);
     pendingTarget = null;
+    track.classList.remove('review-drag-snap');
     updateButtons();
     updatePosition();
   }
@@ -79,6 +83,11 @@
   previous.addEventListener('click', () => move(-1));
   next.addEventListener('click', () => move(1));
   track.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && drag) {
+      event.preventDefault();
+      finishDrag(true);
+      return;
+    }
     if (event.target !== track) return;
     if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
     event.preventDefault();
@@ -90,18 +99,103 @@
     pendingTarget = null;
     status.setAttribute('aria-live', 'polite');
   }
-  track.addEventListener('pointerdown', directInteraction, { passive: true });
-  track.addEventListener('wheel', directInteraction, { passive: true });
+  function startDrag(event) {
+    suppressDragClick = false;
+    directInteraction();
+    if (event.pointerType !== 'mouse' || !event.isPrimary || event.button !== 0 || drag) return;
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    if (event.target.closest('a, button, input, textarea, select, summary, [contenteditable]')) return;
+    if (targets.length < 2) return;
+    // Touch keeps native scrolling. Mouse movement is captured even outside
+    // the card, and modified clicks retain native text-selection behavior.
+    event.preventDefault();
+    clearTimeout(settleTimer);
+    track.classList.add('review-drag-snap');
+    track.scrollTo({ left: track.scrollLeft, behavior: 'auto' });
+    drag = {
+      pointerId: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+      left: track.scrollLeft,
+      target: nearestTarget(),
+      active: false,
+    };
+    track.setPointerCapture(event.pointerId);
+    track.classList.add('is-dragging');
+    track.focus({ preventScroll: true });
+  }
+
+  function dragMove(event) {
+    if (!drag || event.pointerId !== drag.pointerId) return;
+    if (!(event.buttons & 1)) { finishDrag(true); return; }
+    const distance = drag.x - event.clientX;
+    if (!drag.active) {
+      if (Math.abs(event.clientY - drag.y) > Math.max(12, Math.abs(distance))) {
+        finishDrag(true);
+        return;
+      }
+      if (Math.abs(distance) < 8) return;
+      drag.active = true;
+    }
+    event.preventDefault();
+    track.scrollLeft = drag.left + distance;
+  }
+
+  function finishDrag(cancelled = false) {
+    if (!drag) return;
+    const completed = drag;
+    drag = null;
+    track.classList.remove('is-dragging');
+    if (track.hasPointerCapture(completed.pointerId)) track.releasePointerCapture(completed.pointerId);
+    if (cancelled || !completed.active) { settle(); return; }
+    suppressDragClick = true;
+    const travelled = track.scrollLeft - completed.left;
+    const direction = Math.sign(travelled);
+    let destination = nearestTarget();
+    const adjacent = Math.max(0, Math.min(targets.length - 1, completed.target + direction));
+    const step = Math.abs(targets[adjacent] - targets[completed.target]);
+    // An intentional short swipe advances one card; a longer drag can cross
+    // several. No momentum keeps the review text under the reader's control.
+    if (direction && Math.abs(travelled) >= Math.min(64, step * .2)) {
+      destination = direction > 0 ? Math.max(destination, adjacent) : Math.min(destination, adjacent);
+    }
+    goTo(destination);
+  }
+
+  track.addEventListener('pointerdown', startDrag);
+  track.addEventListener('pointermove', dragMove);
+  track.addEventListener('pointerup', event => {
+    if (drag?.pointerId === event.pointerId) finishDrag();
+  });
+  track.addEventListener('pointercancel', () => finishDrag(true));
+  track.addEventListener('lostpointercapture', () => finishDrag(true));
+  window.addEventListener('blur', () => finishDrag(true));
+  track.addEventListener('click', event => {
+    if (suppressDragClick && event.detail > 0) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    suppressDragClick = false;
+  }, true);
+  track.addEventListener('dragstart', event => {
+    if (drag) event.preventDefault();
+  });
+  track.addEventListener('wheel', () => {
+    finishDrag(true);
+    directInteraction();
+  }, { passive: true });
   track.addEventListener('scroll', () => {
     if (!scrollFrame) scrollFrame = requestAnimationFrame(() => {
       scrollFrame = 0;
       updateButtons();
     });
     clearTimeout(settleTimer);
+    if (drag) return;
     settleTimer = setTimeout(settle, 140);
   }, { passive: true });
   track.addEventListener('scrollend', settle);
   function resize() {
+    finishDrag(true);
     status.setAttribute('aria-live', 'off');
     pendingTarget = null;
     measure();
