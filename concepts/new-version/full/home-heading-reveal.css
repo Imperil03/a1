@@ -1,0 +1,32 @@
+/* Preserve the heading's type and natural wrapping; only individual words rise. */
+.type-study .a1-heading-mask {
+  all: unset;
+  display: inline-block;
+  vertical-align: baseline;
+  clip-path: inset(-.08em -.06em -.1em -.06em);
+}
+
+.type-study .a1-heading-word {
+  all: unset;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.type-study [data-heading-reveal="pending"] .a1-heading-word {
+  transform: translateY(125%);
+}
+
+.type-study [data-heading-reveal="running"] .a1-heading-word {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  .type-study .a1-heading-mask {
+    clip-path: none;
+  }
+
+  .type-study .a1-heading-word {
+    transform: none !important;
+    will-change: auto;
+  }
+}
