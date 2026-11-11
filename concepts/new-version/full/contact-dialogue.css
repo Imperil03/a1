@@ -282,7 +282,7 @@
   .type-study #contact[data-contact-layout="dialogue"] .contact-actions {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: 0;
+    margin-top: 24px;
     gap: 10px;
   }
 
@@ -306,7 +306,7 @@
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-director {
     gap: 18px;
-    margin-top: 24px;
+    margin-top: 0;
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-director strong {
