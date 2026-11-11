@@ -118,7 +118,10 @@
     width: 100%;
     max-width: 460px;
     height: auto;
+    max-height: 320px;
     object-fit: contain;
+    transform: scale(1.25);
+    transform-origin: center bottom;
   }
 }
 
