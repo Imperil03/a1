@@ -1,6 +1,8 @@
 (() => {
   'use strict';
   if (document.body?.dataset.heroVariant !== 'dotfield') return;
+  // Keep the reversible point field dormant while the CSS text effect stays available.
+  if (document.body.dataset.heroPoints === 'hidden') return;
   const stage = document.querySelector('.showreel-stage');
   const hero = stage?.querySelector('#hero');
   const title = hero?.querySelector('.hero-title');
