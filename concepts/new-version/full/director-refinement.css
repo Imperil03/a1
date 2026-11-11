@@ -1,10 +1,10 @@
-/* A bounded personal statement: calm type, a clear emphasis, and the original portrait. */
+/* A fluid personal statement aligned with the page grid, with calm readable type. */
 .type-study #director.director-quote {
   box-sizing: border-box;
   width: 100%;
-  max-width: 1360px;
+  max-width: none;
   margin-block: clamp(56px, 5vw, 88px) 0;
-  margin-inline: auto;
+  margin-inline: 0;
   padding: clamp(28px, 3.3vw, 56px);
   display: grid;
   grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
@@ -48,7 +48,7 @@
 
 .type-study #director blockquote {
   min-width: 0;
-  max-width: 44ch;
+  max-width: 70ch;
   margin: 0;
   font-size: clamp(30px, 2.35vw, 36px);
   font-weight: 400;
