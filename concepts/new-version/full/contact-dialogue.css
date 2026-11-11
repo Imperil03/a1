@@ -177,6 +177,46 @@
   }
 }
 
+/* On wide screens the conversation occupies the centre, with its author beside it. */
+@media (min-width: 1800px) {
+  .type-study #contact[data-contact-layout="dialogue"] > .section-inner {
+    padding-block: clamp(56px, 2.6vw, 64px);
+  }
+
+  .type-study #contact[data-contact-layout="dialogue"] .contact-panel--personal {
+    --contact-portrait-size: 176px;
+    grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+    gap: clamp(48px, 2.6vw, 64px);
+  }
+
+  .type-study #contact[data-contact-layout="dialogue"] .contact-conversation {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 32px;
+    align-items: center;
+    justify-items: stretch;
+  }
+
+  .type-study #contact[data-contact-layout="dialogue"] .contact-dialogue-art {
+    max-width: none;
+    height: clamp(320px, 17vw, 400px);
+  }
+
+  .type-study #contact[data-contact-layout="dialogue"] .contact-dialogue-art img {
+    object-position: left center;
+  }
+
+  .type-study #contact[data-contact-layout="dialogue"] .contact-director {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .type-study #contact[data-contact-layout="dialogue"] .contact-portrait {
+    width: var(--contact-portrait-size);
+  }
+}
+
 @media (max-width: 999px) {
   .type-study #contact[data-contact-layout="dialogue"] .contact-panel--personal {
     --contact-portrait-size: 112px;
