@@ -177,27 +177,31 @@
   }
 }
 
-/* On wide screens the conversation occupies the centre, with its author beside it. */
+/* Keep the author next to the invitation, with the sculpture gathered beside him. */
 @media (min-width: 1800px) {
   .type-study #contact[data-contact-layout="dialogue"] > .section-inner {
     padding-block: clamp(56px, 2.6vw, 64px);
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-panel--personal {
-    --contact-portrait-size: 176px;
+    --contact-portrait-size: 184px;
     grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
     gap: clamp(48px, 2.6vw, 64px);
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-conversation {
-    grid-template-columns: minmax(0, 1fr) 280px;
-    gap: 32px;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 20px;
     align-items: center;
     justify-items: stretch;
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-dialogue-art {
+    grid-column: 2;
+    grid-row: 1;
+    width: calc(100% + 32px);
     max-width: none;
+    margin-left: -32px;
     height: clamp(320px, calc(30vw - 250px), 500px);
   }
 
@@ -206,6 +210,9 @@
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-director {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
     grid-template-columns: minmax(0, 1fr);
     gap: 20px;
     width: 100%;
