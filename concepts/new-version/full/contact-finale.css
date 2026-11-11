@@ -1,0 +1,260 @@
+/* The closing invitation gives the available width to the contact actions. */
+.type-study #contact[data-contact-layout="finale"] > .section-inner {
+  padding-block: clamp(64px, 5.2vw, 104px);
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-panel--personal {
+  --contact-portrait-size: clamp(112px, 10vw, 160px);
+  width: 100%;
+  max-width: none;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  gap: clamp(32px, 4vw, 96px);
+  align-items: center;
+  padding: 0;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-intro,
+.type-study #contact[data-contact-layout="finale"] .contact-conversation {
+  min-width: 0;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-panel h2 {
+  max-width: 14ch;
+  margin: 0;
+  font-size: clamp(56px, 5.2vw, 120px);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-copy {
+  max-width: 50ch;
+  margin: 28px 0 0;
+  font-size: clamp(20px, 1.05vw, 24px);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-director {
+  display: grid;
+  grid-template-columns: var(--contact-portrait-size) minmax(0, 1fr);
+  gap: clamp(20px, 2.2vw, 36px);
+  align-items: center;
+  margin: 0;
+  text-align: left;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-portrait {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transform: scale(1.35);
+  transform-origin: 50% 25%;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-director figcaption {
+  min-width: 0;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-director strong {
+  display: block;
+  font-size: clamp(24px, 1.3vw, 28px);
+  font-weight: 550;
+  line-height: 1.3;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-director figcaption > span {
+  display: block;
+  margin-top: 6px;
+  font-size: clamp(18px, 1vw, 20px);
+  line-height: 1.45;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-director .response-time {
+  margin: 12px 0 0;
+  color: #ded4e5;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-actions .button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  width: 100%;
+  min-height: 76px;
+  gap: 20px;
+  padding: 20px 24px;
+  border-radius: 12px;
+  font-size: clamp(20px, 1.4vw, 28px);
+  font-weight: 550;
+  line-height: 1.3;
+  text-align: left;
+  white-space: normal;
+  transition: background-color 180ms ease-out, color 180ms ease-out;
+  -webkit-tap-highlight-color: rgb(255 173 119 / 20%);
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-actions .button svg {
+  display: block;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-actions .button-primary {
+  grid-column: 1 / -1;
+  min-height: 104px;
+  padding: 24px 32px;
+  background: var(--action, #d34309);
+  color: #fffaf6;
+  font-size: clamp(24px, 1.6vw, 36px);
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-actions .button-primary svg {
+  flex-basis: 32px;
+  width: 32px;
+  height: 32px;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-actions .button-light {
+  border: 1px solid #9b86a8;
+  background: transparent;
+  color: #fff9f3;
+}
+
+.type-study #contact[data-contact-layout="finale"] .contact-actions .button:focus-visible {
+  outline: 3px solid #ffad77;
+  outline-offset: 5px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .type-study #contact[data-contact-layout="finale"] .contact-actions .button-primary:hover {
+    background: #e14d12;
+    color: #fffaf6;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-actions .button-light:hover {
+    background: #fff9f3;
+    color: #2c163c;
+  }
+}
+
+@media (min-width: 1800px) {
+  .type-study #contact[data-contact-layout="finale"] .contact-actions .button-primary {
+    min-height: 112px;
+  }
+}
+
+@media (max-width: 999px) {
+  .type-study #contact[data-contact-layout="finale"] .contact-panel--personal {
+    --contact-portrait-size: clamp(112px, 14vw, 128px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-panel h2 {
+    max-width: 18ch;
+    font-size: clamp(52px, 8vw, 80px);
+  }
+}
+
+@media (max-width: 700px) {
+  .type-study #contact[data-contact-layout="finale"] > .section-inner {
+    padding-block: 64px;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-panel--personal {
+    --contact-portrait-size: 88px;
+    gap: 28px;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-panel h2 {
+    max-width: 15ch;
+    font-size: clamp(48px, 13vw, 64px);
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-copy {
+    margin-top: 20px;
+    font-size: 19px;
+    line-height: 1.55;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-director {
+    gap: 18px;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-director strong {
+    font-size: 20px;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-director figcaption > span {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-director .response-time {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-actions {
+    margin-top: 24px;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-actions .button {
+    min-height: 64px;
+    gap: 12px;
+    padding: 16px 14px;
+    font-size: 18px;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-actions .button-primary {
+    min-height: 76px;
+    gap: 16px;
+    padding: 18px 20px;
+    font-size: 20px;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-actions .button-primary svg {
+    flex-basis: 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-actions .button-light svg {
+    display: none;
+  }
+}
+
+@media (max-width: 359px) {
+  .type-study #contact[data-contact-layout="finale"] .contact-panel h2 {
+    font-size: 42px;
+  }
+
+  .type-study #contact[data-contact-layout="finale"] .contact-actions .button-primary {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .type-study #contact[data-contact-layout="finale"] .contact-actions .button {
+    transition: none;
+  }
+}
