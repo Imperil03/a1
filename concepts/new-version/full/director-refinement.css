@@ -1,0 +1,157 @@
+/* A bounded personal statement: calm type, a clear emphasis, and the original portrait. */
+.type-study #director.director-quote {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1360px;
+  margin-block: clamp(56px, 5vw, 88px) 0;
+  margin-inline: auto;
+  padding: clamp(28px, 3.3vw, 56px);
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 64px);
+  align-items: center;
+}
+
+.type-study #director > img {
+  display: block;
+  grid-column: auto;
+  grid-row: auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 12px;
+}
+
+.type-study #director .director-copy {
+  display: block;
+  min-width: 0;
+}
+
+.type-study #director .director-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.type-study #director .director-quote-mark {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 22px;
+}
+
+.type-study #director blockquote {
+  min-width: 0;
+  max-width: 44ch;
+  margin: 0;
+  font-size: clamp(30px, 2.35vw, 36px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -.01em;
+}
+
+.type-study #director blockquote p {
+  margin: 0;
+}
+
+.type-study #director blockquote p + p {
+  margin-top: 16px;
+}
+
+.type-study #director blockquote strong {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.type-study #director figcaption {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 4px;
+  margin: 28px 0 0;
+}
+
+.type-study #director figcaption strong {
+  font-size: 22px;
+  font-weight: 550;
+  line-height: 1.3;
+}
+
+.type-study #director figcaption span {
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+@media (min-width: 900px) and (max-width: 1099px) {
+  .type-study #director.director-quote {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 32px;
+    padding: 28px;
+  }
+
+  .type-study #director blockquote {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 899px) {
+  .type-study #director.director-quote {
+    grid-template-columns: clamp(80px, 24vw, 112px) minmax(0, 1fr);
+    column-gap: 16px;
+    row-gap: 24px;
+    padding: 22px;
+    align-items: center;
+  }
+
+  .type-study #director .director-copy {
+    display: contents;
+  }
+
+  .type-study #director .director-label {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .type-study #director > img {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    aspect-ratio: 1;
+    object-position: center 15%;
+    border-radius: 50%;
+  }
+
+  .type-study #director figcaption {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+  }
+
+  .type-study #director figcaption strong {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .type-study #director figcaption span {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .type-study #director blockquote {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    max-width: none;
+    margin: 0;
+    font-size: clamp(23px, 6vw, 25px);
+    line-height: 1.4;
+  }
+}
