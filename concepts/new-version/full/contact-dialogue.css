@@ -4,7 +4,7 @@
 }
 
 .type-study #contact[data-contact-layout="dialogue"] .contact-panel--personal {
-  --contact-portrait-size: clamp(112px, 6vw, 128px);
+  --contact-portrait-size: 96px;
   width: 100%;
   max-width: none;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
@@ -42,7 +42,7 @@
   align-items: center;
   gap: 12px;
   width: auto;
-  margin: 32px 0 0;
+  margin: 20px 0 0;
 }
 
 .type-study #contact[data-contact-layout="dialogue"] .contact-actions .button {
@@ -98,8 +98,8 @@
 
 .type-study #contact[data-contact-layout="dialogue"] .contact-dialogue-art {
   width: 100%;
-  max-width: 800px;
-  height: clamp(260px, 15vw, 380px);
+  max-width: none;
+  height: clamp(300px, 28vw, 460px);
   pointer-events: none;
   user-select: none;
 }
@@ -117,8 +117,8 @@
   grid-template-columns: var(--contact-portrait-size) minmax(0, 1fr);
   align-items: center;
   gap: clamp(20px, 1.6vw, 32px);
-  width: min(100%, 560px);
-  margin: -8px 0 0;
+  width: 100%;
+  margin: 24px 0 0;
   text-align: left;
 }
 
@@ -146,22 +146,22 @@
 
 .type-study #contact[data-contact-layout="dialogue"] .contact-director strong {
   display: block;
-  font-size: clamp(22px, 1.15vw, 26px);
+  font-size: 22px;
   font-weight: 550;
   line-height: 1.3;
 }
 
 .type-study #contact[data-contact-layout="dialogue"] .contact-director figcaption > span {
   display: block;
-  margin-top: 6px;
-  font-size: clamp(17px, .9vw, 20px);
+  margin-top: 4px;
+  font-size: 17px;
   line-height: 1.45;
 }
 
 .type-study #contact[data-contact-layout="dialogue"] .contact-director .response-time {
-  margin: 10px 0 0;
+  margin: 6px 0 0;
   color: #ded4e5;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -177,31 +177,26 @@
   }
 }
 
-/* Keep the author next to the invitation, with the sculpture gathered beside him. */
+/* The contact signature stays with the invitation; only the sculpture is on the right. */
 @media (min-width: 1800px) {
   .type-study #contact[data-contact-layout="dialogue"] > .section-inner {
     padding-block: clamp(56px, 2.6vw, 64px);
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-panel--personal {
-    --contact-portrait-size: 184px;
     grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
     gap: clamp(48px, 2.6vw, 64px);
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-conversation {
-    grid-template-columns: 240px minmax(0, 1fr);
-    gap: 20px;
+    grid-template-columns: minmax(0, 1fr);
     align-items: center;
     justify-items: stretch;
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-dialogue-art {
-    grid-column: 2;
-    grid-row: 1;
-    width: calc(100% + 32px);
+    width: 100%;
     max-width: none;
-    margin-left: -32px;
     height: clamp(320px, calc(30vw - 250px), 500px);
   }
 
@@ -209,24 +204,11 @@
     object-position: left center;
   }
 
-  .type-study #contact[data-contact-layout="dialogue"] .contact-director {
-    grid-column: 1;
-    grid-row: 1;
-    z-index: 1;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
-    width: 100%;
-    margin: 0;
-  }
-
-  .type-study #contact[data-contact-layout="dialogue"] .contact-portrait {
-    width: var(--contact-portrait-size);
-  }
 }
 
 @media (max-width: 999px) {
   .type-study #contact[data-contact-layout="dialogue"] .contact-panel--personal {
-    --contact-portrait-size: 112px;
+    --contact-portrait-size: 96px;
     grid-template-columns: minmax(0, 1fr);
     gap: 32px;
   }
@@ -302,7 +284,7 @@
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-director {
     gap: 18px;
-    margin-top: 0;
+    margin-top: 24px;
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-director strong {
