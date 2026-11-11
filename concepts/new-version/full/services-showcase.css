@@ -27,10 +27,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 18px;
   height: 100%;
-  min-height: 480px;
-  padding: clamp(28px, 2.8vw, 48px);
+  min-height: 0;
+  padding: clamp(24px, 2.2vw, 36px);
   border-radius: inherit;
   color: var(--offer-ink);
   text-decoration: none;
@@ -48,8 +48,8 @@
 }
 .type-study #services[data-services-layout="showcase"] .offer-arrow {
   position: absolute;
-  top: clamp(28px, 2.8vw, 48px);
-  right: clamp(28px, 2.8vw, 48px);
+  top: clamp(24px, 2.2vw, 36px);
+  right: clamp(24px, 2.2vw, 36px);
   display: grid;
   place-items: center;
   width: 42px;
@@ -70,21 +70,21 @@
   line-height: 1.55;
 }
 .type-study #services[data-services-layout="showcase"] .offer-copy p { margin: 0; }
-.type-study #services[data-services-layout="showcase"] .offer-copy p + p { margin-top: 16px; }
+.type-study #services[data-services-layout="showcase"] .offer-copy p + p { margin-top: 12px; }
 .type-study #services[data-services-layout="showcase"] .offer-footer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 180px;
+  grid-template-columns: minmax(0, 1fr) 140px;
   gap: 12px;
   align-items: center;
   margin-top: auto;
-  padding-top: 12px;
+  padding-top: 4px;
 }
 .type-study #services[data-services-layout="showcase"] .offer-price { position: relative; z-index: 1; }
 .type-study #services[data-services-layout="showcase"] .offer-price-caption {
   display: flex;
   gap: 15px;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: var(--offer-muted);
   font-size: 14px;
   line-height: 1.4;
@@ -100,39 +100,39 @@
 }
 .type-study #services[data-services-layout="showcase"] .offer-art {
   position: relative;
-  width: 180px;
-  height: 128px;
+  width: 140px;
+  height: 88px;
   pointer-events: none;
 }
 .type-study #services[data-services-layout="showcase"] .offer-art img {
   position: absolute;
   top: -28px;
   left: 0;
-  width: 180px;
-  height: 180px;
+  width: 140px;
+  height: 140px;
   max-width: none;
   object-fit: contain;
   transition: transform 340ms cubic-bezier(.16, 1, .3, 1);
 }
 .type-study #services[data-services-layout="showcase"] .offer--2 .offer-art img { transform: rotate(-18deg); }
 .type-study #services[data-services-layout="showcase"] .offer-art--system .offer-object--site {
-  top: 7px;
-  left: -12px;
-  width: 136px;
-  height: 136px;
+  top: 0;
+  left: -6px;
+  width: 106px;
+  height: 106px;
 }
 .type-study #services[data-services-layout="showcase"] .offer-art--system .offer-object--traffic {
-  top: -7px;
-  left: 65px;
-  width: 86px;
-  height: 86px;
+  top: -14px;
+  left: 48px;
+  width: 68px;
+  height: 68px;
   transform: rotate(-22deg);
 }
 .type-study #services[data-services-layout="showcase"] .offer-art--system .offer-object--analytics {
-  top: 20px;
-  left: 76px;
-  width: 124px;
-  height: 124px;
+  top: 10px;
+  left: 58px;
+  width: 96px;
+  height: 96px;
 }
 .type-study #services[data-services-layout="showcase"] .offer-link:focus-visible {
   outline: 3px solid #b54113;
@@ -165,17 +165,17 @@
 }
 @media (max-width: 759px) {
   .type-study #services[data-services-layout="showcase"] .offers-grid { grid-template-columns: 1fr; gap: 18px; }
-  .type-study #services[data-services-layout="showcase"] .offer-link { min-height: 0; padding: 26px; gap: 22px; }
-  .type-study #services[data-services-layout="showcase"] .offer-title { min-height: 94px; padding-right: 88px; font-size: 28px; line-height: 1.16; text-wrap: initial; }
-  .type-study #services[data-services-layout="showcase"] .offer-arrow { top: auto; right: 26px; bottom: 30px; width: 40px; height: 40px; }
+  .type-study #services[data-services-layout="showcase"] .offer-link { min-height: 0; padding: 22px; gap: 18px; }
+  .type-study #services[data-services-layout="showcase"] .offer-title { min-height: 72px; padding-right: 88px; font-size: 28px; line-height: 1.16; text-wrap: initial; }
+  .type-study #services[data-services-layout="showcase"] .offer-arrow { top: auto; right: 22px; bottom: 24px; width: 40px; height: 40px; }
   .type-study #services[data-services-layout="showcase"] .offer-copy { font-size: 18px; }
-  .type-study #services[data-services-layout="showcase"] .offer-footer { grid-template-columns: 1fr; padding-top: 10px; padding-right: 34px; }
+  .type-study #services[data-services-layout="showcase"] .offer-footer { grid-template-columns: 1fr; padding-top: 4px; padding-right: 34px; }
   .type-study #services[data-services-layout="showcase"] .offer-price strong { font-size: 22px; }
-  .type-study #services[data-services-layout="showcase"] .offer-art { position: absolute; top: 21px; right: 16px; width: 86px; height: 100px; }
-  .type-study #services[data-services-layout="showcase"] .offer-art img { top: -5px; left: -14px; width: 112px; height: 112px; }
-  .type-study #services[data-services-layout="showcase"] .offer-art--system .offer-object--site { top: 16px; left: -14px; width: 82px; height: 82px; }
-  .type-study #services[data-services-layout="showcase"] .offer-art--system .offer-object--traffic { top: -4px; left: 30px; width: 60px; height: 60px; }
-  .type-study #services[data-services-layout="showcase"] .offer-art--system .offer-object--analytics { top: 32px; left: 38px; width: 72px; height: 72px; }
+  .type-study #services[data-services-layout="showcase"] .offer-art { position: absolute; top: 18px; right: 14px; width: 78px; height: 80px; }
+  .type-study #services[data-services-layout="showcase"] .offer-art img { top: -4px; left: -8px; width: 96px; height: 96px; }
+  .type-study #services[data-services-layout="showcase"] .offer-art--system .offer-object--site { top: 12px; left: -10px; width: 72px; height: 72px; }
+  .type-study #services[data-services-layout="showcase"] .offer-art--system .offer-object--traffic { top: -2px; left: 26px; width: 52px; height: 52px; }
+  .type-study #services[data-services-layout="showcase"] .offer-art--system .offer-object--analytics { top: 27px; left: 26px; width: 62px; height: 62px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .type-study #services[data-services-layout="showcase"] .offer-arrow svg,
