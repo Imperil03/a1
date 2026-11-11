@@ -58,6 +58,7 @@
 
 .type-study #director blockquote p {
   margin: 0;
+  text-wrap: pretty;
 }
 
 .type-study #director blockquote p + p {
@@ -68,6 +69,7 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
+  text-wrap: balance;
 }
 
 .type-study #director figcaption {
