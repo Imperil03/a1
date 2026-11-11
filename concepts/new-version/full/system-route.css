@@ -1,0 +1,280 @@
+/* A single static route. Each segment belongs only to its preceding stage. */
+.type-study #system[data-system-layout="route"] {
+  --route-marker-size: 44px;
+  --route-check-size: 20px;
+  --route-gap: 28px;
+  --route-ink: #261631;
+  --route-muted: #625b65;
+  --route-line: var(--action, #d34309);
+  background: var(--surface-canvas, #f8f7f5);
+  color: var(--route-ink);
+}
+
+.type-study #system[data-system-layout="route"] > .system-inner {
+  padding-block: clamp(64px, 5.5vw, 88px);
+}
+
+.type-study #system[data-system-layout="route"] .system-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+  margin: 0 0 40px;
+}
+
+.type-study #system[data-system-layout="route"] .system-heading h2 {
+  max-width: none;
+  margin: 0;
+  font-size: clamp(34px, 3.4vw, 52px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.type-study #system[data-system-layout="route"] .system-heading > p {
+  max-width: none;
+  margin: 0;
+  color: var(--route-muted);
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+.type-study #system[data-system-layout="route"] .route-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--route-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.type-study #system[data-system-layout="route"] .route-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* End at the next marker's leading edge, without a second fan-in route. */
+.type-study #system[data-system-layout="route"] .route-stage:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: calc(var(--route-marker-size) / 2);
+  right: calc(0px - var(--route-gap));
+  left: var(--route-marker-size);
+  height: 2px;
+  background: var(--route-line);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.type-study #system[data-system-layout="route"] .route-stage:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: calc(var(--route-marker-size) / 2);
+  right: calc(10px - var(--route-gap));
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--route-line);
+  border-right: 2px solid var(--route-line);
+  transform: translateY(-50%) rotate(45deg);
+  pointer-events: none;
+}
+
+.type-study #system[data-system-layout="route"] .route-marker {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: var(--route-marker-size);
+  height: var(--route-marker-size);
+  margin: 0;
+  border: 1.5px solid var(--route-line);
+  border-radius: 50%;
+  background: var(--paper, #fcfbf9);
+  color: #9d3e18;
+}
+
+.type-study #system[data-system-layout="route"] .route-number {
+  display: block;
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.type-study #system[data-system-layout="route"] .route-marker--result {
+  display: inline-flex;
+  justify-content: flex-start;
+  gap: 8px;
+  width: max-content;
+  max-width: 100%;
+  padding-inline: calc((var(--route-marker-size) - var(--route-check-size)) / 2 - 1.5px);
+  border-color: var(--route-ink);
+  border-radius: calc(var(--route-marker-size) / 2);
+  background: var(--route-ink);
+  color: #fffaf6;
+}
+
+.type-study #system[data-system-layout="route"] .route-marker--result svg {
+  display: block;
+  flex: 0 0 var(--route-check-size);
+  width: var(--route-check-size);
+  height: var(--route-check-size);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.type-study #system[data-system-layout="route"] .route-label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.type-study #system[data-system-layout="route"] .route-copy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 70ch;
+  min-width: 0;
+  margin-top: 18px;
+}
+
+.type-study #system[data-system-layout="route"] .route-copy h3 {
+  max-width: none;
+  margin: 0;
+  color: var(--route-ink);
+  font-size: clamp(22px, 1.8vw, 26px);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+}
+
+.type-study #system[data-system-layout="route"] .route-copy p {
+  max-width: none;
+  margin: 14px 0 0;
+  color: var(--route-muted);
+  font-size: clamp(18px, 1.3vw, 20px);
+  line-height: 1.55;
+}
+
+.type-study #system[data-system-layout="route"] .route-result {
+  padding: 18px;
+  border-radius: 12px;
+  background: #ede8f1;
+}
+
+.type-study #system[data-system-layout="route"] ::selection {
+  background: #ffd9c4;
+  color: #261631;
+}
+
+@media (max-width: 1099px) {
+  .type-study #system[data-system-layout="route"] {
+    --route-marker-size: 36px;
+    --route-check-size: 18px;
+    --route-gap: 28px;
+  }
+
+  .type-study #system[data-system-layout="route"] .system-heading {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .type-study #system[data-system-layout="route"] .system-heading h2 {
+    font-size: clamp(34px, 4.1vw, 42px);
+  }
+
+  .type-study #system[data-system-layout="route"] .route-flow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .type-study #system[data-system-layout="route"] .route-stage {
+    display: grid;
+    grid-template-columns: var(--route-marker-size) minmax(0, 1fr);
+    column-gap: 16px;
+    align-items: start;
+  }
+
+  .type-study #system[data-system-layout="route"] .route-stage:not(:last-child)::after {
+    top: var(--route-marker-size);
+    right: auto;
+    bottom: calc(0px - var(--route-gap));
+    left: calc(var(--route-marker-size) / 2);
+    width: 2px;
+    height: auto;
+    transform: translateX(-50%);
+  }
+
+  .type-study #system[data-system-layout="route"] .route-stage:not(:last-child)::before {
+    top: auto;
+    right: auto;
+    bottom: calc(10px - var(--route-gap));
+    left: calc(var(--route-marker-size) / 2 - 4px);
+    transform: rotate(135deg);
+  }
+
+  .type-study #system[data-system-layout="route"] .route-number {
+    font-size: 16px;
+  }
+
+  .type-study #system[data-system-layout="route"] .route-copy {
+    margin-top: 0;
+  }
+
+  .type-study #system[data-system-layout="route"] .route-copy h3 {
+    font-size: 24px;
+    text-wrap: initial;
+  }
+
+  .type-study #system[data-system-layout="route"] .route-copy p {
+    font-size: 18px;
+  }
+
+  .type-study #system[data-system-layout="route"] .route-stage--result .route-marker {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .type-study #system[data-system-layout="route"] .route-stage--result .route-copy {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 12px;
+  }
+
+  .type-study #system[data-system-layout="route"] .route-result h3 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 759px) {
+  .type-study #system[data-system-layout="route"] .system-heading {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .type-study #system[data-system-layout="route"] .system-heading h2 {
+    font-size: clamp(34px, 6.7vw, 38px);
+  }
+
+  .type-study #system[data-system-layout="route"] .system-heading > p {
+    font-size: 18px;
+  }
+}
