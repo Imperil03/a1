@@ -27,7 +27,13 @@
 
 .type-study #director .director-copy {
   display: block;
+  width: 100%;
+  max-width: 900px;
   min-width: 0;
+}
+
+.type-study #director .director-art {
+  display: none;
 }
 
 .type-study #director .director-label {
@@ -48,7 +54,7 @@
 
 .type-study #director blockquote {
   min-width: 0;
-  max-width: 70ch;
+  max-width: none;
   margin: 0;
   font-size: clamp(30px, 2.35vw, 36px);
   font-weight: 400;
@@ -89,6 +95,31 @@
 .type-study #director figcaption span {
   font-size: 17px;
   line-height: 1.45;
+}
+
+/* The reading column stays bounded; the wide canvas is balanced by the A1 seal. */
+@media (min-width: 1800px) {
+  .type-study #director.director-quote {
+    grid-template-columns: 320px minmax(0, 900px) minmax(280px, 1fr);
+  }
+
+  .type-study #director .director-art {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    align-self: center;
+    min-width: 0;
+    height: 400px;
+    pointer-events: none;
+  }
+
+  .type-study #director .director-art img {
+    display: block;
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    object-fit: contain;
+  }
 }
 
 @media (min-width: 900px) and (max-width: 1099px) {
