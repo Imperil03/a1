@@ -4,7 +4,7 @@
 }
 
 .type-study #contact[data-contact-layout="dialogue"] .contact-panel--personal {
-  --contact-portrait-size: 96px;
+  --contact-portrait-size: 140px;
   width: 100%;
   max-width: none;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
