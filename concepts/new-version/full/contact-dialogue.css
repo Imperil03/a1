@@ -198,7 +198,7 @@
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-dialogue-art {
     max-width: none;
-    height: clamp(320px, 17vw, 400px);
+    height: clamp(320px, calc(30vw - 250px), 500px);
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-dialogue-art img {
