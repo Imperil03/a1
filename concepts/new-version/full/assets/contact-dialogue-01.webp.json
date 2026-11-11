@@ -1,0 +1,15 @@
+{
+  "generator": "native image_gen",
+  "intent": "new project-bound asset",
+  "useCase": "stylized-concept",
+  "promptFile": "new-version/.impeccable/shape/contact-dialogue-20261111/prompt.txt",
+  "prompt": "Use case: stylized-concept. Asset type: premium 3D editorial illustration for the contact section of A1, a Russian digital agency. Subject: a sculptural conversation, TWO large interlocking speech-bubble forms, one vivid burnt orange #ed520c and one warm ivory #fff6e8. Each form is a thick rounded rectangular OPEN FRAME with an unmistakable short speech tail, made as a single continuous solid extrusion; the centers are open/empty, not filled chat panels. Orange form sits forward and lower-left; ivory form behind and higher-right, with physical overlap. Composition: dynamic diagonal arrangement, restrained 3/4 perspective, broad front faces, substantial bevels and real depth, each form rotated differently by about 12 degrees. Objects occupy 88 percent of a wide landscape frame, fully inside canvas; centered isolated composition. Materials: smooth satin painted solid resin with subtle natural roughness, confident bold design, warm soft key light top-left, darker dimensional sides and gentle ambient contact shadows between forms. Style: polished high-end studio CGI, architectural and graphic, not toy-like, no gloss or glass. TRANSPARENT BACKGROUND, genuine alpha, no floor plane, preserve soft localized shadows only around the objects. No text, no letters, no numbers, no logos, no ellipses or dots inside the forms, no icons, no phone, no people, no UI screenshot, no additional shapes, no sparkle, no badge. Must work beautifully over a solid dark aubergine #2c183d website background.",
+  "sourceDimensions": [
+    1536,
+    1024
+  ],
+  "alphaPreserved": true,
+  "webpQuality": 90,
+  "sha256": "4c1e04ba0f27426d203cfc28a4e7924b96eb305dcd0c20f2ca5282b84a05da05",
+  "description": "Two interlocking orange and warm-ivory speech-bubble frames, no text or logo."
+}
