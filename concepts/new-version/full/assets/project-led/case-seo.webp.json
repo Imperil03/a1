@@ -1,0 +1,10 @@
+{
+  "origin": "Native image_gen; user-approved conceptual illustration, not a real client project",
+  "generator": "image_gen",
+  "prompt": "Use case: stylized-concept, premium digital agency portfolio cover. This is explicitly a CONCEPT design study, not a real client or factual performance screenshot. Landscape 3:2, polished editorial art direction, very high fidelity material and photographic light. Edge-to-edge image, no outside card, no outer border, no caption. Subject fills the frame confidently, keep important features inside the central 90%. NO readable text, NO numbers, NO brand names, NO logos or watermarks. Screen typography can be small natural illegible texture, not big blank wireframe bars. No arrows, funnels, growth-stat sculptures, floating cubes, trophies or generic icon collections. Create an assertive dark-navy and electric-orange industrial website presentation: a large beautifully lit graphite laptop in a shallow three-quarter view, occupying most of the frame, on a low orange architectural plinth. On its display show a convincing corporate equipment website with a strong macro photograph of a precision metal valve, restrained navigation and compact content. A slim phone near the left edge shows the same responsive product page. Rich blue-black backdrop, warm orange directional light, tactile metal, sharp product photography, generous sophisticated composition. The website is the subject, with no analytic plots or made-up results.",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "sha256": "28345622d106fc18308d936dba35c24865fb7cac9f9cb18b12049b5194793c66"
+}

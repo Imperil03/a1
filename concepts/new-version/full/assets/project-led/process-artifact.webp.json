@@ -1,0 +1,13 @@
+{
+  "origin": "Native image_gen; approved conceptual design-study materials, not an actual office or client artifact",
+  "prompt": "Use case: stylized-concept / editorial compositing. Portrait 5:6 close photographic study of a digital product design moving from precise paper wireframes to a finished screen. The supplied images are SUPPORTING INSERT references for concept project content. On a deep aubergine architectural ground, show an oversized upright ivory design board with a crisp dark-plum page-structure diagram of rectangles and lines on its left; beside it an angled large tablet or print proof showing the terracotta-chair ecommerce design from the first reference, with a small CRM workflow fragment from the second reference near the lower edge. Orange layout guide rules and a few olive color swatches tie the stages together. Natural studio side light, realistic matte paper and crisp screen surfaces, substantial high-end editorial composition. NO people, hands, office scene, mugs, stationery decoration, readable text, names, logos or numbers. No doodles, no generic floating cubes or arrows. The actual project materials dominate at large scale. Keep essential features inside central80% for responsive cropping. Explicitly a conceptual presentation, not evidence of a real client project.",
+  "references": [
+    "case-commerce.png",
+    "case-crm.png"
+  ],
+  "dimensions": [
+    1145,
+    1374
+  ],
+  "sha256": "8cf057eb697d93d33f090207f47b09cc891cd59127c425e43468f726d66e379e"
+}

@@ -1,0 +1,14 @@
+{
+  "origin": "Project-bound montage of approved cover assets",
+  "sources": [
+    "case-seo.webp",
+    "case-commerce.webp",
+    "case-crm.webp",
+    "case-dental.webp",
+    "case-local.webp",
+    "case-auto.webp"
+  ],
+  "durationSeconds": 18,
+  "newClaimsOrText": false,
+  "generator": "FFmpeg; no external footage or audio"
+}

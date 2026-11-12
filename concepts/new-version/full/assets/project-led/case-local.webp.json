@@ -1,0 +1,10 @@
+{
+  "origin": "Native image_gen; user-approved conceptual illustration, not a real client project",
+  "generator": "image_gen",
+  "prompt": "Use case: stylized-concept, premium digital agency portfolio cover. This is explicitly a CONCEPT design study, not a real client or factual performance screenshot. Landscape 3:2, very high quality editorial photography and art direction. Edge-to-edge cover, no outside card or rounded border. Subject fills the image, important details inside central 90%. NO readable text, NO numbers, NO client brand names, NO logos or watermarks, NO fake performance statistics. No arrows, funnels, growth sculptures, floating cubes or trophy icons. Create a bold conceptual location-marketing cover: a detailed photographed-looking aerial urban district, low-rise brick and pale stone buildings, green courtyards and connected streets, seen from a clean oblique overhead angle. Treat it as a designed physical city study on a saturated coral-red ground, cropped confidently. Several restrained cobalt-blue and warm-ivory location markers are integrated into the city model, with fine route lines that carry no names or numbers. Sophisticated editorial miniature photography, sharp architecture and soft directional sun; visibly a concept presentation rather than an actual map. No labels, country outlines, flags, people or UI dashboard.",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "sha256": "35ce1f7b66d3f4ad9a89356854beeeb8b7433152fd2752e66598b27c6f535b0a"
+}

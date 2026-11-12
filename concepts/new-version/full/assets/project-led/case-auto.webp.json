@@ -1,0 +1,10 @@
+{
+  "origin": "Native image_gen; user-approved conceptual illustration, not a real client project",
+  "generator": "image_gen",
+  "prompt": "Use case: stylized-concept, premium digital agency portfolio cover. This is explicitly a CONCEPT design study, not a real client or factual performance screenshot. Landscape 3:2, very high quality editorial photography and art direction. Edge-to-edge cover, no outside card or rounded border. Subject fills the image, important details inside central 90%. NO readable text, NO numbers, NO client brand names, NO logos or watermarks, NO fake performance statistics. No arrows, funnels, growth sculptures, floating cubes or trophy icons. Create a high-end automotive digital-project cover in rich cobalt blue and charcoal. A dramatic close three-quarter photograph of an elegant unbranded graphite-blue sports sedan in a dark architectural showroom, one warm strip of light across the body, detailed metal and glass, no badge and no license-plate writing. Along the right third place a tall lightly angled crop of a premium automotive website interface showing the same car, with precise gallery thumbnails and a restrained contact area in warm ivory; fine writing is only tiny illegible texture. Bold cinematic photographic composition, no people, no generic dealership stock banner, no readable text.",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "sha256": "f4dccc24a536b756787e71f3455d6b8570a1ee5a5963667bfb4464bb4c7a2721"
+}

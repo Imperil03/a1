@@ -1,0 +1,14 @@
+{
+  "origin": "Native image_gen; approved conceptual design-study materials, not an actual office or client artifact",
+  "prompt": "Use case: stylized-concept / editorial compositing. Create a wide panoramic 2:1 photographic image of a beautifully art-directed digital-design work table, for the middle of a premium agency landing page. The three supplied images are SUPPORTING INSERT references: reproduce recognisable fragments of those concept projects on printed boards and a thin tablet, not new client projects. Large warm-ivory table, confident saturated terracotta and deep aubergine paper surfaces, warm directional daylight. Arrange oversized project printouts horizontally, a typography/layout proof sheet with geometric lines and a few material swatches. The ecommerce chair print is the main visual, the industrial web page and dental image are supporting slices. No people, no hands, no coffee mugs, no generic desk clutter, no logos, no readable writing, no numbers. This is explicitly a staged conceptual design study, not a photograph of the agency's actual office. Polished photographic realism and tactile print, no soft 3D UI tiles. Keep all key objects in the central 65% of image height so the image can be cropped to a wide banner. Fill the frame with the working material.",
+  "references": [
+    "case-seo.png",
+    "case-commerce.png",
+    "case-dental.png"
+  ],
+  "dimensions": [
+    1774,
+    887
+  ],
+  "sha256": "259e7e83f1938f61bfb99af5b72a26fc791c52b3bfaec6e78a109617c7aa5806"
+}

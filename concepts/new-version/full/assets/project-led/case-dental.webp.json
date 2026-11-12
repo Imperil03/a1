@@ -1,0 +1,10 @@
+{
+  "origin": "Native image_gen; user-approved conceptual illustration, not a real client project",
+  "generator": "image_gen",
+  "prompt": "Use case: stylized-concept, premium digital agency portfolio cover. This is explicitly a CONCEPT design study, not a real client or factual performance screenshot. Landscape 3:2, very high quality editorial photography and art direction. Edge-to-edge cover, no outside card or rounded border. Subject fills the image, important details inside central 90%. NO readable text, NO numbers, NO client brand names, NO logos or watermarks, NO fake performance statistics. No arrows, funnels, growth sculptures, floating cubes or trophy icons. Create a luminous photographic cover for a dental digital project: a beautiful contemporary dental treatment room with a sculptural ivory dental chair and precise medical equipment, warm daylight through tall translucent curtains, pale mint/teal cabinetry and soft porcelain-white surfaces. Crop close and architectural, inviting and immaculate rather than a stock-photo wide room. In the lower-right foreground include a slim tablet showing a refined unbranded clinic website with a close architectural room image and elegant appointment UI controls, no readable writing. The actual environment dominates. No people, no patient, no implied real facility, no medical claims. Natural light, subtle teal accents and realistic material detail.",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "sha256": "8d5a44b25ae903a36dd88ce6192d5df5b6953b9452c5e037cf81610e571641e0"
+}

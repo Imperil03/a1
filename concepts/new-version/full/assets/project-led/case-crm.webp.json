@@ -1,0 +1,10 @@
+{
+  "origin": "Native image_gen; user-approved conceptual illustration, not a real client project",
+  "generator": "image_gen",
+  "prompt": "Use case: stylized-concept, premium digital agency portfolio cover. This is explicitly a CONCEPT design study, not a real client or factual performance screenshot. Landscape 3:2, polished editorial art direction, very high fidelity material and photographic light. Edge-to-edge image, no outside card, no outer border, no caption. Subject fills the frame confidently, keep important features inside the central 90%. NO readable text, NO numbers, NO brand names, NO logos or watermarks. Screen typography can be small natural illegible texture, not big blank wireframe bars. No arrows, funnels, growth-stat sculptures, floating cubes, trophies or generic icon collections. Create a premium product-design cover of a CRM workspace. A large nearly front-facing desktop application canvas, crisp and substantial, set diagonally across an aubergine background, with warm ivory panels and sage/acid-lime accents. Show a believable kanban sales workflow with three or four lanes, compact cards, restrained sidebar and a detailed lower drawer. Use small abstract avatar circles and natural typographic texture but absolutely no readable words, letters or numeric values. Crop the app close enough that this feels like a finished interface, not a small monitor floating in empty space. Subtle satin depth, soft directional lighting, clean geometric composition; no people.",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "sha256": "582af51469e52bb6e2769304e48ee434aae69e8ed4a5e260118dc19544a91ff4"
+}
