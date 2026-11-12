@@ -1,6 +1,6 @@
 /* A personal invitation supported by a single sculptural conversation. */
 .type-study #contact[data-contact-layout="dialogue"] > .section-inner {
-  padding-block: clamp(72px, 4.5vw, 96px);
+  padding-block: clamp(112px, 8vw, 144px);
 }
 
 .type-study #contact[data-contact-layout="dialogue"] .contact-panel--personal {
@@ -192,7 +192,7 @@
 /* Wide screens place the invitation, contact and artwork side by side. */
 @media (min-width: 1800px) {
   .type-study #contact[data-contact-layout="dialogue"] > .section-inner {
-    padding-block: clamp(56px, 2.6vw, 64px);
+    padding-block: clamp(112px, 6vw, 152px);
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-panel--personal {
@@ -258,7 +258,7 @@
 
 @media (max-width: 700px) {
   .type-study #contact[data-contact-layout="dialogue"] > .section-inner {
-    padding-block: 56px;
+    padding-block: 72px;
   }
 
   .type-study #contact[data-contact-layout="dialogue"] .contact-panel--personal {
@@ -328,7 +328,7 @@
   .type-study #contact[data-contact-layout="dialogue"] .contact-panel--personal {
     grid-template-areas: none;
     grid-template-rows: minmax(140px, auto) auto;
-    row-gap: 28px;
+    row-gap: 40px;
     align-items: stretch;
   }
 
