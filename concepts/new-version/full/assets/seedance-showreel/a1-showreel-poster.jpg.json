@@ -1,0 +1,16 @@
+{
+  "origin": "Frame 0 extracted with FFmpeg from the A1 Seedance concept showreel",
+  "source": "a1-showreel-720p.mp4",
+  "model": "bytedance/seedance-2-5 via Kie.ai",
+  "inputImageOrigin": "Built-in image_gen edit of the existing A1 industrial website concept",
+  "conceptStudy": true,
+  "prompt": "Create a 6-second premium digital-agency portfolio shot from the supplied first frame. Preserve the exact laptop and smartphone, navy industrial website, steel valve with orange lever, orange architectural set and restrained interface rules. Show the same project at desktop and mobile sizes through a confident, well-choreographed camera move.\n\n0–2 seconds: begin on the complete supplied composition. Move laterally left with a short smooth arc toward the laptop. The phone is a separate solid object in the foreground, giving strong parallax. Brushed-metal highlights travel naturally across the valve photography while the screen layout remains coherent.\n\n2–4 seconds: push toward the laptop screen, making the industrial product hero larger. The product-photo strip below shifts upward slightly like a short, deliberate website scroll, revealing more of the project imagery. Keep all frames straight and the valve mechanically unchanged.\n\n4–6 seconds: ease back to show both desktop and phone together from a slightly different angle. The phone is now more prominent in the foreground, visually explaining the responsive site. Finish on a stable, strong composition rather than an empty transition.\n\nPhotorealistic materials, precise device geometry, clear UI boundaries, vivid navy and orange, controlled editorial motion. Do not invent text, numbers, brands, data claims, people, hands, extra objects or new products. No music, voice or sound effects. No melting screens, warped keyboard, flexible metal, camera shake, violent spinning or flicker.\n",
+  "inputImagePrompt": "Edit Image 1, the supplied industrial website concept, into a polished 16:9 LANDSCAPE FIRST FRAME for a digital-agency portfolio film. Preserve the same laptop, matching smartphone, steel industrial valve with orange lever, navy website and orange architectural setting. Recompose to cinematic 16:9, ideally 1920x1080, so the whole laptop and phone are visible with deliberate breathing room at the sides and a clear separation in depth. The image itself fills the video frame, with no surrounding webpage, slide template, letterbox or caption. Use a three-quarter front view with the laptop as the main anchor and phone at its left; keep the displayed valve large and the product-image strip legible as pictures. Photorealistic textured brushed metal, precise device geometry, coherent keyboard, natural reflections, vivid controlled navy/orange contrast. Preserve the existing neutral interface rules and simple icons rather than inventing written copy. All screen panels must have crisp stable boundaries for animation. This remains the same conceptual project, not a new client identity. Do not add people, brand names, new symbols, numerical claims, extra devices or decorations. Output one cinematic 16:9 landscape image.\n",
+  "durationSeconds": 15.916667,
+  "resolution": [
+    1280,
+    720
+  ],
+  "fps": 24,
+  "audio": false
+}
