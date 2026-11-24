@@ -1,0 +1,17 @@
+{
+  "name": "a1-footer-critters",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild main.tsx --bundle --minify --format=esm --target=es2022 --supported:template-literal=false --legal-comments=linked --outfile=../../assets/footer-critter/scene.js"
+  },
+  "dependencies": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}
