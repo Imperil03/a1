@@ -359,27 +359,17 @@
     const viewport = root.querySelector('.clients-marquee__viewport');
     const track = root.querySelector('.clients-marquee__track');
     const original = track?.querySelector('.clients-marquee__list');
-    const control = root.querySelector('.clients-marquee__control');
-    if (!viewport || !track || !original || !control) return;
+    if (!viewport || !track || !original) return;
 
-    let userPaused = false;
     let hovering = false;
-    let focused = false;
     let visible = false;
     let distance = 0;
     let scheduledMeasure = 0;
     let clones = [];
 
-    // The HTML may provide its icons. Keep the control functional if it does not.
-    if (!control.querySelector('[data-marquee-pause]') || !control.querySelector('[data-marquee-play]')) {
-      control.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><g data-marquee-pause><path d="M8 5v14M16 5v14"/></g><path data-marquee-play d="m9 5 10 7-10 7Z"/></svg>';
-    }
-
     function updatePlayback() {
-      const paused = userPaused || hovering || focused || !visible || document.hidden || motionPreference.matches;
+      const paused = hovering || viewport.matches(':focus-visible') || !visible || document.hidden || motionPreference.matches;
       root.dataset.motionPaused = String(paused);
-      control.setAttribute('aria-pressed', String(userPaused));
-      control.setAttribute('aria-label', userPaused ? 'Возобновить движение логотипов' : 'Приостановить движение логотипов');
     }
 
     function cloneList() {
@@ -429,24 +419,18 @@
     function updateMotionPreference() {
       if (motionPreference.matches) {
         root.removeAttribute('data-clients-enhanced');
+        viewport.removeAttribute('tabindex');
         clones.forEach((clone) => clone.remove());
         clones = [];
         distance = 0;
-        control.hidden = true;
       } else {
         root.setAttribute('data-clients-enhanced', '');
-        control.hidden = false;
+        viewport.tabIndex = 0;
         measure();
       }
       updatePlayback();
     }
 
-    control.addEventListener('click', () => {
-      userPaused = !userPaused;
-      // An explicit resume must work even while the keyboard focus stays here.
-      focused = false;
-      updatePlayback();
-    });
     viewport.addEventListener('pointerenter', (event) => {
       if (event.pointerType === 'touch') return;
       hovering = true;
@@ -456,18 +440,8 @@
       hovering = false;
       updatePlayback();
     });
-    root.addEventListener('pointerdown', () => {
-      focused = false;
-      updatePlayback();
-    });
-    root.addEventListener('focusin', (event) => {
-      focused = event.target.matches(':focus-visible');
-      updatePlayback();
-    });
-    root.addEventListener('focusout', (event) => {
-      focused = root.contains(event.relatedTarget);
-      updatePlayback();
-    });
+    viewport.addEventListener('focus', updatePlayback);
+    viewport.addEventListener('blur', updatePlayback);
     document.addEventListener('visibilitychange', updatePlayback);
 
     if ('IntersectionObserver' in window) {
@@ -693,9 +667,7 @@
   }
 
   // Acknowledgment moves only the icon, so hit areas never shrink or shift.
-  const buttons = [...root.querySelectorAll(`.track-controls button,
-    .menu-toggle, .showreel-control,
-    .clients-marquee__control`)];
+  const buttons = [...root.querySelectorAll('.track-controls button, .menu-toggle, .showreel-control')];
   function acknowledge(button) {
     if (button.disabled) return;
     const icon = [...button.querySelectorAll(':scope > svg')]

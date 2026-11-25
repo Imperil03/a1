@@ -3566,60 +3566,9 @@ main>.system-demo>.system-inner {
   display: none;
 }
 
-.type-study .clients-marquee__control {
-  position: absolute;
-  top: -72px;
-  right: 0;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 1px solid var(--line, #e8e0e8);
-  border-radius: 50%;
-  background: var(--paper, #fcfbf9);
-  color: var(--ink, #291537);
-  cursor: pointer;
-  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
-}
-
-.type-study .clients-marquee__control[hidden] {
-  display: none;
-}
-
-.type-study .clients-marquee__control:hover {
-  border-color: var(--ink, #291537);
-  background: var(--surface-panel, #f0eeea);
-}
-
-.type-study .clients-marquee__control:focus-visible {
+.type-study .clients-marquee__viewport:focus-visible {
   outline: 2px solid var(--ink, #291537);
   outline-offset: 4px;
-}
-
-.type-study .clients-marquee__control[aria-pressed="true"] {
-  border-color: var(--ink, #291537);
-  background: var(--ink, #291537);
-  color: var(--paper, #fcfbf9);
-}
-
-.type-study .clients-marquee__control svg {
-  width: 20px;
-  height: 20px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.type-study .clients-marquee__control [data-marquee-play],
-.type-study .clients-marquee__control[aria-pressed="true"] [data-marquee-pause] {
-  display: none;
-}
-
-.type-study .clients-marquee__control[aria-pressed="true"] [data-marquee-play] {
-  display: block;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -3700,10 +3649,6 @@ main>.system-demo>.system-inner {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .type-study .clients-marquee__control {
-    display: none;
-  }
-
   .type-study .clients-marquee__track {
     animation: none;
     transform: none;
@@ -3945,12 +3890,12 @@ main>.system-demo>.system-inner {
 }
 
 /* home-interaction-motion */
-.type-study :is(.button, .svc-toggle, .track-controls button, .menu-toggle, .showreel-control, .case-motion-control, .clients-marquee__control, .footer-system__control) {
+.type-study :is(.button, .svc-toggle, .track-controls button, .menu-toggle, .showreel-control, .case-motion-control, .footer-system__control) {
   transition: color 120ms ease-out, background-color 120ms ease-out,
     border-color 120ms ease-out;
 }
 
-.type-study :is(.button, .svc-toggle, .track-controls button, .menu-toggle, .showreel-control, .case-motion-control, .clients-marquee__control, .footer-system__control):active:not(:disabled):not(.button-primary) {
+.type-study :is(.button, .svc-toggle, .track-controls button, .menu-toggle, .showreel-control, .case-motion-control, .footer-system__control):active:not(:disabled):not(.button-primary) {
   color: var(--action, #c7460d);
 }
 
