@@ -1231,6 +1231,9 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const horizontal = matchMedia('(min-width: 1100px)');
   const clamp = value => Math.max(0, Math.min(1, value));
+  const progressBetween = (position, start, end) => clamp((start - position) / (start - end));
+  const easeReveal = progress => (progress * (2 - progress)).toFixed(4);
+  const stageProgress = steps.map(() => ({ marker: 0, copy: 0 }));
   const lines = [...route.querySelectorAll('.route-connector')].map(track => {
     const draw = track.cloneNode(true);
     // Each pair uses the original marker definition, so SVG IDs remain unique.
@@ -1271,16 +1274,39 @@
     const readingLine = softReveal
       ? Math.min(viewport * .76, routeTop - sectionTop + 32 + Math.max(0, -sectionTop) * .35)
       : viewport * .76;
+    const stagePositions = readingFirst
+      ? steps.map(step => desktop ? routePosition : step.getBoundingClientRect().top / viewport)
+      : [];
     const values = lines.map(({ track }, index) => {
       if (passedRoute) return 1;
-      // On a horizontal row, begin the arrow sequence as the row itself comes into view.
-      if (desktop && readingFirst) return clamp((.96 - routePosition - .075 * index) / .165);
+      if (readingFirst) {
+        if (!desktop) return progressBetween(stagePositions[index + 1] ?? routePosition, .90, .53);
+        const arrowStart = .91 - .12 * index;
+        return progressBetween(routePosition, arrowStart, arrowStart - .21);
+      }
       if (desktop) return clamp(total * lines.length - index);
       const { top, height } = track.getBoundingClientRect();
       return clamp((readingLine - top) / Math.max(1, height));
     });
 
-    steps[0].setAttribute('data-reached', '');
+    if (readingFirst) {
+      steps.forEach((step, index) => {
+        const markerStart = desktop ? (index === 0 ? .99 : .96 - .12 * index) : .86;
+        const copyEnd = desktop ? markerStart - .15 : .47;
+        const position = stagePositions[index];
+        const markerValue = progressBetween(position, markerStart, markerStart - .08);
+        const copyValue = progressBetween(position, markerStart - .04, copyEnd);
+        const progress = stageProgress[index];
+        // Keep the route readable once it has appeared, including while scrolling back.
+        progress.marker = passedRoute ? 1 : Math.max(progress.marker, markerValue);
+        progress.copy = passedRoute ? 1 : Math.max(progress.copy, copyValue);
+        step.style.setProperty('--route-marker-reveal', easeReveal(progress.marker));
+        step.style.setProperty('--route-copy-reveal', easeReveal(progress.copy));
+        step.toggleAttribute('data-reached', progress.marker > 0);
+      });
+    } else {
+      steps[0].setAttribute('data-reached', '');
+    }
     if (passedRoute) {
       settled = true;
       section.setAttribute('data-route-settled', '');
@@ -1293,13 +1319,7 @@
       draw.style.setProperty('--route-drawn', value.toFixed(4));
       draw.toggleAttribute('data-drawn', value >= 1);
       const step = steps[index + 1];
-      if (!step) return;
-      if (readingFirst) {
-        const position = desktop ? routePosition : step.getBoundingClientRect().top / viewport;
-        const startReading = desktop ? .89 - .07 * index : .94;
-        if (passedRoute || position <= startReading) step.setAttribute('data-reached', '');
-        if (passedRoute || position <= .70) step.setAttribute('data-route-readable', '');
-      } else if (!revealOnce || value >= revealAt) {
+      if (!readingFirst && step && (!revealOnce || value >= revealAt)) {
         step.toggleAttribute('data-reached', value >= revealAt);
       }
     });
@@ -1307,7 +1327,7 @@
     if (revealOnce) section.setAttribute('data-route-reveal-ready', '');
     if (softReveal) {
       finished = lines.every(line => line.progress >= 1)
-        && (!readingFirst || steps.slice(1).every(step => step.hasAttribute('data-route-readable')));
+        && (!readingFirst || stageProgress.every(progress => progress.copy >= 1));
     }
   }
 
@@ -1327,6 +1347,10 @@
         // The static mode exposes every stage; never conceal it again afterward.
         steps.forEach(step => step.setAttribute('data-reached', ''));
         lines.forEach(line => { line.progress = 1; });
+        stageProgress.forEach(progress => {
+          progress.marker = 1;
+          progress.copy = 1;
+        });
       }
     } else if (revealOnce) paint();
     else schedule();
