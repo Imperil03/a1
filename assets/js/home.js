@@ -353,7 +353,7 @@
 /* One CSS loop, measured from the original list; no frame-by-frame scripting. */
 (() => {
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const speed = 28; // px/s: calm, continuous movement at every viewport width.
+  const speed = 50; // px/s at every viewport width.
 
   document.querySelectorAll('[data-clients-marquee]').forEach((root) => {
     const viewport = root.querySelector('.clients-marquee__viewport');
