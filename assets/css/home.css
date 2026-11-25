@@ -3956,18 +3956,22 @@ main>.system-demo>.system-inner {
   transition: background-color 180ms ease-out;
 }
 
-.type-study #process .process-grid[data-process-motion="ready"] > li[data-process-state="current"] .process-number {
+.type-study #process .process-grid[data-process-motion="ready"] > li:is([data-process-state="passed"], [data-process-state="current"]) .process-number {
   color: var(--action, #d34309);
 }
 
-.type-study #process .process-grid[data-process-motion="ready"] > li[data-process-state="current"]::after {
+.type-study #process .process-grid[data-process-motion="ready"] > li[data-process-state="current"] .process-number {
+  font-weight: 650;
+}
+
+.type-study #process .process-grid[data-process-motion="ready"] > li[data-process-state="passed"]::after {
   background: var(--action, #d34309);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .type-study #process .process-grid[data-process-motion="ready"] .process-number,
   .type-study #process .process-grid[data-process-motion="ready"] > li::after {
-    transition-duration: 80ms;
+    transition: none;
   }
 }
 

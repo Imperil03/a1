@@ -496,15 +496,17 @@
   let processVisible = false;
   let scrollAttached = false;
   let readingFrame = 0;
-  let currentRow = null;
+  let currentStepIndex = -1;
   let manualScrollY = null;
   let boardFollowTimer = 0;
 
-  const highlightProcessRow = (row) => {
-    if (row === currentRow) return;
-    if (currentRow) currentRow.dataset.processState = 'idle';
-    currentRow = row;
-    if (row) row.dataset.processState = 'current';
+  const highlightProcessStep = (stepIndex) => {
+    if (stepIndex === currentStepIndex) return;
+    currentStepIndex = stepIndex;
+    processRows.forEach((row, index) => {
+      const otherState = index < stepIndex ? 'passed' : 'idle';
+      row.dataset.processState = index === stepIndex ? 'current' : otherState;
+    });
   };
 
   const showBoardStep = (step, announce = false) => {
@@ -527,7 +529,7 @@
       const step = button.dataset.boardStep;
       window.clearTimeout(boardFollowTimer);
       manualScrollY = window.scrollY;
-      highlightProcessRow(processRows[Number(step) - 1]);
+      highlightProcessStep(Number(step) - 1);
       showBoardStep(step, true);
     }));
     boardControls.hidden = false;
@@ -544,25 +546,25 @@
     if (manualScrollY !== null && Math.abs(window.scrollY - manualScrollY) < 40) return;
     manualScrollY = null;
     const readingLine = window.innerHeight * .38;
-    let row = null;
+    let stepIndex = -1;
     let nearestDistance = Infinity;
 
-    processRows.forEach((candidate) => {
+    processRows.forEach((candidate, index) => {
       const bounds = candidate.getBoundingClientRect();
       if (bounds.bottom <= 0 || bounds.top >= window.innerHeight) return;
       const distance = bounds.top > readingLine
         ? bounds.top - readingLine
         : Math.max(0, readingLine - bounds.bottom);
       if (distance < nearestDistance) {
-        row = candidate;
+        stepIndex = index;
         nearestDistance = distance;
       }
     });
 
-    highlightProcessRow(row);
-    if (!row) return;
+    highlightProcessStep(stepIndex);
+    if (stepIndex < 0) return;
 
-    const step = String(processRows.indexOf(row) + 1);
+    const step = String(stepIndex + 1);
     if (!boardButtons.length) {
       showBoardStep(step);
     } else if (step !== workboard.dataset.step) {
