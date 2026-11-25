@@ -2050,6 +2050,7 @@ main>.system-demo>.system-inner {
 }
 
 .type-study #reviews .review-card {
+  min-block-size: clamp(320px, 17vw, 342px);
   padding: clamp(20px, 2.1vw, 38px);
 }
 
@@ -2102,9 +2103,9 @@ main>.system-demo>.system-inner {
   display: inline-flex;
   min-height: var(--review-toggle-height);
   align-items: center;
-  color: #a33b0b;
-  font-size: clamp(14px, .95vw, 17px);
-  font-weight: 600;
+  color: var(--surface-muted);
+  font-size: 13px;
+  font-weight: 500;
   line-height: 1.4;
   text-decoration: none;
 }
@@ -2134,7 +2135,7 @@ main>.system-demo>.system-inner {
   display: none;
 }
 
-.type-study #reviews .review-track:has(.review-disclosure[open]) {
+.type-study #reviews .review-track {
   align-items: flex-start;
 }
 
@@ -2296,6 +2297,7 @@ main>.system-demo>.system-inner {
 
   .type-study #reviews .review-card {
     flex-basis: calc(100% - 28px);
+    min-block-size: 0;
   }
 }
 
