@@ -2232,17 +2232,9 @@ main>.system-demo>.system-inner {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 840px) {
   .type-study #reviews .reviews-toolbar {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .type-study #reviews .review-track {
-    gap: 12px;
-  }
-
-  .type-study #reviews .review-card {
-    flex-basis: calc(100% - 28px);
   }
 
   .type-study #reviews .review-navigation {
@@ -2253,6 +2245,16 @@ main>.system-demo>.system-inner {
 
   .type-study #reviews .review-position-visual {
     text-align: left;
+  }
+}
+
+@media (max-width: 700px) {
+  .type-study #reviews .review-track {
+    gap: 12px;
+  }
+
+  .type-study #reviews .review-card {
+    flex-basis: calc(100% - 28px);
   }
 }
 
