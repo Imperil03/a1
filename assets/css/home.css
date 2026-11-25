@@ -2089,6 +2089,44 @@ main>.system-demo>.system-inner {
   line-height: 1.52;
 }
 
+.type-study #reviews .review-card > .review-excerpt {
+  margin-bottom: 0;
+}
+
+.type-study #reviews .review-disclosure {
+  margin-bottom: 12px;
+}
+
+.type-study #reviews .review-disclosure > summary {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: #a33b0b;
+  font-size: clamp(14px, .95vw, 17px);
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+
+.type-study #reviews .review-disclosure > summary:hover {
+  color: var(--ink);
+}
+
+.type-study #reviews .review-disclosure > blockquote {
+  margin-block: 4px 0;
+}
+
+.type-study #reviews .review-disclosure:not([open]) .review-close,
+.type-study #reviews .review-disclosure[open] .review-more,
+.type-study #reviews .review-card:has(.review-disclosure[open]) > .review-excerpt {
+  display: none;
+}
+
+.type-study #reviews .review-track:has(.review-disclosure[open]) {
+  align-items: flex-start;
+}
+
 .type-study #reviews .review-source {
   display: inline-flex;
   justify-content: flex-start;
