@@ -683,6 +683,10 @@ main>.services-lab {
   max-width: 70ch;
 }
 
+.faq-answer p + p {
+  margin-top: .75em;
+}
+
 .faq-answer a {
   display: inline-block;
   margin-top: 16px;
