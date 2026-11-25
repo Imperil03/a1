@@ -929,7 +929,7 @@ svg {
 }
 
 :root[data-surface] .credentials-section {
-  background: var(--paper);
+  background: #fff;
 }
 
 :root[data-surface] .showreel-control:hover {
