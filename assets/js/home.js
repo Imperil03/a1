@@ -979,7 +979,7 @@
       });
     }, { rootMargin: '0px 0px -80px 0px', threshold: .01 });
 
-    root.querySelectorAll('.home-section h2, .services-lab h2, #system h2, .svc-additional > h3')
+    root.querySelectorAll('.home-section h2:not([data-contact-stroke-heading]), .services-lab h2, #system h2, .svc-additional > h3')
       .forEach(heading => {
         // Never hide a title the visitor could already have seen, including deep links.
         if (heading.getBoundingClientRect().top < innerHeight) heading.dataset.headingReveal = 'done';
