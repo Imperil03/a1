@@ -1235,7 +1235,9 @@
   const clamp = value => Math.max(0, Math.min(1, value));
   const progressBetween = (position, start, end) => clamp((start - position) / (start - end));
   const easeReveal = progress => (progress * (2 - progress)).toFixed(4);
-  const stageProgress = steps.map(() => ({ marker: 0, copy: 0 }));
+  const readingGoal = (position, desktop) => desktop
+    ? Math.max(.44, Math.min(1, position))
+    : Math.min(1, position);
   const lines = [...route.querySelectorAll('.route-connector')].map(track => {
     const draw = track.cloneNode(true);
     // Each pair uses the original marker definition, so SVG IDs remain unique.
@@ -1249,8 +1251,33 @@
   let frame = 0;
   let finished = false;
   let settled = false;
+  let readingPosition = 1;
+  let readingFrameTime = null;
+  let readingEdge = null;
 
-  function paint() {
+  function advanceReadingPosition(position, desktop, skipped, now) {
+    const target = readingGoal(position, desktop);
+    if (skipped) {
+      readingPosition = target;
+      readingFrameTime = null;
+      return false;
+    }
+
+    const elapsed = readingFrameTime === null ? 0 : Math.min(32, now - readingFrameTime);
+    const maxLag = desktop ? .55 : .24;
+    const rate = desktop ? .00046 : .00105;
+    const ease = 1 - Math.exp(-elapsed / (desktop ? 110 : 85));
+    // One shared position keeps arrows and stages in sequence in either direction.
+    const distance = target - readingPosition;
+    const travel = Math.min(Math.abs(distance), maxLag);
+    const remaining = travel - Math.min(elapsed * rate, travel * ease);
+    const catchingUp = remaining > .001;
+    readingPosition = catchingUp ? target - Math.sign(distance) * remaining : target;
+    readingFrameTime = catchingUp ? now : null;
+    return catchingUp;
+  }
+
+  function paint(now = performance.now()) {
     frame = 0;
     if (reduced.matches || document.hidden) return;
 
@@ -1259,8 +1286,15 @@
     const { top: routeTop, bottom: routeBottom } = route.getBoundingClientRect();
     const routePosition = routeTop / viewport;
     const passedRoute = softReveal && routeBottom <= 0;
-    if (softReveal && finished && !passedRoute) return;
-    if (softReveal && routeTop >= viewport && section.hasAttribute('data-route-reveal-ready')) return;
+    const beforeRoute = routeTop >= viewport;
+    if (readingFirst) {
+      const edge = passedRoute ? 'past' : beforeRoute ? 'before' : null;
+      if (edge && edge === readingEdge) return;
+      readingEdge = edge;
+    } else if (softReveal) {
+      if (finished && !passedRoute) return;
+      if (beforeRoute && section.hasAttribute('data-route-reveal-ready')) return;
+    }
 
     let start = viewport * .88;
     let travel = viewport * .69;
@@ -1276,15 +1310,18 @@
     const readingLine = softReveal
       ? Math.min(viewport * .76, routeTop - sectionTop + 32 + Math.max(0, -sectionTop) * .35)
       : viewport * .76;
+    const skippedReading = passedRoute || beforeRoute;
+    const catchingUp = readingFirst && advanceReadingPosition(routePosition, desktop, skippedReading, now);
+    const revealOffset = readingPosition - routePosition;
     const stagePositions = readingFirst
-      ? steps.map(step => desktop ? routePosition : step.getBoundingClientRect().top / viewport)
+      ? steps.map(step => desktop ? readingPosition : step.getBoundingClientRect().top / viewport + revealOffset)
       : [];
     const values = lines.map(({ track }, index) => {
       if (passedRoute) return 1;
       if (readingFirst) {
-        if (!desktop) return progressBetween(stagePositions[index + 1] ?? routePosition, .90, .53);
+        if (!desktop) return progressBetween(stagePositions[index + 1] ?? readingPosition, .90, .53);
         const arrowStart = .91 - .12 * index;
-        return progressBetween(routePosition, arrowStart, arrowStart - .21);
+        return progressBetween(readingPosition, arrowStart, arrowStart - .21);
       }
       if (desktop) return clamp(total * lines.length - index);
       const { top, height } = track.getBoundingClientRect();
@@ -1296,27 +1333,23 @@
         const markerStart = desktop ? (index === 0 ? .99 : .96 - .12 * index) : .86;
         const copyEnd = desktop ? markerStart - .15 : .47;
         const position = stagePositions[index];
-        const markerValue = progressBetween(position, markerStart, markerStart - .08);
-        const copyValue = progressBetween(position, markerStart - .04, copyEnd);
-        const progress = stageProgress[index];
-        // Keep the route readable once it has appeared, including while scrolling back.
-        progress.marker = passedRoute ? 1 : Math.max(progress.marker, markerValue);
-        progress.copy = passedRoute ? 1 : Math.max(progress.copy, copyValue);
-        step.style.setProperty('--route-marker-reveal', easeReveal(progress.marker));
-        step.style.setProperty('--route-copy-reveal', easeReveal(progress.copy));
-        step.toggleAttribute('data-reached', progress.marker > 0);
+        const markerValue = passedRoute ? 1 : progressBetween(position, markerStart, markerStart - .08);
+        const copyValue = passedRoute ? 1 : progressBetween(position, markerStart - .04, copyEnd);
+        step.style.setProperty('--route-marker-reveal', easeReveal(markerValue));
+        step.style.setProperty('--route-copy-reveal', easeReveal(copyValue));
+        step.toggleAttribute('data-reached', markerValue > 0);
       });
     } else {
       steps[0].setAttribute('data-reached', '');
     }
-    if (passedRoute) {
+    if (passedRoute && !readingFirst) {
       settled = true;
       section.setAttribute('data-route-settled', '');
     }
     const revealAt = softReveal ? .88 : 1;
     lines.forEach((line, index) => {
       const { draw } = line;
-      const value = revealOnce ? Math.max(line.progress, values[index]) : values[index];
+      const value = revealOnce && !readingFirst ? Math.max(line.progress, values[index]) : values[index];
       line.progress = value;
       draw.style.setProperty('--route-drawn', value.toFixed(4));
       draw.toggleAttribute('data-drawn', value >= 1);
@@ -1327,10 +1360,8 @@
     });
     section.setAttribute('data-route-motion', '');
     if (revealOnce) section.setAttribute('data-route-reveal-ready', '');
-    if (softReveal) {
-      finished = lines.every(line => line.progress >= 1)
-        && (!readingFirst || stageProgress.every(progress => progress.copy >= 1));
-    }
+    if (softReveal && !readingFirst) finished = lines.every(line => line.progress >= 1);
+    if (catchingUp) schedule();
   }
 
   function schedule() {
@@ -1344,22 +1375,26 @@
   function syncMotionPreference() {
     if (reduced.matches) {
       section.removeAttribute('data-route-motion');
+      readingFrameTime = null;
+      readingEdge = null;
       if (revealOnce) {
         section.removeAttribute('data-route-reveal-ready');
-        // The static mode exposes every stage; never conceal it again afterward.
+        // Static mode exposes every stage. One-shot routes retain their completion.
         steps.forEach(step => step.setAttribute('data-reached', ''));
         lines.forEach(line => { line.progress = 1; });
-        stageProgress.forEach(progress => {
-          progress.marker = 1;
-          progress.copy = 1;
-        });
       }
     } else if (revealOnce) paint();
     else schedule();
   }
 
   reduced.addEventListener('change', syncMotionPreference);
-  horizontal.addEventListener('change', schedule);
+  horizontal.addEventListener('change', () => {
+    const position = route.getBoundingClientRect().top / window.innerHeight;
+    readingPosition = readingGoal(position, horizontal.matches);
+    readingFrameTime = null;
+    readingEdge = null;
+    schedule();
+  });
   document.addEventListener('visibilitychange', schedule);
   window.addEventListener('resize', schedule, { passive: true });
   window.addEventListener('scroll', schedule, { passive: true });
