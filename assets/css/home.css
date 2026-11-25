@@ -2054,26 +2054,10 @@ main>.system-demo>.system-inner {
 }
 
 .type-study #reviews .review-author {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: 12px;
   margin-bottom: clamp(14px, 1.5vw, 22px);
 }
 
-.type-study #reviews .review-initials {
-  display: grid;
-  place-items: center;
-  width: clamp(38px, 3.2vw, 52px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #fae4d2;
-  color: #80330c;
-  font-size: clamp(14px, 1vw, 18px);
-  font-weight: 650;
-}
-
-.type-study #reviews .review-author-info > strong {
+.type-study #reviews .review-author > strong {
   display: block;
   font-size: clamp(16px, 1.1vw, 20px);
   font-weight: 650;
