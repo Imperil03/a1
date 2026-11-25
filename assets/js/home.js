@@ -1461,18 +1461,20 @@
   const video = document.querySelector('video[data-case-video-src]');
   if (!video || !('IntersectionObserver' in window)) return;
 
+  const cover = video.parentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const minimumVisibility = .4;
-  let inView = false;
 
   function syncPlayback() {
-    if (!inView || document.hidden || reduced.matches) {
+    const { top, bottom, height } = cover.getBoundingClientRect();
+    const visibleHeight = Math.min(bottom, window.innerHeight) - Math.max(top, 0);
+    if (!height || visibleHeight < height * minimumVisibility || document.hidden || reduced.matches) {
       video.pause();
       return;
     }
     if (video.error) return;
     if (!video.hasAttribute('src')) video.src = video.dataset.caseVideoSrc;
-    video.play().catch(() => {});
+    if (video.paused) video.play().catch(() => {});
   }
 
   video.muted = true;
@@ -1481,10 +1483,11 @@
   document.addEventListener('visibilitychange', syncPlayback);
   reduced.addEventListener('change', syncPlayback);
 
-  new IntersectionObserver(([entry]) => {
-    inView = entry.intersectionRatio >= minimumVisibility;
-    syncPlayback();
-  }, { threshold: minimumVisibility }).observe(video.parentElement);
+  new IntersectionObserver(syncPlayback, { threshold: minimumVisibility }).observe(cover);
+  // Fragment navigation and cover entry motion can settle after the first observer callback.
+  cover.addEventListener('animationend', syncPlayback);
+  window.addEventListener('pageshow', syncPlayback);
+  requestAnimationFrame(syncPlayback);
 })();
 
 /* resonance-case-motion */
