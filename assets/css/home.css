@@ -2085,7 +2085,7 @@ main>.system-demo>.system-inner {
 .type-study #reviews .review-card blockquote {
   max-width: 42ch;
   margin: 0 0 clamp(14px, 1.7vw, 22px);
-  font-size: clamp(18px, 1.47vw, 27px);
+  font-size: 20px;
   line-height: 1.52;
 }
 
@@ -2094,27 +2094,38 @@ main>.system-demo>.system-inner {
 }
 
 .type-study #reviews .review-disclosure {
+  --review-toggle-height: 44px;
   margin-bottom: 12px;
 }
 
 .type-study #reviews .review-disclosure > summary {
   display: inline-flex;
-  min-height: 44px;
+  min-height: var(--review-toggle-height);
   align-items: center;
   color: #a33b0b;
   font-size: clamp(14px, .95vw, 17px);
   font-weight: 600;
   line-height: 1.4;
-  text-decoration: underline;
-  text-underline-offset: .18em;
+  text-decoration: none;
 }
 
 .type-study #reviews .review-disclosure > summary:hover {
   color: var(--ink);
 }
 
+.type-study #reviews .review-disclosure[open] {
+  position: relative;
+  padding-block-end: var(--review-toggle-height);
+}
+
+.type-study #reviews .review-disclosure[open] > summary {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+}
+
 .type-study #reviews .review-disclosure > blockquote {
-  margin-block: 4px 0;
+  margin-block: 0;
 }
 
 .type-study #reviews .review-disclosure:not([open]) .review-close,
@@ -2310,10 +2321,6 @@ main>.system-demo>.system-inner {
 @media (max-width: 359px) {
   .type-study #reviews .review-card {
     padding: 16px;
-  }
-
-  .type-study #reviews .review-card blockquote {
-    font-size: 18px;
   }
 }
 
