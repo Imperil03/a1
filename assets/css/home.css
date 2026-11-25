@@ -3515,6 +3515,10 @@ main>.system-demo>.system-inner {
 }
 
 /* credentials-refinement */
+.type-study #credentials > .section-inner {
+  padding-block-start: 0;
+}
+
 .type-study #credentials .credential-grid img {
   display: block;
   width: 140px;
