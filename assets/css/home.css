@@ -4790,6 +4790,11 @@ body[data-hero-variant="dotfield"] .showreel-stage[data-dotfield-motion="running
   text-wrap: pretty;
 }
 
+.type-study #director blockquote p:first-child {
+  font-size: max(17px, .8em);
+  line-height: 1.5;
+}
+
 .type-study #director blockquote p + p {
   margin-top: 16px;
 }
