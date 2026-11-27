@@ -4171,7 +4171,7 @@ body[data-hero-variant="dotfield"] .showreel-stage[data-dotfield-motion="running
 @keyframes a1-dotfield-color-toggle {
   0%,
   44% {
-    color: #0f172a;
+    color: var(--hero-accent-start, #0f172a);
     text-shadow: none;
   }
 
@@ -4182,7 +4182,7 @@ body[data-hero-variant="dotfield"] .showreel-stage[data-dotfield-motion="running
 
   45%,
   94% {
-    color: #ff5500;
+    color: var(--hero-accent-end, #ff5500);
     text-shadow: none;
   }
 
