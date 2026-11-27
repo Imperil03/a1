@@ -1,0 +1,76 @@
+/* Primary links opt in while keeping their existing button styles. */
+.cta-motion {
+  --cta-highlight: 0;
+  --cta-background: var(--action, var(--accent-500));
+}
+
+.type-study #contact[data-contact-layout="dialogue"] .contact-actions .cta-motion {
+  --cta-background: #c94008;
+}
+
+.button.cta-motion:is(:hover, :active, :focus-visible),
+.type-study #contact[data-contact-layout="dialogue"] .contact-actions .cta-motion:is(:hover, :active, :focus-visible) {
+  background: var(--cta-background);
+}
+
+.cta-motion:is(:focus-visible, :active) { --cta-highlight: 1; }
+
+@media (hover: hover) and (pointer: fine) {
+  .cta-motion:hover { --cta-highlight: 1; }
+}
+
+.cta-motion__label,
+.cta-motion__word {
+  position: relative;
+}
+
+.cta-motion__word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.cta-motion__scramble {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  overflow: clip;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cta-motion[data-scrambling] .cta-motion__text { color: transparent; }
+.cta-motion[data-scrambling] .cta-motion__scramble { visibility: visible; }
+
+.cta-motion__label::after {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -4px;
+  block-size: 1.5px;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: var(--cta-highlight);
+  transform: scaleX(var(--cta-highlight));
+  transform-origin: left center;
+  pointer-events: none;
+  content: "";
+}
+
+.cta-motion__arrow {
+  display: flex;
+  flex: none;
+  transform: rotate(calc(-45deg * var(--cta-highlight)));
+}
+
+.cta-motion[data-cta-arrow="diagonal"] .cta-motion__arrow {
+  transform: translate(calc(4px * var(--cta-highlight)), calc(-4px * var(--cta-highlight)));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cta-motion__label::after {
+    transition: transform 310ms cubic-bezier(.22, 1, .36, 1), opacity 160ms ease-out;
+  }
+
+  .cta-motion__arrow {
+    transition: transform 310ms cubic-bezier(.22, 1, .36, 1);
+  }
+}
