@@ -1,0 +1,221 @@
+/* Full-width service list on the homepage. */
+#services[data-services-layout="list"] > .svc-root {
+  padding-block: clamp(56px, 5vw, 100px);
+}
+
+.services-list {
+  --service-icon-size: clamp(34px, 4vw, 60px);
+  --service-column-gap: clamp(12px, 1.5vw, 28px);
+  --service-price-size: clamp(22px, 1.63vw, 36px);
+  border-block-end: 1px solid var(--line);
+}
+
+.services-list .offer {
+  border-block-start: 1px solid var(--line);
+}
+
+.services-list .offer-link {
+  display: grid;
+  grid-template-columns: var(--service-icon-size) minmax(0, 1fr) 36px;
+  grid-template-areas:
+    "symbol title arrow"
+    "copy copy copy"
+    "price price price";
+  gap: 12px var(--service-column-gap);
+  align-items: center;
+  padding: clamp(18px, 1.25vw, 30px) clamp(0px, 1.7vw - 12px, 28px);
+  color: var(--ink);
+}
+
+.services-list .offer-link:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid var(--action);
+  outline-offset: -2px;
+}
+
+.services-list .offer-symbol {
+  grid-area: symbol;
+  display: block;
+  inline-size: var(--service-icon-size);
+  block-size: auto;
+  color: var(--ink);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.services-list .offer-symbol-accent {
+  stroke: var(--action);
+}
+
+.services-list .offer-title {
+  grid-area: title;
+  font-size: clamp(21px, 1.85vw, 38px);
+  font-weight: 550;
+  line-height: 1.14;
+  letter-spacing: -.028em;
+  overflow-wrap: break-word;
+}
+
+.services-list .offer-copy {
+  grid-area: copy;
+  max-inline-size: 68ch;
+  color: var(--muted);
+  font-size: clamp(16px, 1.03vw, 21px);
+  line-height: 1.48;
+}
+
+.services-list .offer-copy p + p {
+  margin-block-start: .4em;
+}
+
+.services-list .offer-price {
+  grid-area: price;
+  display: grid;
+  gap: 3px;
+  justify-self: start;
+  font-size: var(--service-price-size);
+  line-height: 1.16;
+}
+
+.services-list .offer-price-caption {
+  color: var(--muted);
+  font-size: clamp(13px, .82vw, 16px);
+}
+
+.services-list .offer-price strong {
+  color: var(--svc-accent);
+  font-weight: 560;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.services-list .offer-arrow {
+  grid-area: arrow;
+  display: grid;
+  place-items: center;
+  inline-size: 36px;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--svc-accent);
+}
+
+.services-list .offer-arrow svg {
+  inline-size: 18px;
+  block-size: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+
+.services-list .offer-link:focus-visible .offer-arrow {
+  color: #fff;
+  background: var(--svc-accent);
+  border-color: var(--svc-accent);
+}
+
+@media (min-width: 760px) {
+  .services-list .offer-link {
+    grid-template-columns: var(--service-icon-size) minmax(0, 1fr) auto 36px;
+    grid-template-areas:
+      "symbol title price arrow"
+      "symbol copy price arrow";
+    row-gap: 8px;
+  }
+
+  .services-list .offer-price {
+    min-inline-size: 8.6em;
+  }
+}
+
+@media (min-width: 1100px) {
+  .services-list {
+    --offer-stack-rest: clamp(36px, 6vh, 64px);
+    --offer-stack-step: 23px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(14px, 1.3vw, 26px);
+    border: 0;
+    isolation: isolate;
+  }
+
+  .services-list > .offer {
+    --offer-stack-order: 0;
+    align-self: start;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+  }
+
+  .services-list > .offer:nth-child(2) { --offer-stack-order: 1; }
+  .services-list > .offer:nth-child(3) { --offer-stack-order: 2; }
+  .services-list > .offer:nth-child(4) { --offer-stack-order: 3; }
+
+  .services-list .offer-link {
+    min-block-size: clamp(162px, 10.5vw, 192px);
+    align-content: center;
+    border-radius: inherit;
+  }
+}
+
+@supports selector(:has(.offer-link:focus-visible)) {
+  @media screen and (min-width: 1100px) and (min-height: 620px) and (prefers-reduced-motion: no-preference) {
+    .services-list:not(:has(.offer-link:focus-visible)) > .offer {
+      position: sticky;
+      top: calc(var(--offer-stack-rest) + var(--offer-stack-step) * var(--offer-stack-order));
+      z-index: var(--offer-stack-order);
+    }
+
+    [data-motion-tempo="soft"] .services-list:not(:has(.offer-link:focus-visible)) > .offer {
+      transform: translateY(calc(var(--offer-stack-depth, 0) * -4px)) scale(calc(1 - var(--offer-stack-depth, 0) * .025));
+      transform-origin: 50% 0;
+    }
+
+    .services-list:not(:has(.offer-link:focus-visible)) > .offer + .offer::after {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 4px 14px rgb(41 21 55 / 15%);
+      opacity: calc(var(--offer-stack-contact, 0) * (1 - var(--offer-stack-depth, 0)));
+      pointer-events: none;
+      content: "";
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .services-list .offer-link:hover {
+    background-color: var(--surface-canvas);
+  }
+
+  .services-list .offer-link:hover .offer-arrow {
+    color: #fff;
+    background: var(--svc-accent);
+    border-color: var(--svc-accent);
+  }
+}
+
+@media (min-width: 1280px) {
+  .services-list .offer-link {
+    grid-template-columns: var(--service-icon-size) minmax(0, 1fr) minmax(0, 1.65fr) auto 36px;
+    grid-template-areas: "symbol title copy price arrow";
+  }
+
+  .services-list .offer-title {
+    text-wrap: balance;
+  }
+}
+
+@media (min-width: 1800px) {
+  .services-list {
+    --service-price-size: clamp(32px, 1.65vw, 36px);
+  }
+
+  .services-list .offer-price-caption {
+    font-size: 16px;
+  }
+}

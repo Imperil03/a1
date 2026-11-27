@@ -1659,10 +1659,11 @@
 (() => {
   'use strict';
 
-  const grid = document.querySelector('body[data-motion-tempo="soft"] #services .offers-grid');
+  const grid = document.querySelector('body[data-motion-tempo="soft"] #services:is([data-services-layout="catalog"], [data-services-layout="list"]) .offers-grid');
   if (!grid || !('IntersectionObserver' in window) || !CSS.supports('selector(:has(.offer-link:focus-visible))')) return;
 
   const cards = [...grid.querySelectorAll(':scope > .offer')];
+  const hasContactShadow = grid.classList.contains('services-list');
   const motion = matchMedia('(min-width: 1100px) and (min-height: 620px) and (prefers-reduced-motion: no-preference)');
   let layers = [];
   let near = false;
@@ -1689,12 +1690,13 @@
     }
 
     const top = grid.getBoundingClientRect().top;
+    const bounds = hasContactShadow ? cards.map(card => card.getBoundingClientRect()) : null;
     const elapsed = lastTime ? Math.min(50, time - lastTime) : 16.7;
     const ease = 1 - Math.exp(-elapsed / 140);
     let moving = false;
     lastTime = time;
 
-    layers.forEach(layer => {
+    layers.forEach((layer, index) => {
       const nextTop = top + layer.nextOffset;
       const goal = Math.max(0, Math.min(1, (layer.start - nextTop) / layer.travel));
       const delta = goal - layer.depth;
@@ -1702,6 +1704,16 @@
       if (depth !== layer.depth) {
         layer.depth = depth;
         layer.card.style.setProperty('--offer-stack-depth', depth.toFixed(4));
+      }
+      if (bounds) {
+        const previous = bounds[index];
+        const incoming = bounds[index + 1];
+        const overlap = Math.min(previous.bottom, incoming.bottom) - Math.max(previous.top, incoming.top);
+        const contact = Math.max(0, Math.min(1, overlap / 56)).toFixed(3);
+        if (contact !== layer.contact) {
+          layer.contact = contact;
+          cards[index + 1].style.setProperty('--offer-stack-contact', contact);
+        }
       }
       moving ||= depth !== goal;
     });
@@ -1714,7 +1726,10 @@
     if (!motion.matches) {
       stop();
       layers = [];
-      cards.forEach(card => card.style.removeProperty('--offer-stack-depth'));
+      cards.forEach(card => {
+        card.style.removeProperty('--offer-stack-depth');
+        if (hasContactShadow) card.style.removeProperty('--offer-stack-contact');
+      });
       return;
     }
     if (grid.querySelector('.offer-link:focus-visible')) return;
@@ -1732,7 +1747,8 @@
         nextOffset: offset,
         start,
         travel: Math.max(1, start - tops[index + 1]),
-        depth: layers[index]?.depth ?? 0
+        depth: layers[index]?.depth ?? 0,
+        contact: layers[index]?.contact
       };
     });
     schedule();
