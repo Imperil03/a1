@@ -1,0 +1,32 @@
+/* Typography remains unchanged until a heading has been prepared by the scroll entrance. */
+:root .a1-heading-mask {
+  all: unset;
+  display: inline-block;
+  vertical-align: baseline;
+  clip-path: inset(-.08em -.06em -.1em -.06em);
+}
+
+:root .a1-heading-word {
+  all: unset;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+:root [data-heading-reveal="pending"] .a1-heading-word {
+  transform: translateY(125%);
+}
+
+:root [data-heading-reveal="running"] .a1-heading-word {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  :root .a1-heading-mask {
+    clip-path: none;
+  }
+
+  :root .a1-heading-word {
+    transform: none !important;
+    will-change: auto;
+  }
+}
